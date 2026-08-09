@@ -1,158 +1,204 @@
-﻿---
-title: "Error Corner BAB 9"
-description: Mengenali dan memperbaiki berbagai kesalahan paling umum saat menulis kode Generic dan Utility Types di TypeScript.
 ---
-
-## Tujuan Pembelajaran
-Setelah membaca halaman ini, kamu diharapkan dapat:
-- Mengidentifikasi penyebab error umum pada Generic dan Utility Types.
-- Membaca pesan error compiler terkait parameter tipe Generic.
-- Memperbaiki kesalahan syntax pembatasan tipe (constraints) dan properti utilitas.
+title: "Error Corner"
+description: Kesalahan paling umum dalam penulisan metadata HTML — dari urutan yang salah hingga keyword stuffing, URL relatif di Open Graph, dan mitos SEO yang menyesatkan.
+---
 
 ---
 
-## Pendahuluan
+## ❌ Kesalahan 1: `<meta charset>` Bukan yang Pertama
 
-Tipe Generic dan Utility Types sangat membantu kerapian kode, tetapi juga memiliki aturan syntax yang ketat. Lupa mengirimkan parameter tipe, salah menuliskan nama properti pada `Pick`/`Omit`, atau mengabaikan status `undefined` pada `Partial` adalah kesalahan yang paling sering ditemui pemula.
+```html
+<!-- ❌ SALAH: charset datang setelah title -->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Rizki Pratama</title>  <!-- karakter mungkin salah dibaca -->
+  <meta charset="UTF-8" />  <!-- terlambat! -->
+</head>
+```
+
+```html
+<!-- ✅ BENAR: charset selalu pertama -->
+<head>
+  <meta charset="UTF-8" />  <!-- browser tahu encoding sebelum baca apapun -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Rizki Pratama</title>
+</head>
+```
+
+**Mengapa berbahaya:** Browser mem-parse HTML dari atas. Jika charset baru ditemukan setelah karakter diproses, karakter non-ASCII (seperti huruf beraksara atau emoji di `<title>`) bisa sudah salah dibaca.
 
 ---
 
-## Error 1 — Lupa Menuliskan Parameter Tipe Generic
+## ❌ Kesalahan 2: `<title>` Terlalu Generik
 
-### Kode Bermasalah
-```ts
-interface Box<T> {
-  isi: T;
-}
-
-const kotak: Box = { isi: "Buku" }; // Error!
-// Generic type 'Box<T>' requires 1 type argument(s).
+```html
+<!-- ❌ Tidak informatif sama sekali -->
+<title>Home</title>
+<title>Portfolio</title>
+<title>Halaman Utama</title>
+<title>Untitled</title>
 ```
 
-### Mengapa Terjadi?
-Interface `Box` didefinisikan memiliki satu parameter tipe Generic `<T>`. Saat membuat objek nyata, kamu wajib menentukan tipe data untuk menggantikan `T`.
+```html
+<!-- ✅ Spesifik, menyebut nama dan peran -->
+<title>Rizki Pratama — Junior Web Developer · Jakarta</title>
+<title>Proyek Website SMK — Rizki Pratama Portfolio</title>
+```
 
-### Cara Memperbaiki
-```ts
-const kotak: Box<string> = { isi: "Buku" }; // ✓
+**Mengapa penting:** "Home" di tab browser tidak membantu pengguna yang punya 20 tab terbuka mengidentifikasi website kamu. Di hasil pencarian Google, "Home" tidak memberi alasan apapun untuk diklik.
+
+---
+
+## ❌ Kesalahan 3: Keyword Stuffing di Meta Description
+
+```html
+<!-- ❌ SALAH: memenuhi description dengan keyword -->
+<meta 
+  name="description" 
+  content="web developer web design HTML CSS JavaScript React portfolio Jakarta web developer murah profesional terpercaya jasa website" 
+/>
+```
+
+```html
+<!-- ✅ BENAR: deskripsi yang natural dan relevan -->
+<meta 
+  name="description" 
+  content="Portfolio Rizki Pratama, junior web developer dari Jakarta. Proyek HTML, CSS, dan JavaScript yang dibangun dari nol selama belajar di SMK RPL." 
+/>
+```
+
+**Mengapa salah:** Google tidak menggunakan meta description untuk ranking — jadi mengisi keyword tidak ada gunanya untuk SEO. Yang ada justru deskripsi terlihat spam dan mengurangi keinginan pengguna untuk mengklik.
+
+---
+
+## ❌ Kesalahan 4: Menggunakan `name="og:..."` untuk Open Graph
+
+```html
+<!-- ❌ SALAH: Open Graph menggunakan property, bukan name -->
+<meta name="og:title" content="Portfolio Rizki" />
+<meta name="og:description" content="Junior web developer" />
+<meta name="og:image" content="https://example.com/og.png" />
+```
+
+```html
+<!-- ✅ BENAR: Open Graph menggunakan property -->
+<meta property="og:title" content="Portfolio Rizki" />
+<meta property="og:description" content="Junior web developer" />
+<meta property="og:image" content="https://example.com/og.png" />
+```
+
+**Mengapa berbahaya:** Platform media sosial membaca `property="og:..."` — bukan `name="og:..."`. Tag yang salah atributnya akan diabaikan sepenuhnya, dan preview link tidak akan muncul.
+
+---
+
+## ❌ Kesalahan 5: URL Relatif di Open Graph
+
+```html
+<!-- ❌ SALAH: URL relatif untuk og:image dan og:url -->
+<meta property="og:image" content="/og-image.png" />
+<meta property="og:url" content="/index.html" />
+<link rel="canonical" href="/index.html" />
+```
+
+```html
+<!-- ✅ BENAR: selalu URL absolut -->
+<meta property="og:image" content="https://rizkipratama.com/og-image.png" />
+<meta property="og:url" content="https://rizkipratama.com/" />
+<link rel="canonical" href="https://rizkipratama.com/" />
+```
+
+**Mengapa salah:** Bot media sosial (Facebook, WhatsApp) mengunjungi URL dari server mereka — bukan dari browser pengguna. URL relatif seperti `/og-image.png` tidak memberikan informasi lokasi server yang diperlukan untuk mengunduh gambar.
+
+---
+
+## ❌ Kesalahan 6: `user-scalable=no` di Viewport
+
+```html
+<!-- ❌ Melanggar aksesibilitas -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+```
+
+```html
+<!-- ✅ Biarkan pengguna bisa zoom -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+**Mengapa berbahaya:** Pengguna dengan gangguan penglihatan perlu bisa memperbesar teks. Menonaktifkan zoom adalah pelanggaran WCAG 1.4.4. Browser modern (Chrome, Safari) bahkan mengabaikan nilai ini untuk melindungi pengguna.
+
+---
+
+## ❌ Kesalahan 7: Mengira Banyak Meta Tag = SEO yang Baik
+
+```html
+<!-- ❌ Meta tag yang tidak ada gunanya atau sudah usang -->
+<meta name="keywords" content="HTML, CSS, web, developer, portfolio" />
+<meta name="generator" content="VS Code" />
+<meta name="rating" content="general" />
+<meta name="revisit-after" content="7 days" />
+<meta name="language" content="Indonesian" />
+```
+
+```html
+<!-- ✅ Hanya meta yang benar-benar digunakan -->
+<meta name="description" content="..." />
+<meta name="author" content="..." />
+<meta name="robots" content="index, follow" />
+```
+
+**Penjelasan:**
+- `keywords` — diabaikan oleh Google sejak 2009, dimanfaatkan untuk spam
+- `generator` — tidak berguna untuk SEO
+- `revisit-after` — tidak digunakan oleh crawler modern
+- `language` — gunakan `lang` pada `<html>` sebagai gantinya
+
+---
+
+## ❌ Kesalahan 8: Title dan Description Tidak Konsisten dengan Konten
+
+```html
+<!-- ❌ Title dan description menjanjikan sesuatu yang tidak ada di halaman -->
+<title>10 Tips Belajar JavaScript yang Wajib Diketahui Pemula</title>
+<meta name="description" content="Panduan lengkap belajar JavaScript dari nol..." />
+```
+
+Tapi isi halaman hanya berisi:
+```html
+<body>
+  <h1>Portfolio Saya</h1>
+  <p>Halo, saya Rizki. Ini adalah portfolio saya.</p>
+</body>
+```
+
+**Mengapa berbahaya:** Ini disebut *clickbait*. Pengguna merasa tertipu, langsung meninggalkan halaman (*bounce*). Google mencatat *bounce rate* yang tinggi dan bisa menurunkan ranking halaman tersebut. Lebih buruk lagi, ini merusak kepercayaan pengunjung terhadap kamu.
+
+**Prinsip emas:** Title, description, dan konten halaman harus **konsisten dan saling mendukung**.
+
+---
+
+## ❌ Kesalahan 9: Semua Halaman Punya Title dan Description yang Sama
+
+```html
+<!-- Semua halaman punya head yang identik -->
+<title>Portfolio Rizki Pratama</title>
+<meta name="description" content="Portfolio Rizki Pratama, web developer." />
+```
+
+```html
+<!-- ✅ Setiap halaman harus unik -->
+<!-- Beranda -->
+<title>Rizki Pratama — Junior Web Developer · Jakarta</title>
+<meta name="description" content="Portfolio junior web developer dari Jakarta..." />
+
+<!-- Halaman Proyek -->
+<title>Proyek Web Development — Rizki Pratama Portfolio</title>
+<meta name="description" content="Koleksi proyek web development Rizki Pratama: website sekolah, aplikasi absensi..." />
+
+<!-- Halaman Detail Proyek -->
+<title>Website SMK Nusantara — Proyek Rizki Pratama</title>
+<meta name="description" content="Website profil SMK Nusantara yang responsif, dibangun dengan HTML5 dan CSS3..." />
 ```
 
 ---
 
-## Error 2 — Mengakses Properti pada Tipe Generic Tanpa Batasan (Constraint)
-
-### Kode Bermasalah
-```ts
-function sapaSiswa<T>(siswa: T): void {
-  // console.log(`Halo, ${siswa.nama}`); // Error!
-  // Property 'nama' does not exist on type 'T'.
-```
-
-### Mengapa Terjadi?
-TypeScript tidak bisa menjamin bahwa objek `T` yang dikirimkan memiliki properti bernama `nama` (karena `T` bisa saja diisi number biasa).
-
-### Cara Memperbaiki
-Gunakan `extends` (Generic Constraint) untuk membatasi tipe `T` agar wajib memiliki properti `nama`:
-```ts
-interface MemilikiNama { nama: string }
-
-function sapaSiswa<T extends MemilikiNama>(siswa: T): void {
-  console.log(`Halo, ${siswa.nama}`); // ✓ Aman
-}
-```
-
----
-
-## Error 3 — Mengubah Properti Objek hasil `Readonly<T>`
-
-### Kode Bermasalah
-```ts
-type Siswa = { nama: string };
-const s: Readonly<Siswa> = { nama: "Putra" };
-
-s.nama = "Budi"; // Error!
-// Cannot assign to 'nama' because it is a read-only property.
-```
-
-### Mengapa Terjadi?
-Utility Type `Readonly` mengunci seluruh properti objek secara mutlak. Nilainya tidak boleh diubah setelah diinisialisasi.
-
-### Cara Memperbaiki
-Jangan mengubah properti objek readonly. Jika data memang perlu diubah, gunakan tipe data biasa tanpa `Readonly`, atau buat objek salinan baru menggunakan spread operator `...`:
-```ts
-const sBaru = { ...s, nama: "Budi" }; // ✓ Aman & Immutable
-```
-
----
-
-## Error 4 — Salah Menulis Nama Properti pada `Pick` atau `Omit`
-
-### Kode Bermasalah
-```ts
-type Siswa = { nama: string; kelas: string };
-
-type NamaSiswa = Pick<Siswa, "namaSiswa">; // Error!
-// Type '"namaSiswa"' is not assignable to type '"nama" | "kelas"'.
-```
-
-### Mengapa Terjadi?
-Parameter kedua dari `Pick` atau `Omit` wajib berupa nama properti (key) yang benar-benar ada di dalam objek tipe asal.
-
-### Cara Memperbaiki
-```ts
-type NamaSiswa = Pick<Siswa, "nama">; // ✓ namaSiswa diganti nama
-```
-
----
-
-## Error 5 — Salah Asumsi Bahwa Properti `Partial` Selalu Ada
-
-### Kode Bermasalah
-```ts
-type Siswa = { nama: string; email: string };
-const editSiswa: Partial<Siswa> = { nama: "Putra" };
-
-// console.log(editSiswa.email.toUpperCase()); // Error!
-// Object is possibly 'undefined'.
-```
-
-### Mengapa Terjadi?
-`Partial` mengubah properti `email` menjadi opsional (`email?: string`). Karena boleh kosong, properti tersebut bernilai `undefined` pada objek `editSiswa`.
-
-### Cara Memperbaiki
-Gunakan optional chaining (`?.`) untuk mengakses nilainya dengan aman:
-```ts
-console.log(editSiswa.email?.toUpperCase()); // ✓ Aman (menghasilkan undefined, bukan crash)
-```
-
----
-
-## Latihan
-Perbaiki seluruh kesalahan dalam kode di bawah ini agar dapat dikompilasi tanpa error:
-
-```ts
-interface Produk<T> {
-  id: string;
-  data: T;
-}
-
-const p: Produk = { id: "01", data: 100 };
-
-type Siswa = { nama: string; umur: number };
-type Detail = Pick<Siswa, "usia">;
-
-const s: Readonly<Siswa> = { nama: "Dewi", umur: 16 };
-s.umur = 17;
-```
-
----
-
-## Ringkasan
-- Pastikan menyertakan argumen tipe `<...>` pada komponen Generic yang mewajibkannya.
-- Gunakan `extends` untuk membatasi properti minimum pada tipe Generic bebas.
-- Parameter seleksi `Pick`/`Omit` harus cocok dengan nama properti asli.
-- Selalu amankan properti opsional hasil `Partial` menggunakan optional chaining `?.`.
-
-:::tip[Langkah Selanjutnya]
-Lanjut ke **Ringkasan BAB 9** untuk merangkum seluruh materi sebelum ujian kompetensi.
-:::
+**[Lanjut: Ringkasan →](/bab9/ringkasan/)**

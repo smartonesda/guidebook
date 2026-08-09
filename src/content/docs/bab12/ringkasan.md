@@ -1,103 +1,53 @@
-﻿---
-title: "Ringkasan BAB 12"
-description: Rangkuman akhir materi best practice TypeScript — clean code checklist, naming convention, linter/formatter, dan git.
+---
+title: "Ringkasan"
+description: Rangkuman pencapaian BAB 12 — Mini Project Collection, penguasaan pemecahan masalah web, dan jembatan menuju BAB 13 Final Project.
 ---
 
-## Tujuan Pembelajaran
-Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
-- Merangkum seluruh aturan emas best practice penulisan kode TypeScript.
-- Membaca dan meninjau kembali checklist kelayakan program industri.
-- Memahami langkah-langkah finalisasi project agar siap dipajang di portofolio.
+Selamat! Kamu telah menyelesaikan seluruh koleksi proyek di **BAB 12 — Mini Project Collection** 🎉
 
----
-
-## Pendahuluan
-Kamu telah mempelajari seluruh pilar cara menulis kode program secara profesional di bab ini. Menulis kode yang bersih, modular, dan terstandardisasi adalah tanda bahwa kamu siap masuk ke dunia industri rekayasa perangkat lunak sesungguhnya.
+Di bab ini, kamu telah membuktikan bahwa kamu bukan lagi sekadar penghafal sintaks HTML, melainkan seorang **Problem Solver Web** yang mampu membangun berbagai jenis kebutuhan website secara mandiri, bermakna, dan profesional.
 
 ---
 
-## Penjelasan: Rangkuman Prinsip Utama
+## 📝 Rekap Mini Project yang Telah Diselesaikan
 
-### 1. Desain Kode Bersih (Clean Code)
-- **DRY (Don't Repeat Yourself)**: Hindari duplikasi logika.
-- **KISS (Keep It Simple, Stupid)**: Hindari *over-engineering* yang tidak perlu.
-- **Single Responsibility (SRP)**: Satu class/fungsi hanya melakukan satu tugas fokus.
-
-### 2. Aturan Penamaan (Naming Convention)
-- `camelCase` untuk variabel, properti, dan fungsi.
-- `PascalCase` untuk Class, Interface, Type Alias, dan Enum.
-- `UPPER_SNAKE_CASE` untuk konstanta global permanen.
-
-### 3. Perkakas Otomatis (Tooling)
-- **ESLint**: Linter otomatis untuk memeriksa kualitas logika dan mencari bug/kode mati.
-- **Prettier**: Formatter otomatis untuk merapikan visual spasi dan indentasi.
-- **tsconfig.json**: Mengatur aturan main compiler `tsc` (target, outDir, strict).
-- **package.json**: Akte pendirian project (dependencies, devDependencies, npm scripts).
-
-### 4. Kolaborasi (Git & README)
-- **Git**: Pelacak riwayat perubahan file (*save point*).
-- **README.md**: Buku panduan manual repositori GitHub.
-
----
-
-## Analogi Kehidupan Sehari-hari: Lembar Checklist Kelayakan Lomba Kebersihan
-Menyelesaikan bab best practice ini seperti **mengisi formulir checklist kelayakan lomba kebersihan kelas**:
-
-```text
-Checklist Kelayakan Kelas:
-- [ ] Lantai disapu bersih bebas sampah kertas (Linter ESLint)
-- [ ] Baris meja sejajar lurus presisi (Formatter Prettier)
-- [ ] Papan tulis bersih dari coretan tidak penting (Anti-Any & Hapus Komentar Mati)
-- [ ] Papan struktur pengurus kelas terpajang di dinding (README.md)
 ```
+[✓] Project 1 — Personal Biodata
+    Fokus: Struktur dokumen dasar, hirarki teks, daftar terorganisir, dan elemen profil.
 
-Begitu semua kotak dicentang, kelasmu dinyatakan siap dinilai juri dan berpeluang besar memenangkan piala penghargaan kelas terbersih.
+[✓] Project 2 — School Profile
+    Fokus: Navigasi multi-seksi, anchor links (#id), lokasi tersemat (iframe), dan alamat semantik.
 
----
+[✓] Project 3 — Blog Article
+    Fokus: Semantik artikel (<article>, <time>), metadata Open Graph, blok kode, dan kutipan.
 
-## Visual Illustration: Siklus Kerja Best Practice Developer
+[✓] Project 4 — Product Showcase
+    Fokus: Kartu produk semantik, kustom atribut (data-*), dan tabel perbandingan paket layanan.
 
-```text
-Tulis Kode ──► Simpan (Format Prettier) ──► Periksa Problems (ESLint) ──► Commit Git (Semantic Commit)
+[✓] Project 5 — Event Registration
+    Fokus: Formulir multi-fieldset (<legend>), variasi input lengkap, validasi HTML5, dan aksesibilitas form.
 ```
 
 ---
 
-## Clean Code & Project Checklist
+## 🏆 Kualifikasi yang Telah Kamu Kuasai
 
-Gunakan checklist ini untuk meninjau kembali kelayakan kodemu sebelum di-upload ke GitHub:
-
-- [ ] **Checklist Naming**: Semua variabel camelCase, Class PascalCase, Konstanta UPPER_SNAKE_CASE.
-- [ ] **Checklist DRY**: Tidak ada rumus atau visual cetak garis yang ditulis duplikat di beberapa file.
-- [ ] **Checklist Tooling**: ESLint dan Prettier terinstall dan aktif tanpa ada warning di tab *Problems*.
-- [ ] **Checklist Git**: Semua commit menggunakan pesan terstruktur semantic commits (`feat:`, `fix:`).
-- [ ] **Checklist README**: Berkas `README.md` terisi panduan instalasi lengkap dan deskripsi project yang jelas.
+1. **Problem Solving**: Mampu membaca brief klien dan merancangnya menjadi pohon hirarki HTML yang tepat.
+2. **Standard Compliance**: Menghasilkan kode HTML5 yang **100% Valid W3C (0 Error)** dengan format 2 spasi yang rapi.
+3. **Accessibility & SEO**: Membangun halaman yang siap diindeks mesin pencari dan ramah bagi pengguna disabilitas/keyboard.
 
 ---
 
-## Langkah Selanjutnya
-Lanjut ke **BAB 13** bersama guru untuk menjelajahi ekosistem kelanjutan setelah menyelesaikan buku panduan ini.
+## ➡ Handoff ke BAB 13 — Final Project
 
----
+Kamu telah menyelesaikan latihan proyek-proyek skala kecil. Sekarang, saatnya melangkah ke panggung utama!
 
-## Ringkasan
-- Rangkuman akhir materi best practice TypeScript meliputi penulisan, tooling, dan kolaborasi.
-- Checklist digunakan sebagai panduan jaminan kualitas kode.
-- Selamat atas penyelesaian materi bab best practice!
+Di **BAB 13 — Final Project**, kamu akan membangun sebuah **Website Portofolio Profesional Utuh Multi-Halaman** dari awal hingga siap dideploy ke internet nyata:
+- Merancang Arsitektur Informasi (*Information Architecture*)
+- Membangun Halaman Beranda, Proyek, Tentang, dan Kontak yang Saling Terintegrasi
+- Menerapkan Seluruh Standar Semantik, Metadata Open Graph, & Aksesibilitas WCAG
+- Menguji Kinerja & Validasi Akhir Sebelum Tayang Publik
 
----
+Tarik napas dalam-dalam, persiapkan seluruh kemampuan terbaikmu, dan mari kita bangun proyek akhirmu!
 
-## Latihan
-1. Tulis ulang kode di bawah ini menjadi versi yang bersih dan mematuhi seluruh checklist di atas:
-   ```ts
-   const x = "Andi";
-   let y = 17;
-   function s(a: any) {
-     console.log(a);
-   }
-   ```
-2. Jalankan dan uji coba di terminal komputermu.
-
-:::tip[Selesai BAB 12]
-Bagus sekali! Seluruh materi BAB 12 telah selesai diimplementasikan secara utuh. Laporkan pencapaian belajarmu kepada gurumu.
-:::
+**[Lanjut ke BAB 13 — Final Project →](/bab13/introduction/)**

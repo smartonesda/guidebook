@@ -1,155 +1,82 @@
-﻿---
-title: "Ringkasan BAB 10"
-description: Rangkuman lengkap materi Asynchronous Programming dan Module System — cheat sheet, tabel perbandingan, dan checklist belajar.
+---
+title: "Ringkasan"
+description: Rangkuman lengkap materi BAB 10 — Web Accessibility, prinsip POUR, checklist penulisan HTML aksesibel, dan transisi menuju HTML Best Practices.
 ---
 
-## Selamat! 🎉
+Selamat! Kamu telah menyelesaikan **BAB 10 — Accessibility** 🎉
 
-Kamu telah menyelesaikan **BAB 10: Asynchronous & Module**! Ini adalah bab penutup dalam rangkaian guidebook TypeScript ini. Kamu sekarang telah menguasai seluruh pilar penting yang digunakan oleh professional web developer untuk membangun aplikasi web modern berskala besar.
-
----
-
-## Asynchronous Cheat Sheet
-
-### Callback Async
-```ts
-function ambilData(callback: (data: string) => void) {
-  setTimeout(() => callback("Data hasil"), 2000);
-}
-ambilData((hasil) => console.log(hasil));
-```
-
-### Promise
-```ts
-const janji = new Promise<string>((resolve, reject) => {
-  if (sukses) resolve("Sukses");
-  else reject("Gagal");
-});
-
-janji.then(h => console.log(h)).catch(e => console.log(e));
-```
-
-### async & await
-```ts
-async function main() {
-  try {
-    const data = await ambilDataPromise();
-    console.log(data);
-  } catch (error) {
-    console.log("Error:", error);
-  }
-}
-```
+Di bab ini, kamu telah belajar bahwa membangun website bukan sekadar tentang membuat tampilan yang indah atau kode yang valid, melainkan memastikan bahwa **siapa pun dapat mengakses, memahami, dan menggunakan karya yang kamu buat**.
 
 ---
 
-## Module System Cheat Sheet
+## 🧠 Konsep Utama BAB 10
 
-### Named Export & Import (Banyak dalam satu file)
-```ts
-// Eksport
-export const KKM = 75;
-export function sapa() {}
+### 1. Web Accessibility (A11y)
+Aksesibilitas web berarti memastikan website dapat digunakan oleh orang dengan berbagai kemampuan fisik, kognitif, perangkat, dan kondisi lingkungan (permanen, sementara, maupun situasional).
 
-// Impor (wajib kurung kurawal & aliasing dengan 'as')
-import { KKM as BatasLulus, sapa } from "./file";
+### 2. Prinsip Native HTML First
+> **Jangan gunakan ARIA atau custom JavaScript jika elemen HTML native sudah menyediakan fungsi dan semantik yang kamu butuhkan.**
+
+Gunakan `<button>` untuk tombol, `<a>` untuk link, `<label>` untuk input, `<select>` untuk dropdown, dan elemen semantic (`<nav>`, `<main>`, `<article>`) untuk struktur halaman.
+
+### 3. Empat Prinsip POUR (WCAG)
+- **Perceivable (Dapat Dirasakan):** Sediakan teks alternatif (`alt`) untuk gambar, transkrip untuk audio/video, dan kontras warna yang cukup.
+- **Operable (Dapat Dioperasikan):** Pastikan semua fitur dapat dijangkau dan dioperasikan menggunakan **keyboard** (`Tab`, `Enter`, `Space`).
+- **Understandable (Dapat Dipahami):** Gunakan bahasa dokumen (`lang="id"`), label form yang terhubung (`for`↔`id`), dan navigasi yang konsisten.
+- **Robust (Tahan Lama):** Tulis HTML yang valid, tidak ada `id` duplikat, dan ikuti spesifikasi standar.
+
+---
+
+## 📋 Checklist HTML Aksesibel
+
+Gunakan checklist ini setiap kali kamu menulis kode HTML:
+
 ```
+[ ] Struktur & Semantik
+    [ ] Terdapat tepat satu elemen <main> per halaman.
+    [ ] Struktur heading (h1, h2, h3) berurutan secara logis.
+    [ ] Navigasi dibungkus <nav aria-label="...">.
+    [ ] Tag <html> memiliki atribut lang="id".
 
-### Default Export & Import (Satu utama dalam satu file)
-```ts
-// Eksport
-export default class Siswa {}
+[ ] Gambar & Media
+    [ ] Semua <img> memiliki atribut alt.
+    [ ] Gambar informatif memiliki alt yang menjelaskan MAKNA/pesan gambar.
+    [ ] Gambar hiasan/dekoratif menggunakan alt="".
+    [ ] Alt text tidak dimulai dengan kata "Foto dari..." atau "Gambar...".
 
-// Impor (tanpa kurung kurawal & nama bebas)
-import SiswaRPL from "./file";
-```
+[ ] Navigasi Keyboard & Fokus
+    [ ] Terdapat "Skip to content" link di awal <body>.
+    [ ] Indikator fokus (:focus / :focus-visible) TIDAK dihapus dengan CSS.
+    [ ] Semua tombol dan link dapat dijangkau dengan tombol Tab.
+    [ ] Tidak ada atribut tabindex positif (1, 2, 3...).
 
-### Re-export (Gerbang satu pintu)
-```ts
-// Di file index.ts
-export { Siswa } from "./siswa";
-export { Guru } from "./guru";
+[ ] Formulir
+    [ ] Setiap <input> memiliki <label> yang terhubung via atribut for dan id.
+    [ ] Tanda bidang wajib (*) diberi penjelasan (abbr title="Wajib diisi").
+    [ ] Atribut required dan aria-required="true" dipasang pada input wajib.
+    [ ] Link eksternal (target="_blank") menginformasikan bahwa ia membuka tab baru via aria-label.
 ```
 
 ---
 
-## Perbandingan Sync vs Async
+## ➡ Handoff ke BAB 11 — HTML Best Practices
 
-| Karakteristik | Synchronous (Sync) | Asynchronous (Async) |
-|---|---|---|
-| **Alur** | Baris demi baris berurutan | Non-blocking di latar belakang |
-| **Blocking** | Ya (jika lambat, program beku) | Tidak (aplikasi tetap interaktif) |
-| **Hasil** | Langsung diperoleh | Menunggu notifikasi / callback / await |
-| **Analogi** | Panggilan telepon langsung | Kirim pesan chat WhatsApp |
+Sekarang kamu telah belajar cara membuat HTML yang:
+- Terstruktur dengan baik (BAB 1–5)
+- Memiliki formulir interaktif (BAB 6)
+- Kaya atribut (BAB 7)
+- Memiliki struktur semantik (BAB 8)
+- Memiliki metadata & SEO (BAB 9)
+- Dapat diakses oleh semua orang (BAB 10)
 
----
+Pertanyaan berikutnya: **Bagaimana cara memastikan kode HTML yang kita tulis tetap bersih, konsisten, mudah dipelihara, dan profesional ketika proyek semakin besar?**
 
-## Checklist Pemahaman BAB 10
+Di **BAB 11 — HTML Best Practices**, kita akan mempelajari:
+- Aturan penulisan kode HTML yang bersih (Clean HTML)
+- Standar indentasi dan penamaan class/id
+- Cara mengelola struktur file dan aset proyek
+- Menggunakan HTML Validator & Linter
+- Mengidentifikasi dan menghindari *HTML Anti-Patterns*
+- Checklist profesional sebelum melakukan deploy website
 
-Tandai setiap poin yang sudah kamu kuasai:
-- [ ] Memahami perbedaan Synchronous dan Asynchronous programming.
-- [ ] Bisa menjelaskan bahaya pembekuan program (blocking) pada single-thread.
-- [ ] Menggunakan `setTimeout` untuk simulasi jeda async.
-- [ ] Menggunakan Callback untuk menangani proses async sederhana.
-- [ ] Memahami status Promise: `Pending`, `Fulfilled`, dan `Rejected`.
-- [ ] Membuat objek Promise dengan `resolve` dan `reject`.
-- [ ] Mengonsumsi Promise menggunakan `.then()`, `.catch()`, dan `.finally()`.
-- [ ] Menggunakan syntax `async` dan `await` untuk merapikan Promise.
-- [ ] Mengamankan error async menggunakan blok `try...catch`.
-- [ ] Melakukan http request GET mengambil data internet menggunakan Fetch API.
-- [ ] Memahami konsep Module System untuk memecah file project.
-- [ ] Menggunakan Named Export dan Named Import dengan kurung kurawal `{ }`.
-- [ ] Menggunakan Default Export dan Default Import tanpa kurung kurawal.
-- [ ] Menggunakan kata kunci `as` untuk membuat nama alias impor.
-- [ ] Membuat pintu gerbang index menggunakan teknik Re-export.
-- [ ] Memahami cara kerja Namespace dan perbedaannya dengan Module.
-- [ ] Menyelesaikan Studi Kasus pengambilan data API internet.
-- [ ] Menyelesaikan Mini Project SIAKAD terintegrasi OOP + Async + Module.
-
----
-
-## Perintah Penting
-```text
-tsx src/bab10/namafile.ts   ← Menjalankan file TypeScript async/module di terminal
-Ctrl + C                   ← Menghentikan program yang hang/freeze/infinite loop
-```
-
----
-
-## Menghubungkan Seluruh Bab (BAB 0–10)
-
-```text
-BAB 0-1: Variabel & Tipe Data  ──► Menyimpan data dasar
-BAB 2-3: Operator, If, Loop     ──► Mengontrol aliran program
-BAB 4:   Function              ──► Mengelompokkan perintah modular
-BAB 5-6: Array & Object        ──► Menyusun kumpulan data terstruktur
-BAB 7-9: Tipe Lanjut (Generic) ──► Menjamin keamanan skala industri
-BAB 10:  Async & Module        ──► Menghubungkan ke web server internet
-```
-
-Selamat! Kamu kini telah menguasai seluruh pilar inti pemrograman TypeScript modern!
-
----
-
-## Latihan Penutup
-
-Tanpa melihat panduan, buatlah program modular di folder latihan:
-
-1. Buat file `src/bab10/latihan-api.ts`. Eksport fungsi async `fetchDataUser()` yang mengambil data dari URL `https://jsonplaceholder.typicode.com/users/2` dan mengembalikan Promise object user (id, name, email).
-2. Buat file `src/bab10/latihan-main-final.ts`. Import fungsi tersebut, panggil di dalam fungsi async utama, gunakan `try...catch` untuk mengamankan prosesnya, lalu tampilkan nama dan email user di terminal.
-
-Jalankan dan pastikan program berjalan lancar tanpa error kompilasi.
-
----
-
-## Pesan Terakhir untuk Kamu
-
-Selamat! Perjalanan belajarmu di TypeScript Guidebook ini telah selesai. Kamu telah melangkah dari bab 0 (pengenalan pemrograman paling dasar) hingga bab 10 (asynchronous programming dan arsitektur module system). 
-
-Pengetahuan yang kamu miliki sekarang adalah fondasi kokoh untuk mulai mempelajari framework pengembangan aplikasi nyata seperti React, Vue, Svelte, atau NestJS. Teruslah mencoba membuat project-project kecil secara mandiri, hadapi setiap error dengan sabar, dan terus kembangkan kemampuanmu. 
-
-Selamat berkarya di dunia teknologi! 🚀
-
-:::tip[Selesai BAB 10]
-Seluruh materi di guidebook ini telah selesai diimplementasikan secara utuh. Laporkan pencapaian belajarmu kepada gurumu untuk evaluasi akhir.
-:::
+**[Lanjut ke BAB 11 — HTML Best Practices →](/bab11/introduction/)**

@@ -1,114 +1,161 @@
 ---
 title: "Challenge"
-description: Tantangan mandiri untuk membuktikan pemahaman mendalam tentang Forms HTML5 — dari analisis debugging hingga pembuatan form pendaftaran.
+description: Tantangan mandiri untuk membuktikan pemahaman mendalam tentang Forms HTML5 — dari debugging hingga analisis keamanan validasi.
 ---
 
-Tantangan mandiri ini akan menguji pemahamanmu mengenai bagaimana merancang formulir yang valid, aman, dan aksesibel.
+Selamat sudah sampai di bagian Challenge BAB 6!
 
-Ada 5 tantangan berjenjang. Selesaikan semuanya!
+Challenge ini bukan sekadar "tulis ulang contoh dari studi kasus." Tantangan di sini dirancang untuk **menguji apakah kamu benar-benar memahami konsep**, bukan sekadar bisa menghafal syntax.
+
+Ada 5 tantangan berjenjang dari mudah ke kompleks.
 
 ---
 
 ## 🎯 Tujuan Challenge
 
-Setelah menyelesaikan rangkaian tantangan ini, kamu akan mampu:
-- Mendiagnosis dan memperbaiki kesalahan sintaks dan atribut pada formulir HTML.
-- Menghubungkan label dan input secara aksesibel sesuai standar pembaca layar.
-- Mengatur atribut grup yang benar pada tipe radio button dan checkbox.
-- Membedakan kapan harus menggunakan metode GET vs POST secara konseptual.
+Setelah menyelesaikan semua tantangan ini, kamu akan mampu:
+- Mendiagnosis dan memperbaiki form HTML yang rusak.
+- Merancang form yang aksesibel dan semantik dari nol.
+- Memilih tipe input dan metode pengiriman yang tepat berdasarkan konteks.
+- Menjelaskan batasan keamanan client-side validation secara konkret.
 
 ---
 
-## ⭐ Challenge 1: Debugging Kode Form (Mudah)
+## 🔴 Challenge 1: Debugging Form yang Rusak (20 poin)
 
-Temukan **minimal 6 kesalahan** pada penulisan tag dan atribut formulir di bawah ini. Jelaskan mengapa itu salah, dan tuliskan perbaikannya:
+Di bawah ini adalah kode form dari seorang pemula. Ada **7 kesalahan** di dalamnya — temukan semuanya dan tulis versi yang benar!
 
 ```html
-<form action="/proses" method="get">
-  <label for="nama">Nama Lengkap:</label>
-  <input type="text" name="nama" />
+<!-- Form dengan 7 kesalahan — temukan semuanya! -->
+<form action="/daftar" method="get">
 
+  <p>Nama: <input type="text" id="nama" placeholder="Nama lengkap" /></p>
+  
+  <label for="email-field">Email:</label>
+  <input type="teks" id="email-field" name="email" />
+
+  <p>Kata Sandi:</p>
+  <input type="text" name="password" required />
+  
   <p>Pilih Jurusan:</p>
-  <input type="radio" id="rpl" name="jurusan_rpl" value="rpl" />
-  <label for="rpl">RPL</label>
+  <input type="radio" name="jurusan-rpl" value="rpl" /> RPL
+  <input type="radio" name="jurusan-tkj" value="tkj" /> TKJ
   
-  <input type="radio" id="tkj" name="jurusan_tkj" value="tkj" />
-  <label for="tkj">TKJ</label>
-  
-  <p>
-    <label for="pesan">Pesan:</label>
-    <textarea id="pesan_detail" required></textarea>
-  </p>
-  
-  <button>Kirim Data</button>
+  <input type="checkbox" id="cb-setuju" value="setuju" required />
+  <label for="cb-setuju">Saya setuju dengan syarat dan ketentuan</label>
+
+  <button>Daftar Sekarang</button>
+
 </form>
 ```
 
----
+**Petunjuk:** Kesalahan berkaitan dengan `method`, `name`, `type`, `label`, dan `button`.
 
-## ⭐⭐ Challenge 2: Menghubungkan Aksesibilitas Label (Menengah)
-
-Diberikan 3 buah isian input tanpa label di bawah ini. Ubahlah kode berikut dengan memasangkan tag `<label>` yang tepat secara aksesibel (ketika label diklik, kursor otomatis berpindah fokus ke dalam input):
-
-1. **Input A**: Kotak isian untuk Kata Sandi (Password).
-   - *Kode Asal*: `<input type="password" name="user_pass" />`
-2. **Input B**: Pilihan persetujuan berlangganan buletin berita (Checkbox).
-   - *Kode Asal*: `<input type="checkbox" name="subscribe" value="yes" />`
-3. **Input C**: Kotak isian untuk mengunggah Berkas CV (File).
-   - *Kode Asal*: `<input type="file" name="user_cv" />`
-
-*Tuliskan kode perbaikannya secara lengkap di file latihanmu.*
+**Tulis:** Daftar 7 kesalahan yang kamu temukan beserta alasannya, lalu tulis versi kode yang sudah diperbaiki.
 
 ---
 
-## ⭐⭐ Challenge 3: Merancang Formulir Registrasi Siswa Baru (Menengah)
+## 🟡 Challenge 2: Membuat Form Aksesibel (20 poin)
 
-Buatlah sebuah dokumen HTML valid yang menampilkan formulir pendaftaran siswa baru SMK.
+Buat sebuah form **Ubah Kata Sandi** yang aksesibel untuk halaman pengaturan akun. Form ini harus memiliki:
 
-**Ketentuan:**
-- Menggunakan metode `POST` untuk keamanan pengiriman data.
-- Kelompokkan isian menggunakan `<fieldset>` dan `<legend>`.
-- Wajib memiliki isian: Nama (text), Email (email), Tanggal Lahir (date), Nomor HP (tel), Jenis Kelamin (radio button grup), dan Asal Sekolah (text).
-- Semua kolom wajib diisi (`required`).
-- Tombol kirim harus memiliki tipe yang jelas (`type="submit"`).
+- Input kata sandi lama (`type="password"`, wajib).
+- Input kata sandi baru (`type="password"`, wajib, `minlength="8"`).
+- Input konfirmasi kata sandi baru (`type="password"`, wajib).
+- Checkbox "Tampilkan kata sandi" (tidak wajib, hanya sebagai UI — tidak perlu JavaScript fungsional).
+- Tombol simpan dan tombol batal.
 
----
-
-## ⭐⭐⭐ Challenge 4: Formulir Penawaran Jasa Proyek Lengkap (Menengah-Sulit)
-
-Buatlah struktur formulir inquiry proyek lanjutan untuk halaman portfolio.
-
-**Ketentuan:**
-- **Pilihan Paket**: Gunakan menu dropdown `<select>` berisi pilihan paket: *Pembuatan Landing Page*, *Website Sekolah*, atau *Aplikasi Sistem Informasi*.
-- **Estimasi Anggaran (Budget)**: Gunakan sekelompok radio button (minimal 3 opsi, misalnya: *< Rp 5 Juta*, *Rp 5 - 10 Juta*, *> Rp 10 Juta*) dengan atribut `name` yang sama agar terkelompok secara seragam.
-- **Validasi Pola**: Tambahkan input teks untuk Nomor Whatsapp Pengirim yang wajib diawali dengan angka `08` dan minimal memiliki 10 karakter menggunakan atribut `pattern` dan `minlength`.
+**Syarat aksesibilitas:**
+- Semua input punya label yang terhubung via `for`↔`id`.
+- Gunakan `<fieldset>` dan `<legend>` untuk membungkus form.
+- Tombol batal menggunakan `type="button"` (bukan submit).
+- `autocomplete` yang tepat untuk setiap input password.
 
 ---
 
-## ⭐⭐⭐ Challenge 5: Uji Coba Keamanan Validasi HTML (Sulit)
+## 🟠 Challenge 3: Form Pendaftaran Siswa Baru (20 poin)
 
-Jawablah pertanyaan-pertanyaan di bawah ini menggunakan komentar HTML di bagian bawah dokumen latihanmu:
+Buat form **Pendaftaran Siswa Baru SMK** yang lengkap dengan data berikut:
 
-1. **Pertanyaan 1**: Seseorang membuat formulir login dengan memasang atribut `required` di input password. Ia mengklaim bahwa website-nya sudah 100% aman karena pengunjung tidak akan bisa mengirimkan kata sandi kosong ke server. Apakah klaim ini benar? Mengapa? Jelaskan cara membobol validasi tersebut menggunakan Chrome DevTools!
-2. **Pertanyaan 2**: Mengapa kita dilarang menggunakan metode `method="GET"` saat merancang formulir pengisian kata sandi (*password*) atau data kartu kredit? Apa bahaya konkretnya bagi keamanan data pengguna?
+**Bagian 1 — Data Diri (dalam satu fieldset):**
+- Nama lengkap (text, wajib)
+- Nomor NISN (text, pattern 10 digit angka, wajib)
+- Tanggal lahir (date, wajib)
+- Jenis kelamin (2 radio button: Laki-laki / Perempuan, wajib)
+- Nomor HP orang tua (tel, opsional)
+
+**Bagian 2 — Pilihan Sekolah (dalam fieldset terpisah):**
+- Jurusan pilihan pertama (select dengan optgroup: Teknologi Informasi, Bisnis & Manajemen, min 3 jurusan per group)
+- Jurusan pilihan kedua (select yang sama)
+- Pilihan kelas (radio: Pagi / Siang, wajib)
+
+**Bagian 3 — Berkas (dalam fieldset terpisah):**
+- Upload foto (file, accept: image/*)
+- Upload KK (file, accept: PDF, image)
+- Checkbox persetujuan kebenaran data (required)
+
+**Tombol:** Submit dan Reset.
 
 ---
 
-## 📊 Cara Penilaian
+## 🔵 Challenge 4: Form Inquiry Jasa Freelance (20 poin)
 
-| Challenge | Poin Maksimal | Kriteria Keberhasilan |
+Buat form **Project Inquiry** untuk website jasa freelance dengan spesifikasi berikut:
+
+**Identitas Klien:**
+- Nama (text, wajib)
+- Email (email, wajib)
+- Nama perusahaan (text, opsional)
+- Kota (text + datalist dengan 10 kota besar Indonesia)
+
+**Detail Proyek:**
+- Jenis layanan (select dengan optgroup: Web Development, Desain, Marketing)
+- Skala proyek (radio: Personal / Startup / Enterprise)
+- Estimasi budget (select: < 1 juta / 1-5 juta / 5-15 juta / > 15 juta)
+- Deadline yang diinginkan (date, min: hari ini)
+- Fitur yang diinginkan (minimal 4 checkbox: Responsif, CMS, SEO, E-commerce, dsb.)
+- Deskripsi proyek (textarea, wajib, minlength 30)
+- Upload brief/referensi (file, opsional, PDF/gambar)
+
+**Syarat tambahan:**
+- Form menggunakan `enctype="multipart/form-data"` (karena ada file upload).
+- Semua field wajib punya `required`.
+- Checkbox fitur menggunakan `name="fitur[]"`.
+- Semua radio dalam `<fieldset>` + `<legend>`.
+
+---
+
+## ⚫ Challenge 5: Analisis Keamanan (20 poin)
+
+Jawab pertanyaan-pertanyaan berikut dalam bentuk tulisan analitis:
+
+**Pertanyaan 1:**
+Seseorang membuat form login dengan `required` pada semua input dan `minlength="8"` pada input password. Ia mengklaim website-nya sudah aman karena pengguna tidak bisa mengirimkan kata sandi kosong atau pendek.
+
+Apakah klaim ini benar? Tunjukkan langkah-langkah konkret bagaimana seseorang bisa melewati validasi ini menggunakan Chrome DevTools. Apa yang seharusnya developer lakukan?
+
+**Pertanyaan 2:**
+Mengapa kita tidak boleh menggunakan `method="GET"` untuk form yang berisi kata sandi? Sebutkan minimal 3 risiko konkret yang bisa terjadi jika kata sandi masuk ke URL.
+
+**Pertanyaan 3:**
+Jelaskan perbedaan antara atribut `disabled` dan `readonly` pada elemen input. Dalam situasi apa kamu akan memilih `readonly` daripada `disabled`? Berikan contoh kasus nyata.
+
+**Pertanyaan 4:**
+Kamu memiliki form yang memiliki 20+ input. Bagaimana `<fieldset>` dan `<legend>` membantu pengalaman pengguna (UX) dan aksesibilitas (a11y)? Mengapa tidak cukup hanya menggunakan `<div>` dengan class tertentu?
+
+---
+
+## 📊 Rubrik Penilaian
+
+| Challenge | Poin | Kriteria |
 |---|---|---|
-| 1: Debugging | 20 | Menemukan 6 kesalahan tag/atribut form dan menuliskan perbaikannya. |
-| 2: Aksesibilitas | 20 | Menghubungkan label-input untuk password, checkbox, dan file secara tepat. |
-| 3: Form Registrasi | 20 | Merancang form registrasi lengkap bertema sekolah menggunakan tag form semantik. |
-| 4: Inquiry Jasa | 20 | Menggabungkan select, radio button grup, dan validation pattern dengan benar. |
-| 5: Keamanan Validasi | 20 | Memberikan jawaban analitis yang mendalam mengenai batas client-side validation & GET method. |
+| 1: Debugging | 20 | Menemukan semua 7 kesalahan + penjelasan + kode yang benar |
+| 2: Form Ubah Password | 20 | Aksesibel, semantic, label terhubung, button type benar |
+| 3: Pendaftaran Siswa | 20 | Semua elemen hadir, optgroup, radio dalam fieldset, file upload |
+| 4: Inquiry Freelance | 20 | enctype, datalist, checkbox array, select group, date min |
+| 5: Analisis Keamanan | 20 | Jawaban analitis mendalam, tidak hanya definisi |
 | **Total** | **100** | |
 
 ---
-
-## ➡ Pelajaran Berikutnya
-
-Tantangan di atas menguji pemahaman logismu tentang form. Sekarang, mari kita lihat kompilasi kesalahan umum penataan form pada halaman berikutnya sebelum melangkah ke ringkasan bab.
 
 **[Lanjut: Error Corner →](/bab6/error-corner/)**

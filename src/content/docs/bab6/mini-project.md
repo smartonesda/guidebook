@@ -1,120 +1,111 @@
 ---
 title: "Mini Project"
-description: Buat dan lengkapi Contact & Project Inquiry Form interaktif dengan validasi input bawaan di halaman utama portfolio.
+description: Tantangan mandiri membuat versi Contact & Project Inquiry Form yang lebih lengkap untuk portfolio pribadi — dengan fieldset, validasi, pilihan inquiry, dan consent.
 ---
 
-Saatnya melanjutkan pengembangan proyek portfolio pribadimu! Di bab ini, kita akan mengubah bagian Kontak di file `index.html` menjadi formulir interaktif (**Contact & Project Inquiry Form**) yang lengkap dengan pengelompokan dan validasi bawaan.
+Saatnya kamu membangun sendiri!
 
-Proyek ini adalah **versi pembaruan (v0.6)** dari halaman portofolio pribadimu.
+Di Studi Kasus, kita sudah bersama-sama membangun form untuk portfolio fiktif milik Rizki Pratama. Sekarang, giliran kamu membangun form versi kamu sendiri untuk **portfolio pribadimu** — dengan pengembangan yang lebih kaya.
 
 ---
 
-## 🎯 Deskripsi Project
+## 🎯 Deskripsi Mini Project
 
-Buka kembali file `index.html` di editor VS Code-mu, lalu modifikasi bagian Kontak agar:
-- Seluruh isian dibungkus oleh tag `<form>` dengan metode `POST`.
-- Isian dikelompokkan rapi menggunakan tag `<fieldset>` dan `<legend>`.
-- Menyediakan isian **Nama Lengkap** (input text), **Alamat Email** (input email), **Pilihan Inquiry** (dropdown select), **Pesan Utama** (textarea), dan **Checkbox Persetujuan** (checkbox).
-- Memiliki tombol pengiriman (`<button type="submit">`).
-- Menerapkan atribut validasi `required` dan batasan panjang karakter `minlength`.
+**Portfolio v0.6 — Contact & Inquiry Form**
+
+Buka file `index.html` portfoliomu (yang sudah dikembangkan sejak BAB 1), lalu ubah atau tambahkan bagian Kontak menjadi formulir interaktif yang lengkap.
+
+Ini bukan sekadar memindahkan kode dari Studi Kasus. Kamu harus **menyesuaikan dengan identitas portfoliomu sendiri** — nama, pilihan layanan, kategori inquiry, dan sebagainya.
 
 ---
 
 ## 📋 Requirements Wajib
 
-### A. Struktur Formulir & Hubungan Label (40 poin)
+### A. Struktur Form (30 poin)
 
-- [ ] Seluruh kolom input wajib dibungkus di dalam tag `<form>` dengan atribut `method="POST"` dan `action="/proses-kontak.html"`.
-- [ ] Kelompokkan isian menggunakan tag `<fieldset>` yang memiliki judul kelompok `<legend>Hubungi Saya</legend>`.
-- [ ] Setiap isian wajib memiliki tag `<label>` yang terhubung secara aksesibel dengan tag inputnya masing-masing menggunakan atribut **`for`** (pada label) dan **`id`** (pada input) dengan nilai yang sama persis.
-- [ ] Setiap input dan pilihan wajib menyertakan atribut **`name`** sebagai kunci pengiriman data ke server.
+- [ ] Seluruh form dibungkus tag `<form>` dengan `method="POST"` dan `action` yang masuk akal (contoh: `/proses-kontak.php` atau `#`).
+- [ ] Input dikelompokkan dalam minimal **dua `<fieldset>`**: satu untuk identitas pengirim, satu untuk detail pesan.
+- [ ] Setiap `<fieldset>` memiliki `<legend>` yang deskriptif.
+- [ ] Grup radio button dibungkus dalam `<fieldset>` + `<legend>` tersendiri.
 
-### B. Variasi Elemen Input & Validasi HTML5 (40 poin)
+### B. Elemen Input yang Dibutuhkan (40 poin)
 
-- [ ] **Nama Lengkap**: Gunakan `<input type="text">` yang memiliki atribut `required` dan `minlength="3"`.
-- [ ] **Alamat Email**: Gunakan `<input type="email">` dengan atribut `required`.
-- [ ] **Kategori Kepentingan**: Gunakan tag `<select>` yang memiliki minimal 3 pilihan `<option>` bertema kolaborasi (misal: tanya proyek, tawaran magang, say hello) dengan opsi pertama kosong. Atribut `required` harus terpasang di tag select.
-- [ ] **Pesan Detail**: Gunakan tag `<textarea>` yang memiliki atribut `required` dan `minlength="10"`.
-- [ ] **Persetujuan**: Gunakan `<input type="checkbox">` di bagian bawah dengan atribut `required` sebagai persetujuan pengiriman data.
-- [ ] **Tombol Kirim**: Gunakan tag `<button type="submit">` untuk memicu pengiriman formulir.
+- [ ] **`type="text"`** — Nama lengkap (wajib, `minlength="3"`).
+- [ ] **`type="email"`** — Alamat email (wajib).
+- [ ] **`type="tel"`** — Nomor WhatsApp/HP (opsional, gunakan `pattern` untuk format Indonesia).
+- [ ] **`<select>`** — Kategori inquiry (wajib, minimal 4 pilihan termasuk pilihan kosong pertama).
+- [ ] **`type="radio"`** — Minimal dua opsi dalam satu grup (contoh: metode kontak pilihan, atau skala proyek).
+- [ ] **`type="checkbox"`** (minimal 2) — Pilihan keahlian yang relevan ATAU persetujuan + opsi langganan newsletter.
+- [ ] **`<textarea>`** — Pesan detail (wajib, `minlength="20"`).
+- [ ] **`type="checkbox"`** — Persetujuan privasi data (wajib, required).
 
-### C. Kualitas Kode & Validasi (20 poin)
+### C. Validasi & Kualitas (30 poin)
 
-- [ ] Gunakan penulisan atribut menggunakan huruf kecil (*lowercase*) dan gunakan tanda kutip ganda secara konsisten.
-- [ ] Gunakan indentasi 2 spasi secara disiplin untuk merapikan tingkatan tag anak di dalam `<fieldset>`.
-- [ ] **0 Error** di W3C Validator (`validator.w3.org`) untuk file `index.html` milikmu.
+- [ ] Semua field yang wajib diisi memiliki `required`.
+- [ ] Semua `<label>` terhubung dengan `<input>` via `for`↔`id`.
+- [ ] Semua `<input>` memiliki `name` yang deskriptif dan konsisten (gunakan `_` sebagai pemisah kata, contoh: `nama_lengkap`).
+- [ ] Tombol submit menggunakan `<button type="submit">`.
+- [ ] Tidak ada field yang menggunakan `placeholder` sebagai pengganti `<label>`.
+- [ ] HTML lolos W3C Validator tanpa error.
 
 ---
 
-## 📝 Contoh Referensi Kode Pembantu
+## 💡 Ide Pengembangan (Poin Bonus)
 
-Gunakan potongan kode ini sebagai referensi penempatan struktur form di dalam file `index.html` milikmu:
+Kamu bisa menambahkan elemen berikut untuk pengembangan ekstra:
 
-```html
-<h2 id="kontak">Hubungi Saya</h2>
-<form action="/proses.html" method="POST">
-  <fieldset>
-    <legend>Kirim Pesan</legend>
-    
-    <p>
-      <label for="id-nama">Nama Lengkap:</label><br />
-      <input type="text" id="id-nama" name="user_name" minlength="3" required />
-    </p>
-    
-    <p>
-      <label for="id-email">Email:</label><br />
-      <input type="email" id="id-email" name="user_email" required />
-    </p>
-    
-    <p>
-      <label for="id-layanan">Layanan:</label><br />
-      <select id="id-layanan" name="user_service" required>
-        <option value="">-- Pilih --</option>
-        <option value="dev">Development</option>
-      </select>
-    </p>
-    
-    <p>
-      <label for="id-pesan">Pesan:</label><br />
-      <textarea id="id-pesan" name="user_message" rows="4" minlength="10" required></textarea>
-    </p>
-    
-    <p>
-      <input type="checkbox" id="id-setuju" name="user_consent" value="setuju" required />
-      <label for="id-setuju">Saya setuju data ini dikirim.</label>
-    </p>
-    
-    <p>
-      <button type="submit">Kirim</button>
-    </p>
-  </fieldset>
-</form>
+```
++ Tambahkan input budget proyek menggunakan type="range" atau type="number"
++ Tambahkan input tanggal deadline yang diinginkan menggunakan type="date"
++ Gunakan <datalist> untuk input kota pengirim
++ Tambahkan input upload file brief/referensi menggunakan type="file" + enctype
++ Gunakan <optgroup> di dalam <select> untuk mengelompokkan kategori inquiry
+```
+
+---
+
+## 🚫 Larangan yang Harus Dihindari
+
+```
+✗ Jangan hapus konten portfolio yang sudah ada dari BAB 1-5
+✗ Jangan gunakan placeholder sebagai pengganti label
+✗ Jangan buat input tanpa atribut name
+✗ Jangan buat grup radio dengan name yang berbeda-beda
+✗ Jangan gunakan <button> tanpa atribut type di dalam form
+✗ Jangan copy-paste persis dari studi kasus — sesuaikan dengan dirimu
+```
+
+---
+
+## ✅ Checklist Pengujian Mandiri
+
+Buka `index.html` di browser (via Live Server), lalu lakukan pengujian berikut:
+
+```
+☐ Klik tulisan label "Nama Lengkap" → kursor berpindah ke kotak input
+☐ Klik tulisan label "Balas via Email" → radio button terpilih
+☐ Pilih satu radio button → radio lain dalam grup otomatis tidak terpilih
+☐ Coba submit form dengan nama kosong → browser menampilkan pesan error
+☐ Coba submit form dengan email format salah → browser menampilkan pesan error
+☐ Coba submit tanpa memilih kategori inquiry → browser menampilkan pesan error
+☐ Coba submit tanpa mencentang checkbox persetujuan → browser memblokir
+☐ Coba isi nomor HP dengan huruf → browser menolak (karena type="tel" + pattern)
+☐ Periksa di DevTools: setiap input punya name yang benar
+☐ Buka validator.w3.org → hasilnya hijau tanpa error
 ```
 
 ---
 
 ## 📊 Rubrik Penilaian
 
-| Kategori | Kriteria | Poin Maksimal |
+| Kategori | Kriteria | Poin |
 |---|---|---|
-| **Struktur & Aksesibilitas** | Tag form, fieldset, legend terpasang valid, for-id pada label terhubung secara presisi. | 40 |
-| **Pilihan Input & Validasi** | Menyediakan input text, email, select dropdown, textarea, dan checkbox persetujuan dengan atribut required & minlength. | 40 |
-| **Tombol & Kualitas W3C** | Tombol submit terpasang benar, dokumentasi kode lolos uji validator resmi. | 20 |
-| **Total** | | **100** |
+| **Struktur Form** | Fieldset terpisah, legend deskriptif, radio dalam fieldset | 30 |
+| **Kelengkapan Input** | Semua tipe input yang diminta hadir dan berfungsi | 40 |
+| **Validasi & Kualitas** | Required, name, label↔id, tombol, W3C valid | 30 |
+| **Bonus** | Elemen tambahan yang tepat guna | +10 |
+| **Total** | | **100 (+10)** |
 
 ---
-
-## ✅ Checklist Sebelum Mengumpulkan
-
-Buka file `index.html` di browsermu lewat Live Server, lalu pastikan:
-```
-☐ Mengetik di dalam kotak isian teks menyembunyikan input kata sandi (jika ada).
-☐ Mengklik tulisan teks label (seperti label nama) otomatis memindahkan kursor ke dalam kotak input terkait.
-☐ Mengosongkan kolom penting lalu mengklik tombol Kirim memicu pesan peringatan "Harap isi kolom ini" dari browser.
-☐ Formulir kontak dibungkus rapi oleh garis bingkai fieldset.
-☐ File HTML lolos uji validasi di validator.w3.org dengan warna hijau.
-```
-
-Portfolio pribadimu sekarang sudah interaktif dan siap menerima pesan dari pengunjung! Pada bab selanjutnya, kita akan membedah konsep **HTML Attributes** secara mendalam.
 
 **[Lanjut: Challenge →](/bab6/challenge/)**

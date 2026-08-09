@@ -1,105 +1,79 @@
-﻿---
-title: "Tantangan Pengembangan (Challenge) — BAB 11"
-description: Sepuluh tantangan pengembangan mandiri untuk memperluas fitur aplikasi SIAKAD-Konsol.
 ---
-
-## Tujuan Pembelajaran
-Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
-- Menambahkan fitur-fitur lanjutan secara mandiri pada project SIAKAD.
-- Mengembangkan pemikiran analisis untuk menstrukturkan data baru.
-- Menyiapkan project konsol agar memiliki kapabilitas penyimpanan data permanen.
+title: "Challenge"
+description: Tantangan berjenjang untuk menguji keterampilan HTML Code Review, debugging anti-patterns, dan refactoring kode berstandar profesional.
+---
 
 ---
 
-## Pendahuluan
-Setelah berhasil membangun aplikasi dasar, langkah terbaik untuk menguji keahlianmu adalah dengan menyelesaikan berbagai tantangan pengembangan mandiri (*challenge*) tanpa panduan kode langsung.
+## 🔴 Challenge 1: Code Review Sederhana (25 Poin)
 
----
+Kamu bertindak sebagai **Lead Developer**. Rekan timmu menyerahkan potongan kode HTML berikut untuk direview. Sebutkan **5 kesalahan/kekurangan** dari kode ini dan tuliskan perbaikannya!
 
-## Penjelasan
-Di halaman ini, kamu ditantang untuk memperluas fitur aplikasi `siakad-final` milikmu. Kamu harus menambahkan 10 fitur lanjutan berikut satu per satu. Cobalah merancang tipe data dan logikanya terlebih dahulu sebelum menuliskan kodenya di file projectmu.
-
----
-
-## Analogi Kehidupan Sehari-hari: Lomba Keterampilan Siswa (LKS) SMK
-Menyelesaikan challenge seperti **mengikuti Lomba Keterampilan Siswa (LKS) tingkat nasional**:
-
-```text
-Tantangan LKS:
-- Modifikasi mesin motor agar irit bahan bakar (Tantangan 1)
-- Pasangkan sensor GPS pelacak lokasi motor (Tantangan 2)
-```
-
-Juri tidak membantumu memasangkan kabel. Juri hanya menilai hasil akhir apakah motor berjalan lancar dengan fitur baru tersebut. Challenge ini melatih kemandirian dan rasa percaya dirimu sebagai programmer sejati.
-
----
-
-## Visual Illustration: Flowchart Ekspor JSON
-
-```text
-Database Siswa (Array) ──► JSON.stringify() ──► fs.writeFileSync() ──► file siswa.json
+```html
+<div class="card">
+  <img src="avatar.png" />
+  <h3>Budi Santoso</h3>
+  <a href="#" onclick="followUser()">Follow</a>
+  <input type="text" placeholder="Tulis komentar..." />
+  <button>Kirim</button>
+</div>
 ```
 
 ---
 
-## Live Coding: Simulasi Tulis File Permanen (Helper)
-Berikut adalah contoh fungsi dasar menulis data ke file menggunakan modul bawaan Node.js `fs` (File System):
+## 🟡 Challenge 2: Temukan 5 Anti-Pattern (25 Poin)
 
-```ts
-import * as fs from "fs";
+Identifikasi 5 anti-pattern pada kode HTML di bawah ini dan jelaskan mengapa hal tersebut buruk bagi maintainability atau performa:
 
-function simpanKeFile(namaFile: string, data: any): void {
-  const teksJSON = JSON.stringify(data, null, 2);
-  fs.writeFileSync(namaFile, teksJSON, "utf8");
-  console.log(`✓ Data berhasil disimpan ke ${namaFile}`);
-}
-
-simpanKeFile("test-simpan.json", { status: "Sukses", kode: 200 });
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website Saya</title>
+    <script src="heavy-script.js"></script>
+  </head>
+  <body>
+    <h1 style="color: blue; font-size: 24px;">Selamat Datang</h1>
+    <a href="https://example.com" target="_blank">Kunjungi Link</a>
+    <img src="hero.jpg" loading="lazy" />
+    <input id="user" type="text" />
+    <input id="user" type="password" />
+  </body>
+</html>
 ```
 
 ---
 
-## Output
-Hasil eksekusi program tulis file di atas di terminal:
+## 🟠 Challenge 3: Refactor Form & Table (25 Poin)
 
-```text
-✓ Data berhasil disimpan ke test-simpan.json
+Ubah kode form dan tabel berikut agar memenuhi standar **Clean HTML, Semantic, dan Accessible**:
+
+```html
+<div id="data">
+  <p>Daftar Siswa</p>
+  <table>
+    <tr><td>Nama</td><td>Kelas</td></tr>
+    <tr><td>Andi</td><td>RPL 1</td></tr>
+  </table>
+  
+  <p>Tambah Siswa</p>
+  <form action="save.php">
+    <input type="text" placeholder="Nama Siswa">
+    <button>Simpan</button>
+  </form>
+</div>
 ```
 
 ---
 
-## Penjelasan Baris per Baris
-- `import * as fs from "fs"`: Mengimpor modul bawaan Node.js untuk operasi file system.
-- `JSON.stringify(data, null, 2)`: Mengonversi objek menjadi string teks JSON rapi dengan spasi indentasi 2.
-- `fs.writeFileSync(...)`: Menuliskan teks string tersebut ke harddisk secara sinkron.
+## ⚫ Challenge 4: Analisis Performa & Best Practice (25 Poin)
+
+Jawab pertanyaan analitis berikut:
+
+1. Mengapa menambahkan `width` dan `height` pada elemen `<img>` dapat mencegah *Cumulative Layout Shift (CLS)*?
+2. Mengapa atribut `defer` pada elemen `<script>` lebih direkomendasikan daripada meletakkan `<script>` biasa di dalam `<head>`?
+3. Mengapa konvensi penamaan `kebab-case` lebih disukai di URL dan nama file web daripada `CamelCase` atau spasi?
 
 ---
 
-## Common Mistakes
-- **Lupa menangani folder tidak ada**: Menulis file ke folder kustom yang belum dibuat. Pastikan file ditulis sejajar dengan `package.json` untuk kemudahan akses awal.
-
----
-
-## Tips
-:::tip[Gunakan Try Catch untuk File System]
-Operasi pembacaan dan penulisan file ke harddisk rentan mengalami error (misal: karena disk penuh atau hak akses dibatasi). Selalu bungkus operasi `fs` di dalam blok `try...catch` agar aman.
-:::
-
----
-
-## Ringkasan
-- Ada 10 tantangan perluasan fitur aplikasi SIAKAD.
-- Penyimpanan data permanen menggunakan modul bawaan Node.js `fs` (File System).
-- Menghindari copy-paste melatih pemikiran analitis penyusunan data.
-
----
-
-## Latihan
-Pilih minimal **dua** tantangan dari daftar berikut untuk kamu implementasikan di projectmu:
-
-1. **Ekspor Data ke JSON**: Simpan data siswa ke `siswa.json` saat keluar aplikasi.
-2. **Impor Data dari JSON**: Baca file `siswa.json` saat awal aplikasi dijalankan.
-3. **Sistem Ranking**: Urutkan dan tampilkan 3 siswa nilai tertinggi.
-4. **Pencarian Kelas**: Tampilkan siswa berdasarkan filter kelas tertentu.
-5. **Wali Kelas Kehadiran**: Hitung persentase kehadiran guru.
-6. **Login Admin**: Tambahkan menu verifikasi password sebelum masuk menu utama.
+**[Lanjut: Error Corner →](/bab11/error-corner/)**

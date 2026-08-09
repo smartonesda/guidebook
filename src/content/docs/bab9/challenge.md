@@ -1,122 +1,147 @@
-﻿---
-title: "Challenge BAB 9"
-description: Sepuluh latihan Generic dan Utility Types tingkat menengah di TypeScript untuk menguji pemahaman.
 ---
-
-## Tujuan Pembelajaran
-Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
-- Merancang dan memodifikasi tipe data menggunakan kombinasi Generic dan Utility Types secara mandiri.
-- Menyaring dan memperketat properti objek kustom secara presisi.
-- Membaca dan mengatasi pesan error compiler TypeScript terkait tipe Generic.
+title: "Challenge"
+description: Tantangan berjenjang untuk menguji pemahaman Metadata & SEO — dari identifikasi kesalahan hingga analisis praktik SEO dan membuat head lengkap untuk berbagai jenis halaman.
+---
 
 ---
 
-## Aturan Pengerjaan
+## 🎯 Tujuan Challenge
 
-:::tip[Cara Mengerjakan]
-Buatlah satu file terpisah untuk setiap soal di folder `src/bab9/challenge/`. Contoh: `src/bab9/challenge/soal-1.ts`.
+Setelah menyelesaikan semua tantangan ini, kamu akan mampu:
+- Mengidentifikasi metadata yang hilang, salah, atau berlebihan.
+- Menulis `<head>` yang benar untuk berbagai jenis halaman.
+- Membedakan antara metadata yang benar-benar berguna dan "cargo cult metadata".
+- Menjelaskan mengapa metadata tidak bisa menggantikan konten berkualitas.
 
-Jalankan file tersebut menggunakan perintah:
-```text
-tsx src/bab9/challenge/soal-1.ts
+---
+
+## 🔴 Challenge 1: Audit `<head>` yang Bermasalah (20 poin)
+
+Kode `<head>` di bawah ini mengandung **8 masalah**. Temukan semuanya dan tulis versi yang benar.
+
+```html
+<head>
+  <title>Selamat Datang di Website Keren Saya yang Sangat Bagus dan Informatif Tentang Web Development</title>
+  
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  
+  <meta name="description" content="website portfolio web developer web design HTML CSS JavaScript web developer Jakarta web developer murah terbaik profesional">
+  
+  <meta property="description" content="Portfolio junior web developer.">
+  
+  <meta name="og:title" content="Portfolio Saya">
+  <meta name="og:image" content="/og-image.png">
+  <meta name="og:url" content="https://example.com/">
+  
+  <link rel="canonical" href="/index.html">
+</head>
 ```
-:::
+
+**Petunjuk:** Masalah berkaitan dengan urutan, panjang, keyword stuffing, atribut yang salah, URL relatif, viewport restrictive, dan duplikasi.
 
 ---
 
-## Challenge 1 — Fungsi Cetak Identitas (Generic Identity)
-**Tingkat: Mudah**
+## 🟡 Challenge 2: Tulis `<head>` dari Deskripsi (20 poin)
 
-Buat sebuah fungsi Generic `identitas<T>(nilai: T): T` yang mengembalikan nilai yang sama dengan parameter input-nya. Panggil fungsi tersebut tiga kali dengan tipe data yang berbeda: `string`, `number`, dan `boolean`. Tampilkan hasilnya di terminal.
+Buat `<head>` yang lengkap untuk halaman berikut:
 
----
+**Deskripsi halaman:**
+- Halaman detail proyek: "Website Toko Roti Nusantara"
+- Pemilik: Budi Santoso, web developer dari Bandung
+- Deskripsi: Website e-commerce sederhana untuk toko roti lokal dengan fitur menu, pemesanan online, dan kontak
+- URL: `https://budisantoso.dev/proyek/toko-roti/`
+- URL gambar OG: `https://budisantoso.dev/images/toko-roti-og.jpg`
+- Website berbahasa Indonesia
+- Ingin diindeks Google
 
-## Challenge 2 — Interface Box Serbaguna (Generic Interface)
-**Tingkat: Mudah**
-
-Buat sebuah Generic Interface bernama `Box<T>` yang memiliki properti `label: string` dan `isi: T`.
-- Buat objek `boxString` bertipe `Box<string>`.
-- Buat objek `boxNumber` bertipe `Box<number>`.
-Tampilkan data isi dari kedua objek tersebut.
-
----
-
-## Challenge 3 — Class Tumpukan Data (Generic Class)
-**Tingkat: Mudah**
-
-Buat sebuah Generic Class `Tumpukan<T>` untuk mengelola daftar data bertipe `T`:
-- Miliki properti private array `data: T[]`.
-- Tambahkan method `taruh(item: T)` untuk memasukkan ke array.
-- Tambahkan method `ambil()` yang mengembalikan elemen terakhir dan menghapusnya.
-Uji coba class tersebut untuk menyimpan daftar nama string.
+Requirements: semua fundamental, identitas, canonical, favicon (placeholder), Open Graph lengkap, Twitter Card.
 
 ---
 
-## Challenge 4 — Edit Produk Koperasi (Partial)
-**Tingkat: Mudah**
+## 🟠 Challenge 3: Benar atau Salah? (20 poin)
 
-1. Buat tipe `Produk` dengan properti: `id` (string), `nama` (string), dan `harga` (number).
-2. Buat fungsi `updateProduk(produk: Produk, perubahan: Partial<Produk>): Produk` yang mengupdate data produk secara parsial.
-3. Lakukan simulasi update harga pada sabun mandi dan tampilkan hasilnya.
+Untuk setiap pernyataan, tentukan Benar atau Salah dan jelaskan alasannya:
 
----
-
-## Challenge 5 — Finalisasi Formulir Ujian (Required)
-**Tingkat: Mudah**
-
-Buat tipe `DataPendaftaran` dengan properti: `nama: string` dan properti opsional `email?: string`, `nomorHP?: string`. Buat satu objek data pendaftaran yang **wajib** mengisi seluruh properti tersebut menggunakan Utility Type `Required`.
-
----
-
-## Challenge 6 — Batasan Kunci Objek (Generic Constraint)
-**Tingkat: Menengah**
-
-Buat fungsi Generic `ambilNilaiPanjang<T extends { length: number }>(item: T): number`. Fungsi mengembalikan properti `.length` dari parameter yang dikirim. Panggil fungsi dengan string dan array, lalu amati proteksi TypeScript jika diisi number biasa.
+1. Meta description secara langsung meningkatkan ranking Google jika mengandung keyword yang tepat.
+2. `<title>` dan `<h1>` boleh berbeda — mereka punya fungsi berbeda.
+3. Nilai `og:image` boleh menggunakan URL relatif seperti `/images/og.png`.
+4. Jika tidak ada `<meta name="robots">`, browser akan memblokir Google dari mengindeks halaman.
+5. Website yang punya meta description yang bagus tapi konten yang buruk akan tetap ranking tinggi di Google.
+6. `<meta charset="UTF-8">` harus diletakkan setelah `<title>` agar browser bisa membaca judul dengan benar.
+7. `user-scalable=no` pada viewport melanggar standar aksesibilitas.
+8. Open Graph dan Twitter Card menggunakan sistem yang sama persis — tidak perlu menulis keduanya.
 
 ---
 
-## Challenge 7 — Kartu Nama Siswa (Pick)
-**Tingkat: Menengah**
+## 🔵 Challenge 4: Metadata untuk Berbagai Halaman (20 poin)
 
-Buat tipe `SiswaLengkap` (id, nama, kelas, alamat, email, telepon). Buat tipe baru `KartuNama` menggunakan `Pick` yang hanya mengambil properti `nama` dan `email`. Buat objeknya dan tampilkan di terminal.
+Portfolio biasanya punya lebih dari satu halaman. Tulis `<title>` dan `<meta name="description">` yang tepat (memenuhi panduan panjang) untuk masing-masing halaman berikut:
 
----
+**Halaman A:** Beranda/homepage portfolio  
+**Halaman B:** Halaman daftar semua proyek  
+**Halaman C:** Halaman detail satu proyek: "Aplikasi Absensi Kelas XII RPL"  
+**Halaman D:** Halaman kontak  
+**Halaman E:** Halaman "Tentang Saya"
 
-## Challenge 8 — Sensor Gaji Staf (Omit)
-**Tingkat: Menengah**
-
-Buat tipe `Karyawan` (id, nama, jabatan, gajiBulanan). Buat tipe baru `ProfilPublik` menggunakan `Omit` untuk membuang properti `gajiBulanan`. Buat objek karyawan terproteksi tersebut dan tampilkan hasilnya.
-
----
-
-## Challenge 9 — Kamus Nilai Kelas (Record)
-**Tingkat: Menengah**
-
-1. Buat tipe union `NamaSiswa = "Putra" | "Dewi" | "Citra"`.
-2. Buat objek `daftarNilai` menggunakan `Record<NamaSiswa, number>` untuk memetakan nama siswa ke nilai ujian angka mereka.
-3. Tampilkan nilai ujian Putra dan Citra.
+Untuk setiap halaman:
+- `<title>` harus unik, spesifik, 50–60 karakter, menggunakan format "Judul Halaman — Nama Developer"
+- `<meta description>` harus unik, relevan, 120–160 karakter
 
 ---
 
-## Challenge 10 — Menyaring Tipe Union Nilai (Exclude & Extract)
-**Tingkat: Menengah**
+## ⚫ Challenge 5: Analisis Mendalam (20 poin)
 
-1. Buat tipe union `SemuaNilai = "A" | "B" | "C" | "D" | "E" | "F"`.
-2. Buat tipe `NilaiLulus` hasil ekstraksi `"A"`, `"B"`, dan `"C"` dari `SemuaNilai` menggunakan `Extract`.
-3. Buat tipe `NilaiRemedial` hasil pengecualian (pembuangan) `"A"`, `"B"`, dan `"C"` dari `SemuaNilai` menggunakan `Exclude`.
-4. Buat variabel untuk kedua tipe tersebut dan tampilkan hasilnya.
+Jawab pertanyaan berikut dalam bentuk tulisan analitis:
+
+**Pertanyaan 1:**
+Seorang siswa berkata: *"Saya sudah isi semua meta tag — charset, viewport, title, description, robots, canonical, dan Open Graph. Sekarang portfolio saya pasti muncul di halaman 1 Google."*
+
+Apa yang salah dari pemahaman ini? Jelaskan apa yang sebenarnya menentukan ranking Google, dan apa peran metadata di dalamnya.
+
+**Pertanyaan 2:**
+Perhatikan dua versi `<head>` berikut:
+
+Versi A:
+```html
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andi Wijaya — Frontend Developer Bandung</title>
+  <meta name="description" content="Portfolio Andi Wijaya, frontend developer dari Bandung dengan pengalaman 1 tahun di HTML, CSS, dan React.">
+</head>
+```
+
+Versi B:
+```html
+<head>
+  <meta name="keywords" content="frontend developer, web developer, HTML, CSS, JavaScript, React, Angular, Vue, Bootstrap, Tailwind, jQuery, web design, UI UX, website murah, jasa website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Portfolio saya.">
+</head>
+```
+
+Analisis: Apa yang benar dan salah dari masing-masing versi? Versi mana yang lebih baik dan mengapa?
+
+**Pertanyaan 3:**
+Jelaskan dengan kata-katamu sendiri: apa perbedaan konseptual antara `<head>` dan `<body>` dalam sebuah dokumen HTML? Mengapa pemisahan ini penting?
 
 ---
 
-## Latihan
-Pilih salah satu challenge di atas yang menurutmu paling menantang. Gabungkan tipe Generic dan Utility Types, buat rancangan alurnya, lalu ketik solusi kodenya secara mandiri.
+## 📊 Rubrik Penilaian
+
+| Challenge | Poin | Kriteria |
+|---|---|---|
+| 1: Audit Head | 20 | Menemukan 8 masalah + penjelasan + perbaikan |
+| 2: Tulis Head | 20 | Semua tag wajib, format benar, nilai relevan |
+| 3: Benar/Salah | 20 | Jawaban tepat + penjelasan yang akurat |
+| 4: Multi-Halaman | 20 | Title & description unik, panjang sesuai per halaman |
+| 5: Analisis | 20 | Jawaban mendalam, tidak hanya definisi |
+| **Total** | **100** | |
 
 ---
 
-## Ringkasan
-- Pengerjaan challenge melatih logika pemodelan tipe data TypeScript secara modular.
-- Pastikan seluruh file challenge bebas dari error compiler sebelum dijalankan.
-
-:::tip[Langkah Selanjutnya]
-Lanjut ke **Error Corner** untuk membahas kesalahan-kesalahan yang paling sering ditemui saat menulis kode Generic dan Utility Types.
-:::
+**[Lanjut: Error Corner →](/bab9/error-corner/)**

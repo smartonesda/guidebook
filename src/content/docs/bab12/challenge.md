@@ -1,146 +1,85 @@
-﻿---
-title: "Challenge BAB 12"
-description: Sepuluh latihan refactoring (perapian kode) untuk melatih penulisan kode bersih di TypeScript.
+---
+title: "Challenge Collection"
+description: Kumpulan tantangan pemecahan masalah (Problem-Based Challenge) Mini Project untuk menguji keahlian HTML dalam berbagai skenario kompleks.
 ---
 
-## Tujuan Pembelajaran
-Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
-- Mengidentifikasi *code smell* (gejala kode buruk) secara mandiri.
-- Merapikan kode rumit menjadi sederhana (KISS).
-- Memisahkan fungsi panjang menjadi unit modular kecil (Single Responsibility).
+Tantangan di BAB 12 ini tidak lagi menanyakan definisi tag, melainkan menguji **kemampuanmu menerjemahkan masalah bisnis menjadi struktur kode HTML yang tepat**.
 
 ---
 
-## Pendahuluan
-Setelah berhasil membangun aplikasi dasar, langkah terbaik untuk menguji keahlianmu adalah dengan menyelesaikan berbagai tantangan pengerjaan ulang (*refactoring*) tanpa panduan kode langsung.
+## 🔴 Challenge 1: Debugging Dokumen Rusak (25 Poin)
 
----
+Sebuah startup menyerahkan berkas HTML halaman produk yang tidak bisa diindeks oleh Google dan mengalami kerusakan tata letak di smartphone. Temukan **6 kesalahan fatal** pada kode di bawah ini:
 
-## Penjelasan
-Di halaman ini, kamu ditantang untuk merapikan kode-kode program kotor. Cobalah menganalisis apa yang salah dengan kode tersebut, lalu tulislah versi bersihnya di file projectmu secara mandiri.
-
----
-
-## Analogi Kehidupan Sehari-hari: Lomba Kebersihan Diri
-Menyelesaikan challenge refactoring seperti **mengikuti lomba merapikan seragam sekolah**:
-
-```text
-Tantangan:
-- Kancingkan kemeja yang terlewat (Atur nama variabel)
-- Setrika baju lecek (Format Prettier)
-- Rapikan kerah dasi yang melenceng (Enkapsulasi)
-```
-
-Tindakan ini tidak mengubah tinggi atau berat badanmu (logika program tetap). Namun, penampilanmu menjadi sangat rapi dan siap menghadapi penilaian guru industri.
-
----
-
-## Visual Illustration: Tahapan Refactoring
-
-```text
-Identifikasi Kode Kotor ──► Analisis Masalah ──► Tulis Kode Bersih ──► Jalankan Tes
-```
-
----
-
-## Daftar 10 Tantangan Refactoring
-
-### 1. Refactor Nama Variabel (Naming)
-Miliki kode kotor berikut, ubah menjadi nama variabel yang deskriptif dan mematuhi camelCase:
-```ts
-const a = "Budi";
-let t_s = 17;
-const KKM = 75;
-```
-
-### 2. Refactor Fungsi Tunggal (Single Responsibility)
-Pecah fungsi yang melakukan dua tugas ini menjadi dua fungsi kecil yang fokus:
-```ts
-function prosesNilaiSiswa(nama: string, nilai: number): void {
-  const lulus = nilai >= 75;
-  console.log(`${nama} dinyatakan ${lulus ? "LULUS" : "REMEDIAL"}`);
-}
-```
-
-### 3. Refactor Jarak Baris (Formatting)
-Kode di bawah ini menumpuk padat. Berikan baris kosong (*newline*) di tempat yang tepat agar kode "bernapas" dan mudah dibaca:
-```ts
-const nama="Putra";const umur=17;const kelas="XI RPL 1";function sapa(){console.log(nama);console.log(umur);console.log(kelas);}sapa();
-```
-
-### 4. Refactor Logika DRY (Duplikasi)
-Temukan duplikasi rumus keliling lingkaran, pindahkan ke fungsi helper terpusat:
-```ts
-const r1 = 7;
-const keliling1 = 2 * 3.14 * r1;
-const r2 = 10;
-const keliling2 = 2 * 3.14 * r2;
-```
-
-### 5. Refactor Logika KISS (Kesederhanaan)
-Sederhanakan logika ternary bertumpuk yang rumit ini menggunakan `if-else` atau switch-case yang lebih mudah dibaca sekilas:
-```ts
-const dapatStatus = (n: number) => n >= 90 ? "A" : n >= 75 ? "B" : "C";
-```
-
-### 6. Refactor Menghilangkan Magic Number
-Pindahkan angka `75` yang tidak jelas maknanya (*magic number*) ke dalam konstanta bernama (UPPER_SNAKE_CASE) di bagian atas:
-```ts
-function cek(n: number) {
-  return n >= 75;
-}
-```
-
-### 7. Refactor Parameter Objek
-Fungsi di bawah ini memiliki 5 parameter. Refactor agar menerima 1 parameter berupa objek terstruktur:
-```ts
-function buatProfil(nama: string, kelas: string, nis: number, email: string, aktif: boolean) {}
-```
-
-### 8. Refactor Early Return
-Gunakan teknik *early return* (keluar fungsi lebih cepat jika kondisi tidak terpenuhi) untuk menghilangkan nested `if` yang terlalu dalam:
-```ts
-function proses(siswa: any) {
-  if (siswa) {
-    if (siswa.aktif) {
-      console.log(siswa.nama);
-    }
-  }
-}
-```
-
-### 9. Refactor Type Safety (Anti-Any)
-Ganti tipe `any` di bawah ini dengan interface tipe objek yang spesifik:
-```ts
-function cetak(siswa: any) {
-  console.log(siswa.nama);
-}
-```
-
-### 10. Refactor Menghilangkan Komentar Redundan
-Hapus komentar yang tidak perlu (yang hanya mengulang kode) dan ubah kode agar "menjelaskan dirinya sendiri" (*self-documenting*):
-```ts
-// membuat variabel nama berisi string Budi
-const nama = "Budi"; 
-// fungsi untuk mengecek apakah lulus
-function cek(n: number) {
-  return n >= 75; // return true jika n lebih besar atau sama dengan 75
-}
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Produk</title>
+  <meta name="viewport" content="width=320, user-scalable=no">
+</head>
+<body>
+  <div id="header">
+    <div id="nav"><a href="/home">Home</a></div>
+  </div>
+  
+  <div id="main">
+    <h1>Katalog Sepatu</h1>
+    <img src="sepatu.jpg">
+    <p>Sepatu olahraga kualitas tinggi.</p>
+    
+    <div id="header"> <!-- Kesalahan ID? -->
+      <h2>Ulasan Pembeli</h2>
+    </div>
+    
+    <form action="buy.php">
+      <input type="text" placeholder="Nama Anda">
+      <button onclick="submit()">Beli Sekarang</button>
+    </form>
+  </div>
+</body>
+</html>
 ```
 
 ---
 
-## Langkah Selanjutnya
-Lanjut ke **Ringkasan** untuk meninjau kembali seluruh rangkuman bab.
+## 🟡 Challenge 2: Merancang Arsitektur HTML (25 Poin)
+
+Sebuah restoran lokal ingin membuat halaman menu digital. Mereka memiliki kebutuhan:
+1. Header situs dengan logo dan tombol "Pesan Sekarang".
+2. Seksi promo khusus hari ini.
+3. Seksi menu Makanan Utama dan Minuman (dilengkapi nama, foto, deskripsi singkat, harga, dan label "Pedas/Vegetarian").
+4. Seksi jam operasional dan peta lokasi toko.
+
+**Tugasmu:** Buatlah kerangka tag semantik HTML-nya saja (tanpa isi paragraf panjang) yang memenuhi kebutuhan restoran tersebut!
 
 ---
 
-## Ringkasan
-- Challenge melatih kemampuan analisis untuk menyederhanakan dan merapikan kode program.
-- Menghindari duplikasi, parameter berlebih, dan *magic number* adalah kunci utama kode bersih.
+## 🟠 Challenge 3: Merancang Form Survey Multi-Seksi (25 Poin)
+
+Buatlah formulir survei kepuasan pelanggan yang terdiri dari:
+- Identitas responden (Nama & Email).
+- Skala kepuasan layanan (Radio Button 1–5 dalam `<fieldset>`).
+- Fitur favorit yang paling sering digunakan (Checkbox).
+- Saran & Kritik (`<textarea>` minimal 20 karakter).
+- Checkbox persetujuan kerahasiaan data (`required`).
 
 ---
 
-## Latihan
-1. Buat berkas-berkas latihan di atas di folder `src/bab12/challenge/` komputermu.
-2. Pastikan program berjalan lancar tanpa error kompilasi.
+## ⚫ Challenge 4: Refactor Halaman Berita Kompleks (25 Poin)
+
+Ubah struktur berita di bawah ini agar memenuhi standar SEO dan Aksesibilitas tinggi (Gunakan `<article>`, `<header>`, `<time>`, `<figure>`, `<figcaption>`, dan `<address>`):
+
+```html
+<div>
+  <h2>SMK Nusantara Juara LKS Web Technologies 2026</h2>
+  <p>Diterbitkan tanggal 10 Agustus 2026 oleh Penulis Redaksi</p>
+  <img src="juara.jpg">
+  <p>Foto penyerahan piala LKS tingkat nasional.</p>
+  <p>Tim siswa RPL SMK Nusantara berhasil meraih juara pertama...</p>
+</div>
+```
+
+---
+
+**[Lanjut: Error Corner →](/bab12/error-corner/)**

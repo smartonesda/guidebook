@@ -1,189 +1,99 @@
-﻿---
-title: "Mini Project: Aplikasi Sistem Akademik Berbasis OOP & Asynchronous"
-description: Membangun aplikasi sistem repositori akademik sekolah modular yang memuat data secara asynchronous dan mengelolanya dengan paradigma OOP di TypeScript.
+---
+title: "Mini Project"
+description: Audit dan perbaikan aksesibilitas mandiri pada portfolio pribadi — dari Skip Navigation hingga alt text, label form, keyboard navigation, dan W3C validation.
 ---
 
-## Tujuan Pembelajaran
-Setelah menyelesaikan mini project ini, kamu diharapkan dapat:
-- Memisahkan struktur project besar menjadi beberapa file module yang rapi.
-- Memproses data dari internet secara asynchronous dan menyimpannya ke dalam Repository OOP.
-- Menggabungkan konsep Interface, Class, Generic, Asynchronous, dan Module System dalam satu aplikasi utuh.
+Saatnya melakukan audit aksesibilitas pada portfolio pribadimu!
 
----
-
-## Pendahuluan
-
-Kita akan membuat aplikasi **Sistem Informasi Akademik dengan Data API**. 
-
-Aplikasi ini akan mem-fetch daftar tugas sekolah dari internet secara asynchronous (asumsi sebagai database tugas), menyaring tugas yang dikerjakan oleh siswa, menyimpannya ke dalam `Repository` OOP bertipe Generic, dan mencetak laporan rapi.
-
-Kita memisahkan aplikasi menjadi tiga file module:
-1. `src/bab10/models.ts` (Berisi Interface Siswa dan data tipe).
-2. `src/bab10/repository.ts` (Berisi Class Generic `AcademicRepository` yang di-export).
-3. `src/bab10/main-siakad.ts` (Program utama yang mem-fetch data internet, memasukkan ke repo, dan mencetak statistik).
+Di Studi Kasus, kita melihat bagaimana portfolio Rizki Pratama diaudit dan ditingkatkan aksesibilitasnya menjadi **v1.0 — Accessible Edition**. Sekarang giliran kamu melakukan hal yang sama pada portfolio pribadimu — file `index.html` yang sudah kamu bangun dari BAB 1 hingga BAB 9.
 
 ---
 
-## Analogi Kehidupan Sehari-hari: Sistem Pengisian Loker Sekolah Digital
+## 🎯 Deskripsi Mini Project
 
-Bayangkan sistem lemari loker digital otomatis:
-- **`models.ts`** adalah kartu spesifikasi resmi. Ia menjamin jenis ukuran loker (Siswa/Tugas) yang diizinkan.
-- **`repository.ts`** adalah mekanisme loker fisik itu sendiri yang memiliki fungsi buka, tutup, dan simpan. Loker ini serbaguna (Generic), bisa menyimpan HP maupun Laptop.
-- **`main-siakad.ts`** adalah server internet sekolah. Ia memanggil database pusat secara online (Fetch Async), memilah barang milik siswa yang terdaftar, lalu mendistribusikannya ke loker masing-masing secara teratur.
+**Portfolio v1.0 — Accessible Edition**
+
+Lakukan audit aksesibilitas mandiri pada seluruh file HTML portfoliomu. Kamu tidak perlu mengubah desain visualnya — fokus pada **kemampuan halaman untuk dijangkau dan digunakan oleh semua orang**, terutama pengguna keyboard dan assistive technology.
 
 ---
 
-## Visual Illustration: Alur Integrasi Sistem
+## 📋 Requirements Wajib
 
-```text
-  [ models.ts (Interface) ] ───┐
-                               ├── ekspor ──► [ main-siakad.ts (Utama) ]
-  [ repository.ts (Class) ] ───┘                  (fetch API async + proses OOP)
+### A. Navigasi & Keyboard (30 poin)
+
+- [ ] Memiliki **Skip Navigation Link** sebagai elemen pertama di dalam `<body>`.
+- [ ] Skip link tersembunyi secara visual, tapi muncul di pojok atas saat ditekan tombol `Tab` pertama kali.
+- [ ] Klik/Enter pada skip link memindahkan fokus langsung ke `<main id="konten-utama" tabindex="-1">`.
+- [ ] Seluruh link, button, dan input dalam halaman dapat dijangkau menggunakan tombol `Tab`.
+- [ ] Indikator fokus (`outline`) **tidak dihapus** dari CSS (`*:focus { outline: none }` dilarang keras).
+- [ ] `:focus-visible` digunakan jika ingin custom styling outline fokus.
+
+### B. Gambar & Media (25 poin)
+
+- [ ] Semua `<img>` informatif memiliki `alt` text yang menjelaskan makna/informasinya (bukan "foto" atau "gambar").
+- [ ] Foto profil memiliki `alt` text yang menyebutkan nama dan peranmu.
+- [ ] Screenshot proyek memiliki `alt` text yang menjelaskan apa yang tampak pada screenshot.
+- [ ] Gambar dekoratif (jika ada) menggunakan `alt=""`.
+- [ ] Tidak ada `alt` text yang dimulai dengan "Foto dari..." atau "Gambar...".
+
+### C. Form Accessibility (25 poin)
+
+- [ ] Setiap `<input>`, `<select>`, dan `<textarea>` memiliki `<label>` yang terhubung secara presisi via atribut `for`↔`id`.
+- [ ] Tanda wajib diisi (`*`) dibungkus `<abbr title="Wajib diisi" aria-label="wajib diisi">*</abbr>`.
+- [ ] Semua input wajib memiliki atribut `required` dan `aria-required="true"`.
+- [ ] Textarea memiliki petunjuk yang terhubung via `aria-describedby`.
+- [ ] Area status form memiliki `aria-live="polite"` untuk pengumuman dinamis.
+
+### D. Link & ARIA (20 poin)
+
+- [ ] Semua link eksternal (`target="_blank"`) memiliki `rel="noopener noreferrer"`.
+- [ ] Semua link eksternal memiliki `aria-label` yang menginformasikan bahwa link "(terbuka di tab baru)".
+- [ ] Tidak ada ARIA redundan (seperti `<button role="button">` atau `<nav role="navigation">`).
+- [ ] HTML lolos uji W3C Validator tanpa error.
+
+---
+
+## 🧪 Checklist Pengujian Mandiri
+
+Sebelum mengumpulkan, lakukan 5 pengujian mandiri ini:
+
+```
+[1. Uji Keyboard]
+☐ Lepaskan mouse → buka halaman di browser
+☐ Tekan Tab → skip link "Lompati ke konten utama" muncul di pojok atas
+☐ Tekan Enter → kursor berpindah ke konten utama
+☐ Tekan Tab terus → garis fokus bergerak berurutan di setiap link, button, input
+☐ Tekan Enter pada setiap link → navigasi bekerja dengan benar
+☐ Isi form kontak hanya dengan keyboard → pesan berhasil dikirim
+
+[2. Uji Gambar]
+☐ Buka DevTools → cari semua tag <img>
+☐ Pastikan tidak ada <img> tanpa atribut alt
+☐ Pastikan tidak ada alt yang berisi nama file (contoh: alt="IMG_123.jpg")
+
+[3. Uji Form]
+☐ Klik pada teks label "Nama Lengkap" → kursor berpindah ke kotak inputnya
+☐ Klik pada teks label "Email" → kursor berpindah ke kotak inputnya
+
+[4. Uji Link Eksternal]
+☐ Periksa semua link GitHub/demo: ada target="_blank", rel="noopener noreferrer", dan aria-label
+
+[5. Uji W3C]
+☐ Buka validator.w3.org → upload file index.html → hasilnya hijau tanpa error
 ```
 
 ---
 
-## Mari Mencoba: Implementasi Project SIAKAD Lengkap
+## 📊 Rubrik Penilaian
 
-### Langkah 1: Buat file `src/bab10/models.ts`
-```ts
-// Interface model data siswa
-export interface Siswa {
-  id: number;
-  nama: string;
-  kelas: string;
-}
-
-// Interface model tugas dari API internet
-export interface TugasAPI {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-}
-```
-
-### Langkah 2: Buat file `src/bab10/repository.ts`
-```ts
-// Class Generic Repository untuk mengelola data bertipe T
-export class AcademicRepository<T extends { id: number }> {
-  private database: T[] = [];
-
-  constructor(public namaDB: string) {}
-
-  public tambah(item: T): void {
-    const ada = this.database.some((d) => d.id === item.id);
-    if (ada) {
-      console.log(`  [${this.namaDB}]: Gagal, ID ${item.id} sudah ada.`);
-      return;
-    }
-    this.database.push(item);
-  }
-
-  public ambilSemua(): T[] {
-    return this.database;
-  }
-
-  public cariBerdasarkanId(id: number): T | undefined {
-    return this.database.find((d) => d.id === id);
-  }
-}
-```
-
-### Langkah 3: Buat file utama `src/bab10/main-siakad.ts`
-```ts
-// Mengimpor komponen dari berbagai module
-import { Siswa, TugasAPI } from "./models";
-import { AcademicRepository } from "./repository";
-
-// Instansiasi Database Repository
-const dbSiswa = new AcademicRepository<Siswa>("DB_SISWA");
-const dbTugas = new AcademicRepository<TugasAPI>("DB_TUGAS");
-
-// Isi data siswa secara synchronous
-dbSiswa.tambah({ id: 101, nama: "Putra", kelas: "XI RPL 1" });
-dbSiswa.tambah({ id: 102, nama: "Dewi", kelas: "XI RPL 2" });
-
-// Fungsi async untuk mem-fetch data tugas dari internet dan menyimpannya ke repo
-async function muatTugasSekolah(daftarId: number[]): Promise<void> {
-  console.log("[Sistem]: Memulai pemuatan data tugas dari internet...");
-
-  try {
-    for (const id of daftarId) {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
-      if (!response.ok) {
-        throw new Error(`HTTP Error! Status: ${response.status}`);
-      }
-      const data: TugasAPI = await response.json();
-      
-      // Simpan ke dalam Repository OOP
-      dbTugas.tambah(data);
-    }
-    console.log("✓ [Sistem]: Seluruh data tugas berhasil dimuat ke Repository.\n");
-
-  } catch (error) {
-    console.log("⚠ [Sistem]: Gagal memuat data dari internet:", error);
-  }
-}
-
-// Fungsi utama untuk memproses dan mencetak laporan
-async function jalankanAplikasi() {
-  // Pemuatan data async
-  await muatTugasSekolah([1, 2, 3, 4, 5]);
-
-  // Cetak laporan gabungan
-  console.log("=".repeat(55));
-  console.log("          LAPORAN DATA TUGAS AKADEMIK");
-  console.log("=".repeat(55));
-  
-  const semuaSiswa = dbSiswa.ambilSemua();
-  const semuaTugas = dbTugas.ambilSemua();
-
-  semuaSiswa.forEach((siswa, indeks) => {
-    // Cari tugas yang berpasangan berdasarkan indeks simulasi
-    const tugas = semuaTugas[indeks];
-    const status = tugas?.completed ? "✓ SELESAI" : "✗ BELUM";
-    const judulTugas = tugas?.title.substring(0, 20) ?? "(Tugas tidak tersedia)";
-
-    console.log(
-      `  ${indeks + 1}. ${siswa.nama.padEnd(8)} | ` +
-      `Tugas: ${judulTugas.padEnd(20)} | ` +
-      `Status: ${status}`
-    );
-  });
-  console.log("=".repeat(55));
-}
-
-// Jalankan program utama
-jalankanAplikasi();
-```
-
-Jalankan dengan perintah:
-```text
-tsx src/bab10/main-siakad.ts
-```
+| Kategori | Kriteria | Poin |
+|---|---|---|
+| **Navigasi Keyboard** | Skip link ada dan berfungsi, focus outline terjaga, tabindex benar | 30 |
+| **Gambar & Alt Text** | Semua img punya alt bermakna, dekoratif alt="", tidak redundan | 25 |
+| **Form Accessibility** | for↔id terhubung, abbr, aria-required, aria-describedby, aria-live | 25 |
+| **Link & ARIA** | target+rel, aria-label tab baru, tidak ada ARIA redundan, W3C valid | 20 |
+| **Total** | | **100** |
 
 ---
 
-## Penjelasan Bagian Penting
-
-1. **Modul models.ts**: Hanya berfokus menyimpan struktur interface tipe data. Di-import oleh file-file yang membutuhkan.
-2. **Modul repository.ts**: Hanya berfokus mendefinisikan logic class engine data. Ini bisa dipakai ulang untuk project koperasi, perpus, dll karena bersifat Generic.
-3. **Pemuatan Async**: Menggunakan `await fetch()` di dalam perulangan `for` menjamin seluruh data tugas selesai ter-fetch dan masuk ke dalam `dbTugas` sebelum laporan dicetak di baris berikutnya.
-
----
-
-## Latihan
-1. Tambahkan data siswa ketiga (`id: 103, nama: "Citra"`) di file `main-siakad.ts`.
-2. Jalankan kembali program dan amati bagaimana Citra otomatis mendapatkan pasangan data tugas ID 3 dari internet pada laporan.
-
----
-
-## Ringkasan
-- Project besar dirancang modular dengan memisahkan model, data engine (repository), dan program utama.
-- Kombinasi OOP (`Repository<T>`) dan Asynchronous (`fetch`) adalah standar arsitektur web modern.
-- TypeScript menjaga agar pertukaran data antar file tetap aman dan konsisten tipenya.
-
-:::tip[Selesai Mini Project]
-Selamat! Kamu telah menyelesaikan mini project Asynchronous dan Module. Laporkan hasil belajarmu kepada gurumu.
-:::
+**[Lanjut: Challenge →](/bab10/challenge/)**

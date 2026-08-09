@@ -1,116 +1,119 @@
-﻿---
-title: "Ringkasan BAB 8"
-description: Rangkuman lengkap materi Object-Oriented Programming (OOP) — tabel modifier, perbandingan class vs object, dan checklist belajar.
+---
+title: "Ringkasan"
+description: Rekap lengkap Semantic HTML — prinsip utama, panduan pilihan element, hierarki struktur halaman, dan pertanyaan refleksi untuk membangun cara berpikir developer.
 ---
 
-## Selamat! 🎉
+Selamat! Kamu telah menyelesaikan **BAB 8 — Semantic HTML** 🎉
 
-Kamu telah menyelesaikan **BAB 8: Object-Oriented Programming (OOP)**! Ini adalah pencapaian luar biasa. OOP adalah paradigma pemrograman standar industri yang digunakan oleh tim pengembang software profesional di seluruh dunia untuk membangun aplikasi besar yang kokoh dan mudah dirawat.
+Di bab ini, HTML berhenti terasa seperti "tulis tag dan lihat hasilnya" — dan mulai terasa seperti **bahasa yang punya makna dan tujuan di setiap elemennya**.
 
 ---
 
-## OOP Cheat Sheet
+## 🧠 Satu Prinsip yang Mengubah Segalanya
 
-### Deklarasi Class Dasar
-```ts
-class Siswa {
-  constructor(public nama: string, public kelas: string) {}
+> **Gunakan element berdasarkan MAKNA konten, bukan berdasarkan TAMPILAN.**
 
-  belajar(): void {
-    console.log(`${this.nama} sedang belajar.`);
-  }
-}
+Dua element bisa terlihat identik di browser, tapi memiliki makna yang sangat berbeda bagi browser, search engine, screen reader, dan developer lain yang membaca kode kamu.
+
 ```
-
-### Instansiasi Objek
-```ts
-const siswa1 = new Siswa("Putra", "XI RPL 1");
-siswa1.belajar();
+MAKNA → ELEMENT
+TAMPILAN → CSS
+REUSABILITY/STYLING HOOK → CLASS
 ```
 
 ---
 
-## Perbandingan Class vs Object
+## 🗺️ Hierarki Semantic Halaman
 
-| Karakteristik | Class | Object (Instance) |
+```
+<body>
+│
+├── <header>                 ← pengantar: brand, nav
+│   └── <nav>               ← navigasi utama
+│
+├── <main>                   ← konten utama (unik per halaman)
+│   ├── <section>           ← kelompok tematik (perlu heading)
+│   │   ├── <article>       ← konten mandiri
+│   │   │   ├── <header>   ← pengantar artikel
+│   │   │   ├── <figure>   ← gambar/diagram
+│   │   │   │   └── <figcaption>
+│   │   │   └── <footer>   ← penutup artikel
+│   │   └── <aside>         ← konten pendukung
+│   └── <section>
+│
+└── <footer>                 ← penutup: kontak, copyright
+    ├── <nav>               ← navigasi footer
+    └── <address>           ← info kontak penulis
+```
+
+---
+
+## 📊 Tabel Panduan Pilihan Element
+
+| Situasi | Element Tepat | Alasan |
 |---|---|---|
-| **Definisi** | Desain / sketsa cetak biru | Wujud fisik nyata hasil cetakan |
-| **Wujud di Memori** | Hanya definisi tipe, belum ada data | Menempati ruang RAM dengan data nyata |
-| **Jumlah** | Dibuat 1 kali | Bisa dicetak tak terbatas dari 1 class |
-| **Analogi** | Blueprint sketsa kertas rumah | Rumah fisik nyata di kaveling tanah |
+| Pengantar website | `<header>` | Konten pengantar/header |
+| Navigasi link utama | `<nav>` | Kelompok navigasi signifikan |
+| Konten utama halaman | `<main>` | Inti dokumen (satu per halaman) |
+| Konten mandiri | `<article>` | Bisa berdiri sendiri |
+| Kelompok tematik | `<section>` | Punya tema + heading |
+| Konten pendukung | `<aside>` | Berkaitan tapi tidak inti |
+| Penutup halaman/artikel | `<footer>` | Info penutup |
+| Gambar + keterangan | `<figure>` + `<figcaption>` | Konten visual dengan caption |
+| Tanggal/waktu | `<time datetime="...">` | Mesin-readable |
+| Info kontak penulis | `<address>` | Kontak pemilik/penulis |
+| Teks disorot/relevan | `<mark>` | Highlight kontekstual |
+| Wrapper layout CSS | `<div>` | Tidak ada semantic yang cocok |
+| Styling teks inline | `<span>` | Tidak ada semantic yang cocok |
 
 ---
 
-## Perbandingan Access Modifier
+## ⚖️ `<section>` vs `<article>` — Cara Cepat Memutuskan
 
-| Modifier | Di dalam Class? | Di Class Anak (extends)? | Di luar Class? |
-|---|---|---|---|
-| **`public`** | Ya ✓ | Ya ✓ | Ya ✓ |
-| **`protected`** | Ya ✓ | Ya ✓ | Tidak ✗ |
-| **`private`** | Ya ✓ | Tidak ✗ | Tidak ✗ |
+**Pertanyaan:** Bisakah konten ini dipublikasikan secara mandiri di luar halaman ini?
 
----
-
-## Struktur Pewarisan (Inheritance)
-
-```text
-    Superclass (Induk): Manusia
-           │
-           ▼ extends (Mewarisi nama & umur)
-    Subclass (Anak): Siswa
-    (Menambah nis, menggunakan super() di constructor)
-```
+- **Ya** → `<article>` (posting blog, proyek, ulasan, komentar)
+- **Tidak** → `<section>` (bagian tentang, keahlian, kontak dalam portfolio)
 
 ---
 
-## Checklist Pemahaman BAB 8
+## 🚫 Yang Harus Dihindari
 
-Tandai setiap poin yang sudah kamu kuasai:
-- [ ] Memahami perbedaan cara berpikir prosedural dan berbasis objek (OOP).
-- [ ] Bisa menjelaskan perbedaan Class (sketsa) dan Object (rumah fisik).
-- [ ] Bisa membuat Class lengkap dengan property dan method di TypeScript.
-- [ ] Menggunakan constructor standar dan Parameter Properties singkat.
-- [ ] Menggunakan keyword `this` secara tepat untuk mengakses data internal class.
-- [ ] Menerapkan access modifier `public`, `private`, dan `protected` dengan benar.
-- [ ] Memahami pilar Enkapsulasi untuk menyembunyikan data internal objek.
-- [ ] Memahami pilar Pewarisan (Inheritance) menggunakan keyword `extends`.
-- [ ] Memahami pilar Polimorfisme menggunakan teknik Method Overriding.
-- [ ] Bisa membuat Abstract Class dan mengimplementasikan Abstract Method di class anak.
-- [ ] Bisa menggunakan Static Property dan Static Method langsung dari nama Class.
-- [ ] Menggunakan Getter dan Setter modern untuk validasi data properti.
-- [ ] Menyelesaikan Studi Kasus Sistem Informasi Akademik.
-- [ ] Menyelesaikan 10 Challenge pemrograman berbasis objek.
-- [ ] Memahami dan bisa memperbaiki error-error umum OOP.
+| Kesalahan | Dampak |
+|---|---|
+| `<section>` tanpa heading | Screen reader tidak tahu topik section |
+| `<article>` untuk komponen UI | Salah makna: badge dan tombol bukan "konten mandiri" |
+| `<nav>` untuk semua kumpulan link | Membingungkan screen reader dengan terlalu banyak "navigasi" |
+| Lebih dari satu `<main>` terlihat | Melanggar spesifikasi HTML5 |
+| `<aside>` untuk konten tidak berkaitan | Salah semantik: aside bukan "div yang ada di samping" |
+| Hierarki heading yang loncat (h1 → h4) | Navigasi screen reader jadi membingungkan |
+| `<hr>` sebagai visual divider | `<hr>` punya makna: perpindahan topik, bukan garis hiasan |
 
 ---
 
-## Perintah Penting
-```text
-tsx src/bab8/namafile.ts   ← Menjalankan file TypeScript OOP di terminal
-```
+## 🤔 Pertanyaan Refleksi untuk Dibawa Pulang
+
+Renungkan pertanyaan-pertanyaan ini:
+
+**1. Sebelum belajar Semantic HTML, kamu memilih tag berdasarkan apa?**
+Apakah berdasarkan tampilan? Kebiasaan? Atau hanya menggunakan `<div>` untuk segalanya?
+
+**2. Setelah belajar Semantic HTML, apa yang berubah dari cara kamu melihat HTML?**
+Apakah kamu mulai bertanya "konten ini maknanya apa?" sebelum menulis tag?
+
+**3. Jika dua element terlihat sama di browser, apakah berarti keduanya memiliki makna yang sama?**
+Tidak. Tampilan adalah tanggung jawab CSS. HTML adalah tentang makna dan struktur.
 
 ---
 
-## Latihan Penutup
+## ➡ Handoff ke BAB 9 — Metadata & SEO
 
-Tanpa melihat panduan, buatlah file `src/bab8/review-oop.ts`:
+Di BAB 8, kita sudah memastikan bahwa **struktur halaman memiliki makna yang jelas** — browser, screen reader, dan developer bisa memahami konten dari pilihan element yang tepat.
 
-1. Buat class induk `Pekerja` dengan properti: `public nama: string` dan `protected gajiPokok: number`.
-2. Buat class anak `Programmer` yang meng-extends `Pekerja`, menambah properti `private _tunjangan: number = 0` lengkap dengan getter dan setter terproteksi.
-3. Tambahkan method `hitungTotalGaji(): number` yang menjumlahkan `gajiPokok` dan `_tunjangan`.
-4. Tambahkan method `kerja()` yang menimpa method induk (polimorfisme) untuk menampilkan data pendapatan total secara rapi.
-5. Buat objek Programmer, set tunjangannya lewat setter, lalu panggil method `kerja()`.
+Sekarang pertanyaannya adalah: **bagaimana search engine menemukan halaman kita? Bagaimana social media tahu judul dan gambar apa yang harus ditampilkan saat link kita dibagikan?**
 
-Jalankan dan pastikan program berjalan lancar tanpa error kompilasi.
+Jawabannya ada di metadata — informasi tentang halaman yang kita tulis di dalam `<head>`, bukan di `<body>`.
 
----
+Di **BAB 9 — Metadata & SEO**, kita akan mempelajari `<meta>` tags, Open Graph Protocol, Twitter Cards, sitemap, dan strategi dasar agar halaman portfolio kita bisa ditemukan dan tampil dengan baik di search engine dan social media.
 
-## Pesan untuk Kamu
-
-Object-Oriented Programming (OOP) mungkin terasa rumit pada awalnya karena banyaknya istilah baru (seperti polimorfisme atau enkapsulasi). Namun, setelah kamu mulai menulis kode aplikasi nyata yang besar, kamu akan menyadari betapa indahnya OOP dalam menjaga kerapian kodemu.
-
-Kamu kini siap melangkah ke pembuatan aplikasi nyata tingkat lanjut. Teruslah berkarya dan jangan pernah berhenti belajar! 🚀
-
-:::tip[Selesai BAB 8]
-Selamat! Seluruh materi BAB 8 dan guidebook TypeScript ini telah kamu selesaikan dengan sangat baik. Laporkan pencapaianmu kepada gurumu.
-:::
+**[Lanjut ke BAB 9 — Metadata & SEO →](/bab9/introduction/)**

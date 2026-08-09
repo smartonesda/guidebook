@@ -1,170 +1,400 @@
-﻿---
-title: "Studi Kasus: Sistem Data Siswa Asynchronous"
-description: Studi kasus merancang sistem pemuatan data siswa dari internet secara asynchronous menggunakan Fetch API, async/await, dan module modular di TypeScript.
+---
+title: "Studi Kasus"
+description: Audit dan perbaikan aksesibilitas menyeluruh pada website portfolio — mengidentifikasi hambatan keyboard, alt text yang salah, label form yang hilang, dan menambahkan skip navigation.
 ---
 
-## Tujuan Pembelajaran
-Setelah menyelesaikan studi kasus ini, kamu diharapkan dapat:
-- Menghubungkan program TypeScript dengan web server internet asli.
-- Memproses data JSON hasil fetch menggunakan interface.
-- Mengamankan data dengan try...catch untuk menghindari crash saat koneksi offline.
-- Memisahkan fungsi visual dan fungsi data ke dalam file modular terpisah.
+> *"Website yang hebat bukan hanya website yang terlihat indah di layarmu. Website yang hebat adalah yang bisa digunakan oleh siapa saja yang mendatanginya."*
 
 ---
 
-## Pendahuluan
+## 🎯 Tujuan Studi Kasus
 
-Kita akan membuat program simulasi **Sistem Data Siswa Asynchronous**. Program ini akan mem-fetch (mengambil) data tugas sekolah dari internet secara async, memprosesnya ke dalam format database lokal, dan menampilkan rangkuman statistiknya. 
+Di studi kasus ini, kita akan melakukan **audit aksesibilitas** menyeluruh pada portfolio v0.8 dari BAB 8.
 
-Untuk mensimulasikan module nyata, kita membagi program menjadi dua file:
-1. `src/bab10/api-service.ts` (Khusus menangani fetch data ke server internet).
-2. `src/bab10/studi-kasus-main.ts` (Khusus memproses data dan mencetak laporan).
-
----
-
-## Perancangan Arsitektur Modular
-
-```text
-    api-service.ts (Module Layanan Data)
-      └── export async function ambilDataAPI(id) ──► mem-fetch data JSON
-               │
-               ▼ di-import oleh
-    studi-kasus-main.ts (Program Utama)
-      └── memproses data ──► menampilkan laporan di terminal
-```
+Kita akan:
+1. Menguji portfolio menggunakan keyboard (tanpa mouse).
+2. Memeriksa semua `alt` text gambar.
+3. Memeriksa keterhubungan label form.
+4. Menambahkan Skip Navigation link.
+5. Memastikan tidak ada ARIA yang merusak.
+6. Memperbarui HTML ke **Portfolio v1.0 — Accessible Edition**.
 
 ---
 
-## Analogi Kehidupan Sehari-hari: Pengiriman Buku Paket Pelajaran
+## 🔍 Audit Aksesibilitas Portfolio v0.8
 
-Bayangkan sekolah memesan buku paket pelajaran dari penerbit pusat di Jakarta:
-- **`api-service.ts`** adalah agen ekspedisi pengantar barang. Agen ini tahu cara menghubungi pelabuhan, memproses manifes kontainer, dan mengantarkan paket ke sekolah.
-- **`studi-kasus-main.ts`** adalah petugas perpustakaan sekolah. Petugas menerima paket tersegel, membuka kotak, menempelkan barcode, dan mengaturnya di rak agar bisa dibaca siswa.
+Mari kita lakukan audit berdasarkan empat pertanyaan utama:
 
----
-
-## Visual Illustration: Alur Data API ke Laporan
-
-```text
-[ https://jsonplaceholder.typicode.com/todos/1 ]
-                       │
-                       ▼ fetch (ambil data async)
-              [ api-service.ts ]
-                       │
-                       ▼ import
-            [ studi-kasus-main.ts ]
-                       │
-                       ▼ proses loop
-                Laporan Terminal ✓
-```
+| Komponen | Masalah yang Ditemukan | Solusi Aksesibilitas |
+|---|---|---|
+| **Awal halaman** | Tidak ada cara untuk melompati navigasi header | Tambahkan Skip Navigation link di awal `<body>` |
+| **Foto profil** | `alt` text: *"Foto potret Rizki Pratama tersenyum menghadap kamera"* | `alt` sudah baik, tapi persingkat agar lebih fokus ke konteks portfolio |
+| **Link sosial media** | Link GitHub & LinkedIn di footer tidak punya `aria-label` yang menginformasikan tab baru | Tambahkan `aria-label` yang menyebutkan "(terbuka di tab baru)" |
+| **Checkbox persetujuan** | Tidak ada `required` bawaan atau `aria-required` | Tambahkan `required` + perjelas label |
+| **Form kontak status** | Area pesan sukses/error tidak mengumumkan perubahan ke screen reader | Tambahkan `aria-live="polite"` |
+| **Konten utama** | `<main>` tidak punya `tabindex="-1"` untuk target skip link | Tambahkan `tabindex="-1"` ke `<main>` |
 
 ---
 
-## Mari Mencoba: Implementasi Kode SIAKAD Async
+## 💻 Kode Lengkap: Portfolio v1.0 (Accessible Edition)
 
-### Langkah 1: Buat file `src/bab10/api-service.ts`
-```ts
-// Interface bentuk data dari server API internet
-export interface DataTugas {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-}
-
-// Fungsi async untuk mengambil data tugas dari server API JSONPlaceholder
-export async function ambilTugasDariServer(id: number): Promise<DataTugas> {
-  const url = `https://jsonplaceholder.typicode.com/todos/${id}`;
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`HTTP Error! Status: ${response.status}`);
-  }
+  <!-- SEO & Identitas -->
+  <title>Rizki Pratama — Junior Web Developer · Jakarta</title>
+  <meta name="description" 
+        content="Portfolio Rizki Pratama, junior web developer dari Jakarta. Proyek HTML, CSS, dan web yang aksesibel dari siswa SMK RPL." />
+  <meta name="author" content="Rizki Pratama" />
+  <meta name="robots" content="index, follow" />
   
-  const data: DataTugas = await response.json();
-  return data;
-}
-```
+  <!-- Canonical & Favicon -->
+  <link rel="canonical" href="https://rizkipratama.com/" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0ea5e9" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Portfolio Rizki Pratama" />
+  <meta property="og:title" content="Rizki Pratama — Junior Web Developer" />
+  <meta property="og:description" content="Portfolio junior web developer dari Jakarta." />
+  <meta property="og:image" content="https://rizkipratama.com/og-image.png" />
+  <meta property="og:url" content="https://rizkipratama.com/" />
 
-### Langkah 2: Buat file `src/bab10/studi-kasus-main.ts`
-```ts
-// Mengimpor module data service
-import { ambilTugasDariServer, DataTugas } from "./api-service";
-
-// Fungsi utama aplikasi dengan penanganan error
-async function buatLaporanTugas(daftarId: number[]): Promise<void> {
-  console.log("==================================================");
-  console.log("       LAPORAN PROGRES TUGAS SISWA ONLINE");
-  console.log("==================================================");
-
-  let totalSelesai = 0;
-
-  try {
-    // Membaca data satu per satu secara bergantian (sequential async)
-    for (const id of daftarId) {
-      const tugas: DataTugas = await ambilTugasDariServer(id);
-      
-      const status = tugas.completed ? "✓ SELESAI" : "✗ BELUM";
-      if (tugas.completed) totalSelesai++;
-
-      console.log(`  [Tugas ${tugas.id}] ${tugas.title.substring(0, 20).padEnd(20)} | ${status}`);
+  <!-- CSS inline untuk skip link & focus style -->
+  <style>
+    /* Skip Link styling */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 10px;
+      background: #0ea5e9;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 4px;
+      font-weight: bold;
+      z-index: 9999;
+      text-decoration: none;
+      transition: top 0.2s ease;
     }
+    .skip-link:focus {
+      top: 10px;
+      outline: 3px solid #000000;
+    }
+    /* Accessible focus outline */
+    :focus-visible {
+      outline: 3px solid #0ea5e9;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="page page--home">
 
-    console.log("-".repeat(50));
-    console.log(`  Total Tugas Diperiksa : ${daftarId.length}`);
-    console.log(`  Tugas Selesai         : ${totalSelesai}`);
-    console.log(`  Persentase Selesai    : ${(totalSelesai / daftarId.length * 100).toFixed(1)}%`);
-    console.log("==================================================");
+  <!-- ===================== 1. SKIP NAVIGATION ===================== -->
+  <a href="#konten-utama" class="skip-link">
+    Lompati ke konten utama
+  </a>
 
-  } catch (error) {
-    console.log("\n⚠ GAGAL MEMPROSES LAPORAN:");
-    console.log(`Penyebab: ${error}`);
-    console.log("Pastikan koneksi internet laptopmu aktif.");
-    console.log("==================================================");
-  }
-}
+  <!-- ===================== 2. SITE HEADER ===================== -->
+  <header id="site-header" class="site-header">
+    <div class="header-brand">
+      <p class="brand-name">Rizki Pratama</p>
+      <p class="brand-role">Junior Web Developer · SMK RPL Jakarta</p>
+    </div>
 
-// Jalankan pencarian tugas ID 1, 2, 3, dan 4
-buatLaporanTugas([1, 2, 3, 4]);
+    <nav id="nav-utama" aria-label="Navigasi utama">
+      <a href="/" class="nav-link nav-link--active" aria-current="page">Beranda</a>
+      <a href="projects.html" class="nav-link">Proyek Saya</a>
+      <a href="#kontak" class="nav-link">Hubungi Saya</a>
+    </nav>
+  </header>
+
+  <!-- ===================== 3. KONTEN UTAMA ===================== -->
+  <!-- tabindex="-1" agar skip link bisa memindahkan fokus ke main secara konsisten -->
+  <main id="konten-utama" tabindex="-1">
+
+    <!-- HERO / PROFIL -->
+    <section id="hero" class="section-hero" aria-labelledby="hero-name">
+      
+      <figure class="profile-figure">
+        <img 
+          src="assets/images/foto-rizki.jpg" 
+          alt="Foto potret Rizki Pratama, Junior Web Developer"
+          width="150" height="150"
+          loading="eager"
+          class="profile-photo"
+        />
+        <figcaption class="profile-caption">Rizki Pratama, Jakarta 2026</figcaption>
+      </figure>
+
+      <div class="hero-text">
+        <h1 id="hero-name" class="hero-title">Halo, saya Rizki 👋</h1>
+        <p class="hero-tagline">
+          Siswa SMK RPL yang sedang membangun portofolio web yang terstruktur, 
+          semantic, dan dapat diakses oleh semua orang.
+        </p>
+        <dl class="profile-info">
+          <dt>Domisili</dt>
+          <dd>Jakarta, Indonesia</dd>
+          <dt>Jurusan</dt>
+          <dd><abbr title="Rekayasa Perangkat Lunak">RPL</abbr></dd>
+        </dl>
+      </div>
+
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section id="tentang" class="section" aria-labelledby="tentang-heading">
+      <h2 id="tentang-heading" class="section-title">Tentang Saya</h2>
+      <p>
+        Nama saya <strong>Rizki Pratama</strong>. Saya adalah seorang 
+        <em>junior web developer</em> yang peduli dengan kualitas kode HTML, 
+        struktur semantic, dan aksesibilitas web.
+      </p>
+      <blockquote cite="https://www.w3.org/WAI/fundamentals/accessibility-intro/">
+        <p>
+          Kekuatan web terletak pada universalitasnya. Akses oleh semua orang 
+          tanpa memandang disabilitas adalah aspek yang paling esensial.
+        </p>
+      </blockquote>
+      <p>— <cite>Tim Berners-Lee, Pencipta Web</cite></p>
+    </section>
+
+    <!-- KEAHLIAN -->
+    <section id="keahlian" class="section" aria-labelledby="keahlian-heading">
+      <h2 id="keahlian-heading" class="section-title">Keahlian Teknis</h2>
+      <ul id="daftar-keahlian" class="skills-grid" 
+          aria-label="Daftar keahlian teknis Rizki">
+        <li class="skill-item" data-level="mahir">HTML5 (Semantic &amp; A11y)</li>
+        <li class="skill-item" data-level="menengah">CSS3 (Responsive Layout)</li>
+        <li class="skill-item" data-level="pemula">JavaScript Dasar</li>
+        <li class="skill-item" data-level="pemula">Git &amp; GitHub</li>
+      </ul>
+      <p>
+        Unduh 
+        <a href="dokumen/resume.pdf" download 
+           aria-label="Unduh Resume Rizki Pratama dalam format PDF">
+          Resume PDF
+        </a>
+      </p>
+    </section>
+
+    <!-- PROYEK -->
+    <section id="proyek" class="section" aria-labelledby="proyek-heading">
+      <h2 id="proyek-heading" class="section-title">Proyek Terbaru</h2>
+
+      <div class="project-grid">
+
+        <article class="project-card" id="proyek-smk" data-status="selesai">
+          <header class="project-header">
+            <h3 class="project-title">Website SMK Nusantara</h3>
+            <p class="project-meta">
+              <time datetime="2025-06">Juni 2025</time> · 
+              <span class="badge badge--selesai">Selesai</span>
+            </p>
+          </header>
+          <figure class="project-preview">
+            <img 
+              src="assets/images/proyek-smk.jpg" 
+              alt="Screenshot halaman utama Website SMK Nusantara yang responsif"
+              width="400" height="225"
+              loading="lazy"
+            />
+          </figure>
+          <p class="project-desc">
+            Website profil sekolah responsif dan terstruktur dengan HTML5 
+            semantic, form kontak tervalidasi, dan aksesibilitas keyboard.
+          </p>
+          <footer class="project-footer">
+            <a href="https://demo.example.com"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Lihat demo Website SMK Nusantara (terbuka di tab baru)" 
+               class="btn-link">
+              Demo
+            </a>
+            <a href="https://github.com/rizki/smk"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Lihat kode sumber Website SMK di GitHub (terbuka di tab baru)" 
+               class="btn-link btn-link--ghost">
+              GitHub
+            </a>
+          </footer>
+        </article>
+
+      </div>
+
+      <p><a href="projects.html" class="link-all-projects">Lihat semua proyek →</a></p>
+    </section>
+
+    <!-- KONTAK FORM -->
+    <section id="kontak" class="section" aria-labelledby="kontak-heading">
+      <h2 id="kontak-heading" class="section-title">Hubungi Saya</h2>
+      <p>
+        Ingin berkolaborasi atau mengajukan inquiry proyek? 
+        Isi formulir di bawah ini.
+      </p>
+
+      <form id="form-kontak" class="contact-form"
+            action="/proses-inquiry.php" method="POST"
+            aria-labelledby="form-title">
+        <h3 id="form-title" class="form-title">Kirim Pesan</h3>
+
+        <!-- Area status untuk pengumuman dinamis ke screen reader -->
+        <div id="form-status" class="form-status" aria-live="polite"></div>
+
+        <fieldset>
+          <legend>Informasi Pengirim</legend>
+          
+          <div class="form-group">
+            <label for="nama-pengirim">
+              Nama Lengkap 
+              <abbr title="Wajib diisi" aria-label="wajib diisi">*</abbr>
+            </label>
+            <input type="text" id="nama-pengirim" name="nama_lengkap"
+                   placeholder="Contoh: Budi Santoso"
+                   minlength="3" autocomplete="name" required 
+                   aria-required="true" />
+          </div>
+
+          <div class="form-group">
+            <label for="email-pengirim">
+              Email 
+              <abbr title="Wajib diisi" aria-label="wajib diisi">*</abbr>
+            </label>
+            <input type="email" id="email-pengirim" name="email_pengirim"
+                   placeholder="nama@domain.com" autocomplete="email" required 
+                   aria-required="true" />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Detail Pesan</legend>
+
+          <div class="form-group">
+            <label for="pesan" id="label-pesan">
+              Pesan 
+              <abbr title="Wajib diisi" aria-label="wajib diisi">*</abbr>
+            </label>
+            <textarea id="pesan" name="pesan_detail" rows="5"
+                      placeholder="Ceritakan apa yang ingin kamu diskusikan..."
+                      minlength="20" required 
+                      aria-required="true"
+                      aria-describedby="pesan-hint"></textarea>
+            <p id="pesan-hint" class="field-hint">
+              Minimal 20 karakter. Jelaskan proyek atau pertanyaanmu secara singkat.
+            </p>
+          </div>
+        </fieldset>
+
+        <div class="form-group form-group--checkbox">
+          <input type="checkbox" id="setuju" name="persetujuan"
+                 value="setuju" required aria-required="true" />
+          <label for="setuju">
+            Saya menyetujui bahwa data yang saya kirim akan digunakan 
+            untuk keperluan balasan kontak ini saja.
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            🚀 Kirim Pesan
+          </button>
+          <button type="reset" class="btn btn-secondary">
+            Hapus Isian
+          </button>
+        </div>
+      </form>
+
+      <p class="contact-alt">
+        Atau hubungi langsung: 
+        <a href="mailto:rizki@example.com">rizki@example.com</a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ===================== 4. SITE FOOTER ===================== -->
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+
+    <div class="footer-brand">
+      <p class="footer-name">Rizki Pratama</p>
+      <p class="footer-tagline">Junior Web Developer · Jakarta</p>
+    </div>
+
+    <nav aria-label="Navigasi footer">
+      <a href="/">Beranda</a>
+      <a href="projects.html">Proyek Saya</a>
+      <a href="#kontak">Hubungi Saya</a>
+    </nav>
+
+    <address>
+      <p>
+        Email: <a href="mailto:rizki@example.com">rizki@example.com</a>
+      </p>
+      <ul class="social-links" aria-label="Link media sosial">
+        <li>
+          <a href="https://github.com/rizkipratama" 
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Profil GitHub Rizki Pratama (terbuka di tab baru)">
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/rizkipratama" 
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Profil LinkedIn Rizki Pratama (terbuka di tab baru)">
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </address>
+
+    <p class="footer-copy">
+      &copy; <time datetime="2026">2026</time> Rizki Pratama. 
+      Dibangun dengan HTML5 yang semantic dan aksesibel.
+    </p>
+
+  </footer>
+
+</body>
+</html>
 ```
 
-Jalankan dengan perintah:
-```text
-tsx src/bab10/studi-kasus-main.ts
+---
+
+## 🔍 Analisis: Mengapa Setiap Perubahan Dibuat?
+
+1. **Skip Navigation Link di paling atas `<body>`** — memungkinkan pengguna keyboard melompati navigasi header dan langsung loncat ke `<main>` hanya dengan 2 ketukan tombol (`Tab` → `Enter`).
+2. **`<main tabindex="-1">`** — `tabindex="-1"` memastikan kursor kuisor keyboard benar-benar berpindah ke elemen `<main>` saat skip link diklik, terlepas dari browser yang digunakan.
+3. **`:focus-visible` CSS** — memastikan garis fokus tetap ada untuk pengguna keyboard tanpa mengganggu pengguna mouse.
+4. **`aria-describedby="pesan-hint"` pada textarea** — screen reader akan otomatis membaca petunjuk "Minimal 20 karakter..." saat kursor berpindah ke kotak pesan.
+5. **`aria-live="polite"` pada `#form-status`** — saat JavaScript mengisi pesan "Pesan berhasil dikirim", screen reader mengumumkannya tanpa menginterupsi pengguna.
+6. **`aria-label` yang menyebut "(terbuka di tab baru)"** — memberitahu pengguna screen reader bahwa mengklik link ini akan membuka window/tab baru, sehingga mereka tidak kebingungan saat tombol Back tidak bekerja.
+
+---
+
+## ✅ Checklist Audit v1.0
+
+```
+☐ Skip navigation link ada sebagai elemen pertama di <body>
+☐ Tekan Tab dari awal → skip link muncul
+☐ Tekan Enter di skip link → fokus berpindah ke <main>
+☐ Tekan Tab terus → garis fokus terlihat jelas di setiap link/button/input
+☐ Tidak ada button atau link yang tidak punya teks/label
+☐ Semua gambar punya alt text yang bermakna
+☐ Gambar dekoratif punya alt=""
+☐ Semua input form punya <label> yang terhubung via for↔id
+☐ Semua link eksternal (target="_blank") punya rel="noopener noreferrer"
+☐ Semua link eksternal menginformasikan "buka di tab baru" via aria-label
+☐ HTML lolos W3C Validator tanpa error
 ```
 
 ---
 
-## Penjelasan Baris per Baris
-
-- `export interface DataTugas` — Interface diekspor agar tipenya bisa dipakai di file program utama.
-- `import { ... } from "./api-service"` — Mengimpor fungsi fetch dan interface secara bersamaan (Named Import).
-- `for (const id of daftarId) { const tugas = await ... }` — Menggunakan loop `for...of` bersama `await` di dalamnya. Setiap putaran loop akan menunggu fetch id tersebut selesai sebelum lanjut ke id berikutnya. Ini memastikan data dicetak rapi berurutan.
-- `tugas.title.substring(0, 20)` — Memotong judul tugas agar tidak terlalu panjang saat ditampilkan di kolom terminal.
-
----
-
-## Kesalahan yang Sering Terjadi
-
-### ❌ Mengirim data relasi dengan tipe yang tidak cocok
-Seringkali pemula mengira data API eksternal langsung memiliki tipe data yang otomatis terjamin tanpa perlu diverifikasi. TypeScript hanya memeriksa kesesuaian saat kompilasi. Jika server web mengembalikan format yang berbeda dari interface, data properti yang kita akses bisa bernilai `undefined` tanpa ada error dari compiler.
-
----
-
-## Latihan
-
-Kembangkan program studi kasus ini:
-1. Ganti daftar ID tugas di `buatLaporanTugas([1, 2, 3, 4])` menjadi ID tugas genap saja: `[2, 4, 6, 8]`.
-2. Jalankan kembali program dan perhatikan perubahan statistik tugas selesai di terminal.
-
----
-
-## Ringkasan
-
-- Module memisahkan kode pemrosesan API (`api-service.ts`) dari tampilan (`studi-kasus-main.ts`).
-- Menggunakan `for...of` bersama `await` mengalirkan proses async berurutan.
-- Blok `try...catch` melindungi program utama agar tidak mati saat server gagal dihubungi.
-
-:::tip[Langkah Selanjutnya]
-Lanjut ke **Mini Project** untuk membuat Generic Academic Repository terpadu menggunakan module dan async.
-:::
+**[Lanjut: Mini Project →](/bab10/mini-project/)**

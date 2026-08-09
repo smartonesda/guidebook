@@ -1,125 +1,169 @@
-﻿---
-title: "Challenge BAB 7"
-description: Sepuluh latihan pemrosesan data menggunakan Interface, Type Alias, Union, dan Enum di TypeScript.
+---
+title: "Challenge"
+description: Tantangan berjenjang untuk menguji pemahaman mendalam tentang HTML Attributes — dari identifikasi hingga analisis, dari boolean hingga ARIA.
 ---
 
-## Tujuan Pembelajaran
+Challenge BAB 7 ini dirancang bukan untuk mengetes hafalanmu tentang nama-nama attribute — melainkan untuk menguji apakah kamu **benar-benar mengerti cara berpikir** tentang attribute HTML.
 
-Setelah mengerjakan challenge ini, kamu dapat menerapkan Interface, Type Alias, Extends, Readonly, Union, dan Enum untuk mendesain struktur data yang aman dan modular.
+Ada 5 tantangan dari berbagai tingkat kesulitan.
 
 ---
 
-## Aturan Challenge
+## 🎯 Tujuan Challenge
 
-:::tip[Cara Mengerjakan]
-Buat satu file per soal di folder `src/bab7/challenge/`. Contoh: `src/bab7/challenge/soal-1.ts`.
+Setelah menyelesaikan semua tantangan ini, kamu akan mampu:
+- Membaca sebuah baris HTML dan mengidentifikasi setiap bagiannya secara tepat.
+- Menemukan dan memperbaiki attribute yang salah, hilang, atau berlebihan.
+- Menjelaskan mengapa sebuah attribute ada — bukan hanya apa attribute itu.
+- Memilih attribute yang tepat berdasarkan konteks dan kebutuhan.
 
-Jalankan dengan:
-```text
-tsx src/bab7/challenge/soal-1.ts
+---
+
+## 🔴 Challenge 1: Bedah HTML Baris per Baris (20 poin)
+
+Untuk setiap baris HTML di bawah ini, identifikasi secara lengkap:
+- Nama **element**
+- Semua **attribute**
+- Semua **attribute value** (pasangkan dengan attribute-nya)
+- **Content** (jika ada)
+- Tipe setiap attribute: apakah **attribute biasa** atau **boolean attribute**?
+
+```html
+<!-- Baris 1 -->
+<a href="https://github.com/rizki" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+
+<!-- Baris 2 -->
+<input type="number" id="jumlah-tiket" name="qty" min="1" max="10" value="1" required />
+
+<!-- Baris 3 -->
+<video src="demo-portfolio.mp4" width="640" height="360" controls muted loop></video>
+
+<!-- Baris 4 -->
+<img src="foto.jpg" alt="Foto proyek website sekolah" loading="lazy" class="project-image" />
+
+<!-- Baris 5 -->
+<button type="submit" class="btn btn-primary" data-form-id="kontak" aria-label="Kirim pesan kontak">
+  🚀 Kirim
+</button>
 ```
-:::
 
 ---
 
-## Challenge 1 — Interface Siswa Dasar
+## 🟡 Challenge 2: Temukan Semua Kesalahan (20 poin)
 
-**Tingkat: Mudah**
+Kode di bawah ini mengandung **8 kesalahan attribute**. Temukan semuanya dan tulis versi yang benar beserta penjelasannya.
 
-Buat sebuah interface `Siswa` dengan properti: `nama` (string) dan `umur` (number). Buat satu objek siswa nyata yang mematuhinya dan tampilkan.
+```html
+<!DOCTYPE html>
+<html>  <!-- kesalahan? -->
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+</head>
+<body>
 
----
+  <!-- Navigasi -->
+  <div>
+    <a href="/">Beranda</a>
+    <a href="/proyek">Proyek</a>
+    <a href="https://github.com/user" target="_blank">GitHub</a>  <!-- kesalahan? -->
+  </div>
 
-## Challenge 2 — Extended Interface Karyawan
+  <!-- Profil -->
+  <img src="foto.jpg">  <!-- kesalahan? -->
 
-**Tingkat: Mudah**
+  <!-- Form -->
+  <form method="GET" action="/login">  <!-- kesalahan? -->
+    <label>Email:</label>  <!-- kesalahan? -->
+    <input type="email" id="email" placeholder="Email kamu" required="true">  <!-- kesalahan? -->
+    
+    <input type="checkbox" name="ingat" id="cb-ingat" value="ya">
+    <label>Ingat saya</label>  <!-- kesalahan? -->
+    
+    <button>Masuk</button>  <!-- kesalahan? -->
+  </form>
 
-1. Buat base interface `Orang` (nama, umur).
-2. Buat interface `Karyawan` yang meng-extends `Orang` dan menambah properti `nip` (number) dan `jabatan` (string).
-3. Buat objek karyawan dan tampilkan hasilnya.
-
----
-
-## Challenge 3 — Properti Opsional Mobil
-
-**Tingkat: Mudah**
-
-Buat interface `Mobil` dengan properti wajib `merk` dan properti opsional `pemilik` (string). Buat satu objek mobil tanpa pemilik, dan satu objek dengan pemilik. Tampilkan nama pemilik secara aman menggunakan nullish coalescing `??`.
-
----
-
-## Challenge 4 — Kunci ID Produk (Readonly)
-
-**Tingkat: Mudah**
-
-Buat interface `Produk` dengan properti `readonly id: string` dan properti biasa `harga: number`. Buat satu objek produk. Ubah harga produk tersebut, lalu coba ubah `id`-nya dan pastikan TypeScript melarangnya (tuliskan komentar tentang pesan errornya).
-
----
-
-## Challenge 5 — Type Alias ID Karyawan (Union)
-
-**Tingkat: Mudah**
-
-Buat tipe alias `IDKaryawan` yang bertipe gabungan `string | number`. Buat fungsi `cetakID(id)` yang menerima parameter bertipe tersebut dan menggunakan `typeof` untuk menampilkan pesan kustom berbeda bagi string dan number.
+</body>
+</html>
+```
 
 ---
 
-## Challenge 6 — Intersection Koordinat Dimensi
+## 🟠 Challenge 3: Pilih Attribute yang Tepat (20 poin)
 
-**Tingkat: Menengah**
+Untuk setiap situasi berikut, tulis kode HTML yang menggunakan attribute yang paling tepat:
 
-Buat tipe alias `DimensiX` `{ x: number }` dan `DimensiY` `{ y: number }`. Gabungkan keduanya menggunakan intersection `&` menjadi tipe `TitikDuaDimensi`. Buat objek titik koordinatnya dan tampilkan.
+**Situasi A:** Kamu punya tombol dengan ikon saja (tidak ada teks):
+```html
+<button>🗑️</button>
+```
+Tambahkan attribute yang diperlukan agar pengguna screen reader tahu fungsi tombol ini adalah "Hapus item".
 
----
+**Situasi B:** Kamu punya daftar produk. Setiap item produk perlu menyimpan ID dan harga produk agar JavaScript bisa membacanya saat tombol "Beli" diklik. Tulis struktur yang benar.
 
-## Challenge 7 — Menu Kopi dengan Literal Type
+**Situasi C:** Kamu punya link "Lihat PDF" yang membuka file PDF di tab baru. Tulis link yang lengkap dengan semua attribute yang tepat untuk keamanan dan aksesibilitas.
 
-**Tingkat: Menengah**
+**Situasi D:** Kamu punya area section "Berita Terbaru" yang kontennya diperbarui via JavaScript secara berkala. Tambahkan attribute ARIA yang tepat agar screen reader mengumumkan perubahan konten secara otomatis.
 
-Buat tipe alias `UkuranKopi` yang membatasi nilai hanya boleh: `"S"`, `"M"`, atau `"L"`. Buat objek `pesananKopi` dengan properti `namaPelanggan` dan `ukuran` bertipe kustom tersebut. Coba ubah ukuran menjadi `"XL"` dan amati error compile-nya.
-
----
-
-## Challenge 8 — Enum Status Pengiriman
-
-**Tingkat: Menengah**
-
-Buat enum `StatusKirim` dengan nilai: `Proses` = "PROSES", `Kirim` = "DIKIRIM", `Selesai` = "SELESAI". Buat objek `paket` (resi, status) yang statusnya mengambil nilai dari enum tersebut. Tampilkan status kirimnya.
+**Situasi E:** Kamu ingin membuat input yang menampilkan nilai default "Indonesia" tapi masih bisa diubah pengguna. Tulis kode yang benar dengan semua attribute yang diperlukan termasuk label aksesibel.
 
 ---
 
-## Challenge 9 — Interface Function Calculator
+## 🔵 Challenge 4: id vs class vs name — Kapan Mana? (20 poin)
 
-**Tingkat: Menengah**
+Baca setiap pernyataan berikut dan tentukan: **Benar atau Salah?** Lalu jelaskan mengapa.
 
-Buat interface `Operasi` yang mendefinisikan bentuk fungsi: menerima dua parameter number dan mengembalikan number. Implementasikan interface tersebut pada fungsi `tambah`, `kurang`, dan `kali`. Tampilkan hasil perhitungan ketiganya untuk angka 12 dan 3.
-
----
-
-## Challenge 10 — Database Inventaris Sekolah
-
-**Tingkat: Menengah**
-
-Buatlah sistem tipe data inventaris sekolah sederhana:
-- Buat enum `KategoriBarang` (Elektronik, Furnitur, ATK).
-- Buat interface `Barang` (id string/number, nama string, kategori KategoriBarang, jumlah number).
-- Buat array berisi 4 barang inventaris.
-- Buat fungsi `tampilkanElektronik(daftar: Barang[])` yang memfilter dan menampilkan barang kategori Elektronik.
+1. Dua element berbeda di satu halaman boleh memiliki `class` yang sama.
+2. Dua element berbeda di satu halaman boleh memiliki `id` yang sama asalkan mereka berbeda jenis element (misalnya `<div id="nama">` dan `<p id="nama">`).
+3. Attribute `name` dibutuhkan oleh CSS untuk menarget element.
+4. Attribute `id` pada input form dikirim ke server bersama datanya saat form di-submit.
+5. Satu `<input>` boleh tidak memiliki `id` selama ia punya `name`.
+6. `class="btn active selected"` artinya element ini punya tiga class sekaligus.
+7. Untuk membuat anchor link internal (`href="#bagian"`), element target harus memiliki `id`, bukan `class`.
+8. `name` dan `id` pada sebuah input sebaiknya selalu memiliki nilai yang sama.
 
 ---
 
-## Latihan
+## ⚫ Challenge 5: Analisis Mendalam (20 poin)
 
-Pilih satu challenge di atas yang menurutmu paling sulit. Buat coretan alur prosesnya di kertas, lalu tulis ulang kode solusinya dari nol tanpa melihat petunjuk.
+Jawab pertanyaan berikut dalam bentuk tulisan analitis (bukan sekadar satu kalimat):
+
+**Pertanyaan 1:**
+Jelaskan perbedaan antara `aria-label` dan `aria-labelledby`. Kapan kamu akan memilih menggunakan `aria-label` dan kapan `aria-labelledby`? Berikan contoh kasus nyata untuk masing-masing.
+
+**Pertanyaan 2:**
+Seorang developer menulis kode berikut:
+```html
+<div 
+  class="tombol-submit" 
+  style="background: blue; color: white; padding: 10px 20px; cursor: pointer;"
+  onclick="kirimForm()"
+>
+  Kirim
+</div>
+```
+Analisis: Apa masalah dengan pendekatan ini dari perspektif (a) aksesibilitas, (b) maintainability, dan (c) semantic HTML? Tulis versi yang lebih baik.
+
+**Pertanyaan 3:**
+Kamu diberikan kode berikut:
+```html
+<input type="text" data-href="/profil" data-target="modal" data-src="foto.jpg" />
+```
+Apa yang salah dengan penggunaan `data-*` di sini? Tulis versi yang benar.
 
 ---
 
-## Ringkasan
+## 📊 Rubrik Penilaian
 
-- Latihan challenge mengasah pemahaman static typing TypeScript.
-- Gunakan TSX untuk verifikasi hasil secara mandiri.
-- Pahami perbedaan extends dan intersection.
+| Challenge | Poin | Kriteria |
+|---|---|---|
+| 1: Bedah HTML | 20 | Identifikasi tepat semua element, attribute, value, content, tipe attribute |
+| 2: Temukan Kesalahan | 20 | Menemukan semua 8 kesalahan + penjelasan + perbaikan |
+| 3: Pilih Attribute | 20 | Kode yang tepat + attribute yang relevan + penjelasan |
+| 4: id vs class | 20 | Jawaban benar/salah + penjelasan yang akurat |
+| 5: Analisis | 20 | Jawaban mendalam, tidak hanya definisi, disertai contoh |
+| **Total** | **100** | |
 
-:::tip[Langkah Selanjutnya]
-Lanjut ke **Error Corner** untuk belajar menghindari kesalahan fatal.
-:::
+---
+
+**[Lanjut: Error Corner →](/bab7/error-corner/)**

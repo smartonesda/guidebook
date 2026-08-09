@@ -1,122 +1,178 @@
-﻿---
-title: "Ringkasan BAB 7"
-description: Rangkuman lengkap materi BAB 7 — interface cheat sheet, type alias cheat sheet, tabel perbandingan, dan latihan penutup.
+---
+title: "Ringkasan"
+description: Rekap lengkap konsep HTML Attributes — dari anatomi hingga global attributes, id vs class, boolean attributes, data-*, dan ARIA dasar.
 ---
 
-## Selamat! 🎉
+Selamat! Kamu telah menyelesaikan **BAB 7 — HTML Attributes** 🎉
 
-Kamu telah menyelesaikan **BAB 7: Interface & Type Alias**! Ini adalah bab penutup kelompok pemodelan data struktural. Kamu sekarang telah menguasai seluruh konsep yang mendefinisikan identitas utama dari bahasa TypeScript dibanding JavaScript biasa.
+Ini adalah bab di mana HTML berhenti terasa seperti "tempel saja attribute yang kelihatannya cocok" dan mulai terasa seperti **bahasa yang punya logika dan aturan yang jelas**.
 
----
-
-## Interface Cheat Sheet
-
-### Deklarasi & Implementasi
-
-```ts
-interface Siswa {
-  readonly nis: number;
-  nama: string;
-  email?: string; // opsional
-}
-
-const s: Siswa = { nis: 1001, nama: "Putra" }
-```
-
-### Pewarisan (Extends)
-
-```ts
-interface Orang { nama: string }
-interface Guru extends Orang { nip: number }
-```
+Mari rekap semua yang sudah dipelajari.
 
 ---
 
-## Type Alias Cheat Sheet
+## 🔬 Konsep Paling Fundamental
 
-### Deklarasi Objek & Primitif
+### Empat Hal yang Berbeda
 
-```ts
-type Tahun = number;
-type Siswa = { nama: string };
+```html
+<h1 id="hero" class="heading primary">Selamat Datang</h1>
 ```
 
-### Union (`|`) & Intersection (`&`)
-
-```ts
-type ID = string | number; // Union (ATAU)
-type Staf = Identitas & Karyawan; // Intersection (DAN)
-```
-
-### Literal & Enum
-
-```ts
-type Status = "Lulus" | "Remedial";
-
-enum Peran {
-  Siswa = "SISWA",
-  Guru = "GURU"
-}
-```
-
----
-
-## Tabel Perbandingan Akhir
-
-| Fitur | `interface` | `type` Alias |
+| Bagian | Contoh | Nama |
 |---|---|---|
-| Tujuan Utama | Mendefinisikan kontrak objek | Memberikan alias tipe kustom |
-| Sintaks `=` | Tanpa `=` | Wajib memakai `=` |
-| Penggabungan (Merging) | Bisa (otomatis digabung jika nama sama) | Tidak bisa (error duplicate identifier) |
-| Union (`\|`) | Tidak bisa langsung | Bisa (sangat sering digunakan) |
-| Primitif / Tuple | Tidak bisa | Bisa |
-| Pewarisan | `extends` | `&` (intersection) |
+| Nama tag | `h1` | **Element** |
+| Konfigurasi | `id`, `class` | **Attribute** |
+| Nilai konfigurasi | `"hero"`, `"heading primary"` | **Attribute Value** |
+| Isi yang tampil | `Selamat Datang` | **Content** |
+
+### Cara Browser Memproses Attribute
+
+```
+HTML ditulis → Browser membaca attribute → Browser memutuskan:
+  - Perilaku apa? (href membuat link bisa diklik)
+  - CSS selektor mana? (id dan class)
+  - JS bisa menemukannya bagaimana? (id, class, data-*)
+  - Screen reader membaca apa? (alt, aria-label, role)
+```
 
 ---
 
-## Kapan Memakai Mana?
+## 🌐 Global Attributes Penting
 
-- Gunakan **`interface`** secara default jika kamu merancang objek standar yang akan diwarisi (`extends`) oleh tipe objek lain atau `class` OOP.
-- Gunakan **`type`** jika kamu membutuhkan union type (`string | number`), literal type, atau alias tipe primitif sederhana.
-
----
-
-## Checklist BAB 7
-
-- [ ] Memahami perbedaan fungsi Interface dan Type Alias
-- [ ] Bisa membuat `interface` objek standar
-- [ ] Bisa menggunakan `interface` sebagai parameter function
-- [ ] Bisa menggunakan `extends` untuk pewarisan interface
-- [ ] Menggunakan properti opsional `?` pada interface
-- [ ] Menggunakan `readonly` untuk mengunci nilai properti
-- [ ] Bisa membuat `type` alias
-- [ ] Menguasai union type `|` dan type guarding `typeof`
-- [ ] Menguasai intersection type `&` untuk menggabungkan type objek
-- [ ] Menggunakan literal type untuk membatasi opsi nilai
-- [ ] Bisa membuat dan menggunakan `enum`
-- [ ] Menyelesaikan Studi Kasus dan Mini Project
-- [ ] Menyelesaikan 10 Challenge BAB 7
+| Attribute | Fungsi | Catatan |
+|---|---|---|
+| `id` | Identitas unik element | Tidak boleh duplikat |
+| `class` | Label kategori | Bisa banyak, dipisah spasi |
+| `style` | Inline CSS | Gunakan hemat-hemat |
+| `title` | Tooltip hover | Tidak muncul di touch device |
+| `lang` | Bahasa konten | Wajib di `<html>` |
+| `dir` | Arah teks | `ltr`, `rtl`, `auto` |
+| `tabindex` | Urutan Tab keyboard | `0`, `-1`, hindari positif |
+| `hidden` | Sembunyikan element | Dari visual DAN screen reader |
+| `contenteditable` | Konten bisa diedit | `"true"` atau `"false"` |
 
 ---
 
-## Latihan Penutup
+## 🔀 Perbedaan id, class, name, value
 
-Tanpa melihat panduan, buat file `src/bab7/review-bab7.ts`:
-
-1. Buat enum `KategoriBuku` (Komputer, Novel, Sains).
-2. Buat interface `Dokumen` (readonly id string/number, judul string).
-3. Buat interface `Buku` yang meng-extends `Dokumen` dan menambah properti `kategori` (KategoriBuku) serta properti opsional `penulis` (string).
-4. Buat objek `bukuA` lengkap bertipe `Buku`.
-5. Buat fungsi `cetakBuku(b: Buku)` yang menampilkan detail buku dan aman dari error properti opsional menggunakan `??`. Tampilkan hasilnya.
+| | `id` | `class` | `name` | `value` |
+|---|---|---|---|---|
+| **Fungsi** | Identitas unik | Label kategori | Kunci data server | Nilai yang dibawa |
+| **Duplikat?** | ❌ | ✅ | ✅ (radio) | ✅ |
+| **Ke server?** | ❌ | ❌ | ✅ | ✅ |
+| **CSS pakai?** | ✅ `#id` | ✅ `.class` | ❌ | ❌ |
+| **Anchor link?** | ✅ | ❌ | ❌ | ❌ |
+| **Spasi?** | ❌ | ✅ (pisah class) | ❌ | Tergantung |
 
 ---
 
-## Pesan untuk Kamu
+## 🔘 Boolean Attributes
 
-Dengan menyelesaikan BAB 7, kamu kini telah memahami mengapa TypeScript menjadi bahasa favorit perusahaan teknologi skala besar. Kemampuannya merancang tipe data terstruktur dengan `interface` dan `type` alias membuat kode aman dari error tipe, terstandardisasi, dan sangat mudah dipelihara.
+Boolean attribute: cukup ditulis namanya — tidak perlu nilai.
 
-Persiapkan dirimu untuk petualangan berikutnya. Teruslah berkarya!
+```html
+<!-- Ada = aktif -->
+<input required />
+<button disabled />
 
-:::tip[Selesai BAB 7]
-Selamat! Seluruh materi BAB 7 telah selesai. Laporkan hasil belajarmu kepada guru.
-:::
+<!-- Tidak ada = tidak aktif -->
+<input />
+<button />
+```
+
+**Daftar boolean attribute penting:**
+`required`, `disabled`, `readonly`, `checked`, `selected`, `multiple`, `hidden`, `open`, `controls`, `autoplay`, `muted`, `loop`, `novalidate`, `defer`, `async`
+
+**Kesalahan kritis:** `required="false"` → attribute tetap **aktif**. Hapus attribute-nya jika ingin menonaktifkan.
+
+---
+
+## 📦 Custom data-* Attributes
+
+```html
+<div data-id="42" data-status="aktif" data-kategori="web">...</div>
+```
+
+```javascript
+element.dataset.id;        // "42"
+element.dataset.status;    // "aktif"
+element.dataset.kategori;  // "web"
+```
+
+| Aspek | Detail |
+|---|---|
+| Format | `data-nama-kustom="nilai"` |
+| Nama | Huruf kecil, tanda hubung pemisah kata |
+| Akses JS | `dataset.namaKustom` (camelCase) |
+| Akses CSS | `[data-nama]` selector |
+| Gunakan untuk | Data kustom yang butuh dibaca JS/CSS |
+| Jangan untuk | Menggantikan attribute standar, data sensitif |
+
+---
+
+## 🦮 ARIA Attributes Dasar
+
+| Attribute | Fungsi |
+|---|---|
+| `role` | Peran semantik element |
+| `aria-label` | Label teks untuk screen reader |
+| `aria-labelledby` | Referensi ke element label |
+| `aria-describedby` | Referensi ke element deskripsi |
+| `aria-hidden` | Sembunyikan dari screen reader |
+| `aria-expanded` | Status buka/tutup komponen |
+| `aria-live` | Umumkan perubahan konten dinamis |
+
+**Aturan utama ARIA:**
+1. Gunakan HTML semantik lebih dulu — ARIA hanya untuk yang tidak ada element-nya.
+2. ARIA salah lebih buruk dari tidak ada ARIA.
+3. Element yang bisa difokus jangan pernah `aria-hidden="true"`.
+
+---
+
+## 📐 Hierarki Pemahaman Attribute
+
+```
+ELEMENT (apa objeknya?)
+    ↓
+ATTRIBUTE (konfigurasi apa?)
+    ↓
+ATTRIBUTE VALUE (nilai konfigurasinya berapa/apa?)
+    ↓
+BROWSER INTERPRETATION (browser baca dan putuskan apa?)
+    ↓
+BEHAVIOR / PRESENTATION / SEMANTIC / ACCESSIBILITY
+```
+
+HTML bukan sekadar teks yang ditulis untuk manusia — ia adalah instruksi terstruktur yang browser baca untuk memahami maksud setiap element dan bagaimana harus memperlakukannya.
+
+---
+
+## ✅ Checklist Penggunaan Attribute yang Baik
+
+```
+☐ Tidak ada id yang duplikat di satu halaman
+☐ class digunakan untuk elemen berulang, bukan id
+☐ name ada pada semua input dalam form
+☐ Boolean attribute ditulis tanpa nilai (required, bukan required="true")
+☐ target="_blank" selalu diikuti rel="noopener noreferrer"
+☐ Semua img punya alt yang deskriptif
+☐ data-* digunakan untuk data kustom, bukan penggantian attribute standar
+☐ Icon-only button punya aria-label
+☐ tabindex positif tidak digunakan tanpa alasan kuat
+☐ aria-hidden tidak digunakan pada element yang bisa difokus
+```
+
+---
+
+## ➡ Handoff ke BAB 8 — Semantic HTML
+
+Di BAB 7 ini, kita sudah memahami bahwa attribute memberikan **informasi tambahan** kepada browser tentang bagaimana sebuah element harus diperlakukan.
+
+Tapi ada dimensi lain dari "memberi makna pada HTML" yang belum kita bahas secara khusus: **pilihan element itu sendiri**.
+
+Menggunakan `<div>` untuk semua hal versus menggunakan `<nav>`, `<header>`, `<main>`, `<section>`, `<article>`, `<footer>` — keduanya bisa terlihat sama di layar, tapi browser, search engine, dan screen reader memperlakukan keduanya secara sangat berbeda.
+
+Di **BAB 8 — Semantic HTML**, kita akan membahas bagaimana memilih element HTML yang tepat agar HTML kita memiliki **makna** yang bisa dipahami oleh mesin dan teknologi asistif — bukan hanya oleh mata manusia.
+
+**[Lanjut ke BAB 8 — Semantic HTML →](/bab8/introduction/)**

@@ -1,267 +1,140 @@
-﻿---
-title: "Mini Project: Aplikasi Sistem Akademik Berbasis OOP"
-description: Membangun aplikasi manajemen data akademik sekolah interaktif menggunakan konsep Class, Inheritance, Getter/Setter, dan Array of Objects di TypeScript.
+---
+title: "Mini Project"
+description: Refactor portfolio pribadi menjadi semantic HTML yang lengkap — dari div-first menjadi struktur yang bermakna dengan header, nav, main, section, article, aside, dan footer.
 ---
 
-## Tujuan Pembelajaran
-Setelah menyelesaikan mini project ini, kamu diharapkan dapat:
-- Menggabungkan seluruh konsep OOP (Class, Constructor, Inheritance, Getter/Setter, Static) dalam satu aplikasi nyata.
-- Memproses data koleksi bertipe objek secara dinamis.
-- Memisahkan fungsi dan tanggung jawab kode secara modular dan terstruktur.
+Saatnya melakukan refactor pada portfolio pribadimu!
 
----
-
-## Pendahuluan
-
-Kita akan membangun aplikasi **Sistem Akademik Sekolah (SIAKAD) Interaktif** berbasis terminal. Aplikasi ini akan mensimulasikan penyimpanan database sekolah yang menampung data guru dan siswa, menghitung kelulusan, dan mencetak laporan rapi.
-
-Project ini memadukan seluruh pilar pemrograman dari BAB 1 sampai BAB 8 untuk menghasilkan software yang kokoh dan mudah dirawat.
+Di Studi Kasus, kita sudah melihat bagaimana portfolio fiktif Rizki diubah menjadi semantic. Sekarang giliran kamu melakukan hal yang sama pada portfolio pribadimu — file `index.html` yang sudah dibangun dari BAB 1 hingga BAB 7.
 
 ---
 
-## Rancangan Struktur Aplikasi
+## 🎯 Deskripsi Mini Project
 
-Aplikasi ini dibangun dari class-class berikut:
+**Portfolio v0.8 — Semantic HTML Refactor**
 
-1. **`interface IIdentitas`** — Kontrak dasar properti nama dan umur (BAB 7).
-2. **`abstract class Manusia`** — Mengimplementasikan `IIdentitas` (BAB 8).
-3. **`class Siswa`** — Turunan dari `Manusia`, memiliki properti nilai terenkapsulasi dengan getter-setter.
-4. **`class Guru`** — Turunan dari `Manusia`, memiliki properti NIP dan mata pelajaran.
-5. **`class RombonganBelajar`** — Mengelola data rombel kelas, menampung wali kelas, dan mengelola array siswa (tambah, update, hapus, cetak statistik).
+Kamu tidak perlu membuat file baru. Buka `index.html` dan `projects.html` yang sudah ada, lalu lakukan refactor untuk memastikan seluruh struktur menggunakan semantic HTML yang tepat.
+
+Tujuannya bukan mengubah tampilan — melainkan **membuat struktur yang bermakna** bagi browser, screen reader, dan search engine.
 
 ---
 
-## Mari Mencoba: Implementasi Program SIAKAD Lengkap
+## 📋 Requirements Wajib
 
-Buat file baru bernama `src/bab8/aplikasi-siakad.ts`:
+### A. Struktur Halaman Utama (40 poin)
 
-```ts
-// =====================================================
-// MINI PROJECT: APLIKASI SISTEM AKADEMIK BERBASIS OOP
-// Menggabungkan BAB 1 s.d. BAB 8
-// =====================================================
+- [ ] Ada satu `<header>` sebagai site header yang berisi brand/logo dan `<nav>` utama.
+- [ ] `<nav>` utama memiliki `aria-label="Navigasi utama"` dan `aria-current="page"` pada link aktif.
+- [ ] Ada satu `<main>` yang membungkus seluruh konten utama.
+- [ ] Setiap bagian konten utama (Tentang, Keahlian, Proyek, Kontak) berada dalam `<section>` tersendiri dengan `id` dan `aria-labelledby`.
+- [ ] Ada satu `<footer>` site yang berisi `<nav>` footer, `<address>`, dan info copyright dengan `<time>`.
+- [ ] `<hr>` tidak digunakan sebagai visual separator — separator lewat CSS.
 
-// 1. Interface dasar (BAB 7)
-interface IIdentitas {
-  nama: string;
-  umur: number;
-}
+### B. Konten Semantik (35 poin)
 
-// 2. Class Induk Abstrak
-abstract class Manusia implements IIdentitas {
-  constructor(public nama: string, public umur: number) {}
+- [ ] Foto profil ada di dalam `<figure>` + `<figcaption>` yang deskriptif.
+- [ ] Setiap proyek yang ditampilkan di homepage menggunakan `<article>` dengan `<header>`, deskripsi, dan `<footer>` (link demo/github).
+- [ ] Tanggal proyek menggunakan `<time datetime="YYYY-MM">`.
+- [ ] Nama badge teknologi menggunakan `<span>` dengan class yang tepat (bukan div).
+- [ ] Informasi kontak di footer menggunakan `<address>`.
+- [ ] Singkatan seperti RPL menggunakan `<abbr title="...">`.
 
-  abstract dapatkanStatusPeran(): string;
-}
+### C. Aksesibilitas Semantic (25 poin)
 
-// 3. Class Anak: Guru
-class Guru extends Manusia {
-  constructor(
-    nama: string,
-    umur: number,
-    public nip: number,
-    public mataPelajaran: string
-  ) {
-    super(nama, umur);
-  }
+- [ ] Semua `<section>` memiliki heading yang dapat direferensikan via `aria-labelledby`.
+- [ ] Link eksternal (GitHub, demo) memiliki `target="_blank"`, `rel="noopener noreferrer"`, dan `aria-label` yang menjelaskan tujuan + "(tab baru)".
+- [ ] Form kontak ada di dalam `<section>` yang tepat, bukan melayang bebas di `<main>`.
+- [ ] HTML lolos W3C Validator tanpa error.
 
-  dapatkanStatusPeran(): string {
-    return `Guru ${this.mataPelajaran}`;
-  }
-}
+---
 
-// 4. Class Anak: Siswa dengan Enkapsulasi penuh
-class Siswa extends Manusia {
-  private _nilaiRataRata: number = 0;
+## 💡 Panduan Refactor Langkah demi Langkah
 
-  constructor(
-    nama: string,
-    umur: number,
-    public nis: number
-  ) {
-    super(nama, umur);
-  }
-
-  // Getter & Setter
-  get nilaiRataRata(): number {
-    return this._nilaiRataRata;
-  }
-
-  set nilaiRataRata(nilaiBaru: number) {
-    if (nilaiBaru >= 0 && nilaiBaru <= 100) {
-      this._nilaiRataRata = nilaiBaru;
-    } else {
-      console.log(`  [Validasi]: Nilai ${nilaiBaru} tidak valid untuk ${this.nama}!`);
-    }
-  }
-
-  dapatkanStatusPeran(): string {
-    return "Siswa Aktif";
-  }
-}
-
-// 5. Class Kelas (Rombongan Belajar)
-class RombonganBelajar {
-  private _daftarSiswa: Siswa[] = [];
-  public static totalKelasDibuat: number = 0; // Properti static (BAB 8)
-
-  constructor(
-    public namaKelas: string,
-    public waliKelas: Guru
-  ) {
-    RombonganBelajar.totalKelasDibuat++;
-  }
-
-  // Menambahkan siswa
-  public tambahSiswa(s: Siswa): void {
-    // Cek duplikasi NIS
-    const sudahAda = this._daftarSiswa.some((siswa) => siswa.nis === s.nis);
-    if (sudahAda) {
-      console.log(`  [SIAKAD]: Gagal tambah, NIS ${s.nis} sudah dipakai!`);
-      return;
-    }
-    this._daftarSiswa.push(s);
-    console.log(`  [SIAKAD]: Siswa "${s.nama}" berhasil masuk kelas ${this.namaKelas}.`);
-  }
-
-  // Menghapus siswa berdasarkan NIS
-  public hapusSiswa(nis: number): void {
-    const indeks = this._daftarSiswa.findIndex((s) => s.nis === nis);
-    if (indeks === -1) {
-      console.log(`  [SIAKAD]: Gagal hapus, siswa NIS ${nis} tidak ditemukan.`);
-      return;
-    }
-    const namaDihapus = this._daftarSiswa[indeks].nama;
-    this._daftarSiswa.splice(indeks, 1);
-    console.log(`  [SIAKAD]: Siswa "${namaDihapus}" (NIS ${nis}) berhasil dikeluarkan.`);
-  }
-
-  // Mengupdate nilai siswa
-  public updateNilaiSiswa(nis: number, nilaiBaru: number): void {
-    const siswa = this._daftarSiswa.find((s) => s.nis === nis);
-    if (siswa === undefined) {
-      console.log(`  [SIAKAD]: Gagal update, siswa NIS ${nis} tidak ditemukan.`);
-      return;
-    }
-    siswa.nilaiRataRata = nilaiBaru; // memanggil setter otomatis
-  }
-
-  // Menghitung statistik kelas
-  public hitungRataRataKelas(): number {
-    if (this._daftarSiswa.length === 0) return 0;
-    const total = this._daftarSiswa.reduce((acc, curr) => acc + curr.nilaiRataRata, 0);
-    return parseFloat((total / this._daftarSiswa.length).toFixed(2));
-  }
-
-  // Cetak laporan visual kelas
-  public tampilkanLaporan(): void {
-    console.log("=".repeat(55));
-    console.log(`      LAPORAN DATA KELAS: ${this.namaKelas.toUpperCase()}`);
-    console.log("=".repeat(55));
-    console.log(`  Wali Kelas   : ${this.waliKelas.nama}`);
-    console.log(`  Peran        : ${this.waliKelas.dapatkanStatusPeran()}`);
-    console.log(`  NIP          : ${this.waliKelas.nip}`);
-    console.log("-".repeat(55));
-    console.log("  No   NIS      Nama       Nilai    Status");
-    console.log("-".repeat(55));
-
-    if (this._daftarSiswa.length === 0) {
-      console.log("       (Belum ada siswa terdaftar)");
-    } else {
-      this._daftarSiswa.forEach((s, indeks) => {
-        const status = s.nilaiRataRata >= 75 ? "LULUS" : "REMEDIAL";
-        console.log(
-          `  ${(indeks + 1).toString().padEnd(4)}` +
-          `[${s.nis.toString().padEnd(4)}] ` +
-          `${s.nama.padEnd(10)} ` +
-          `${s.nilaiRataRata.toString().padEnd(8)} ` +
-          `[${status}]`
-        );
-      });
-    }
-
-    console.log("-".repeat(55));
-    console.log(`  Rata-rata Nilai Kelas : ${this.hitungRataRataKelas()}`);
-    console.log(`  Total Siswa Terdaftar : ${this._daftarSiswa.length}`);
-    console.log("=".repeat(55));
-  }
-}
-
-// =====================================================
-// RUNNING SIMULATION
-// =====================================================
-
-console.log("==============================================");
-console.log("   SISTEM INFORMASI AKADEMIK SMK AMANAH v3.0");
-console.log("==============================================");
-
-// 1. Instansiasi Wali Kelas (Guru)
-const pakBudi = new Guru("Pak Budi Santoso", 36, 1987002, "Web Development");
-
-// 2. Instansiasi Kelas Rombel
-const kelasXIRpl = new RombonganBelajar("XI RPL 1", pakBudi);
-
-// 3. Menambah Siswa-Siswa
-console.log("\n[Proses 1]: Pendaftaran Siswa Baru:");
-const s1 = new Siswa("Putra", 17, 1001);
-const s2 = new Siswa("Dewi", 16, 1002);
-const s3 = new Siswa("Citra", 17, 1003);
-
-kelasXIRpl.tambahSiswa(s1);
-kelasXIRpl.tambahSiswa(s2);
-kelasXIRpl.tambahSiswa(s3);
-
-// 4. Menginput Nilai Siswa via Method updateNilaiSiswa
-console.log("\n[Proses 2]: Input Nilai Awal:");
-kelasXIRpl.updateNilaiSiswa(1001, 88); // Putra
-kelasXIRpl.updateNilaiSiswa(1002, 60); // Dewi
-kelasXIRpl.updateNilaiSiswa(1003, 95); // Citra
-
-// 5. Cetak Laporan Pertama
-kelasXIRpl.tampilkanLaporan();
-
-// 6. Uji Coba Update & Validasi Setter
-console.log("\n[Proses 3]: Remediasi Nilai Dewi:");
-kelasXIRpl.updateNilaiSiswa(1002, 80); // Berhasil update
-kelasXIRpl.updateNilaiSiswa(1001, 150); // Gagal (Validasi terpicu!)
-
-// 7. Uji Coba Hapus Siswa (Keluarkan dari Kelas)
-console.log("\n[Proses 4]: Mengeluarkan Siswa NIS 1003 (Citra):");
-kelasXIRpl.hapusSiswa(1003);
-
-// 8. Cetak Laporan Akhir
-kelasXIRpl.tampilkanLaporan();
-
-console.log(`\nStatistik Global: Total Kelas yang Dibuat = ${RombonganBelajar.totalKelasDibuat}`);
+**Langkah 1:** Periksa struktur top-level
+```
+✓ body → header + main + footer
+✗ body → div + div + div
 ```
 
-Jalankan dengan perintah:
-```text
-tsx src/bab8/aplikasi-siakad.ts
+**Langkah 2:** Periksa navigasi
+```
+✓ <nav aria-label="...">
+✗ <p> dengan pemisah |
+✗ <ul> tanpa pembungkus nav
+```
+
+**Langkah 3:** Periksa konten di dalam main
+```
+✓ section#tentang > h2 + konten
+✓ section#keahlian > h2 + konten
+✓ section#proyek > h2 + div.project-grid > article × n
+✓ section#kontak > h2 + form
+✗ h2 langsung di dalam main tanpa section
+```
+
+**Langkah 4:** Periksa setiap proyek
+```
+✓ article.project-card > header + p + footer
+✗ div.project-card > h3 + p + a
+```
+
+**Langkah 5:** Periksa footer
+```
+✓ footer > nav + address + p (copyright)
+✗ footer > p (semua dalam satu paragraf)
 ```
 
 ---
 
-## Penjelasan Alur Kode
+## 🚫 Larangan
 
-1. **Interface & Abstract Class**: `Manusia` mengimplementasikan `IIdentitas` dan mewariskan properti ke `Guru` dan `Siswa`. Ini meminimalkan duplikasi properti dasar.
-2. **Enkapsulasi Nilai**: Nilai siswa tidak diakses langsung dari luar. Method `updateNilaiSiswa` pada kelas memanggil setter `nilaiRataRata` yang memiliki filter keamanan `0-100`.
-3. **Database Kelas Terisolasi**: Array `_daftarSiswa` bertipe `private`, sehingga di luar class dilarang keras melakukan manipulasi array langsung (seperti `.push()` liar). Semua manipulasi wajib melalui method resmi: `tambahSiswa()`, `hapusSiswa()`, dan `updateNilaiSiswa()`.
-4. **Static Member**: `totalKelasDibuat` memantau berapa kali class instansi dipanggil secara global di luar objek individu.
-
----
-
-## Latihan
-1. Modifikasi program di atas: tambahkan satu method static `sapaSekolah()` pada class `RombonganBelajar` yang mencetak teks: `"Selamat datang di SMK Negeri Amanah!"`.
-2. Panggil method static tersebut di awal simulasi program.
+```
+✗ Jangan ubah konten teks yang ditampilkan ke pengguna
+✗ Jangan tambahkan section hanya karena ingin "lebih semantic" — hanya jika ada kelompok tematik yang jelas
+✗ Jangan gunakan article untuk komponen UI yang bukan konten mandiri (tombol, badge, dll.)
+✗ Jangan masukkan <nav> di dalam <address>
+✗ Jangan punya lebih dari satu <main> yang terlihat
+✗ Jangan gunakan <section> tanpa heading
+```
 
 ---
 
-## Ringkasan
-- Mini project SIAKAD menggabungkan pilar Enkapsulasi, Pewarisan, Polimorfisme, dan interface.
-- Pemisahan kode menjadi class-class kecil membuat aplikasi modular dan mudah dirawat.
-- Penggunaan static member melacak data di tingkat kelas/sistem, bukan tingkat objek individu.
+## ✅ Checklist Pengujian
 
-:::tip[Selesai Mini Project]
-Selamat! Kamu telah membangun sistem SIAKAD modular berbasis OOP yang kokoh. Laporkan hasil kerjamu kepada guru.
-:::
+Setelah refactor, lakukan pengujian berikut:
+
+```
+☐ Buka di browser → tampilan tidak berubah secara signifikan dari versi sebelumnya
+☐ Buka DevTools Elements → periksa hirarki: body > header + main + footer
+☐ Buka DevTools Elements → di dalam main, ada section-section bertema
+☐ Klik anchor link (#tentang, #kontak) → halaman scroll ke section yang benar
+☐ Periksa setiap section memiliki aria-labelledby yang valid
+☐ Periksa tidak ada id yang duplikat (DevTools → console: cari id yang sama)
+☐ Buka validator.w3.org → upload/paste file → pastikan hijau
+☐ Gunakan screen reader (NVDA atau TalkBack) → navigasi ke setiap landmark → terdengar "navigation", "main", "contentinfo"
+```
+
+---
+
+## 📊 Rubrik Penilaian
+
+| Kategori | Kriteria | Poin |
+|---|---|---|
+| **Struktur Top-Level** | header, main, footer dengan nav yang benar | 40 |
+| **Konten Semantik** | article, figure, time, address, abbr | 35 |
+| **Aksesibilitas** | aria-labelledby, aria-label, rel, W3C valid | 25 |
+| **Total** | | **100** |
+
+---
+
+## 🤔 Pertanyaan Refleksi
+
+Setelah menyelesaikan refactor, renungkan:
+
+1. Sebelum belajar Semantic HTML, kamu memilih tag berdasarkan apa? Tampilan? Kebiasaan?
+2. Setelah refactor, apakah ada bagian yang lebih mudah kamu pahami hanya dengan melihat structure-nya?
+3. Jika dua element terlihat sama di browser, apakah mereka selalu memiliki makna yang sama?
+
+---
+
+**[Lanjut: Challenge →](/bab8/challenge/)**

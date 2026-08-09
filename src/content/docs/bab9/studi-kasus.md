@@ -1,191 +1,183 @@
-﻿---
-title: "Studi Kasus: Sistem Manajemen Data Akademik"
-description: Studi kasus merancang repository data akademik sekolah yang modular dan fleksibel menggunakan Generic dan Utility Types di TypeScript.
+---
+title: "Studi Kasus"
+description: Melengkapi head portfolio dengan metadata lengkap — menganalisis kondisi awal yang kurang, menyusun strategi, dan membangun head yang benar untuk portfolio v0.9.
 ---
 
-## Tujuan Pembelajaran
-Setelah menyelesaikan studi kasus ini, kamu diharapkan dapat:
-- Merancang arsitektur penyimpanan data Generic (Repository Pattern) sederhana.
-- Menggunakan `Partial` untuk proses update data secara aman.
-- Menggunakan `Pick` dan `Omit` untuk menyaring informasi sensitif pada objek.
-- Menghubungkan beberapa interface menggunakan tipe data Generic.
+> *"Struktur HTML yang semantic sudah kita miliki. Sekarang kita beri halaman itu identitas yang bisa dikenali oleh mesin, search engine, dan platform media sosial."*
 
 ---
 
-## Pendahuluan
+## 🎯 Tujuan Studi Kasus
 
-Dalam membuat aplikasi sekolah, kita sering mengelola berbagai macam data: data Siswa, data Guru, data Mata Pelajaran, dan data Inventaris. 
-
-Setiap data membutuhkan operasi dasar yang sama: menambah data, mencari data, dan mengupdate data. Daripada kita membuat class `SiswaRepository`, `GuruRepository`, dan `MapelRepository` secara terpisah, kita bisa membuat **satu class Generic Repository** yang bisa mengelola data apa saja.
-
----
-
-## Perancangan Arsitektur Data
-
-Kita akan merancang sistem dengan komponen berikut:
-
-1. **`interface Siswa`** — Struktur data lengkap siswa.
-2. **`interface Guru`** — Struktur data lengkap guru.
-3. **`class DataRepository<T>`** — Class Generic untuk mengelola data bertipe `T`.
-4. **`Partial<T>`** — Digunakan untuk proses update data siswa/guru secara sebagian.
-5. **`Omit<T, K>`** — Digunakan untuk membuang properti rahasia sebelum ditampilkan ke publik.
+Di studi kasus ini kita akan:
+- Mengaudit `<head>` portfolio yang sudah ada dari BAB 8.
+- Mengidentifikasi metadata yang hilang atau tidak lengkap.
+- Menambahkan metadata yang tepat secara bertahap.
+- Memahami **mengapa** setiap metadata ditambahkan, bukan sekadar menambahkannya.
 
 ---
 
-## Visual Illustration: Generic Repository
+## 🔍 Kondisi `<head>` Portfolio v0.8 (Sebelum)
 
-```text
-               DataRepository<T> (Generic Class)
-                       │
-       ┌───────────────┼───────────────┐
-       ▼               ▼               ▼
-   Siswa[]           Guru[]         Mapel[]
-(Menyimpan Siswa) (Menyimpan Guru) (Menyimpan Mapel)
+Di akhir BAB 8, `<head>` portfolio kita masih sangat minimal:
+
+```html
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rizki Pratama — Junior Web Developer</title>
+  <meta name="description" 
+        content="Portfolio Rizki Pratama, siswa SMK RPL yang membangun karir di web development." />
+</head>
+```
+
+**Yang sudah ada:** charset ✓, viewport ✓, title ✓, description ✓  
+**Yang kurang:** author, robots, canonical, favicon, Open Graph, Twitter Card, theme-color
+
+---
+
+## 🔍 Analisis: Apa yang Terjadi Tanpa Metadata Lengkap?
+
+**Tanpa canonical:** Jika portfolio diakses via `rizkipratama.com`, `www.rizkipratama.com`, dan `rizkipratama.com/?ref=twitter` — search engine menganggap tiga halaman berbeda.
+
+**Tanpa favicon:** Tab browser hanya menampilkan ikon generik browser. Saat pengguna punya banyak tab terbuka, portfolio kamu tidak mudah ditemukan kembali.
+
+**Tanpa Open Graph:** Saat kamu membagikan link portfoliomu di WhatsApp grup atau LinkedIn — yang muncul hanya URL polos. Tidak ada preview, tidak ada gambar, tidak ada deskripsi. Kemungkinan diklik jauh lebih rendah.
+
+**Tanpa Twitter Card:** Saat di-share di Twitter/X, tampil sebagai teks kecil tanpa gambar.
+
+---
+
+## ✨ Portfolio v0.9 — `<head>` yang Lengkap
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+  <!-- ===================== FUNDAMENTAL ===================== -->
+  <!-- Selalu pertama: charset sebelum apapun -->
+  <meta charset="UTF-8" />
+  
+  <!-- Viewport: atur lebar sesuai layar perangkat -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <!-- ===================== IDENTITAS HALAMAN ===================== -->
+  <!-- Title: muncul di tab browser, bookmark, dan hasil pencarian -->
+  <!-- Format: [Halaman Spesifik] — [Brand/Nama] -->
+  <title>Rizki Pratama — Junior Web Developer · Jakarta</title>
+  
+  <!-- Description: snippet yang muncul di hasil pencarian Google -->
+  <!-- Target: 120-160 karakter, relevan dengan isi halaman -->
+  <meta 
+    name="description" 
+    content="Portfolio Rizki Pratama, junior web developer dari Jakarta. Temukan proyek HTML, CSS, form interaktif, dan semantic HTML dari siswa SMK RPL yang sedang membangun karier." 
+  />
+  
+  <!-- Author: pembuat dokumen ini -->
+  <meta name="author" content="Rizki Pratama" />
+  
+  <!-- Robots: izinkan Google mengindeks dan mengikuti link -->
+  <meta name="robots" content="index, follow" />
+
+
+  <!-- ===================== CANONICAL ===================== -->
+  <!-- Beritahu Google: ini adalah URL resmi halaman ini -->
+  <link rel="canonical" href="https://rizkipratama.com/" />
+
+
+  <!-- ===================== FAVICON ===================== -->
+  <!-- ICO: fallback untuk browser lama -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <!-- SVG: format modern yang scale sempurna -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- Apple Touch Icon: saat website di-save ke homescreen iOS -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <!-- Theme color: warna toolbar Chrome di Android -->
+  <meta name="theme-color" content="#0ea5e9" />
+
+
+  <!-- ===================== OPEN GRAPH ===================== -->
+  <!-- Untuk preview link di Facebook, WhatsApp, Telegram, LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Portfolio Rizki Pratama" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:url" content="https://rizkipratama.com/" />
+  <meta 
+    property="og:title" 
+    content="Rizki Pratama — Junior Web Developer" 
+  />
+  <meta 
+    property="og:description" 
+    content="Portfolio junior web developer dari Jakarta. Proyek HTML, CSS, dan JavaScript dibangun dari nol oleh siswa SMK RPL." 
+  />
+  <!-- Gambar preview: ukuran ideal 1200×630 piksel -->
+  <meta property="og:image" content="https://rizkipratama.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Halaman portfolio Rizki Pratama, Junior Web Developer" />
+
+
+  <!-- ===================== TWITTER CARD ===================== -->
+  <!-- Untuk preview link di Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta 
+    name="twitter:title" 
+    content="Rizki Pratama — Junior Web Developer" 
+  />
+  <meta 
+    name="twitter:description" 
+    content="Portfolio junior web developer dari Jakarta. Proyek HTML, CSS, dan JavaScript dari siswa SMK RPL." 
+  />
+  <meta name="twitter:image" content="https://rizkipratama.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Portfolio Rizki Pratama" />
+
+</head>
+<body>
+  <!-- isi halaman di sini -->
+</body>
+</html>
 ```
 
 ---
 
-## Mari Mencoba: Implementasi SIAKAD Modular
+## 🔍 Analisis: Mengapa Setiap Bagian Ada?
 
-Buat file baru bernama `src/bab9/studi-kasus-siakad.ts`:
+### Mengapa `<meta charset>` harus pertama?
 
-```ts
-// =====================================================
-// STUDI KASUS: SISTEM MANAJEMEN DATA AKADEMIK
-// Menggunakan Generic & Utility Types
-// =====================================================
+Browser mem-parse HTML secara berurutan dari atas ke bawah. Jika charset ditemukan setelah karakter non-ASCII (misalnya di dalam `<title>`), browser mungkin sudah salah menginterpretasikan karakter tersebut. Meletakkan charset pertama memastikan encoding diketahui sebelum satu karakter pun dibaca.
 
-// 1. Definisikan Interface Data
-interface Siswa {
-  id: number;
-  nama: string;
-  kelas: string;
-  email: string;
-  catatanSanksi?: string; // properti sensitif
-}
+### Mengapa `og:url` harus sama dengan canonical?
 
-interface Guru {
-  id: number;
-  nama: string;
-  mataPelajaran: string;
-  gajiPokok: number; // properti sensitif
-}
+Keduanya menyatakan URL "resmi" halaman — untuk konteks yang berbeda. `canonical` untuk search engine, `og:url` untuk platform media sosial. Mereka harus konsisten.
 
-// 2. Class Generic Repository untuk mengelola tipe T
-class DataRepository<T extends { id: number }> {
-  private database: T[] = [];
+### Mengapa gambar OG harus URL absolut?
 
-  // Menambah data baru
-  public tambah(item: T): void {
-    this.database.push(item);
-  }
+Bot media sosial (Facebook, WhatsApp) mengunjungi URL dari server mereka sendiri — bukan dari browser pengguna. URL relatif seperti `/og-image.png` tidak memberikan informasi cukup untuk bot mengunduh gambar tersebut. URL absolut dengan `https://` selalu bekerja.
 
-  // Mengambil semua data
-  public ambilSemua(): T[] {
-    return this.database;
-  }
+### Mengapa ada dua tag untuk title (og:title dan twitter:title)?
 
-  // Mencari satu data berdasarkan ID
-  public cariBerdasarkanId(id: number): T | undefined {
-    return this.database.find((item) => item.id === id);
-  }
+Meskipun Twitter bisa membaca og:title sebagai fallback, beberapa platform mengutamakan tag spesifiknya sendiri. Menulis keduanya memastikan tampilan yang optimal di semua platform.
 
-  // Mengupdate data secara parsial menggunakan Partial<T>
-  public update(id: number, dataBaru: Partial<T>): void {
-    this.database = this.database.map((item) => {
-      if (item.id === id) {
-        return { ...item, ...dataBaru }; // gabungkan data lama dan baru
-      }
-      return item;
-    });
-  }
-}
+---
 
-// --- SIMULASI PENGGUNAAN REPOSITORY ---
+## ✅ Checklist Verifikasi
 
-// 1. Instansiasi Repository khusus Siswa
-const repoSiswa = new DataRepository<Siswa>();
-repoSiswa.tambah({
-  id: 1,
-  nama: "Putra",
-  kelas: "XI RPL 1",
-  email: "putra@smk.sch.id",
-  catatanSanksi: "Terlambat masuk sekolah"
-});
-repoSiswa.tambah({
-  id: 2,
-  nama: "Dewi",
-  kelas: "XI RPL 2",
-  email: "dewi@smk.sch.id"
-});
-
-// Update data siswa secara parsial (hanya ganti email)
-repoSiswa.update(1, { email: "putra.baru@gmail.com" });
-
-// Tampilkan semua siswa dengan menyensor catatan sanksi menggunakan Omit
-console.log("=== DAFTAR SISWA (PUBLIK) ===");
-const semuaSiswa = repoSiswa.ambilSemua();
-semuaSiswa.forEach((siswa) => {
-  // Membuat objek sensor bertipe Omit
-  const sensorSiswa: Omit<Siswa, "catatanSanksi"> = {
-    id: siswa.id,
-    nama: siswa.nama,
-    kelas: siswa.kelas,
-    email: siswa.email
-  };
-  console.log(sensorSiswa);
-});
-
-// 2. Instansiasi Repository khusus Guru
-const repoGuru = new DataRepository<Guru>();
-repoGuru.tambah({
-  id: 101,
-  nama: "Pak Budi",
-  mataPelajaran: "TypeScript",
-  gajiPokok: 5000000
-});
-
-// Tampilkan data guru tanpa memunculkan gaji pokok (Omit)
-console.log("\n=== DATA GURU (PUBLIK) ===");
-const guru = repoGuru.cariBerdasarkanId(101);
-if (guru !== undefined) {
-  const sensorGuru: Omit<Guru, "gajiPokok"> = {
-    id: guru.id,
-    nama: guru.nama,
-    mataPelajaran: guru.mataPelajaran
-  };
-  console.log(sensorGuru);
-}
 ```
-
-Jalankan dengan perintah:
-```text
-tsx src/bab9/studi-kasus-siakad.ts
+☐ charset ada dan merupakan yang pertama di <head>
+☐ viewport ada dengan nilai yang benar
+☐ title informatif (50-60 karakter), bukan "Home" atau "Portfolio"
+☐ description relevan dengan isi halaman (120-160 karakter)
+☐ canonical menggunakan URL absolut dengan https://
+☐ Favicon ada (minimal .ico)
+☐ Semua og: tags menggunakan property="...", bukan name="..."
+☐ og:image menggunakan URL absolut
+☐ Semua URL di Open Graph menggunakan https://
+☐ Cek preview di metatags.io atau opengraph.xyz
 ```
 
 ---
 
-## Penjelasan Baris per Baris
-
-- `class DataRepository<T extends { id: number }>` — Membatasi Generic agar tipe `T` wajib memiliki properti `id: number` (Generic Constraint). Ini penting agar kita bisa menggunakan `item.id` di dalam method cari dan update.
-- `update(id: number, dataBaru: Partial<T>)` — `Partial<T>` membuat parameter `dataBaru` fleksibel menerima sebagian properti objek siswa/guru.
-- `Omit<Siswa, "catatanSanksi">` — Menyensor properti sensitif sebelum dicetak ke terminal agar data pribadi siswa aman.
-
----
-
-## Latihan
-1. Tambahkan data siswa baru ke `repoSiswa`.
-2. Lakukan update kelas pada siswa tersebut menggunakan method `.update()`.
-3. Tampilkan hasilnya untuk memastikan data terupdate dengan benar.
-
----
-
-## Ringkasan
-- Satu class Generic Repository dapat menggantikan kebutuhan pembuatan banyak class terpisah.
-- `extends { id: number }` menjamin bahwa objek di dalam repository selalu memiliki ID pembeda.
-- `Partial` mempermudah pembaruan data secara dinamis.
-- `Omit` mengamankan informasi rahasia di terminal/client.
-
-:::tip[Langkah Selanjutnya]
-Lanjut ke **Mini Project** untuk membuat Generic Academic Repository yang lengkap.
-:::
+**[Lanjut: Mini Project →](/bab9/mini-project/)**

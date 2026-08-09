@@ -1,28 +1,29 @@
 ---
 title: "Studi Kasus"
-description: Merancang Contact & Project Inquiry Form interaktif pada halaman utama website portfolio.
+description: Membangun Contact & Project Inquiry Form yang lengkap, aksesibel, dan tervalidasi untuk halaman portfolio — analisis mendalam setiap keputusan desain form.
 ---
 
-> *"Formulir kontak yang dirancang dengan baik memudahkan calon klien atau guru penguji menghubungimu secara interaktif."*
+> *"Form yang baik bukan hanya tentang bisa diisi. Form yang baik adalah yang memudahkan pengguna menyampaikan apa yang mereka butuhkan dengan benar, cepat, dan nyaman."*
 
 ---
 
-## 🎯 Tujuan Pembelajaran
+## 🎯 Tujuan Studi Kasus
 
 Setelah menyelesaikan studi kasus ini, kamu akan mampu:
-- Melanjutkan pengembangan berkas proyek portfolio dari BAB 5.
-- Membangun struktur formulir lengkap menggunakan tag `<form>` dan `<fieldset>`.
-- Menghubungkan elemen label dengan tipe input teks, surel, menu dropdown, dan textarea secara aksesibel.
-- Menerapkan atribut validasi dasar untuk meminimalkan data kosong.
+- Menganalisis mengapa setiap keputusan desain form dibuat.
+- Membangun form HTML yang lengkap, terstruktur, dan aksesibel dari nol.
+- Memilih tipe input yang tepat untuk setiap kebutuhan data.
+- Menerapkan validasi yang masuk akal dan tidak berlebihan.
+- Mengintegrasikan form ke dalam project portfolio yang sudah ada dari BAB 1–5.
 
 ---
 
-## 🧠 Skenario: Meningkatkan Bagian Kontak Portfolio
+## 🧠 Konteks: Bagian Kontak Portfolio yang Pasif
 
-Pada BAB 5 kemarin, bagian Kontak di file `index.html` kita masih berupa baris paragraf teks surel biasa:
+Di BAB 5, bagian Kontak di `index.html` kita masih sangat sederhana:
 
 ```html
-<!-- Kontak Lama -->
+<!-- Kontak versi BAB 5 — masih pasif -->
 <h2 id="kontak">Kontak Saya</h2>
 <p>
   Jangan ragu untuk menghubungi saya melalui surat elektronik di 
@@ -31,26 +32,51 @@ Pada BAB 5 kemarin, bagian Kontak di file `index.html` kita masih berupa baris p
 </p>
 ```
 
-Kita ingin **mengubah bagian kontak tersebut menjadi sebuah Contact & Project Inquiry Form**. Pengunjung portfolio (guru, teman, atau industri magang) bisa mengetikkan nama, email, tipe kepentingan kerja sama (*inquiry*), isi pesan, dan mencentang persetujuan sebelum mengirim pesan tersebut.
+**Masalah dengan pendekatan ini:**
+1. Pengunjung harus membuka aplikasi email mereka secara terpisah — gesekan (friction) yang tidak perlu.
+2. Tidak ada struktur untuk pesan — pengunjung bisa mengirim email tanpa konteks yang cukup.
+3. Tidak ada cara untuk memahami keperluan pengunjung (apakah mau melamar magang? mengajak kolaborasi? atau sekadar bertanya?).
+4. Kita tidak tahu apa yang ingin disampaikan pengunjung sampai membaca emailnya.
+
+**Solusi:** Ubah bagian kontak menjadi **Contact & Project Inquiry Form** yang terstruktur.
 
 ---
 
-## 🔧 Pengembangan Proyek di BAB 6
+## 🏗️ Perencanaan Form: Apa yang Perlu Dikumpulkan?
 
-Kita akan merombak bagian Kontak di `index.html` dengan menambahkan formulir interaktif:
-1. **Tag `<form>`**: Membungkus seluruh isian dengan metode `POST` untuk mengamankan data.
-2. **Tag `<fieldset>` & `<legend>`**: Mengelompokkan isian ke dalam bingkai berlabel *"Kirim Pesan"*.
-3. **Isian Informasi Diri**: Input teks nama dan input email yang terhubung dengan labelnya masing-masing.
-4. **Dropdown Pilihan Inquiry**: Menu `<select>` untuk memilih tipe kerja sama (*Tanya Proyek*, *Penawaran Magang*, atau *Say Hello*).
-5. **Textarea Isi Pesan**: Kotak `<textarea>` berukuran besar untuk mengetik pesan detail.
-6. **Checkbox Persetujuan**: Tombol centang untuk persetujuan privasi data.
-7. **Tombol Submit**: Tombol `<button type="submit">` untuk memicu pengiriman data.
+Sebelum menulis satu baris kode pun, kita harus bertanya: **data apa yang benar-benar kita butuhkan dari pengunjung?**
+
+| Data | Kenapa Perlu? | Tipe Input yang Tepat |
+|---|---|---|
+| Nama lengkap | Agar kita tahu siapa yang menghubungi | `type="text"` |
+| Email | Untuk membalas pesan | `type="email"` |
+| Nomor WhatsApp | Opsi kontak alternatif yang cepat | `type="tel"` |
+| Kategori inquiry | Agar kita bisa memprioritaskan balasan | `<select>` |
+| Metode kontak pilihan | Preferensi komunikasi pengunjung | `type="radio"` |
+| Pesan / detail | Inti dari yang ingin disampaikan | `<textarea>` |
+| Persetujuan data | Etika & legalitas pengiriman data | `type="checkbox"` |
 
 ---
 
-## 💻 Hasil Akhir Kode: Portfolio v0.6 (`index.html`)
+## 💡 Keputusan Desain yang Perlu Dipikirkan
 
-Berikut adalah file kode `index.html` terbaru yang kini memiliki formulir kontak aktif di bagian bawah:
+**Mengapa menggunakan `<fieldset>`?**
+Form kita punya dua kelompok data: identitas pengirim dan detail pesan. Memisahkan keduanya dalam `<fieldset>` berbeda memberikan struktur visual yang jelas dan membantu screen reader memahami konteks setiap bagian.
+
+**Mengapa kategori inquiry menggunakan `<select>` bukan radio?**
+Karena opsinya cukup banyak (5 pilihan) dan hanya satu yang boleh dipilih. Radio button efektif untuk 2-4 pilihan yang selalu tampak di layar. Untuk 5+ pilihan, dropdown lebih hemat ruang.
+
+**Mengapa metode kontak menggunakan radio?**
+Karena opsinya hanya 2-3, dan kita ingin pengguna melihat semua pilihan sekaligus tanpa harus membuka dropdown. Radio button lebih cocok di sini.
+
+**Mengapa `type="tel"` dan bukan `type="text"` untuk nomor HP?**
+Karena di perangkat mobile, `type="tel"` memunculkan keyboard numerik yang lebih mudah digunakan untuk memasukkan nomor telepon.
+
+---
+
+## 💻 Implementasi: Portfolio v0.6 (`index.html`)
+
+Berikut adalah file `index.html` yang sudah diperbarui dengan Contact & Project Inquiry Form:
 
 ```html
 <!DOCTYPE html>
@@ -62,7 +88,7 @@ Berikut adalah file kode `index.html` terbaru yang kini memiliki formulir kontak
   </head>
   <body>
 
-    <!-- ========== MENU NAVIGASI ========== -->
+    <!-- ========== NAVIGASI ========== -->
     <p>
       <strong>Beranda</strong> | 
       <a href="projects.html">Proyek Saya</a> | 
@@ -73,7 +99,12 @@ Berikut adalah file kode `index.html` terbaru yang kini memiliki formulir kontak
 
     <!-- ========== HEADER PROFIL ========== -->
     <figure>
-      <img src="assets/images/foto-rizki.jpg" alt="Foto potret wajah Rizki Pratama tersenyum" width="150" height="150" />
+      <img 
+        src="assets/images/foto-rizki.jpg" 
+        alt="Foto potret wajah Rizki Pratama tersenyum" 
+        width="150" 
+        height="150" 
+      />
       <figcaption>Rizki Pratama — Junior Web Developer</figcaption>
     </figure>
     
@@ -86,17 +117,11 @@ Berikut adalah file kode `index.html` terbaru yang kini memiliki formulir kontak
     
     <hr />
 
-    <!-- ========== KONTEN UTAMA ========== -->
-    
-    <!-- Tentang Saya -->
+    <!-- ========== TENTANG SAYA ========== -->
     <h2>Tentang Saya</h2>
     <p>
       Nama saya <strong>Rizki Pratama</strong>. Saya adalah seorang <em>junior 
-      web developer</em> yang tertarik dalam merancang struktur halaman web secara rapi.
-    </p>
-    <p>
-      Saat ini, saya sedang mempelajari dasar-dasar HTML melalui guidebook 
-      interaktif ini untuk membangun karir magang saya di bidang RPL.
+      web developer</em> yang sedang membangun portofolio pertama saya.
     </p>
 
     <blockquote>
@@ -106,7 +131,7 @@ Berikut adalah file kode `index.html` terbaru yang kini memiliki formulir kontak
 
     <hr />
 
-    <!-- Keahlian Utama (Nested Unordered List) -->
+    <!-- ========== KEAHLIAN ========== -->
     <h2>Keahlian Saya</h2>
     <ul>
       <li>
@@ -117,7 +142,7 @@ Berikut adalah file kode `index.html` terbaru yang kini memiliki formulir kontak
         </ul>
       </li>
       <li>
-        Peralatan Pendukung (Tools)
+        Peralatan Pendukung
         <ul>
           <li>Visual Studio Code</li>
           <li>Google Chrome DevTools</li>
@@ -127,116 +152,146 @@ Berikut adalah file kode `index.html` terbaru yang kini memiliki formulir kontak
     </ul>
 
     <p>
-      Untuk mengunduh curriculum vitae resmi saya, silakan klik 
-      <a href="dokumen/resume.pdf" download>Unduh Resume (PDF)</a>.
+      Unduh <a href="dokumen/resume.pdf" download>Resume PDF saya</a> untuk informasi lebih lengkap.
     </p>
 
     <hr />
 
-    <!-- Lokasi Sekolah -->
-    <h2>Lokasi Sekolah Saya</h2>
-    <iframe 
-      src="https://www.google.com/maps/embed?..." 
-      width="100%" 
-      height="300" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      title="Peta petunjuk lokasi sekolah"
-    ></iframe>
-
-    <hr />
-
-    <!-- Kontak & Inquiry Form (HTML5 Form & Validation) -->
-    <h2 id="kontak">Kontak Saya</h2>
+    <!-- ========== KONTAK & INQUIRY FORM ========== -->
+    <h2 id="kontak">Hubungi Saya</h2>
     <p>
-      Ingin berkolaborasi atau menanyakan detail proyek? Silakan kirimkan pesan melalui formulir di bawah ini:
+      Ingin berkolaborasi, mengajukan inquiry proyek, atau sekadar menyapa? 
+      Isi formulir di bawah ini dan saya akan membalas dalam 1–2 hari kerja.
     </p>
 
-    <form action="/proses-inquiry.html" method="POST">
-      <fieldset>
-        <legend>Kirim Pesan</legend>
+    <form action="/proses-inquiry.php" method="POST">
 
-        <!-- Input Nama -->
+      <!-- FIELDSET 1: Identitas Pengirim -->
+      <fieldset>
+        <legend>Informasi Pengirim</legend>
+
+        <!-- Nama Lengkap -->
         <p>
-          <label for="input-nama">Nama Lengkap:</label><br />
+          <label for="nama-pengirim">Nama Lengkap: <abbr title="Wajib diisi">*</abbr></label><br />
           <input 
             type="text" 
-            id="input-nama" 
+            id="nama-pengirim" 
             name="nama_lengkap" 
-            placeholder="Ketik nama lengkapmu..." 
-            minlength="3" 
+            placeholder="Contoh: Budi Santoso"
+            minlength="3"
+            maxlength="100"
+            autocomplete="name"
             required 
           />
         </p>
 
-        <!-- Input Email -->
+        <!-- Email -->
         <p>
-          <label for="input-email">Alamat Email:</label><br />
+          <label for="email-pengirim">Alamat Email: <abbr title="Wajib diisi">*</abbr></label><br />
           <input 
             type="email" 
-            id="input-email" 
+            id="email-pengirim" 
             name="email_pengirim" 
-            placeholder="nama@domain.com" 
+            placeholder="nama@domain.com"
+            autocomplete="email"
             required 
           />
         </p>
 
-        <!-- Dropdown Tipe Inquiry -->
+        <!-- Nomor WhatsApp (Opsional) -->
         <p>
-          <label for="select-inquiry">Kategori Kerja Sama:</label><br />
-          <select id="select-inquiry" name="tipe_inquiry" required>
+          <label for="hp-pengirim">Nomor WhatsApp (Opsional):</label><br />
+          <input 
+            type="tel" 
+            id="hp-pengirim" 
+            name="nomor_hp" 
+            placeholder="08xx-xxxx-xxxx"
+            pattern="[0-9]{10,13}"
+            title="Masukkan nomor HP 10-13 digit tanpa spasi atau tanda hubung"
+          />
+        </p>
+      </fieldset>
+
+      <!-- FIELDSET 2: Detail Inquiry -->
+      <fieldset>
+        <legend>Detail Pesan</legend>
+
+        <!-- Kategori Inquiry (Select) -->
+        <p>
+          <label for="kategori-inquiry">Kategori Inquiry: <abbr title="Wajib diisi">*</abbr></label><br />
+          <select id="kategori-inquiry" name="kategori_inquiry" required>
             <option value="">-- Pilih Kategori --</option>
-            <option value="proyek">Tanya Proyek Web</option>
-            <option value="magang">Penawaran Magang Industri</option>
-            <option value="hello">Hanya Menyapa (Say Hello)</option>
+            <option value="proyek-web">Proyek Web Development</option>
+            <option value="desain-ui">Proyek Desain UI/UX</option>
+            <option value="magang">Penawaran / Peluang Magang</option>
+            <option value="kolaborasi">Kolaborasi Proyek Sekolah</option>
+            <option value="halo">Hanya Menyapa 👋</option>
           </select>
         </p>
 
-        <!-- Textarea Isi Pesan -->
+        <!-- Metode Kontak Pilihan (Radio) -->
+        <fieldset>
+          <legend>Metode Kontak yang Kamu Inginkan:</legend>
+          
+          <input type="radio" id="via-email" name="metode_kontak" value="email" checked />
+          <label for="via-email">Balas via Email</label>
+
+          <input type="radio" id="via-wa" name="metode_kontak" value="whatsapp" />
+          <label for="via-wa">Balas via WhatsApp</label>
+
+          <input type="radio" id="via-bebas" name="metode_kontak" value="bebas" />
+          <label for="via-bebas">Terserah yang paling mudah</label>
+        </fieldset>
+
+        <!-- Pesan Detail (Textarea) -->
         <p>
-          <label for="text-pesan">Isi Pesan:</label><br />
+          <label for="pesan-inquiry">Pesan / Detail Inquiry: <abbr title="Wajib diisi">*</abbr></label><br />
           <textarea 
-            id="text-pesan" 
+            id="pesan-inquiry" 
             name="pesan_detail" 
-            rows="5" 
-            cols="40" 
-            placeholder="Tulis pesan lengkapmu di sini..." 
-            minlength="10" 
+            rows="6" 
+            placeholder="Ceritakan lebih lanjut: apa yang ingin kamu diskusikan, proyek apa yang kamu bayangkan, atau pertanyaan yang ingin kamu ajukan..."
+            minlength="20"
+            maxlength="2000"
             required
           ></textarea>
         </p>
-
-        <!-- Checkbox Persetujuan -->
-        <p>
-          <input 
-            type="checkbox" 
-            id="check-setuju" 
-            name="persetujuan_data" 
-            value="setuju" 
-            required 
-          />
-          <label for="check-setuju">Saya menyetujui bahwa data ini akan dikirim untuk keperluan kontak.</label>
-        </p>
-
-        <!-- Tombol Submit -->
-        <p>
-          <button type="submit">🚀 Kirim Pesan</button>
-        </p>
       </fieldset>
+
+      <!-- Checkbox Persetujuan -->
+      <p>
+        <input 
+          type="checkbox" 
+          id="persetujuan-data" 
+          name="persetujuan" 
+          value="setuju" 
+          required 
+        />
+        <label for="persetujuan-data">
+          Saya menyetujui bahwa data yang saya kirim melalui formulir ini akan 
+          digunakan untuk keperluan balasan kontak saja dan tidak akan disebarluaskan.
+        </label>
+      </p>
+
+      <!-- Tombol Submit -->
+      <p>
+        <button type="submit">🚀 Kirim Pesan</button>
+        <button type="reset">Hapus Semua Isian</button>
+      </p>
+
     </form>
 
     <p>
-      Atau hubungi saya secara manual di <a href="mailto:rizki@example.com">rizki@example.com</a>.
+      Atau hubungi langsung via email: 
+      <a href="mailto:rizki@example.com">rizki@example.com</a>
     </p>
 
     <hr />
 
     <!-- ========== FOOTER ========== -->
     <p>
-      Dibuat oleh Rizki Pratama. Hak Cipta 
-      &copy; <time datetime="2026">2026</time>. 
-      Pembaruan terakhir dilakukan pada <time datetime="2026-08-10">10 Agustus 2026</time>.
+      Dibuat oleh Rizki Pratama &copy; <time datetime="2026">2026</time>. 
+      Diperbarui: <time datetime="2026-08-10">10 Agustus 2026</time>.
     </p>
 
   </body>
@@ -245,12 +300,53 @@ Berikut adalah file kode `index.html` terbaru yang kini memiliki formulir kontak
 
 ---
 
-## 🧠 Mengapa Struktur Form di Atas Sangat Baik?
+## 🔍 Analisis Mendalam: Mengapa Setiap Bagian Ditulis Seperti Itu?
 
-- **Validasi Terpadu**: Kombinasi atribut `required`, `minlength="3"` pada nama, dan `minlength="10"` pada pesan meminimalkan pengiriman data kosong atau isian spam yang asal ketik.
-- **Navigasi Terkunci**: Seluruh label input terhubung dengan id inputnya masing-masing, memudahkan interaksi ketika halaman dibuka melalui perangkat HP.
-- **Pengelompokan Rapi**: `<fieldset>` memberikan sekat visual berupa kotak bingkai yang membedakan area formulir dengan konten artikel lain di halaman web.
+### Mengapa ada dua `<fieldset>` berbeda?
 
-Di bab berikutnya, kita akan mempelajari **Atribut HTML** secara lebih menyeluruh untuk memperdalam fungsionalitas tag-tag yang sudah kita pelajari!
+Form kita punya dua jenis data yang secara logis berbeda: siapa yang mengirim (identitas) dan apa yang ingin disampaikan (detail pesan). Memisahkan keduanya dalam `<fieldset>` berbeda membuat form lebih terorganisir dan lebih mudah dipahami oleh screen reader.
+
+### Mengapa radio button "Metode Kontak" ada di dalam `<fieldset>` tersendiri?
+
+Grup radio button **selalu harus dibungkus `<fieldset>` dengan `<legend>`**. Ini bukan hanya best practice — ini adalah standar aksesibilitas. Screen reader akan membaca `<legend>` sebagai pertanyaan, lalu membaca setiap radio button sebagai pilihan jawaban.
+
+Tanpa `<fieldset>` dan `<legend>` untuk grup radio, screen reader hanya membaca "Balas via Email, radio button" tanpa konteks pertanyaannya.
+
+### Mengapa `<abbr title="Wajib diisi">*</abbr>` digunakan?
+
+Ini adalah konvensi form yang sudah dikenal luas: tanda bintang (*) menandai field wajib. Menggunakan `<abbr>` memberikan tooltip "Wajib diisi" yang muncul ketika pengguna mengarahkan kursor ke tanda bintang tersebut. Ini lebih informatif dari sekadar `*` biasa.
+
+### Mengapa ada `autocomplete="name"` dan `autocomplete="email"`?
+
+Atribut `autocomplete` membantu browser mengisi form secara otomatis berdasarkan data yang pernah pengguna simpan. Ini meningkatkan kenyamanan pengguna secara signifikan — mereka tidak perlu mengetik ulang nama dan email setiap kali mengisi form di website yang berbeda.
+
+### Mengapa ada tombol `type="reset"`?
+
+Tombol reset memungkinkan pengguna menghapus semua isian jika mereka ingin mulai dari awal. Ini berguna untuk form yang panjang. Tapi letakkan jauh dari tombol submit agar tidak diklik secara tidak sengaja.
+
+### Mengapa ada pilihan kontak alternatif di bawah form?
+
+Selalu sediakan alternatif bagi pengguna yang tidak mau atau tidak bisa mengisi form. Beberapa pengguna lebih suka mengirim email langsung. Menyediakan link `mailto:` sebagai alternatif adalah UX yang baik.
+
+---
+
+## ✅ Checklist Verifikasi
+
+Sebelum melanjutkan, periksa form kamu:
+
+```
+☐ Setiap input memiliki <label> yang terhubung via for↔id
+☐ Setiap input memiliki atribut name yang deskriptif
+☐ Grup radio button dibungkus <fieldset> + <legend>
+☐ <select> punya pilihan pertama dengan value=""
+☐ Checkbox persetujuan ada dan required
+☐ Tombol submit memiliki type="submit"
+☐ Klik tulisan label memindahkan fokus ke input terkait
+☐ Mencoba submit dengan field kosong memunculkan pesan browser
+☐ Nomor HP dengan format salah ditolak browser
+☐ HTML lolos validator.w3.org tanpa error
+```
+
+---
 
 **[Lanjut: Mini Project →](/bab6/mini-project/)**

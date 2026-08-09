@@ -1,123 +1,137 @@
-﻿---
-title: "Challenge BAB 10"
-description: Sepuluh latihan Asynchronous Programming dan Module System tingkat menengah di TypeScript untuk menguji pemahaman.
 ---
-
-## Tujuan Pembelajaran
-Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
-- Merancang dan memotong program menjadi beberapa file module secara mandiri.
-- Mengatasi Callback Hell menggunakan Promise atau Async/Await.
-- Melakukan pengambilan data API dan menangani error secara modular.
+title: "Challenge"
+description: Tantangan berjenjang untuk menguji pemahaman Web Accessibility — dari analisis kegagalan aksesibilitas hingga penulisan alt text, keyboard navigation, dan audit ARIA.
+---
 
 ---
 
-## Aturan Pengerjaan
+## 🎯 Tujuan Challenge
 
-:::tip[Cara Mengerjakan]
-Buatlah satu file terpisah untuk setiap soal di folder `src/bab10/challenge/`. Contoh: `src/bab10/challenge/soal-1.ts`.
+Setelah menyelesaikan semua tantangan ini, kamu akan mampu:
+- Menemukan dan memperbaiki hambatan aksesibilitas pada kode HTML.
+- Menulis alt text yang tepat untuk berbagai konteks gambar.
+- Membedakan antara komponen yang accessible dan yang merusak navigasi keyboard.
+- Menjelaskan pentingnya "Native HTML First" dari perspektif aksesibilitas.
 
-Jalankan file tersebut menggunakan perintah:
-```text
-tsx src/bab10/challenge/soal-1.ts
+---
+
+## 🔴 Challenge 1: Audit & Perbaikan Kode (20 poin)
+
+Kode HTML di bawah ini mengandung **7 hambatan aksesibilitas**. Temukan semuanya, jelaskan mengapa itu menjadi hambatan, dan tuliskan versi perbaikannya.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toko Online</title>
+  <style>
+    /* Menghapus outline fokus */
+    *:focus { outline: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Hambatan 1-7 ada di bawah ini: -->
+  <div class="nav">
+    <a href="/">Beranda</a>
+    <a href="/produk">Produk</a>
+    <a href="https://facebook.com/toko" target="_blank">Facebook</a>
+  </div>
+
+  <img src="banner-promo.jpg">
+
+  <div class="card">
+    <img src="laptop.jpg" alt="Foto dari produk laptop merk Asus warna hitam" />
+    <h3>Laptop Asus Gaming</h3>
+    <p>Rp 12.500.000</p>
+    <div class="btn-beli" onclick="beli()">Beli Sekarang</div>
+  </div>
+
+  <form>
+    <p>Masukkan Email Kamu:</p>
+    <input type="text" name="email" placeholder="email@domain.com" />
+    <button role="button">Langganan</button>
+  </form>
+
+</body>
+</html>
 ```
-:::
 
 ---
 
-## Challenge 1 — Jeda Waktu (setTimeout)
-**Tingkat: Mudah**
+## 🟡 Challenge 2: Menulis Alt Text yang Kontekstual (20 poin)
 
-Buatlah program yang mencetak pesan `"1. Mulai"`, lalu setelah jeda 3 detik (3000 ms) mencetak `"2. Tengah"`, dan langsung mencetak `"3. Selesai"` secara non-blocking (asynchronous). Amati urutan keluarnya di terminal.
+Tentukan atribut `alt` yang paling tepat untuk masing-masing situasi berikut:
 
----
-
-## Challenge 2 — Callback Penghitung Diskon
-**Tingkat: Mudah**
-
-Buat fungsi `hitungHargaDiskonAsync(harga: number, callback: (hasil: number) => void): void` dengan jeda 2 detik.
-- Fungsi menghitung harga setelah diskon 15%.
-- Setelah 2 detik, panggil fungsi `callback` dengan mengirimkan hasil hitungan.
-Panggil fungsi tersebut untuk harga `100000`.
+1. **Situasi A:** Foto profil seorang developer di halaman "Tentang Saya" pada website portfolio.
+2. **Situasi B:** Logo perusahaan berupa ikon rumah 🏠 yang ada di sebelah tulisan `<span>Beranda</span>` pada header.
+3. **Situasi C:** Ikon pencarian 🔍 di dalam tombol pencarian yang tidak memiliki teks apapun.
+4. **Situasi D:** Sebuah grafik batang yang menunjukkan persentase pengguna browser (Chrome 65%, Safari 18%, Firefox 7%).
+5. **Situasi E:** Garis pembatas hiasan berwarna emas yang dipasang di antara dua bagian artikel.
+6. **Situasi F:** Foto produk sepatu olahraga di website e-commerce yang diklik untuk melihat detail.
 
 ---
 
-## Challenge 3 — Janji Siswa Lulus (Promise)
-**Tingkat: Mudah**
+## 🟠 Challenge 3: Benar atau Salah? (20 poin)
 
-Buat fungsi `apakahSiswaLulus(nilai: number): Promise<string>` yang mengembalikan Promise:
-- Jika nilai >= 75, panggil `resolve("Siswa Lulus")`.
-- Jika nilai < 75, panggil `reject("Siswa Remedial")`.
-Konsumsi Promise tersebut menggunakan `.then()`, `.catch()`, dan `.finally()`.
+Tentukan **Benar** atau **Salah** untuk setiap pernyataan berikut dan berikan penjelasan singkat:
 
----
-
-## Challenge 4 — Pemuatan Data Guru (Async/Await)
-**Tingkat: Mudah**
-
-Buat fungsi async `ambilNamaGuru(): Promise<string>` yang mengembalikan nama `"Pak Budi"` setelah jeda 2 detik. Buat fungsi async kedua `tampilkanGuru()` yang menggunakan `await` untuk mengambil nama tersebut lalu mencetaknya.
+1. `alt=""` (alt kosong) sama artinya dengan tidak memasang atribut `alt` sama sekali.
+2. Kebanyakan pengguna yang diuntungkan oleh web accessibility adalah orang tunanetra yang menggunakan screen reader.
+3. Menghapus `outline: none` pada CSS `:focus` adalah praktik yang baik agar tampilan tombol terlihat lebih bersih.
+4. Membuat tombol dari `<div role="button">` sudah cukup membuat tombol tersebut bisa dioperasikan oleh pengguna keyboard.
+5. ARIA harus ditambahkan ke semua elemen HTML agar website dianggap fully accessible.
+6. Skip Navigation link harus diletakkan sebagai elemen pertama di dalam `<body>`.
+7. Atribut `placeholder` pada input dapat digunakan sebagai pengganti tag `<label>`.
+8. Menambahkan `target="_blank"` pada link eksternal sebaiknya disertai informasi `aria-label` bahwa link terbuka di tab baru.
 
 ---
 
-## Challenge 5 — Pengaman Ujian (Try...Catch Async)
-**Tingkat: Mudah**
+## 🔵 Challenge 4: Implementasi Accessible Modal Dialog (20 poin)
 
-Buat fungsi async `bacaNilaiDatabase(): Promise<number>` yang melemparkan error `throw new Error("Koneksi Database Putus")`. Buat fungsi async kedua yang memanggilnya dan mengamankan error tersebut menggunakan `try...catch` agar program tidak crash.
+Buatlah markup HTML yang aksesibel untuk sebuah **Modal Dialog Konfirmasi** yang muncul ketika pengguna hendak menghapus suatu item.
 
----
+**Persyaratan:**
+- Gunakan `role="dialog"` dan `aria-modal="true"`.
+- Hubungkan judul modal dengan `aria-labelledby`.
+- Hubungkan pesan penjelasan dengan `aria-describedby`.
+- Sediakan tombol "Ya, Hapus" (submit/action) dan tombol "Batal" (`type="button"`).
+- Pastikan semua elemen tombol dapat difokus via keyboard.
 
-## Challenge 6 — Ambil Pengguna (Fetch API)
-**Tingkat: Menengah**
-
-Lakukan fetch data pengguna internet menggunakan Fetch API ke URL:
-`https://jsonplaceholder.typicode.com/users/3`
-Buat interface `User` (id, name, email, phone). Konversi respon menjadi JSON, lalu tampilkan nama dan email pengguna nomor 3 tersebut secara aman.
-
----
-
-## Challenge 7 — Module Matematika
-**Tingkat: Menengah**
-
-1. Buat file `src/bab10/challenge/matematika.ts`. Eksport secara bernama (Named Export) konstanta `PI = 3.14` dan fungsi `hitungLuasLingkaran(r)`.
-2. Buat file `src/bab10/challenge/main-soal7.ts`, import kedua komponen tersebut, hitung luas lingkaran jari-jari 7, lalu tampilkan.
+```html
+<!-- Tulis struktur HTML lengkap untuk modal ini -->
+```
 
 ---
 
-## Challenge 8 — Default Export Kelas Siswa
-**Tingkat: Menengah**
+## ⚫ Challenge 5: Analisis Mendalam (20 poin)
 
-1. Buat file `src/bab10/challenge/siswa.ts`. Eksport default class `Siswa` (nama, kelas).
-2. Buat file `src/bab10/challenge/main-soal8.ts`, import class tersebut tanpa tanda kurung kurawal `{ }` dengan nama alias `SiswaRPL`, lalu instansiasi objeknya.
+Jawablah pertanyaan-pertanyaan berikut dalam bentuk tulisan analitis:
 
----
+**Pertanyaan 1:**
+Jelaskan filosofi **"Native HTML First"** dalam aksesibilitas web. Mengapa menggunakan `<button>` jauh lebih baik daripada `<div role="button" tabindex="0">` dari perspektif fungsionalitas, pemeliharaan kode, dan dukungan assistive technology?
 
-## Challenge 9 — Re-export Modul Koperasi
-**Tingkat: Menengah**
+**Pertanyaan 2:**
+Seorang pengembang berkata: *"Website saya hanya untuk internal kantor dan semua karyawan di kantor kami tidak ada yang tunanetra, jadi kami tidak perlu memikirkan accessibility."*
 
-1. Buat file `barang.ts` (export interface Barang) dan `jual.ts` (export fungsi hitungTotal).
-2. Buat file `index.ts` di folder yang sama untuk me-reexport keduanya.
-3. Import keduanya di file utama luar dalam satu baris impor terpadu, lalu jalankan.
+Berdasarkan apa yang sudah kamu pelajari tentang hambatan sementara (*temporary*) dan situasional (*contextual*), berikan minimal 4 argumen mengapa alasan pengembang tersebut keliru.
 
----
-
-## Challenge 10 — Namespace Kalkulator Fisika
-**Tingkat: Menengah**
-
-Buat dua namespace: `Fisika` (export fungsi hitungKecepatan(jarak, waktu)) dan `Matematika` (export fungsi hitungKecepatan - simulasi kecepatan belajar). Panggil kedua fungsi tersebut dari luar namespace menggunakan dot notation.
+**Pertanyaan 3:**
+Jelaskan prinsip **POUR** (Perceivable, Operable, Understandable, Robust) dari WCAG dan berikan masing-masing 1 contoh konkret penerapan HTML-nya pada formulir kontak.
 
 ---
 
-## Latihan
+## 📊 Rubrik Penilaian
 
-Pilih satu challenge di atas yang menurutmu paling sulit. Buat coretan alur logikanya di atas kertas, kemudian ketik ulang solusinya dari nol tanpa melihat materi pemandu.
+| Challenge | Poin | Kriteria |
+|---|---|---|
+| 1: Audit Kode | 20 | Menemukan 7 hambatan + penjelasan + perbaikan tepat |
+| 2: Alt Text Kontekstual | 20 | Alt text tepat untuk 6 situasi |
+| 3: Benar/Salah | 20 | Jawaban benar/salah tepat + penjelasan akurat |
+| 4: Accessible Modal | 20 | Modal dialog dengan role, aria-labelledby, describedby, keyboard-friendly |
+| 5: Analisis Mendalam | 20 | Jawaban analitis mendalam, logis, tidak sekadar definisi |
+| **Total** | **100** | |
 
 ---
 
-## Ringkasan
-
-- Ada 10 challenge dari mudah ke menengah.
-- Kerjakan satu per satu, jalankan setiap file dengan TSX.
-- Jika buntu, rancang logika dahulu baru tulis kode.
-
-:::tip[Langkah Selanjutnya]
-Lanjut ke **Error Corner** untuk meninjau kesalahan-kesalahan yang paling sering muncul.
-:::
+**[Lanjut: Error Corner →](/bab10/error-corner/)**

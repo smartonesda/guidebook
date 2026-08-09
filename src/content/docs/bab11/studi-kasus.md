@@ -1,131 +1,252 @@
-﻿---
-title: "Studi Kasus: Validasi Data Akademik — BAB 11"
-description: Studi kasus memvalidasi data akademik terintegrasi menggunakan objek class yang mematuhi interface kontrak di TypeScript.
+---
+title: "Studi Kasus"
+description: Audit dan refactor menyeluruh dari kode portfolio yang berantakan (Working Code) menjadi kode yang maintainable, bersih, valid W3C, dan berkinerja tinggi.
 ---
 
-## Tujuan Pembelajaran
-Setelah mengikuti studi kasus ini, kamu diharapkan dapat:
-- Merancang relasi objek akademik antara Siswa, Guru, dan Kelas secara modular.
-- Menguji kecocokan tipe objek menggunakan parameter class.
-- Menganalisis bagaimana layered architecture mempermudah pelacakan data.
+> *"Menulis kode yang bisa berjalan adalah langkah pertama. Merapikannya hingga memenuhi standar profesional adalah pembeda antara pemula dan developer sejati."*
 
 ---
 
-## Pendahuluan
-Dalam studi kasus ini, kita akan melihat bagaimana class objek `SiswaClass` dan `GuruClass` yang kita buat di halaman-halaman sebelumnya berinteraksi secara aman di dalam `RombonganBelajar` dengan pengawasan ketat dari compiler TypeScript.
+## 🎯 Tujuan Studi Kasus
+
+Dalam studi kasus ini, kita akan melakukan **Full Code Review & Refactor** terhadap sebuah berkas halaman portofolio `index.html` yang berantakan tetapi "bekerja", lalu mengubahnya menjadi kode berstandar industri (Clean, Valid, Accessible, Maintainable, & Performant).
 
 ---
 
-## Penjelasan
-Kita akan menyusun file pengujian data untuk mensimulasikan bagaimana compiler meloloskan tipe union NIS (bisa string maupun number) dan menolak jika kita memasukkan data properti di luar spesifikasi class resmi.
+## 🔍 KODE LAMA: "Working Code" yang Berantakan (Sebelum)
 
----
+Berikut adalah kode HTML milik siswa yang secara tampilan "bisa dibuka", tetapi penuh dengan anti-pattern, indentasi hancur, dan atribut salah:
 
-## Analogi Kehidupan Sehari-hari: Lembar Rapor Akademik Gabungan
-Bayangkan lembar rapor kertas resmi sekolah:
-- **Nama dan NIS** (Tipe data terenkapsulasi).
-- **Hasil Nilai** (Wajib 0-100).
-- **Tanda Tangan Wali Kelas** (Objek Guru).
-
-Seluruh lembaran ini disatukan dalam satu map plastik tebal (Rombel). Guru tidak bisa memasukkan lembar foto liburan ke dalam map tersebut karena format isian map dikunci hanya untuk data akademik resmi.
-
----
-
-## Visual Illustration: Alur Validasi Objek Rombel
-
-```text
-[ Objek Siswa ] ──┐
-                  ├── dimasukkan ke ──► [ Rombel Kelas ] ──► Validasi structural OK ✓
-[ Objek Guru ]  ──┘
+```html
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Portfolio Rizki</TITLE>
+<meta name=viewport content="width=device-width">
+<style>*:focus{outline:none;}</style>
+</HEAD>
+<BODY>
+<DIV CLASS="HEADER-BOX">
+<DIV CLASS="MENU"><A HREF="#">Home</A> | <A HREF="#proyek">Proyek</A> | <A HREF="#kontak">Kontak</A></DIV>
+</DIV>
+<HR>
+<H1>Halo Saya Rizki</H1>
+<IMG SRC="foto.jpg">
+<P>Saya siswa SMK RPL yang suka belajar coding.</P>
+<H4>Keahlian Saya</H4>
+<UL><LI>HTML<LI>CSS<LI>JS</UL>
+<HR>
+<H2 ID="proyek">Proyek Saya</H2>
+<DIV CLASS="CARD">
+<H3>Website SMK</H3>
+<IMG SRC="smk.jpg">
+<P>Website profil sekolah.</P>
+<A HREF="https://google.com" TARGET="_blank">Demo</A>
+</DIV>
+<HR>
+<H2 ID="kontak">Kontak</H2>
+<FORM ACTION="proses.php">
+<INPUT TYPE="text" PLACEHOLDER="Nama">
+<INPUT TYPE="text" PLACEHOLDER="Email">
+<TEXTAREA PLACEHOLDER="Pesan"></TEXTAREA>
+<BUTTON ONCLICK="kirim()">Kirim</BUTTON>
+</FORM>
+</BODY>
+</HTML>
 ```
 
 ---
 
-## Live Coding: Validasi Data Terintegrasi
-Buat file baru bernama `src/bab11/studi-kasus-validasi.ts` di folder local komputermu:
+## 📋 Daftar Hasil Audit & Temuan Bug
 
-```ts
-import { SiswaClass, GuruClass, StatusHadir } from "../models";
-import { AcademicRepository } from "../repositories/academic-repository";
+1. **Format Kode**: Menggunakan UPPERCASE (`<DIV>`, `<HEAD>`), tidak ada indentasi sama sekali.
+2. **Standard DOCTYPE & Lang**: Lupa atribut `lang="id"` pada tag `<html>`.
+3. **Struktur Semantik**: Penuh dengan `DIV-Soup`, menggunakan `<p>` dan `<HR>` sebagai pemisah manual alih-alih elemen `<header>`, `<nav>`, `<main>`, `<section>`, dan `<footer>`.
+4. **Heading Hierarchy**: Loncat dari `<H1>` langsung ke `<H4>` pada keahlian.
+5. **Aksesibilitas**:
+   - Menghapus outline fokus (`*:focus { outline: none; }`).
+   - Tag `<img>` tidak punya atribut `alt`.
+   - Form tanpa `<label>` (hanya placeholder).
+   - Button di dalam form tidak punya `type="submit"`.
+   - Link `target="_blank"` tidak punya `rel="noopener noreferrer"`.
+6. **Performa**: Gambar tidak memiliki `width`, `height`, dan `loading="lazy"`.
 
-// Inisialisasi Repository
-const repoSiswa = new AcademicRepository<SiswaClass>("DB_SISWA");
+---
 
-// 1. Uji Coba Objek Valid
-const siswaValid = new SiswaClass(1, "Putra Ramadhan", 17, "NIS-1001", "XI RPL 1");
-siswaValid.nilaiRataRata = 85;
-repoSiswa.tambah(siswaValid);
+## ✨ KODE BARU: Clean & Maintainable (Sesudah Refactor)
 
-console.log("✓ Sukses: Siswa valid dimasukkan.");
+```html
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-// 2. Uji Coba Objek Salah Tipe NIS (TypeScript meloloskan jika tipe union)
-const siswaNisAngka = new SiswaClass(2, "Dewi", 16, 1002, "XI RPL 1"); // NIS berupa number
-repoSiswa.tambah(siswaNisAngka);
-console.log("✓ Sukses: Siswa NIS angka dimasukkan (Union valid).");
+    <!-- Identitas & SEO -->
+    <title>Rizki Pratama — Junior Web Developer · Jakarta</title>
+    <meta
+      name="description"
+      content="Portfolio Rizki Pratama, junior web developer dari SMK RPL Jakarta. Proyek HTML, CSS, dan web yang bersih dan aksesibel."
+    />
+    <meta name="author" content="Rizki Pratama" />
+    <link rel="canonical" href="https://rizkipratama.com/" />
 
-// 3. Menampilkan isi database siswa
-console.log("\nDatabase Siswa:");
-console.log(repoSiswa.ambilSemua());
+    <!-- Favicon & Stylesheet -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="page page--home">
+    <!-- Skip Navigation Link -->
+    <a href="#konten-utama" class="skip-link">Lompati ke konten utama</a>
+
+    <!-- Navigasi Utama -->
+    <header id="site-header" class="site-header">
+      <div class="header-brand">
+        <p class="brand-name">Rizki Pratama</p>
+        <p class="brand-role">Junior Web Developer</p>
+      </div>
+
+      <nav id="nav-utama" aria-label="Navigasi utama">
+        <a href="index.html" class="nav-link nav-link--active" aria-current="page">Home</a>
+        <a href="#proyek" class="nav-link">Proyek</a>
+        <a href="#kontak" class="nav-link">Kontak</a>
+      </nav>
+    </header>
+
+    <!-- Konten Utama -->
+    <main id="konten-utama" tabindex="-1">
+      <!-- Section Hero -->
+      <section id="hero" class="section-hero" aria-labelledby="hero-title">
+        <figure class="profile-figure">
+          <img
+            src="assets/images/foto.jpg"
+            alt="Foto potret Rizki Pratama tersenyum"
+            width="150"
+            height="150"
+            loading="eager"
+            class="profile-photo"
+          />
+          <figcaption class="profile-caption">Rizki Pratama</figcaption>
+        </figure>
+
+        <div class="hero-text">
+          <h1 id="hero-title" class="hero-title">Halo, Saya Rizki 👋</h1>
+          <p class="hero-desc">
+            Saya siswa SMK RPL yang fokus merancang kode HTML bersih, terstruktur, dan aksesibel.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section Keahlian -->
+      <section id="keahlian" class="section" aria-labelledby="keahlian-title">
+        <h2 id="keahlian-title" class="section-title">Keahlian Saya</h2>
+        <ul class="skills-list" aria-label="Daftar keahlian teknis">
+          <li class="skill-item">HTML5</li>
+          <li class="skill-item">CSS3</li>
+          <li class="skill-item">JavaScript</li>
+        </ul>
+      </section>
+
+      <!-- Section Proyek -->
+      <section id="proyek" class="section" aria-labelledby="proyek-title">
+        <h2 id="proyek-title" class="section-title">Proyek Terbaru</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <header class="project-card__header">
+              <h3 class="project-card__title">Website SMK</h3>
+            </header>
+            <figure class="project-card__figure">
+              <img
+                src="assets/images/smk.jpg"
+                alt="Screenshot tampilan beranda Website Profil SMK"
+                width="400"
+                height="225"
+                loading="lazy"
+              />
+            </figure>
+            <p class="project-card__desc">Website profil sekolah responsif.</p>
+            <footer class="project-card__footer">
+              <a
+                href="https://demo-smk.example.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Lihat demo Website SMK (terbuka di tab baru)"
+                class="btn-link"
+              >
+                Demo
+              </a>
+            </footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section Kontak -->
+      <section id="kontak" class="section" aria-labelledby="kontak-title">
+        <h2 id="kontak-title" class="section-title">Hubungi Saya</h2>
+
+        <form id="form-kontak" action="/proses.php" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="nama-pengirim">
+              Nama Lengkap <abbr title="Wajib diisi" aria-label="wajib diisi">*</abbr>
+            </label>
+            <input
+              type="text"
+              id="nama-pengirim"
+              name="nama_lengkap"
+              placeholder="Contoh: Budi Santoso"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email-pengirim">
+              Alamat Email <abbr title="Wajib diisi" aria-label="wajib diisi">*</abbr>
+            </label>
+            <input
+              type="email"
+              id="email-pengirim"
+              name="email_pengirim"
+              placeholder="nama@domain.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="pesan-pengirim">
+              Pesan <abbr title="Wajib diisi" aria-label="wajib diisi">*</abbr>
+            </label>
+            <textarea
+              id="pesan-pengirim"
+              name="pesan_detail"
+              rows="4"
+              placeholder="Tulis pesan lengkapmu..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="site-footer" class="site-footer">
+      <p>&copy; <time datetime="2026">2026</time> Rizki Pratama. Hak Cipta Dilindungi.</p>
+    </footer>
+  </body>
+</html>
 ```
 
 ---
 
-## Output
-Jalankan di terminal dengan perintah `tsx src/bab11/studi-kasus-validasi.ts`. Output yang diharapkan:
+## 📊 Hasil Akhir Pengujian
 
-```text
-✓ Sukses: Siswa valid dimasukkan.
-✓ Sukses: Siswa NIS angka dimasukkan (Union valid).
-
-Database Siswa:
-[
-  SiswaClass {
-    nama: 'Putra Ramadhan',
-    umur: 17,
-    nis: 'NIS-1001',
-    kelas: 'XI RPL 1',
-    id: 1,
-    _nilaiRataRata: 85
-  },
-  SiswaClass {
-    nama: 'Dewi',
-    umur: 16,
-    nis: 1002,
-    kelas: 'XI RPL 1',
-    id: 2,
-    _nilaiRataRata: 0
-  }
-]
-```
+- **W3C Validator**: 🟢 0 Error, 0 Warning.
+- **Linter (HTMLHint)**: 🟢 Pass tanpa peringatan.
+- **Aksesibilitas Keyboard**: 🟢 Bekerja 100% dengan tombol Tab & Skip Link.
+- **Maintainability**: Kode ter-indentasi 2 spasi secara presisi, mudah dibaca dan dimodifikasi oleh siapapun.
 
 ---
 
-## Penjelasan Baris per Baris
-- `const siswaValid = new SiswaClass(...)`: Membuat instansi objek baru dari class `SiswaClass` (BAB 8).
-- `siswaNisAngka`: Lolos validasi meskipun NIS diisi angka `1002` karena model properti NIS mendukung tipe union `string | number` (BAB 7).
-- `_nilaiRataRata: 85`: Menampilkan nilai properti private internal objek hasil enkapsulasi.
-
----
-
-## Common Mistakes
-- **Menulis Tipe Properti Secara Manual Tanpa Model**: Mendefinisikan objek siswa baru tanpa mengaitkannya ke class `SiswaClass`, akibatnya compiler tidak bisa mengecek method getter/setter dari objek tersebut.
-
----
-
-## Tips
-:::tip[Gunakan console.dir]
-Gunakan perintah `console.dir(objek, { depth: null })` untuk menampilkan seluruh data nested object bagian dalam secara lengkap di terminal tanpa terpotong tulisan `[Object]`.
-:::
-
----
-
-## Ringkasan
-- Objek divalidasi bentuknya berdasarkan cetak biru class dan interface yang terkait.
-- Tipe union meloloskan variasi format data masukan (seperti NIS berupa string atau number).
-- Output terminal mencerminkan enkapsulasi properti private objek secara terstruktur.
-
----
-
-## Latihan
-1. Buat file `studi-kasus-validasi.ts` di folder `src/bab11/` komputermu.
-2. Tambahkan satu siswa baru dengan umur diisi string `"tujuh belas"` dan amati error compile-nya.
+**[Lanjut: Mini Project →](/bab11/mini-project/)**

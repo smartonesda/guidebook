@@ -1,238 +1,372 @@
-﻿---
-title: "Studi Kasus: Sistem Informasi Akademik"
-description: Studi kasus lengkap merancang sistem informasi akademik sekolah menggunakan paradigma OOP, relasi objek, dan inheritance di TypeScript.
+---
+title: "Studi Kasus"
+description: Refactor portfolio dari div-first menjadi semantic HTML — menganalisis kode lama, mengidentifikasi masalah, dan membangun ulang dengan struktur yang bermakna.
 ---
 
-## Tujuan Pembelajaran
-Setelah menyelesaikan studi kasus ini, kamu diharapkan dapat:
-- Merancang struktur data sekolah yang kompleks menggunakan paradigma OOP.
-- Menghubungkan beberapa class yang saling berelasi (seperti Guru, Siswa, dan Kelas).
-- Membangun method pemroses data yang bekerja secara modular.
+> *"Kode yang berfungsi bukanlah tujuan akhir. Kode yang bermakna, mudah dipahami, dan aksesibel — itulah standar yang perlu kita tuju."*
 
 ---
 
-## Pendahuluan
+## 🎯 Tujuan Studi Kasus
 
-Kita akan membangun modul data untuk **Sistem Informasi Akademik** (SIAKAD) sekolah. Sistem ini perlu mengelola:
-- Data dasar manusia (menggunakan inheritance).
-- Data khusus Guru (punya NIP, mapel yang diajarkan).
-- Data khusus Siswa (punya NIS, nilai).
-- Data Kelas (Rombel) yang menampung satu wali kelas guru dan daftar siswa.
+Di studi kasus ini, kita akan melakukan **refactor** — bukan membuat dari nol, tapi memperbaiki kode yang sudah ada.
 
-Sistem ini dirancang menggunakan OOP agar terstruktur, aman, dan mudah dikembangkan untuk jangka panjang.
+Kita akan mengambil `index.html` portfolio yang sudah dibangun sejak BAB 1, mengidentifikasi bagian-bagian yang kurang semantic, dan mengubahnya menjadi struktur yang benar.
+
+Ini adalah langkah paling realistis yang akan kamu lakukan di dunia kerja nyata: **memperbaiki kode yang sudah ada**.
 
 ---
 
-## Desain Class & Relasi Objek
+## 🔍 Kode Lama: Portfolio v0.7 (Sebelum Refactor)
 
-Kita akan merancang class dengan diagram struktur seperti berikut:
+Sebelum bab ini, struktur portfolio kita masih campuran antara semantic dan non-semantic:
 
-```text
-       ┌────────────────────────┐
-       │   abstract Manusia     │  ◄── Class Induk Abstrak
-       │   - nama, umur         │
-       └───────────┬────────────┘
-                   │
-         ┌─────────┴─────────┐
-         ▼ extends           ▼ extends
-  ┌──────────────┐    ┌──────────────┐
-  │    Siswa     │    │     Guru     │
-  │  - nis, nilai│    │  - nip, mapel│
-  └──────┬───────┘    └──────┬───────┘
-         │                   │
-         │ di dalam daftar   │ sebagai wali kelas
-         ▼                   ▼
-  ┌──────────────────────────────────┐
-  │            KelasRPL              │
-  │  - namaKelas                     │
-  │  - waliKelas (objek Guru)        │
-  │  - daftarSiswa (array Siswa[])   │
-  └──────────────────────────────────┘
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rizki Pratama — Junior Web Developer</title>
+</head>
+<body id="halaman-beranda" class="page page--home">
+
+  <!-- Navigasi — menggunakan <p> bukan <nav> -->
+  <p>
+    <strong>Beranda</strong> | 
+    <a href="projects.html">Proyek Saya</a> | 
+    <a href="#kontak">Hubungi Saya</a>
+  </p>
+
+  <hr />
+
+  <!-- Header profil — menggunakan <header> tapi tanpa struktur yang tepat -->
+  <header id="profil" class="profile-header" role="banner">
+    <figure id="profil-foto">
+      <img src="foto.jpg" alt="Foto Rizki" width="150" height="150" />
+      <figcaption>Rizki Pratama — Junior Web Developer</figcaption>
+    </figure>
+    <dl id="info-profil">
+      <dt>Domisili</dt><dd>Jakarta</dd>
+      <dt>Jurusan</dt><dd>RPL</dd>
+    </dl>
+  </header>
+
+  <hr />
+
+  <!-- Konten utama — menggunakan <main> tapi section-section belum ada -->
+  <main id="konten-utama">
+
+    <h2>Tentang Saya</h2>
+    <p>Nama saya <strong>Rizki Pratama</strong>...</p>
+
+    <h2>Keahlian Saya</h2>
+    <ul id="daftar-keahlian">
+      <li data-level="mahir">HTML5</li>
+      <li data-level="menengah">CSS3</li>
+    </ul>
+
+    <h2 id="kontak">Hubungi Saya</h2>
+    <form>...</form>
+
+  </main>
+
+  <hr />
+
+  <footer>
+    <p>&copy; 2026 Rizki Pratama</p>
+  </footer>
+
+</body>
+</html>
 ```
 
 ---
 
-## Mari Mencoba: Implementasi Kode SIAKAD
+## 🔍 Identifikasi Masalah
 
-Buat file baru bernama `src/bab8/studi-kasus-siakad.ts`:
+Mari kita audit satu per satu:
 
-```ts
-// =====================================================
-// STUDI KASUS: SISTEM INFORMASI AKADEMIK (OOP)
-// =====================================================
+| Bagian | Masalah | Solusi |
+|---|---|---|
+| Navigasi `<p>` | Menggunakan `<p>` untuk navigasi | Ganti dengan `<nav>` |
+| `<header>` profil | `<header>` dipakai untuk profil, bukan site header | Pisahkan site header dan profil section |
+| `<hr>` sebagai separator | `<hr>` digunakan sebagai visual divider, bukan semantic | Hilangkan atau ganti dengan CSS border |
+| Konten utama tanpa section | Semua konten bertumpuk di `<main>` tanpa pemisahan tematik | Bungkus dengan `<section>` yang tepat |
+| Judul sebagai heading biasa | `<h2>` melayang tanpa section container | Masukkan ke dalam `<section>` |
 
-// 1. Abstract Class Induk (Cetak Biru Manusia)
-abstract class Manusia {
-  constructor(public nama: string, public umur: number) {}
+---
 
-  abstract tampilkanInfo(): void;
-}
+## ✨ Portfolio v0.8 — Hasil Refactor Semantic
 
-// 2. Class Anak: Guru
-class Guru extends Manusia {
-  constructor(
-    nama: string,
-    umur: number,
-    public nip: number,
-    public mataPelajaran: string
-  ) {
-    super(nama, umur);
-  }
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rizki Pratama — Junior Web Developer</title>
+  <meta name="description" 
+        content="Portfolio Rizki Pratama, siswa SMK RPL yang membangun karir di web development." />
+</head>
+<body class="page page--home">
 
-  tampilkanInfo(): void {
-    console.log(`[Guru] NIP: ${this.nip} | Nama: ${this.nama} | Mengajar: ${this.mataPelajaran}`);
-  }
-}
-
-// 3. Class Anak: Siswa
-class Siswa extends Manusia {
-  constructor(
-    nama: string,
-    umur: number,
-    public nis: number,
-    private _nilai: number = 0 // Properti private terenkapsulasi
-  ) {
-    super(nama, umur);
-  }
-
-  // Getter & Setter untuk nilai
-  get nilai(): number {
-    return this._nilai;
-  }
-
-  set nilai(nilaiBaru: number) {
-    if (nilaiBaru >= 0 && nilaiBaru <= 100) {
-      this._nilai = nilaiBaru;
-    } else {
-      console.log(`⚠ Nilai ${nilaiBaru} tidak valid untuk ${this.nama}!`);
-    }
-  }
-
-  tampilkanInfo(): void {
-    const status = this._nilai >= 75 ? "LULUS" : "REMEDIAL";
-    console.log(`[Siswa] NIS: ${this.nis} | Nama: ${this.nama.padEnd(10)} | Nilai: ${this._nilai} [${status}]`);
-  }
-}
-
-// 4. Class Kelas (Rombel) yang Berelasi dengan Guru dan Siswa
-class KelasRombel {
-  // Properti bertipe objek Guru dan array objek Siswa
-  private daftarSiswa: Siswa[] = [];
-
-  constructor(
-    public namaKelas: string,
-    public waliKelas: Guru
-  ) {}
-
-  // Method untuk menambah siswa ke kelas
-  public tambahSiswa(siswa: Siswa): void {
-    this.daftarSiswa.push(siswa);
-    console.log(`✓ Siswa "${siswa.nama}" dimasukkan ke kelas ${this.namaKelas}.`);
-  }
-
-  // Method untuk menghitung rata-rata nilai kelas
-  public hitungRataRataKelas(): number {
-    if (this.daftarSiswa.length === 0) return 0;
-    const total = this.daftarSiswa.reduce((acc, curr) => acc + curr.nilai, 0);
-    return parseFloat((total / this.daftarSiswa.length).toFixed(2));
-  }
-
-  // Method untuk menampilkan laporan kelas lengkap
-  public cetakLaporanKelas(): void {
-    console.log("\n" + "=".repeat(50));
-    console.log(`  LAPORAN AKADEMIK KELAS: ${this.namaKelas}`);
-    console.log("=".repeat(50));
-    console.log(`  Wali Kelas : ${this.waliKelas.nama} (NIP: ${this.waliKelas.nip})`);
-    console.log(`  Mata Pelaj.: ${this.waliKelas.mataPelajaran}`);
-    console.log("-".repeat(50));
-    console.log("  Daftar Siswa:");
+  <!-- ===================== SITE HEADER ===================== -->
+  <header id="site-header" class="site-header">
     
-    if (this.daftarSiswa.length === 0) {
-      console.log("    (Belum ada siswa di kelas ini)");
-    } else {
-      this.daftarSiswa.forEach((siswa) => {
-        siswa.tampilkanInfo(); // Polimorfisme memanggil method tampilkanInfo() milik Siswa
-      });
-    }
+    <div class="header-brand">
+      <p class="brand-name">Rizki Pratama</p>
+      <p class="brand-role">Junior Web Developer · SMK RPL Jakarta</p>
+    </div>
 
-    console.log("-".repeat(50));
-    console.log(`  Rata-rata Nilai Kelas: ${this.hitungRataRataKelas()}`);
-    console.log("=".repeat(50));
-  }
-}
+    <nav id="nav-utama" aria-label="Navigasi utama">
+      <a href="/" class="nav-link nav-link--active" aria-current="page">Beranda</a>
+      <a href="projects.html" class="nav-link">Proyek Saya</a>
+      <a href="#kontak" class="nav-link">Hubungi Saya</a>
+    </nav>
 
-// --- SIMULASI PROGRAM SIAKAD ---
+  </header>
 
-// 1. Buat Objek Guru
-const pakBudi = new Guru("Pak Budi Santoso", 38, 19870615, "Pemrograman Web");
+  <!-- ===================== KONTEN UTAMA ===================== -->
+  <main id="konten-utama">
 
-// 2. Buat Objek Kelas
-const kelasXI = new KelasRombel("XI RPL 1", pakBudi);
+    <!-- Bagian Hero / Profil -->
+    <section id="hero" class="section-hero" aria-labelledby="hero-name">
 
-// 3. Buat Objek Siswa-Siswa
-const s1 = new Siswa("Putra", 17, 1001, 85);
-const s2 = new Siswa("Dewi", 16, 1002, 70);
-const s3 = new Siswa("Citra", 17, 1003, 95);
+      <figure class="profile-figure">
+        <img 
+          src="assets/images/foto-rizki.jpg" 
+          alt="Foto potret Rizki Pratama tersenyum menghadap kamera"
+          width="150" height="150"
+          loading="eager"
+          class="profile-photo"
+        />
+        <figcaption class="profile-caption">Rizki Pratama, Jakarta 2026</figcaption>
+      </figure>
 
-console.log("=== PROSES PENDAFTARAN KELAS ===");
-kelasXI.tambahSiswa(s1);
-kelasXI.tambahSiswa(s2);
-kelasXI.tambahSiswa(s3);
+      <div class="hero-text">
+        <h1 id="hero-name" class="hero-title">Halo, saya Rizki 👋</h1>
+        <p class="hero-tagline">
+          Siswa SMK RPL yang sedang membangun portofolio web pertamanya 
+          dan siap berkolaborasi dalam proyek nyata.
+        </p>
+        <dl class="profile-info">
+          <dt>Domisili</dt>
+          <dd>Jakarta, Indonesia</dd>
+          <dt>Jurusan</dt>
+          <dd><abbr title="Rekayasa Perangkat Lunak">RPL</abbr></dd>
+        </dl>
+      </div>
 
-// 4. Cetak Laporan Awal
-kelasXI.cetakLaporanKelas();
+    </section>
 
-// 5. Coba update nilai siswa Dewi secara aman lewat setter
-console.log("\n[Aksi]: Ujian remedi Dewi dilaksanakan...");
-s2.nilai = 80; // memanggil setter otomatis
+    <!-- Bagian Tentang -->
+    <section id="tentang" class="section" aria-labelledby="tentang-heading">
+      <h2 id="tentang-heading" class="section-title">Tentang Saya</h2>
+      <p>
+        Nama saya <strong>Rizki Pratama</strong>. Saya adalah seorang 
+        <em>junior web developer</em> yang tertarik dalam merancang 
+        struktur halaman web secara rapi dan bermakna.
+      </p>
+      <p>
+        Saat ini saya mempelajari HTML, CSS, dan dasar-dasar JavaScript 
+        untuk mempersiapkan diri memasuki dunia kerja di bidang 
+        <abbr title="Rekayasa Perangkat Lunak">RPL</abbr>.
+      </p>
+      <blockquote cite="https://www.w3.org/TR/html52/">
+        <p>
+          Menulis kode HTML yang terstruktur dengan baik adalah 
+          langkah pertama menuju web development yang profesional.
+        </p>
+      </blockquote>
+    </section>
 
-// 6. Cetak Laporan Akhir setelah perubahan
-kelasXI.cetakLaporanKelas();
+    <!-- Bagian Keahlian -->
+    <section id="keahlian" class="section" aria-labelledby="keahlian-heading">
+      <h2 id="keahlian-heading" class="section-title">Keahlian Teknis</h2>
+      <ul id="daftar-keahlian" class="skills-grid" 
+          aria-label="Daftar keahlian teknis Rizki">
+        <li class="skill-item" data-level="mahir">HTML5</li>
+        <li class="skill-item" data-level="menengah">CSS3</li>
+        <li class="skill-item" data-level="pemula">JavaScript</li>
+        <li class="skill-item" data-level="pemula">Git & GitHub</li>
+        <li class="skill-item" data-level="pemula">Figma (Desain)</li>
+      </ul>
+      <p>
+        Unduh 
+        <a href="dokumen/resume.pdf" download 
+           aria-label="Unduh Resume Rizki dalam format PDF">
+          Resume PDF
+        </a> 
+        untuk informasi lebih lengkap.
+      </p>
+    </section>
+
+    <!-- Bagian Proyek (preview) -->
+    <section id="proyek" class="section" aria-labelledby="proyek-heading">
+      <h2 id="proyek-heading" class="section-title">Proyek Terbaru</h2>
+
+      <div class="project-grid">
+
+        <article class="project-card" id="proyek-smk" data-status="selesai">
+          <header class="project-header">
+            <h3 class="project-title">Website SMK Nusantara</h3>
+            <p class="project-meta">
+              <time datetime="2025-06">Juni 2025</time> · 
+              <span class="badge badge--selesai">Selesai</span>
+            </p>
+          </header>
+          <p class="project-desc">
+            Website profil sekolah yang responsif dengan halaman beranda, 
+            profil guru, dan formulir kontak.
+          </p>
+          <ul class="project-tech-list" aria-label="Teknologi yang digunakan">
+            <li>HTML5</li><li>CSS3</li>
+          </ul>
+          <footer class="project-footer">
+            <a href="https://demo.example.com"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Demo Website SMK (tab baru)" class="btn-link">
+              Demo
+            </a>
+            <a href="https://github.com/rizki/smk"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Kode di GitHub (tab baru)" class="btn-link btn-link--ghost">
+              GitHub
+            </a>
+          </footer>
+        </article>
+
+      </div>
+
+      <p><a href="projects.html" class="link-all-projects">Lihat semua proyek →</a></p>
+    </section>
+
+    <!-- Bagian Kontak -->
+    <section id="kontak" class="section" aria-labelledby="kontak-heading">
+      <h2 id="kontak-heading" class="section-title">Hubungi Saya</h2>
+      <p>
+        Ingin berkolaborasi atau mengajukan inquiry proyek? 
+        Isi formulir di bawah ini.
+      </p>
+
+      <form id="form-kontak" class="contact-form"
+            action="/proses-inquiry.php" method="POST"
+            aria-labelledby="form-title">
+        <h3 id="form-title" class="form-title">Kirim Pesan</h3>
+
+        <fieldset>
+          <legend>Informasi Pengirim</legend>
+          <div class="form-group">
+            <label for="nama-pengirim">
+              Nama Lengkap <abbr title="Wajib diisi">*</abbr>
+            </label>
+            <input type="text" id="nama-pengirim" name="nama_lengkap"
+                   placeholder="Contoh: Budi Santoso"
+                   minlength="3" autocomplete="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email-pengirim">
+              Email <abbr title="Wajib diisi">*</abbr>
+            </label>
+            <input type="email" id="email-pengirim" name="email_pengirim"
+                   placeholder="nama@domain.com" autocomplete="email" required />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Detail Pesan</legend>
+          <div class="form-group">
+            <label for="pesan">
+              Pesan <abbr title="Wajib diisi">*</abbr>
+            </label>
+            <textarea id="pesan" name="pesan_detail" rows="5"
+                      placeholder="Ceritakan apa yang ingin kamu diskusikan..."
+                      minlength="20" required></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-group form-group--checkbox">
+          <input type="checkbox" id="setuju" name="persetujuan"
+                 value="setuju" required />
+          <label for="setuju">
+            Saya menyetujui penggunaan data ini untuk keperluan kontak.
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+          <button type="reset" class="btn btn-secondary">Hapus Isian</button>
+        </div>
+      </form>
+
+      <p class="contact-alt">
+        Atau hubungi langsung: 
+        <a href="mailto:rizki@example.com">rizki@example.com</a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ===================== SITE FOOTER ===================== -->
+  <footer id="site-footer" class="site-footer">
+
+    <div class="footer-brand">
+      <p class="footer-name">Rizki Pratama</p>
+      <p class="footer-tagline">Junior Web Developer · Jakarta</p>
+    </div>
+
+    <nav aria-label="Navigasi footer">
+      <a href="/">Beranda</a>
+      <a href="projects.html">Proyek</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <address>
+      <a href="mailto:rizki@example.com">rizki@example.com</a>
+    </address>
+
+    <p class="footer-copy">
+      &copy; <time datetime="2026">2026</time> Rizki Pratama. 
+      Dibangun dengan HTML5 yang penuh makna.
+    </p>
+
+  </footer>
+
+</body>
+</html>
 ```
 
-Jalankan dengan perintah:
-```text
-tsx src/bab8/studi-kasus-siakad.ts
+---
+
+## 🔍 Apa yang Berubah dari v0.7 ke v0.8?
+
+| Aspek | Sebelum (v0.7) | Sesudah (v0.8) |
+|---|---|---|
+| Navigasi | `<p>` dengan teks dan pemisah `\|` | `<nav>` dengan `aria-label` |
+| Site header | `<header>` langsung berisi profil foto | `<header>` berisi brand + `<nav>` |
+| Konten utama | Heading `<h2>` melayang tanpa container | Setiap bagian dalam `<section>` dengan `aria-labelledby` |
+| Proyek | Belum ada struktur | `<article>` dengan `<header>` dan `<footer>` sendiri |
+| Footer | Satu baris teks | `<nav>`, `<address>`, info copyright terstruktur |
+| Separator | `<hr>` sebagai visual divider | Dihilangkan — separator lewat CSS |
+
+---
+
+## ✅ Checklist Verifikasi Semantic
+
+```
+☐ Ada tepat satu <main> yang terlihat
+☐ <header> site ada di luar <main>
+☐ Semua navigasi menggunakan <nav> dengan aria-label
+☐ Setiap <section> punya heading dan aria-labelledby
+☐ Proyek menggunakan <article> dengan <header> + <footer>
+☐ Tanggal menggunakan <time datetime="...">
+☐ Gambar profil ada dalam <figure> + <figcaption>
+☐ Info kontak dalam <address>
+☐ Link eksternal punya target="_blank" + rel="noopener noreferrer"
+☐ HTML lolos W3C Validator
 ```
 
 ---
 
-## Penjelasan Baris per Baris
-
-- `abstract class Manusia` — Class induk abstrak yang tidak bisa di-`new`, berguna sebagai kontrak wajib bahwa seluruh manusia di sekolah memiliki `nama` dan `umur`.
-- `class Siswa extends Manusia` — Mewarisi properti `nama` dan `umur` dari `Manusia`, lalu mendefinisikan properti private `_nilai` dan constructor-nya menggunakan `super(nama, umur)`.
-- `public waliKelas: Guru` — Properti `waliKelas` pada `KelasRombel` bertipe objek `Guru` (relasi *association*).
-- `private daftarSiswa: Siswa[]` — Properti penyimpan array kumpulan objek `Siswa`.
-- `this.daftarSiswa.reduce(...)` — Menghitung total nilai seluruh objek siswa yang terdaftar di dalam array kelas.
-- `siswa.tampilkanInfo()` — Polimorfisme berjalan: komputer memanggil method khusus milik objek `Siswa`.
-
----
-
-## Kesalahan yang Sering Terjadi
-
-### ❌ Mengisi data relasi dengan tipe yang tidak cocok
-```ts
-const kelasRpl = new KelasRombel("XI RPL 1", "Pak Budi"); // Error!
-// Argument of type 'string' is not assignable to parameter of type 'Guru'.
-```
-
-**Perbaikan:** Properti `waliKelas` mengharuskan kita mengirimkan objek nyata hasil instansiasi `new Guru(...)`, bukan sekadar teks string.
-
----
-
-## Latihan
-1. Tambahkan properti `private _alamat: string = ""` pada class abstrak `Manusia` lengkap dengan getter dan setter-nya.
-2. Isi alamat untuk semua objek guru dan siswa saat dibuat.
-3. Cetak alamat tersebut di dalam method laporan kelas.
-
----
-
-## Ringkasan
-- Sistem informasi sekolah yang kompleks dirancang secara modular menggunakan relasi objek OOP.
-- Class anak memperluas class induk abstrak menggunakan `extends`.
-- Class `KelasRombel` menghubungkan Guru dan Siswa menggunakan relasi objek dan array.
-- Perubahan properti private dikontrol secara aman menggunakan getter dan setter.
-
-:::tip[Langkah Selanjutnya]
-Lanjut ke **Mini Project** untuk merancang aplikasi akademik berbasis OOP yang lebih interaktif.
-:::
+**[Lanjut: Mini Project →](/bab8/mini-project/)**

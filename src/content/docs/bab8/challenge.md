@@ -1,123 +1,194 @@
-﻿---
-title: "Challenge BAB 8"
-description: Sepuluh latihan Object-Oriented Programming (OOP) dari tingkat mudah hingga menengah di TypeScript.
+---
+title: "Challenge"
+description: Tantangan berjenjang untuk menguji pemahaman Semantic HTML — dari identifikasi element hingga refactor penuh dan analisis mendalam.
 ---
 
-## Tujuan Pembelajaran
-Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
-- Merancang, mendeklarasikan, dan menggunakan Class secara mandiri.
-- Menerapkan pilar-pilar OOP (Enkapsulasi, Pewarisan, Polimorfisme) untuk menyelesaikan masalah nyata.
-- Menulis kode terstruktur secara mandiri tanpa menyalin contoh.
+Challenge BAB 8 dirancang untuk menguji apakah kamu sudah bisa **berpikir berdasarkan makna** sebelum memilih element — bukan sekadar menghafal daftar tag semantic.
 
 ---
 
-## Aturan Pengerjaan
+## 🎯 Tujuan Challenge
 
-:::tip[Cara Mengerjakan]
-Buatlah satu file terpisah untuk setiap soal di folder `src/bab8/challenge/`. Contoh: `src/bab8/challenge/soal-1.ts`.
+Setelah menyelesaikan semua tantangan, kamu akan mampu:
+- Membaca HTML dan langsung mengidentifikasi element mana yang salah pilih.
+- Memilih antara `<section>` dan `<article>` berdasarkan makna konten.
+- Membangun struktur semantic untuk berbagai jenis halaman.
+- Menjelaskan mengapa dua kode yang terlihat sama di browser tidak selalu setara.
 
-Jalankan file tersebut menggunakan perintah:
-```text
-tsx src/bab8/challenge/soal-1.ts
+---
+
+## 🔴 Challenge 1: Identifikasi Element (20 poin)
+
+Untuk setiap blok HTML di bawah, tentukan: **apakah pilihan element sudah tepat atau tidak?** Jika tidak tepat, tuliskan element yang lebih tepat dan alasannya.
+
+```html
+<!-- Blok A -->
+<div class="navigasi-utama">
+  <a href="/">Beranda</a>
+  <a href="/proyek">Proyek</a>
+  <a href="#kontak">Kontak</a>
+</div>
+
+<!-- Blok B -->
+<article class="skills-section">
+  <h2>Keahlian Teknis</h2>
+  <ul>
+    <li>HTML5</li>
+    <li>CSS3</li>
+  </ul>
+</article>
+
+<!-- Blok C -->
+<section class="blog-post">
+  <h2>Cara Membuat Form HTML yang Aksesibel</h2>
+  <p>Ditulis oleh Rizki · <time datetime="2025-10-01">1 Oktober 2025</time></p>
+  <p>Form HTML yang baik bukan hanya soal fungsi...</p>
+</section>
+
+<!-- Blok D -->
+<section class="copyright-info">
+  <p>&copy; 2026 Rizki Pratama</p>
+</section>
+
+<!-- Blok E -->
+<div>
+  <img src="foto-proyek.jpg" alt="Screenshot proyek" />
+  <p>Tampilan halaman utama Website SMK Nusantara</p>
+</div>
 ```
-:::
 
 ---
 
-## Challenge 1 — Class Siswa Dasar
-**Tingkat: Mudah**
+## 🟡 Challenge 2: Refactor Halaman Blog (20 poin)
 
-Buat sebuah class `Siswa` dengan properti: `nama` (string) dan `umur` (number). Buat constructor untuk mengisi kedua properti tersebut. Tambahkan method `perkenalan()` yang menampilkan pesan salam beserta nama dan umur. Buat objeknya dan jalankan method tersebut.
+Di bawah ini adalah HTML halaman blog yang masih menggunakan div-first. Tulis ulang seluruhnya menggunakan semantic element yang tepat:
 
----
+```html
+<div class="header">
+  <div class="logo">Dev Blog</div>
+  <div class="menu">
+    <div class="menu-item"><a href="/">Beranda</a></div>
+    <div class="menu-item"><a href="/artikel">Artikel</a></div>
+    <div class="menu-item"><a href="/tentang">Tentang</a></div>
+  </div>
+</div>
 
-## Challenge 2 — Pengaman Pintu (Getter & Setter)
-**Tingkat: Mudah**
+<div class="main-area">
+  <div class="content">
+    <div class="post">
+      <div class="post-title">Belajar HTML dari Nol</div>
+      <div class="post-date">15 November 2025</div>
+      <div class="post-content">
+        <p>HTML adalah pondasi dari semua website...</p>
+        <div class="code-example">
+          <img src="kode.png" alt="Contoh kode HTML" />
+          <div class="caption">Struktur dasar dokumen HTML</div>
+        </div>
+      </div>
+      <div class="post-author">
+        <div class="author-name">Rizki Pratama</div>
+        <div class="author-email">rizki@example.com</div>
+      </div>
+    </div>
 
-Buat class `Pintu` dengan properti private `_terkunci: boolean = true`.
-- Buat getter `statusKunci()` untuk membaca status.
-- Buat method `bukaKunci()` untuk mengubah status menjadi `false`.
-- Buat method `kunciPintu()` untuk mengubah status menjadi `true`.
-Tampilkan status pintu di terminal setelah setiap tindakan.
+    <div class="post">
+      <div class="post-title">CSS untuk Pemula</div>
+      <div class="post-date">20 November 2025</div>
+      <div class="post-content">
+        <p>CSS mengubah HTML yang polos menjadi halaman yang indah...</p>
+      </div>
+    </div>
+  </div>
 
----
+  <div class="sidebar">
+    <div class="widget">
+      <div class="widget-title">Artikel Terkait</div>
+      <div class="widget-item"><a href="#">JavaScript Dasar</a></div>
+      <div class="widget-item"><a href="#">CSS Flexbox</a></div>
+    </div>
+  </div>
+</div>
 
-## Challenge 3 — Pewarisan Hewan
-**Tingkat: Mudah**
+<div class="footer">
+  <div class="footer-copy">&copy; 2026 Dev Blog</div>
+  <div class="footer-nav">
+    <a href="/privasi">Privasi</a>
+    <a href="/kontak">Kontak</a>
+  </div>
+</div>
+```
 
-1. Buat class induk `Hewan` dengan properti `nama` dan method `makan()`.
-2. Buat class anak `Kucing` yang mewarisi `Hewan` dan memiliki method khusus `meong()`.
-3. Instansiasi objek `Kucing`, panggil method `makan()` (warisan) dan `meong()` (khusus).
-
----
-
-## Challenge 4 — Enkapsulasi Nilai KKM
-**Tingkat: Mudah**
-
-Buat class `NilaiUjian` dengan properti `private _skor: number = 0`. Buat setter untuk `skor` yang memvalidasi agar angka yang dimasukkan berada antara 0 sampai 100. Tampilkan pesan penolakan jika nilainya tidak valid.
-
----
-
-## Challenge 5 — Penghitung Objek (Static Property)
-**Tingkat: Menengah**
-
-Buat class `Pena` dengan properti static `jumlahPenaDibuat: number = 0`. Setiap kali constructor pena dipanggil untuk membuat objek baru, naikkan nilai properti static tersebut. Buat 4 objek pena dan tampilkan total pena yang berhasil dibuat langsung melalui nama Class.
-
----
-
-## Challenge 6 — Polimorfisme Suara Kendaraan
-**Tingkat: Menengah**
-
-1. Buat class induk `Kendaraan` dengan method `klakson()`.
-2. Buat class anak `Mobil` dan `Motor` yang menimpa (*overriding*) method `klakson()` dengan bunyi klakson yang berbeda.
-3. Buat array bertipe `Kendaraan[]` berisi objek Mobil dan Motor, lalu jalankan klaksonnya dalam satu loop perulangan.
-
----
-
-## Challenge 7 — Kalkulator Matematika (Static Method)
-**Tingkat: Menengah**
-
-Buat class `KalkulatorStatik` yang memiliki dua method static: `tambah(a, b)` dan `kurang(a, b)`. Panggil kedua method tersebut langsung tanpa menggunakan kata kunci `new` dan tampilkan hasilnya.
-
----
-
-## Challenge 8 — Pewarisan Bertingkat (Multilevel)
-**Tingkat: Menengah**
-
-1. Buat class `Karyawan` (nama, gaji).
-2. Buat class `Manager` yang meng-extends `Karyawan` dan memiliki properti tambahan `tunjangan`.
-3. Buat class `Direktur` yang meng-extends `Manager` dan memiliki properti tambahan `sahamBonus`.
-4. Buat objek Direktur lengkap dengan seluruh datanya menggunakan `super()` bertingkat, lalu tampilkan total pendapatannya (gaji + tunjangan + sahamBonus).
-
----
-
-## Challenge 9 — Abstract Class Akun Bank
-**Tingkat: Menengah**
-
-Buat abstract class `AkunBank` dengan abstract method `hitungBunga(): number`. Buat dua class anak: `TabunganBiasa` (bunga 2%) dan `TabunganDeposito` (bunga 5%). Tampilkan bunga bulanan untuk saldo Rp10.000.000 dari kedua jenis tabungan tersebut.
+**Syarat:**
+- Gunakan minimal: `header`, `nav`, `main`, `article` (×2), `aside`, `figure`, `figcaption`, `time`, `address`, `footer`.
+- Semua `<section>` harus punya heading.
+- Semua `<article>` harus punya `<header>`.
 
 ---
 
-## Challenge 10 — Sistem Informasi Inventaris
-**Tingkat: Menengah**
+## 🟠 Challenge 3: section vs article — Pilih yang Tepat (20 poin)
 
-Buat sistem pengelolaan barang inventaris sekolah berbasis OOP:
-- Buat class `Barang` (id, nama, harga, stok).
-- Tambahkan method untuk mengurangi stok saat barang dipinjam.
-- Tambahkan method untuk menghitung total nilai aset barang tersebut (harga × stok).
-- Buat minimal 3 objek barang dan tampilkan ringkasan laporannya secara rapi.
+Untuk setiap situasi di bawah, tentukan: `<section>` atau `<article>`? Jelaskan alasanmu.
+
+1. Halaman "Tentang Saya" yang berisi paragraf perkenalan diri.
+2. Sebuah posting berita di halaman beranda media online.
+3. Bagian "Pendidikan" dalam halaman CV/portfolio.
+4. Setiap ulasan produk di halaman e-commerce.
+5. Bagian "Layanan Kami" di website perusahaan dengan daftar layanan.
+6. Setiap komentar di kolom komentar artikel blog.
+7. Bagian "Keahlian" dalam portfolio dengan daftar skill.
+8. Setiap kartu proyek di galeri portfolio.
 
 ---
 
-## Latihan
-Pilih salah satu challenge di atas yang menurutmu paling sulit. Buat rancangan alur logikanya di atas kertas, kemudian ketik ulang solusinya dari nol tanpa melihat materi pemandu.
+## 🔵 Challenge 4: Bangun Halaman Profil Siswa (20 poin)
+
+Buat halaman profil siswa baru yang semantic dari nol dengan spesifikasi:
+
+**Konten yang harus ada:**
+- Site header dengan nama sekolah dan navigasi
+- Bagian hero dengan foto profil (dalam `<figure>`) dan perkenalan singkat
+- Bagian "Data Diri" (nama, kelas, jurusan, NIS — gunakan `<dl>`)
+- Bagian "Prestasi" berisi minimal 3 artikel prestasi mandiri masing-masing dengan tanggal (`<time>`)
+- Bagian "Ekstrakulikuler" berisi daftar kegiatan
+- Sidebar berisi "Informasi Sekolah"
+- Site footer dengan info hak cipta
+
+**Syarat:**
+- Semua section harus memiliki heading dan `aria-labelledby`.
+- Prestasi menggunakan `<article>` karena bisa berdiri sendiri.
+- Ekstrakulikuler menggunakan `<section>` karena bagian dari profil, bukan mandiri.
+- Foto profil dalam `<figure>` + `<figcaption>`.
 
 ---
 
-## Ringkasan
-- Pengerjaan challenge melatih kemandirian merancang Class dan memproses relasi objek.
-- Gunakan perintah `tsx` untuk memverifikasi keluaran program di terminal.
+## ⚫ Challenge 5: Analisis Mendalam (20 poin)
 
-:::tip[Langkah Selanjutnya]
-Lanjut ke **Error Corner** untuk meninjau kesalahan-kesalahan yang paling sering muncul saat menulis kode OOP.
-:::
+Jawab pertanyaan berikut dalam bentuk tulisan analitis:
+
+**Pertanyaan 1:**
+Dua developer mendebat apakah galeri foto harus menggunakan `<section>` atau kumpulan `<figure>`. Developer A berkata: "Gunakan `<section>` karena itu sekelompok konten." Developer B berkata: "Gunakan sekumpulan `<figure>` langsung karena setiap foto sudah punya semantiknya sendiri."
+
+Menurut kamu, siapa yang benar? Atau ada pendekatan ketiga? Jelaskan.
+
+**Pertanyaan 2:**
+Seorang developer membuat kartu produk di e-commerce menggunakan `<article>`. Developer lain mengomentari: "Itu bukan artikel! Gunakan `<div>`." Siapa yang lebih tepat? Apa parameter yang seharusnya digunakan untuk memutuskan?
+
+**Pertanyaan 3:**
+Jelaskan mengapa "Semantic HTML yang baik" dan "Aksesibilitas yang baik" sangat berkaitan tapi bukan hal yang sama. Berikan contoh situasi di mana HTML yang semantic tapi masih perlu tambahan ARIA untuk benar-benar aksesibel.
+
+---
+
+## 📊 Rubrik Penilaian
+
+| Challenge | Poin | Kriteria |
+|---|---|---|
+| 1: Identifikasi Element | 20 | Tepat mengidentifikasi + alasan yang benar |
+| 2: Refactor Blog | 20 | Semua syarat dipenuhi, struktur valid |
+| 3: section vs article | 20 | Jawaban tepat + penjelasan berdasarkan makna |
+| 4: Halaman Profil | 20 | Semua elemen hadir, valid, accessible |
+| 5: Analisis | 20 | Jawaban mendalam, bukan sekadar definisi |
+| **Total** | **100** | |
+
+---
+
+**[Lanjut: Error Corner →](/bab8/error-corner/)**
