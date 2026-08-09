@@ -20,7 +20,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/smartonesda/typescript-guidebook",
+          href: "https://github.com/smartonesda/guidebook/tree/ts",
         },
       ],
       components: {
