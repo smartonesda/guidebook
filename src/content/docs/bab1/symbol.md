@@ -3,8 +3,6 @@ title: "Tipe Data: symbol"
 description: Mengenal symbol — tipe data untuk membuat penanda yang selalu unik.
 ---
 
-# Tipe Data: `symbol`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

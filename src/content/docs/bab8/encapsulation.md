@@ -3,8 +3,6 @@ title: "Encapsulation"
 description: Menerapkan konsep Enkapsulasi (penyembunyian data) untuk menjaga integritas objek di TypeScript.
 ---
 
-# Encapsulation (Enkapsulasi)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan definisi dari pilar Enkapsulasi.

@@ -3,8 +3,6 @@ title: "Mengapa Asynchronous?"
 description: Memahami pentingnya Asynchronous programming untuk mencegah aplikasi membeku (hang) saat memproses tugas lambat.
 ---
 
-# Mengapa Asynchronous?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan masalah Single-Threaded pada JavaScript/TypeScript.

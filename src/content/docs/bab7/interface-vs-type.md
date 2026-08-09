@@ -3,8 +3,6 @@ title: "Interface vs Type Alias"
 description: Perbandingan lengkap kapan menggunakan Interface dan kapan menggunakan Type Alias di TypeScript.
 ---
 
-# Interface vs Type Alias
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membandingkan `interface` dan `type` alias secara objektif serta memilih alat yang tepat untuk berbagai skenario pemodelan data.

@@ -3,8 +3,6 @@ title: "Modular Programming — BAB 12"
 description: Penerapan pemrograman modular untuk membangun aplikasi besar dari komponen-komponen mandiri yang saling dihubungkan.
 ---
 
-# Modular Programming
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan konsep Pemrograman Modular.

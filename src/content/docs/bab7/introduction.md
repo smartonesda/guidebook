@@ -3,8 +3,6 @@ title: "BAB 7 — Interface & Type Alias"
 description: Gambaran BAB 7 — mendefinisikan struktur data dengan kontraktual Interface dan Type Alias di TypeScript.
 ---
 
-# BAB 7: Interface & Type Alias
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan BAB 7, kamu dapat memodelkan data dengan `interface` dan `type` alias, memperluas struktur data dengan `extends`, mengamankan data dengan `readonly`, menggabungkan tipe dengan `union` & `intersection`, serta membatasi nilai konstan dengan `enum`.

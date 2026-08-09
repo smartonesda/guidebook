@@ -3,8 +3,6 @@ title: "Tipe Data: boolean"
 description: Mempelajari tipe data boolean — true dan false, penggunaannya dalam kondisi, dan operator logika dasar.
 ---
 
-# Tipe Data: `boolean`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

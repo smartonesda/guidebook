@@ -3,8 +3,6 @@ title: "Ringkasan BAB 12"
 description: Rangkuman akhir materi best practice TypeScript — clean code checklist, naming convention, linter/formatter, dan git.
 ---
 
-# Ringkasan BAB 12
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Merangkum seluruh aturan emas best practice penulisan kode TypeScript.

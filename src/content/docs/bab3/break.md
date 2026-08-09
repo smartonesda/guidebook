@@ -3,8 +3,6 @@ title: "Kontrol Loop: break"
 description: Menghentikan loop sebelum kondisi selesai menggunakan perintah break.
 ---
 
-# Perintah `break`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan `break` untuk menghentikan loop lebih awal saat kondisi tertentu terpenuhi.

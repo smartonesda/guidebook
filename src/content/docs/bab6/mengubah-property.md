@@ -3,8 +3,6 @@ title: "Mengubah Property"
 description: Cara memperbarui nilai properti object menggunakan Dot Notation dan Bracket Notation.
 ---
 
-# Mengubah Property
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memodifikasi nilai properti yang sudah ada di dalam object menggunakan Dot Notation maupun Bracket Notation.

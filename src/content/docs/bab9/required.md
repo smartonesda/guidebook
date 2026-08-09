@@ -3,8 +3,6 @@ title: "Utility Type: Required"
 description: Menggunakan Utility Type Required<T> untuk mengubah semua properti opsional menjadi wajib di TypeScript.
 ---
 
-# Utility Type: `Required`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Required<T>`.

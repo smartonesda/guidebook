@@ -3,8 +3,6 @@ title: "Type Inference"
 description: Memahami kemampuan TypeScript menebak tipe data secara otomatis dari nilai awal.
 ---
 
-# Type Inference
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

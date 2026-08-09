@@ -3,8 +3,6 @@ title: "Pengembangan Lanjutan — BAB 11"
 description: Peta jalan belajar masa depan setelah menyelesaikan guidebook TypeScript — dari konsol ke Express API, Vue/React, dan Fullstack.
 ---
 
-# Pengembangan Lanjutan (Future Path)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Memahami bagaimana aplikasi konsol teks ini bisa diubah menjadi web visual di masa depan.

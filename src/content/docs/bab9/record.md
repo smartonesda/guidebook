@@ -3,8 +3,6 @@ title: "Utility Type: Record"
 description: Menggunakan Utility Type Record<K, T> untuk memetakan key dan value secara terstruktur di TypeScript.
 ---
 
-# Utility Type: `Record`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Record<K, T>`.

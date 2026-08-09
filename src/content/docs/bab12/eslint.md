@@ -3,8 +3,6 @@ title: "ESLint — BAB 12"
 description: Pengenalan ESLint sebagai alat static code analysis untuk mendeteksi kesalahan penulisan kode TypeScript secara otomatis.
 ---
 
-# ESLint
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan apa itu linter (ESLint).

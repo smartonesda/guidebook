@@ -3,8 +3,6 @@ title: "Array: push & pop"
 description: Menambah dan menghapus elemen di bagian ujung (akhir) array menggunakan method push() dan pop().
 ---
 
-# Array: `push` & `pop`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menambahkan elemen ke akhir array dengan `push()` dan menghapus elemen terakhir dengan `pop()`.

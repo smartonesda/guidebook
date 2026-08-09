@@ -3,8 +3,6 @@ title: "Ringkasan BAB 10"
 description: Rangkuman lengkap materi Asynchronous Programming dan Module System — cheat sheet, tabel perbandingan, dan checklist belajar.
 ---
 
-# Ringkasan BAB 10
-
 ## Selamat! 🎉
 
 Kamu telah menyelesaikan **BAB 10: Asynchronous & Module**! Ini adalah bab penutup dalam rangkaian guidebook TypeScript ini. Kamu sekarang telah menguasai seluruh pilar penting yang digunakan oleh professional web developer untuk membangun aplikasi web modern berskala besar.

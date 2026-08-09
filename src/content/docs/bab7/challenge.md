@@ -3,8 +3,6 @@ title: "Challenge BAB 7"
 description: Sepuluh latihan pemrosesan data menggunakan Interface, Type Alias, Union, dan Enum di TypeScript.
 ---
 
-# Challenge BAB 7
-
 ## Tujuan Pembelajaran
 
 Setelah mengerjakan challenge ini, kamu dapat menerapkan Interface, Type Alias, Extends, Readonly, Union, dan Enum untuk mendesain struktur data yang aman dan modular.

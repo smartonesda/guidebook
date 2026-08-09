@@ -3,8 +3,6 @@ title: "Mini Project: Generic Academic Repository"
 description: Membangun aplikasi repositori akademik sekolah serbaguna berbasis terminal menggunakan kombinasi Class, Generic, dan Utility Types di TypeScript.
 ---
 
-# Mini Project: Generic Academic Repository
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan mini project ini, kamu diharapkan dapat:
 - Membangun class repositori Generic (`Repository<T>`) lengkap dengan operasi CRUD.

@@ -3,8 +3,6 @@ title: "Studi Kasus: Refactoring SIAKAD — BAB 12"
 description: Studi kasus melakukan refactoring (perapian ulang) kode pada project SIAKAD BAB 11 agar mematuhi prinsip Clean Code dan DRY.
 ---
 
-# Studi Kasus: Refactoring SIAKAD
-
 ## Tujuan Pembelajaran
 Setelah mengikuti studi kasus ini, kamu diharapkan dapat:
 - Mengidentifikasi bagian kode berulang pada project akademik sekolah.

@@ -3,8 +3,6 @@ title: "Error Corner BAB 3"
 description: Mengenali dan memperbaiki kesalahan paling umum saat menggunakan loop di TypeScript.
 ---
 
-# Error Corner BAB 3
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengenali penyebab error dan bug paling umum pada loop, serta memperbaikinya dengan tepat.

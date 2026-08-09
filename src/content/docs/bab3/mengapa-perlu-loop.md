@@ -3,8 +3,6 @@ title: "Mengapa Perlu Loop?"
 description: Memahami alasan program membutuhkan perulangan dan masalah yang diselesaikannya.
 ---
 
-# Mengapa Perlu Loop?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan mengapa program membutuhkan loop dan kapan loop sebaiknya digunakan.

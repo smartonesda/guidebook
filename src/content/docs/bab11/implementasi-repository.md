@@ -3,8 +3,6 @@ title: "Implementasi Repository — BAB 11"
 description: Membangun class AcademicRepository<T> sebagai database memori Generic yang mematuhi kontrak IRepository.
 ---
 
-# Implementasi Repository
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat file `academic-repository.ts` di folder `repositories/`.

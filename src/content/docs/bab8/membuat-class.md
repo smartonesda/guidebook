@@ -3,8 +3,6 @@ title: "Membuat Class"
 description: Panduan praktis membuat class pertamamu di TypeScript lengkap dengan property dan constructor dasar.
 ---
 
-# Membuat Class
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menulis sintaks deklarasi `class` di TypeScript.

@@ -3,8 +3,6 @@ title: "Tipe Data: any"
 description: Memahami tipe any — kebebasan tanpa pemeriksaan tipe dan alasan penggunaannya harus dibatasi.
 ---
 
-# Tipe Data: `any`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

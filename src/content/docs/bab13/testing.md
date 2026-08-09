@@ -3,8 +3,6 @@ title: "Testing (Pengujian Kode Otomatis) — BAB 13"
 description: Pengenalan konsep pengujian kode otomatis menggunakan Unit Testing, Integration Testing, dan E2E Testing.
 ---
 
-# Testing (Pengujian Kode Otomatis)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan pentingnya pengujian kode secara otomatis.

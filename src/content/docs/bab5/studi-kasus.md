@@ -3,8 +3,6 @@ title: "Studi Kasus: Daftar Nilai Siswa"
 description: Studi kasus lengkap mengolah daftar nilai siswa menggunakan berbagai method array di TypeScript.
 ---
 
-# Studi Kasus: Daftar Nilai Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah studi kasus ini, kamu dapat menerapkan array dan method array untuk menghitung total, rata-rata, nilai tertinggi, nilai terendah, serta menyaring data nilai secara sistematis.

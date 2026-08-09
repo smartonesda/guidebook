@@ -3,8 +3,6 @@ title: "Best Practice Pemrograman — BAB 11"
 description: Aturan emas menulis kode program yang bersih, modular, dan mudah dipelihara di TypeScript.
 ---
 
-# Best Practice Pemrograman (Kode Bersih)
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Menerapkan prinsip DRY (Don't Repeat Yourself) dan Single Responsibility.

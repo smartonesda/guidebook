@@ -3,8 +3,6 @@ title: "Deklarasi Variabel"
 description: Cara mendeklarasikan variabel di TypeScript menggunakan let dan const, beserta perbedaan antara deklarasi dan inisialisasi.
 ---
 
-# Deklarasi Variabel
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

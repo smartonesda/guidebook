@@ -3,8 +3,6 @@ title: "Membuat Project Baru — BAB 11"
 description: Panduan langkah demi langkah menginisialisasi folder project baru menggunakan npm init di terminal.
 ---
 
-# Membuat Project Baru
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat folder workspace project SIAKAD di laptopmu secara mandiri.

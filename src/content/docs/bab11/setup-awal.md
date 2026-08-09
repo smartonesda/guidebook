@@ -3,8 +3,6 @@ title: "Setup Awal Project — BAB 11"
 description: Menginisialisasi berkas tsconfig.json dan membuat folder-folder terstruktur di dalam direktori src/.
 ---
 
-# Setup Awal Project
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat folder-folder terstruktur (`models`, `interfaces`, dll) di dalam direktori `src/` menggunakan terminal.

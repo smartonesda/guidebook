@@ -3,8 +3,6 @@ title: "Prettier — BAB 12"
 description: Pengenalan Prettier sebagai automatic code formatter untuk menjaga konsistensi gaya penulisan kode.
 ---
 
-# Prettier
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan apa itu code formatter (Prettier).

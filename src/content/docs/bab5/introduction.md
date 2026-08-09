@@ -3,8 +3,6 @@ title: "BAB 5 — Array"
 description: Gambaran BAB 5 — menggunakan array untuk menyimpan dan mengolah banyak nilai dalam satu variabel.
 ---
 
-# BAB 5: Array
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan BAB 5, kamu dapat membuat array, mengakses elemen berdasarkan indeks, memodifikasi elemen, dan menggunakan berbagai method bawaan array untuk memproses data koleksi.

@@ -3,8 +3,6 @@ title: "Named Export"
 description: Menggunakan Named Export untuk mengekspor banyak komponen sekaligus dengan nama yang spesifik di TypeScript.
 ---
 
-# Named Export
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dan kegunaan dari Named Export.

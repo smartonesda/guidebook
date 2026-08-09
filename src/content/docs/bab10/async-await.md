@@ -3,8 +3,6 @@ title: "async & await"
 description: Menggunakan syntax async dan await untuk menulis kode asynchronous secara bersih dan intuitif di TypeScript.
 ---
 
-# async & await
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dan kegunaan kata kunci `async` dan `await`.

@@ -3,8 +3,6 @@ title: "Generic Function"
 description: Panduan lengkap membuat dan memanggil fungsi Generic di TypeScript dengan type inference otomatis.
 ---
 
-# Generic Function
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menulis fungsi Generic menggunakan tanda kurung sudut `<T>`.

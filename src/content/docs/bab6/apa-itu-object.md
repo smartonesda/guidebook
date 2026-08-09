@@ -3,8 +3,6 @@ title: "Apa itu Object?"
 description: Memahami konsep dasar object sebagai kumpulan pasangan kunci dan nilai untuk mendeskripsikan entitas.
 ---
 
-# Apa itu Object?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan apa itu object, key, value, dan mengenali struktur object literal sederhana.

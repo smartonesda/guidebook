@@ -3,8 +3,6 @@ title: "Percabangan if"
 description: Menjalankan kode hanya jika kondisi bernilai true dengan if statement.
 ---
 
-# Percabangan `if`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat `if` yang menjalankan blok kode saat kondisi benar.

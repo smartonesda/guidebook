@@ -3,8 +3,6 @@ title: "Membuat Object"
 description: Belajar mendefinisikan object literal dan mendeklarasikan tipe data object secara eksplisit di TypeScript.
 ---
 
-# Membuat Object
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat object literal dan menulis tipe data object secara eksplisit menggunakan inline type atau type alias.

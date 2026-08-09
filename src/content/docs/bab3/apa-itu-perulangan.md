@@ -3,8 +3,6 @@ title: "Apa itu Perulangan?"
 description: Memahami konsep dasar loop sebagai cara program mengulang tindakan secara otomatis.
 ---
 
-# Apa itu Perulangan?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan apa itu perulangan, menyebutkan komponen loop, dan membayangkan alur kerja loop sederhana.

@@ -3,8 +3,6 @@ title: "Tipe Data: never"
 description: Mengenal never — tipe TypeScript untuk fungsi yang tidak pernah selesai secara normal.
 ---
 
-# Tipe Data: `never`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

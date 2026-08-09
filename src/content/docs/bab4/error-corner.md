@@ -3,8 +3,6 @@ title: "Error Corner BAB 4"
 description: Mengenali dan memperbaiki kesalahan paling umum saat menggunakan function di TypeScript.
 ---
 
-# Error Corner BAB 4
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengenali penyebab error function yang paling umum dan memperbaikinya dengan tepat.

@@ -3,8 +3,6 @@ title: "Scope"
 description: Memahami scope — di mana variabel bisa dan tidak bisa diakses di TypeScript.
 ---
 
-# Scope (Ruang Lingkup Variabel)
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membedakan variabel lokal dan global, serta menghindari error akibat scope yang salah.

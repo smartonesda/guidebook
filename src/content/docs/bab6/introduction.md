@@ -3,8 +3,6 @@ title: "BAB 6 — Object"
 description: Gambaran BAB 6 — menggunakan object untuk merepresentasikan entitas dunia nyata secara terstruktur di TypeScript.
 ---
 
-# BAB 6: Object
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan BAB 6, kamu dapat membuat object, mengelola properti, menggunakan nested object, mengoperasikan array of object, menggunakan destructuring, spread operator, optional chaining, dan nullish coalescing dengan object.

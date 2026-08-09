@@ -3,8 +3,6 @@ title: "Apa itu Array?"
 description: Memahami konsep dasar array sebagai daftar data berurutan dengan satu nama variabel.
 ---
 
-# Apa itu Array?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan apa itu array, alasan array digunakan, dan membedakan data tunggal dengan koleksi data.

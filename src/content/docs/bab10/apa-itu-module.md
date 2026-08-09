@@ -3,8 +3,6 @@ title: "Apa itu Module?"
 description: Memahami konsep Module System di TypeScript untuk memecah dan merapikan kode program.
 ---
 
-# Apa itu Module?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan definisi dari Module dalam pemrograman.

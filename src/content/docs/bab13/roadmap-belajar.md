@@ -3,8 +3,6 @@ title: "Roadmap Belajar Developer — BAB 13"
 description: Visualisasi peta jalan belajar (roadmap) dari nol hingga menjadi profesional developer.
 ---
 
-# Peta Jalan Belajar (Roadmap)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Memilih jalur belajar (*roadmap*) teknologi berikutnya secara mantiri.

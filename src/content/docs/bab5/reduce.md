@@ -3,8 +3,6 @@ title: "Array: reduce"
 description: Mengakumulasikan seluruh elemen array menjadi satu nilai tunggal dengan reduce().
 ---
 
-# Array: `reduce`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan cara kerja accumulator dan menggunakan `reduce()` untuk menjumlahkan atau menggabungkan seluruh elemen array menjadi satu nilai akhir.

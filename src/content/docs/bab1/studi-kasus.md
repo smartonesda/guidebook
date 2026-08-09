@@ -3,8 +3,6 @@ title: "Studi Kasus: Biodata Siswa"
 description: Studi kasus lengkap membuat program biodata siswa menggunakan variabel, tipe data, dan template literal.
 ---
 
-# Studi Kasus: Biodata Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan studi kasus ini, kamu akan mampu:

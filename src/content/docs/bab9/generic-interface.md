@@ -3,8 +3,6 @@ title: "Generic Interface"
 description: Membuat interface serbaguna menggunakan parameter tipe data Generic di TypeScript.
 ---
 
-# Generic Interface
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Membuat `interface` bertipe Generic.

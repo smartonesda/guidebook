@@ -3,8 +3,6 @@ title: "Template Literal"
 description: Membuat kalimat dinamis dengan template literal — backtick dan placeholder ${...} di TypeScript.
 ---
 
-# Template Literal
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

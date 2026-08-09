@@ -3,8 +3,6 @@ title: "Union Type"
 description: Menggunakan union type (|) untuk mengizinkan variabel memiliki lebih dari satu tipe data di TypeScript.
 ---
 
-# Union Type (Tipe Gabungan)
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat union type menggunakan operator `|` untuk mengizinkan variabel atau parameter memiliki beberapa tipe data yang valid.

@@ -3,8 +3,6 @@ title: "Abstract Class"
 description: Mengenal dan membuat Abstract Class sebagai cetak biru setengah jadi yang wajib diturunkan di TypeScript.
 ---
 
-# Abstract Class (Kelas Abstrak)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dan kegunaan Abstract Class.

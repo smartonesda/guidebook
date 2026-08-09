@@ -3,8 +3,6 @@ title: "Mengapa Function?"
 description: Memahami masalah yang diselesaikan function — menghindari kode duplikat dan membangun program yang mudah dirawat.
 ---
 
-# Mengapa Function?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan mengapa function dibutuhkan dan membandingkan kode dengan dan tanpa function.

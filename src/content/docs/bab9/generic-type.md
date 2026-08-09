@@ -3,8 +3,6 @@ title: "Generic Type Alias"
 description: Panduan membuat Type Alias bertipe Generic untuk mendefinisikan tipe data kustom yang fleksibel.
 ---
 
-# Generic Type Alias
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Membuat `type` alias kustom menggunakan parameter Generic.

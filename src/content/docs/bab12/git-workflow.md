@@ -3,8 +3,6 @@ title: "Git Workflow — BAB 12"
 description: Panduan menggunakan Git untuk version control dan kolaborasi tim yang profesional.
 ---
 
-# Git Workflow
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi Git sebagai sistem pelacak versi (*Version Control System*).

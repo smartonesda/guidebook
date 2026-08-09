@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Sistem Akademik Berbasis OOP"
 description: Membangun aplikasi manajemen data akademik sekolah interaktif menggunakan konsep Class, Inheritance, Getter/Setter, dan Array of Objects di TypeScript.
 ---
 
-# Mini Project: Aplikasi Sistem Akademik Berbasis OOP
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan mini project ini, kamu diharapkan dapat:
 - Menggabungkan seluruh konsep OOP (Class, Constructor, Inheritance, Getter/Setter, Static) dalam satu aplikasi nyata.

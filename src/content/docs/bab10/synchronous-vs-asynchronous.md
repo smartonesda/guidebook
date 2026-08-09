@@ -3,8 +3,6 @@ title: "Synchronous vs Asynchronous"
 description: Perbandingan lengkap karakteristik, kelebihan, kekurangan, dan alur data Synchronous vs Asynchronous.
 ---
 
-# Synchronous vs Asynchronous
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menyebutkan perbedaan karakteristik utama Synchronous dan Asynchronous.

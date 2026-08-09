@@ -3,8 +3,6 @@ title: "this Keyword"
 description: Memahami arti dan kegunaan keyword this sebagai pointer penunjuk objek pemilik di dalam Class.
 ---
 
-# this Keyword
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan definisi keyword `this` di dalam Class.

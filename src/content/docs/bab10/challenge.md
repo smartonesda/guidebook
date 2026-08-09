@@ -3,8 +3,6 @@ title: "Challenge BAB 10"
 description: Sepuluh latihan Asynchronous Programming dan Module System tingkat menengah di TypeScript untuk menguji pemahaman.
 ---
 
-# Challenge BAB 10
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
 - Merancang dan memotong program menjadi beberapa file module secara mandiri.

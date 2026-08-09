@@ -3,8 +3,6 @@ title: "Studi Kasus: Sistem Penilaian Siswa"
 description: Merancang dan membangun sistem kategori nilai siswa dengan operator perbandingan, logika, dan else if.
 ---
 
-# Studi Kasus: Sistem Penilaian Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah studi kasus ini, kamu dapat menggabungkan operator perbandingan, operator logika, dan percabangan untuk menentukan status dan kategori nilai siswa.
@@ -123,10 +121,14 @@ const laporan: string = `
 Nama         : ${namaSiswa}
 Nilai Akhir  : ${nilaiAkhir}
 Kehadiran    : ${persentaseKehadiran}%
------------------------------------------
+---
+
+--------------------------------------
 Status       : ${status}
 Kategori     : ${kategori}
------------------------------------------
+---
+
+--------------------------------------
 Catatan      : ${catatan}
 =========================================
 `
@@ -151,10 +153,14 @@ tsx src/bab2/studi-kasus-penilaian.ts
 Nama         : Dewi Rahayu
 Nilai Akhir  : 83
 Kehadiran    : 88%
------------------------------------------
+---
+
+--------------------------------------
 Status       : Lulus
 Kategori     : Baik
------------------------------------------
+---
+
+--------------------------------------
 Catatan      : Kamu lulus. Tingkatkan lagi di semester berikutnya.
 =========================================
 ```

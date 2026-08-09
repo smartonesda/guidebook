@@ -3,8 +3,6 @@ title: "Studi Kasus: Validasi Data Akademik — BAB 11"
 description: Studi kasus memvalidasi data akademik terintegrasi menggunakan objek class yang mematuhi interface kontrak di TypeScript.
 ---
 
-# Studi Kasus: Validasi Data Akademik
-
 ## Tujuan Pembelajaran
 Setelah mengikuti studi kasus ini, kamu diharapkan dapat:
 - Merancang relasi objek akademik antara Siswa, Guru, dan Kelas secara modular.

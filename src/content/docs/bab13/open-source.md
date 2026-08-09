@@ -3,8 +3,6 @@ title: "Kontribusi Open Source — BAB 13"
 description: Panduan berkontribusi ke project Open Source sebagai siswa SMK untuk meningkatkan keahlian dan relasi.
 ---
 
-# Kontribusi Open Source
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dari *Open Source*.

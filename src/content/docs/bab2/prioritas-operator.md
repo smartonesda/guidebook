@@ -3,8 +3,6 @@ title: "Prioritas Operator"
 description: Memahami urutan TypeScript menjalankan operator dan memakai kurung untuk membuat rumus jelas.
 ---
 
-# Prioritas Operator
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memprediksi urutan operasi sederhana dan memakai kurung agar hasil sesuai maksud.

@@ -3,8 +3,6 @@ title: "Literal Type"
 description: Mengunci nilai variabel hanya pada pilihan nilai tertentu menggunakan literal type di TypeScript.
 ---
 
-# Literal Type
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan kegunaan literal type dan menggabungkannya dengan union type untuk membuat pilihan data yang terbatas dan aman.

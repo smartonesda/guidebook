@@ -3,8 +3,6 @@ title: "Return Value"
 description: Memahami cara function mengembalikan nilai menggunakan return dan cara memanfaatkannya.
 ---
 
-# Return Value
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat function dengan return value dan menggunakan hasil tersebut di bagian lain program.

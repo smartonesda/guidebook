@@ -3,8 +3,6 @@ title: "Sumber Belajar (Resources) — BAB 13"
 description: Rekomendasi sumber belajar gratis berkualitas, dokumentasi resmi, website latihan, dan komunitas developer IT.
 ---
 
-# Sumber Belajar (Resources)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Mengetahui tautan dokumentasi resmi teknologi IT utama.

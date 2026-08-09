@@ -3,8 +3,6 @@ title: "Nested Loop"
 description: Menggunakan loop di dalam loop untuk memproses data dua dimensi.
 ---
 
-# Nested Loop
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat loop di dalam loop dan menjelaskan alur eksekusinya.

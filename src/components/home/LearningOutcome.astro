@@ -1,0 +1,35 @@
+---
+const outcomes = [
+  'Memahami dasar-dasar TypeScript.',
+  'Menulis kode yang rapi dan terstruktur.',
+  'Menggunakan TypeScript dalam proyek nyata.',
+  'Memahami praktik terbaik pengembangan aplikasi.',
+  'Melanjutkan belajar framework modern dengan lebih percaya diri.',
+];
+---
+
+<section class="learning-outcome" aria-labelledby="learning-outcome-title">
+  <div class="learning-outcome__intro">
+    <p class="section-label">Tujuan belajarmu</p>
+    <h2 id="learning-outcome-title">Target Akhir</h2>
+    <p>Setelah menyelesaikan seluruh guidebook ini, kamu diharapkan mampu membangun fondasi sebagai Modern TypeScript Developer.</p>
+  </div>
+  <ul>
+    {outcomes.map((outcome) => <li><span aria-hidden="true">✓</span>{outcome}</li>)}
+  </ul>
+  <p class="learning-outcome__next">Fondasi ini membantu kamu melanjutkan ke Vue, React, Angular, Express, NestJS, maupun Next.js.</p>
+</section>
+
+<style>
+  .learning-outcome { padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--sod-border); border-radius: var(--sod-radius-xl); background: linear-gradient(145deg, var(--sod-surface), color-mix(in srgb, var(--sod-accent) 9%, var(--sod-surface))); }
+  .learning-outcome__intro { max-width: 44rem; }
+  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
+  .learning-outcome__intro > p:last-child, .learning-outcome__next { color: var(--sl-color-gray-2); line-height: 1.7; }
+  .learning-outcome__intro > p:last-child { margin: 1rem 0 0; }
+  ul { display: grid; gap: 0.75rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+  li { display: flex; gap: 0.7rem; align-items: flex-start; color: var(--sl-color-white); line-height: 1.55; }
+  li span { display: grid; flex: 0 0 auto; width: 1.3rem; height: 1.3rem; place-items: center; margin-top: 0.08rem; border-radius: 50%; background: color-mix(in srgb, var(--sod-accent) 18%, transparent); color: var(--sod-accent); font-size: 0.75rem; font-weight: 900; }
+  .learning-outcome__next { max-width: 47rem; margin: 1.75rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--sod-border); }
+  @media (min-width: 50rem) { ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>

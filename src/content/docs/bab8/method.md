@@ -3,8 +3,6 @@ title: "Method"
 description: Memahami method sebagai fungsi khusus yang berada di dalam lingkup Class untuk melakukan tindakan.
 ---
 
-# Method (Fungsi Kelas)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti method di dalam Class.

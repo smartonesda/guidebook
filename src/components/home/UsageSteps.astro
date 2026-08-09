@@ -1,0 +1,47 @@
+---
+const steps = [
+  ['01', 'Pelajari sesuai urutan bab', 'Setiap bab menjadi dasar untuk materi setelahnya.'],
+  ['02', 'Ketik ulang contoh kode', 'Belajar lebih kuat saat kamu mencoba sendiri.'],
+  ['03', 'Jalankan dengan TSX', 'Jalankan seluruh contoh yang tersedia.'],
+  ['04', 'Coba dan bereksperimen', 'Jangan takut mengubah kode untuk melihat hasilnya.'],
+  ['05', 'Kerjakan latihan dan challenge', 'Gunakan latihan untuk menguji pemahamanmu.'],
+  ['06', 'Selesaikan mini project', 'Terapkan konsep dari setiap bab menjadi karya nyata.'],
+];
+---
+
+<section class="usage-steps" aria-labelledby="usage-steps-title">
+  <div class="usage-steps__heading">
+    <p class="section-label">Belajar lebih maksimal</p>
+    <h2 id="usage-steps-title">Cara Menggunakan Guidebook Ini</h2>
+    <p>Ikuti langkah kecil ini agar materi tidak hanya dibaca, tetapi juga dipraktikkan.</p>
+  </div>
+  <ol class="usage-steps__grid">
+    {steps.map(([number, title, description]) => (
+      <li>
+        <span>{number}</span>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </li>
+    ))}
+  </ol>
+  <aside class="usage-steps__tip"><span aria-hidden="true">💡</span><p><strong>Tips:</strong> Jangan takut ketika menemukan error. Error adalah bagian dari proses belajar seorang programmer.</p></aside>
+</section>
+
+<style>
+  .usage-steps { padding-inline: clamp(0.25rem, 2vw, 1rem); }
+  .usage-steps__heading { max-width: 43rem; }
+  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
+  .usage-steps__heading > p:last-child { margin: 1rem 0 0; color: var(--sl-color-gray-2); line-height: 1.7; }
+  .usage-steps__grid { display: grid; gap: 0.75rem; margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: usage; }
+  .usage-steps__grid li { min-height: 10.5rem; padding: 1.15rem; border-top: 2px solid color-mix(in srgb, var(--sod-accent) 42%, transparent); border-radius: var(--sod-radius-lg); background: var(--sod-surface); }
+  .usage-steps__grid span { color: var(--sod-accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; }
+  h3 { margin: 1.3rem 0 0; color: var(--sl-color-white); font-size: 1rem; line-height: 1.35; }
+  .usage-steps__grid p { margin: 0.55rem 0 0; color: var(--sl-color-gray-2); font-size: 0.87rem; line-height: 1.6; }
+  .usage-steps__tip { display: flex; gap: 0.75rem; align-items: flex-start; margin-top: 1rem; padding: 1rem 1.1rem; border: 1px solid color-mix(in srgb, var(--sod-accent) 26%, var(--sod-border)); border-radius: var(--sod-radius); background: color-mix(in srgb, var(--sod-accent) 7%, transparent); }
+  .usage-steps__tip span { font-size: 1.05rem; }
+  .usage-steps__tip p { margin: 0; color: var(--sl-color-gray-2); line-height: 1.6; }
+  .usage-steps__tip strong { color: var(--sl-color-white); }
+  @media (min-width: 40rem) { .usage-steps__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 64rem) { .usage-steps__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+</style>

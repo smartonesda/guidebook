@@ -3,8 +3,6 @@ title: "Error Corner BAB 8"
 description: Mengenali dan memperbaiki berbagai kesalahan paling umum saat menulis kode Object-Oriented Programming (OOP) di TypeScript.
 ---
 
-# Error Corner BAB 8
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Mengidentifikasi penyebab error umum dalam OOP (seperti akses private ilegal atau lupa new).

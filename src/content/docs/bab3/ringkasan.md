@@ -3,8 +3,6 @@ title: "Ringkasan BAB 3"
 description: Rangkuman lengkap BAB 3 — perbandingan loop, kapan pakai masing-masing, checklist, dan latihan penutup.
 ---
 
-# Ringkasan BAB 3
-
 ## Selamat!
 
 Kamu telah menyelesaikan **BAB 3: Perulangan**. Ini adalah bab yang mengubah cara kamu berpikir tentang program. Dengan loop, program tidak lagi terbatas pada data yang sudah diketahui — ia bisa memproses jumlah data berapapun secara otomatis.

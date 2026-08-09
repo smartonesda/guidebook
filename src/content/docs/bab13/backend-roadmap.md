@@ -3,8 +3,6 @@ title: "Backend Developer Roadmap — BAB 13"
 description: Peta jalan belajar menjadi Backend Developer menggunakan Node.js dan NestJS.
 ---
 
-# Backend Developer Roadmap
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan peran dan tanggung jawab dari seorang Backend Developer.

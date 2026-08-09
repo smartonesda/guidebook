@@ -3,8 +3,6 @@ title: "Array: sort"
 description: Mengurutkan elemen array secara alfabetis atau numerik menggunakan method sort() di TypeScript.
 ---
 
-# Array: `sort`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengurutkan array bertipe string secara alfabetis dan array bertipe number secara numerik dengan fungsi perbandingan bawaan.

@@ -3,8 +3,6 @@ title: "Project Overview — BAB 11"
 description: Gambaran umum aplikasi Sistem Informasi Akademik Konsol (SIAKAD-Konsol) yang akan dibangun.
 ---
 
-# Project Overview
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan fitur-fitur utama yang ada di dalam aplikasi SIAKAD-Konsol.

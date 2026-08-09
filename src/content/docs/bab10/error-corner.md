@@ -3,8 +3,6 @@ title: "Error Corner BAB 10"
 description: Mengenali dan memperbaiki berbagai kesalahan paling umum saat menggunakan Asynchronous dan Module System di TypeScript.
 ---
 
-# Error Corner BAB 10
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Mengidentifikasi penyebab error umum pada async/await dan module system.

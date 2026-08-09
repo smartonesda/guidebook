@@ -3,8 +3,6 @@ title: "Tipe Data: string"
 description: Mempelajari tipe data string di TypeScript — teks, kutipan, escape character, dan metode string yang berguna.
 ---
 
-# Tipe Data: `string`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

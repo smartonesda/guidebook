@@ -3,8 +3,6 @@ title: "Apa itu Utility Type?"
 description: Mengenal konsep Utility Types di TypeScript sebagai alat bantu manipulasi tipe data bawaan.
 ---
 
-# Apa itu Utility Type?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan definisi dari Utility Types di TypeScript.

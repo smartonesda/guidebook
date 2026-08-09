@@ -1,0 +1,46 @@
+---
+const highlights = [
+  ['📖', 'Penjelasan mudah dipahami', 'Materi dijelaskan bertahap dengan bahasa yang jelas.'],
+  ['💡', 'Analogi kehidupan sehari-hari', 'Konsep teknis dibawa ke contoh yang lebih dekat.'],
+  ['💻', 'Live Coding', 'Ikuti contoh kode dan pahami prosesnya.'],
+  ['🧪', 'Studi Kasus', 'Lihat penggunaan konsep dalam situasi nyata.'],
+  ['🏆', 'Mini Project', 'Latih pemahaman lewat proyek di setiap bab.'],
+  ['❓', 'Challenge', 'Uji kemampuanmu setelah mempelajari materi.'],
+  ['🚨', 'Error Corner', 'Belajar menghadapi error sebagai bagian proses.'],
+  ['📝', 'Ringkasan', 'Tutup setiap bab dengan poin penting yang perlu diingat.'],
+];
+---
+
+<section class="section highlights" aria-labelledby="highlights-title">
+  <div class="section-heading">
+    <p class="section-label">Pengalaman belajar</p>
+    <h2 id="highlights-title">Yang Akan Kamu Dapatkan</h2>
+    <p>Setiap bab membantu kamu memahami konsep, mencoba kode, dan membangun kebiasaan belajar seperti programmer.</p>
+  </div>
+  <div class="highlights__grid">
+    {highlights.map(([icon, title, description]) => (
+      <article class="highlight-card">
+        <span class="highlight-card__icon" aria-hidden="true">{icon}</span>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .section { padding-inline: clamp(0.25rem, 2vw, 1rem); }
+  .section-heading { max-width: 43rem; }
+  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
+  .section-heading > p:last-child { margin: 1rem 0 0; color: var(--sl-color-gray-2); line-height: 1.7; }
+  .highlights__grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 2rem; }
+  .highlight-card { min-height: 10rem; padding: 1.2rem; border: 1px solid var(--sod-border); border-radius: var(--sod-radius-lg); background: var(--sod-surface); transition: transform var(--sod-transition), border-color var(--sod-transition), background var(--sod-transition); }
+  .highlight-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--sod-accent) 48%, var(--sod-border)); background: var(--sod-card); }
+  .highlight-card__icon { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border-radius: 0.65rem; background: color-mix(in srgb, var(--sod-accent) 11%, transparent); font-size: 1.2rem; }
+  h3 { margin: 1rem 0 0; color: var(--sl-color-white); font-size: 1rem; line-height: 1.35; }
+  .highlight-card p { margin: 0.5rem 0 0; color: var(--sl-color-gray-2); font-size: 0.88rem; line-height: 1.6; }
+  @media (min-width: 40rem) { .highlights__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 64rem) { .highlights__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (prefers-reduced-motion: reduce) { .highlight-card { transition: none; } }
+</style>

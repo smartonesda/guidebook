@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Sistem Akademik Berbasis OOP & Asynchronous"
 description: Membangun aplikasi sistem repositori akademik sekolah modular yang memuat data secara asynchronous dan mengelolanya dengan paradigma OOP di TypeScript.
 ---
 
-# Mini Project: Aplikasi Sistem Akademik Berbasis OOP & Asynchronous
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan mini project ini, kamu diharapkan dapat:
 - Memisahkan struktur project besar menjadi beberapa file module yang rapi.

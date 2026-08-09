@@ -3,8 +3,6 @@ title: "Ringkasan BAB 4"
 description: Rangkuman lengkap BAB 4 — function cheat sheet, perbandingan jenis function, checklist, dan latihan penutup.
 ---
 
-# Ringkasan BAB 4
-
 ## Selamat!
 
 Kamu telah menyelesaikan **BAB 4: Function** — salah satu bab paling penting dalam seluruh guidebook ini. Function adalah alat yang akan kamu gunakan setiap hari sebagai programmer.

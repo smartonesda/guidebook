@@ -3,8 +3,6 @@ title: "Enum"
 description: Menggunakan Enum di TypeScript untuk mengelompokkan sekumpulan konstanta bernama yang saling berhubungan.
 ---
 
-# Enum (Enumeration)
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan kegunaan `enum`, membuat enum sederhana, dan menggunakannya sebagai nilai properti objek.

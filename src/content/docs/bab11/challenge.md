@@ -3,8 +3,6 @@ title: "Tantangan Pengembangan (Challenge) — BAB 11"
 description: Sepuluh tantangan pengembangan mandiri untuk memperluas fitur aplikasi SIAKAD-Konsol.
 ---
 
-# Tantangan Pengembangan (Challenge)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
 - Menambahkan fitur-fitur lanjutan secara mandiri pada project SIAKAD.

@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Biodata Siswa"
 description: Membangun mini project biodata siswa di terminal dengan variabel, tipe data, literal type, komentar, dan template literal.
 ---
 
-# Mini Project: Aplikasi Biodata Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan mini project ini, kamu akan mampu:

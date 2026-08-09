@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Manajemen Daftar Siswa"
 description: Membangun aplikasi terminal interaktif manajemen siswa menggunakan konsep BAB 1 sampai BAB 5.
 ---
 
-# Mini Project: Aplikasi Manajemen Daftar Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah mini project ini, kamu dapat menggabungkan variabel, tipe data, operator, loop, function, dan method array untuk membangun aplikasi simulasi manajemen siswa.
@@ -161,13 +159,17 @@ tsx src/bab5/aplikasi-siswa.ts
 ===================================
 
 Database Awal:
------------------------------------
+---
+
+--------------------------------
   1. Budi
   2. Andi
   3. Citra
   4. Dian
   Total: 4 siswa
------------------------------------
+---
+
+--------------------------------
 ...
 ```
 

@@ -3,8 +3,6 @@ title: "Struktur Folder — BAB 12"
 description: Merancang struktur folder project TypeScript yang rapi dan terorganisir sesuai standar industri.
 ---
 
-# Struktur Folder Project
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan pentingnya pemisahan berkas berdasarkan fungsinya masing-masing.

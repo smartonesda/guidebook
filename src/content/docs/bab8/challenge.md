@@ -3,8 +3,6 @@ title: "Challenge BAB 8"
 description: Sepuluh latihan Object-Oriented Programming (OOP) dari tingkat mudah hingga menengah di TypeScript.
 ---
 
-# Challenge BAB 8
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
 - Merancang, mendeklarasikan, dan menggunakan Class secara mandiri.

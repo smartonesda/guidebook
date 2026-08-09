@@ -3,8 +3,6 @@ title: "Getter & Setter"
 description: Menggunakan method get dan set untuk mengontrol pembacaan dan penulisan properti objek di TypeScript.
 ---
 
-# Getter & Setter
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Getter dan Setter.

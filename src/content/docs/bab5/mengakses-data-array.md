@@ -3,8 +3,6 @@ title: "Mengakses Data Array"
 description: Memahami cara mengambil nilai dari elemen array berdasarkan indeks.
 ---
 
-# Mengakses Data Array
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengambil elemen array menggunakan nomor indeks dan mendeteksi nilai `undefined` jika indeks di luar jangkauan.

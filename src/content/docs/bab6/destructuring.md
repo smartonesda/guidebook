@@ -3,8 +3,6 @@ title: "Object Destructuring"
 description: Membongkar properti object menjadi variabel mandiri dengan sintaks destructuring yang ringkas.
 ---
 
-# Object Destructuring
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan object destructuring untuk mengambil properti-properti objek ke dalam variabel mandiri, serta memberikan nama baru (aliasing) jika diperlukan.

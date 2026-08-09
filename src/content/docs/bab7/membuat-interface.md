@@ -3,8 +3,6 @@ title: "Membuat Interface"
 description: Panduan langkah demi langkah mendefinisikan interface baru dengan tipe data terstruktur di TypeScript.
 ---
 
-# Membuat Interface
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat interface baru secara mandiri dan menguji validitas format penulisan properti objek.

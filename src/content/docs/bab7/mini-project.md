@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Data Akademik"
 description: Membangun aplikasi data akademik modular berbasis terminal menggunakan Interface, Type Alias, Enum, dan Union Type.
 ---
 
-# Mini Project: Aplikasi Data Akademik
-
 ## Tujuan Pembelajaran
 
 Setelah mini project ini, kamu dapat menggabungkan Interface, Type Alias, Enum, Union, Array of Object, dan modular function untuk membangun program simulasi manajemen data sekolah.
@@ -179,10 +177,14 @@ tsx src/bab7/aplikasi-akademik.ts
   Wali Kelas    : Pak Budi Santoso
   Mata Pelajar. : TypeScript Programming
   Status Wali   : HADIR
--------------------------------------------------------
+---
+
+----------------------------------------------------
   Rata-rata Kelas: 76.75
   Batas Lulus    : 75
--------------------------------------------------------
+---
+
+----------------------------------------------------
   DAFTAR SISWA LULUS:
     [NIS-1001] Putra   : 82 (LULUS)
     [NIS-1003] Citra   : 95 (LULUS)

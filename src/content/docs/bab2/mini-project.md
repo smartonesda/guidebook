@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Penentuan Kelulusan Siswa"
 description: Membangun aplikasi konsol lengkap yang menghitung rata-rata, menentukan kelulusan, grade, dan menampilkan laporan rapi.
 ---
 
-# Mini Project: Aplikasi Penentuan Kelulusan Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah mini project ini, kamu dapat membangun program terminal yang menggabungkan konsep dari BAB 1 dan BAB 2 menjadi satu aplikasi bermakna.

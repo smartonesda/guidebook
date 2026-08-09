@@ -3,8 +3,6 @@ title: "Extend Interface"
 description: Mewariskan dan memperluas properti antar interface menggunakan kata kunci extends di TypeScript.
 ---
 
-# Extend Interface (Pewarisan Interface)
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memperluas struktur data dengan mewariskan properti dari satu interface ke interface lain menggunakan kata kunci `extends`.

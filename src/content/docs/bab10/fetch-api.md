@@ -3,8 +3,6 @@ title: "Fetch API"
 description: Mengambil data nyata dari internet secara asynchronous menggunakan Fetch API di TypeScript.
 ---
 
-# Fetch API
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan kegunaan Fetch API.

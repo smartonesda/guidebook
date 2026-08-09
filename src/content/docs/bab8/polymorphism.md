@@ -3,8 +3,6 @@ title: "Polymorphism"
 description: Memahami konsep Polimorfisme (banyak bentuk) dan method overriding di TypeScript.
 ---
 
-# Polymorphism (Polimorfisme)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dari pilar Polimorfisme.

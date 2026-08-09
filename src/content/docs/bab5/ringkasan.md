@@ -3,8 +3,6 @@ title: "Ringkasan BAB 5"
 description: Rangkuman lengkap materi BAB 5 — tabel method array, mutabilitas, checklist, dan latihan penutup.
 ---
 
-# Ringkasan BAB 5
-
 ## Selamat! 🎉
 
 Kamu telah menyelesaikan **BAB 5: Array**! Ini adalah salah satu konsep terpenting dalam pemrograman terstruktur. Dengan menguasai array dan method-methodnya, kamu sekarang dapat mengolah sekumpulan data yang besar secara efisien dan rapi.

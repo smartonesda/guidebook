@@ -3,8 +3,6 @@ title: "Loop: for"
 description: Memakai for loop untuk mengulang tindakan dengan jumlah yang sudah diketahui.
 ---
 
-# Loop `for`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat `for` loop dengan tiga komponen lengkap dan menjelaskan cara kerjanya.

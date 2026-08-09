@@ -3,8 +3,6 @@ title: "Persiapan Magang (Prakerin) — BAB 13"
 description: Tips dan persiapan mencari tempat magang (Prakerin) untuk siswa SMK jurusan RPL.
 ---
 
-# Persiapan Magang (Prakerin)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Membuat CV (Curriculum Vitae) dan portofolio magang yang menarik.

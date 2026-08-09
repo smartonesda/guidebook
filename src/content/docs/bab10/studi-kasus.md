@@ -3,8 +3,6 @@ title: "Studi Kasus: Sistem Data Siswa Asynchronous"
 description: Studi kasus merancang sistem pemuatan data siswa dari internet secara asynchronous menggunakan Fetch API, async/await, dan module modular di TypeScript.
 ---
 
-# Studi Kasus: Sistem Data Siswa Asynchronous
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan studi kasus ini, kamu diharapkan dapat:
 - Menghubungkan program TypeScript dengan web server internet asli.

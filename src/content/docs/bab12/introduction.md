@@ -3,8 +3,6 @@ title: "Pendahuluan — BAB 12"
 description: Pendahuluan bab praktik terbaik (best practice) dalam menulis kode TypeScript yang profesional.
 ---
 
-# Pendahuluan: Melangkah Menuju Kode Profesional
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Memahami peta materi dan tujuan utama dari BAB 12.

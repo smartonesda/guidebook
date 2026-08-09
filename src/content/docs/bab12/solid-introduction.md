@@ -3,8 +3,6 @@ title: "Pengenalan SOLID Principle — BAB 12"
 description: Pengenalan dasar terhadap 5 prinsip desain software SOLID untuk menulis kode berorientasi objek yang fleksibel.
 ---
 
-# Pengenalan SOLID Principle
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan apa itu prinsip SOLID secara garis besar.

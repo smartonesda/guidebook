@@ -3,8 +3,6 @@ title: "Intersection Type"
 description: Menggabungkan beberapa tipe objek menjadi satu menggunakan intersection type (&) di TypeScript.
 ---
 
-# Intersection Type (Tipe Persimpangan)
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan operator `&` untuk menggabungkan beberapa tipe objek menjadi satu tipe baru yang memiliki seluruh properti gabungan tersebut.

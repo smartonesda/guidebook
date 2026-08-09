@@ -3,8 +3,6 @@ title: "Mengubah Data Array"
 description: Cara memperbarui nilai elemen array berdasarkan indeks.
 ---
 
-# Mengubah Data Array
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memodifikasi elemen array menggunakan operator penugasan (`=`) dan nomor indeksnya.

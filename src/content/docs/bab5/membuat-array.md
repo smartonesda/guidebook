@@ -3,8 +3,6 @@ title: "Membuat Array"
 description: Cara mendeklarasikan dan menginisialisasi array di TypeScript menggunakan kurung siku dan generic.
 ---
 
-# Membuat Array
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mendeklarasikan array menggunakan gaya kurung siku (`tipe[]`) maupun generic (`Array<tipe>`).

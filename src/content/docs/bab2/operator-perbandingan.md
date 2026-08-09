@@ -3,8 +3,6 @@ title: "Operator Perbandingan"
 description: Membandingkan nilai dengan >, <, >=, <=, ===, dan !== untuk menghasilkan boolean.
 ---
 
-# Operator Perbandingan
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membandingkan dua nilai dan memahami hasil boolean dari setiap perbandingan.

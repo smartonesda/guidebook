@@ -3,8 +3,6 @@ title: "Array: splice & slice"
 description: Memodifikasi bagian tengah array dengan splice() dan mengambil salinan sebagian array dengan slice().
 ---
 
-# Array: `splice` & `slice`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membedakan `splice()` dan `slice()`, memotong data dengan `slice()`, serta menambah/menghapus elemen di tengah dengan `splice()`.

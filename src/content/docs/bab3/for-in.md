@@ -3,8 +3,6 @@ title: "Loop: for...in"
 description: Mengiterasi nama properti (key) dalam sebuah object dengan for...in.
 ---
 
-# Loop `for...in`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan `for...in` untuk membaca nama properti dari sebuah object satu per satu.

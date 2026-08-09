@@ -3,8 +3,6 @@ title: "Interface pada Object"
 description: Menggunakan interface untuk memvalidasi struktur data objek secara konsisten di TypeScript.
 ---
 
-# Interface pada Object
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menetapkan tipe interface pada variabel objek dan menjelaskan bagaimana TypeScript memvalidasi kecocokan properti.

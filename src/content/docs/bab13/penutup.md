@@ -3,8 +3,6 @@ title: "Penutup — BAB 13"
 description: Pesan penutup dan ucapan selamat atas keberhasilan menyelesaikan seluruh buku panduan TypeScript.
 ---
 
-# Penutup: Perjalanan Baru Saja Dimulai!
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman akhir ini, kamu diharapkan dapat:
 - Merasakan kepuasan atas keberhasilan menyelesaikan seluruh buku panduan.

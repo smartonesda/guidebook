@@ -3,8 +3,6 @@ title: "Ternary Operator"
 description: Membuat keputusan if...else sederhana dalam satu ekspresi dengan operator ? :.
 ---
 
-# Ternary Operator
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memakai ternary operator untuk keputusan dua pilihan yang pendek dan jelas.

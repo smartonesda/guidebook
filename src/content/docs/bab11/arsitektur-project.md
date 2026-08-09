@@ -3,8 +3,6 @@ title: "Arsitektur Project — BAB 11"
 description: Memahami Layered Architecture untuk membagi kode program menjadi Presentation Layer, Service Layer, dan Repository Layer.
 ---
 
-# Arsitektur Project (Layered Architecture)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan konsep Layered Architecture secara sederhana.

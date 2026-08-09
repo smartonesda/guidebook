@@ -3,8 +3,6 @@ title: "Error Corner BAB 1"
 description: Mengenal dan memperbaiki error paling umum saat menggunakan variabel dan tipe data TypeScript.
 ---
 
-# Error Corner BAB 1
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

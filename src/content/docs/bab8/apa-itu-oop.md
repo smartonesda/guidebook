@@ -3,8 +3,6 @@ title: "Apa itu OOP?"
 description: Memahami konsep Object-Oriented Programming (OOP) sebagai paradigma pemrograman berbasis objek.
 ---
 
-# Apa itu OOP?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan definisi Object-Oriented Programming (OOP).

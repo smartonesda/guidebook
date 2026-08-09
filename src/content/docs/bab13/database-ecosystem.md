@@ -3,8 +3,6 @@ title: "Database Ecosystem — BAB 13"
 description: Memahami ekosistem database relasional dan non-relasional serta penggunaan ORM di TypeScript.
 ---
 
-# Database Ecosystem
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Membedakan antara database relasional (SQL) dan non-relasional (NoSQL).

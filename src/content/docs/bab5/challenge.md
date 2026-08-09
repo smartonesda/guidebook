@@ -3,8 +3,6 @@ title: "Challenge BAB 5"
 description: Sepuluh latihan pemrosesan data menggunakan array dan method array dari tingkat mudah hingga menengah.
 ---
 
-# Challenge BAB 5
-
 ## Tujuan Pembelajaran
 
 Setelah mengerjakan challenge ini, kamu dapat menerapkan method-method array dengan tepat untuk manipulasi, pencarian, penyaringan, dan pengurutan data.

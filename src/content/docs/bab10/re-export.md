@@ -3,8 +3,6 @@ title: "Re-export"
 description: Menggunakan teknik Re-export di TypeScript untuk menyatukan dan meneruskan ekspor dari beberapa file lewat satu gerbang pintu masuk.
 ---
 
-# Re-export (Penerusan Ekspor)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan kegunaan dari teknik Re-export.

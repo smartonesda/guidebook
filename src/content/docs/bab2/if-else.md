@@ -3,8 +3,6 @@ title: "Percabangan if...else"
 description: Memilih satu dari dua tindakan dengan if...else di TypeScript.
 ---
 
-# Percabangan `if...else`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat keputusan dua arah dengan `if...else`.

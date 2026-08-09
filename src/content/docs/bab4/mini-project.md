@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Kalkulator Sederhana"
 description: Membangun kalkulator terminal modular menggunakan function dengan berbagai fitur TypeScript.
 ---
 
-# Mini Project: Aplikasi Kalkulator Sederhana
-
 ## Tujuan Pembelajaran
 
 Setelah mini project ini, kamu dapat membangun aplikasi terminal yang sepenuhnya dibangun dari function-function terpisah yang saling bekerja sama.

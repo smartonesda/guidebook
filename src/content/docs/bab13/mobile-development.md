@@ -3,8 +3,6 @@ title: "Mobile Development — BAB 13"
 description: Menggunakan TypeScript untuk membangun aplikasi mobile cross-platform menggunakan React Native.
 ---
 
-# Mobile Development dengan TypeScript
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dari aplikasi *Cross-Platform* mobile.

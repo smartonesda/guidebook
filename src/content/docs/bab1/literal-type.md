@@ -3,8 +3,6 @@ title: "Literal Type"
 description: Memahami literal type — tipe yang membatasi variabel hanya pada nilai tertentu.
 ---
 
-# Literal Type
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

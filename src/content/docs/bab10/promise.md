@@ -3,8 +3,6 @@ title: "Promise"
 description: Memahami konsep Promise sebagai pengganti Callback untuk mengelola alur Asynchronous yang rapi di TypeScript.
 ---
 
-# Promise
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan tiga status dalam Promise (`Pending`, `Fulfilled`, `Rejected`).

@@ -3,8 +3,6 @@ title: "Struktur Folder Project — BAB 11"
 description: Merancang dan menyusun folder project SIAKAD secara rapi dan modular sesuai standar industri.
 ---
 
-# Struktur Folder Project
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Merancang struktur folder project modular di TypeScript.

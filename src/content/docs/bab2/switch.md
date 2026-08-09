@@ -3,8 +3,6 @@ title: "Percabangan switch"
 description: Memilih tindakan berdasarkan satu nilai dengan switch, case, break, dan default.
 ---
 
-# Percabangan `switch`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memakai `switch` untuk menangani banyak pilihan dari satu nilai.

@@ -3,8 +3,6 @@ title: "Memanggil Function"
 description: Memahami cara memanggil function dan menggunakan hasilnya.
 ---
 
-# Memanggil Function
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memanggil function dengan benar, menangkap return value, dan memanggil function di berbagai konteks.

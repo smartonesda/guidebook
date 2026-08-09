@@ -1,0 +1,22 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="final-cta" aria-labelledby="final-cta-title">
+  <p class="final-cta__label">Perjalananmu dimulai di sini</p>
+  <h2 id="final-cta-title">Siap Memulai?</h2>
+  <p>Mulai perjalanan belajarmu dari BAB 0 — Pengenalan, lalu ikuti setiap langkah sampai kamu siap membuat aplikasi nyata.</p>
+  <a href={`${base}/bab0/selamat-datang/`}>🚀 Mulai Belajar <span aria-hidden="true">→</span></a>
+</section>
+
+<style>
+  .final-cta { position: relative; overflow: hidden; padding: clamp(2.5rem, 7vw, 5rem) 1.25rem; border-radius: var(--sod-radius-xl); background: var(--sod-gradient); color: #fff; text-align: center; }
+  .final-cta::after { position: absolute; width: 20rem; height: 20rem; right: -9rem; bottom: -14rem; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 50%; content: ''; }
+  .final-cta__label { margin: 0; font-size: 0.78rem; font-weight: 750; letter-spacing: 0.09em; text-transform: uppercase; opacity: 0.84; }
+  h2 { margin: 0.7rem 0 0; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.05em; }
+  .final-cta > p:not(.final-cta__label) { max-width: 43rem; margin: 1rem auto 0; line-height: 1.7; opacity: 0.92; }
+  a { position: relative; z-index: 1; display: inline-flex; gap: 0.55rem; align-items: center; justify-content: center; min-height: 2.9rem; margin-top: 1.7rem; padding: 0.7rem 1.2rem; border-radius: 0.75rem; background: #fff; color: #d94428; font-weight: 800; text-decoration: none; transition: transform var(--sod-transition), box-shadow var(--sod-transition); }
+  a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(88, 17, 5, 0.2); }
+  a span { font-size: 1.15em; }
+  @media (prefers-reduced-motion: reduce) { a { transition: none; } }
+</style>

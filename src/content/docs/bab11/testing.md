@@ -3,8 +3,6 @@ title: "Panduan Pengujian (Testing) — BAB 11"
 description: Skenario pengujian manual langkah demi langkah untuk memastikan seluruh fitur SIAKAD-Konsol bekerja dengan benar.
 ---
 
-# Panduan Pengujian (Testing)
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Melakukan pengujian fungsional secara manual (manual testing) pada aplikasi SIAKAD.
@@ -59,7 +57,9 @@ Jalankan aplikasi di terminal dengan perintah `tsx src/main.ts`, lalu lakukan la
 Hasil cetak visual yang diharapkan saat validasi batas nilai 150 terpicu:
 
 ```text
---- UPDATE NILAI SISWA ---
+---
+
+UPDATE NILAI SISWA ---
   Masukkan NIS Siswa: 1001
   Masukkan Nilai Baru (0-100): 150
   [Validasi]: Nilai 150 tidak valid untuk Putra!

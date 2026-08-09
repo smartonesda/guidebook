@@ -3,8 +3,6 @@ title: "Operator Penugasan"
 description: Memberi dan memperbarui nilai variabel dengan =, +=, -=, *=, /=, dan %=.
 ---
 
-# Operator Penugasan
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memberi nilai dan memperbarui nilai variabel memakai operator penugasan.

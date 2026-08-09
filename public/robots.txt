@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://typescript-guidebook.vercel.app/sitemap-index.xml

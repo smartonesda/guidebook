@@ -3,8 +3,6 @@ title: "Operator Nullish"
 description: Memberi nilai cadangan untuk null atau undefined dengan operator ?? di TypeScript.
 ---
 
-# Operator Nullish: `??`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memakai `??` untuk menampilkan atau memakai nilai cadangan ketika data bernilai `null` atau `undefined`.

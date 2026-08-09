@@ -3,8 +3,6 @@ title: "null dan undefined"
 description: Memahami perbedaan null dan undefined — dua tipe yang sering membingungkan pemula TypeScript.
 ---
 
-# `null` dan `undefined`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

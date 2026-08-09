@@ -3,8 +3,6 @@ title: "Utility Type: Pick"
 description: Menggunakan Utility Type Pick<T, K> untuk mengambil beberapa properti tertentu saja dari tipe objek.
 ---
 
-# Utility Type: `Pick`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Pick<T, K>`.

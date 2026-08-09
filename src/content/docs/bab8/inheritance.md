@@ -3,8 +3,6 @@ title: "Inheritance"
 description: Menerapkan pewarisan sifat antar class menggunakan kata kunci extends di TypeScript.
 ---
 
-# Inheritance (Pewarisan)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dari pilar Inheritance (Pewarisan).

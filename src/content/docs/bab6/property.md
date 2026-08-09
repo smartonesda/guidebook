@@ -3,8 +3,6 @@ title: "Property"
 description: Memahami aturan penamaan properti (key) di dalam object TypeScript.
 ---
 
-# Property
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan aturan penamaan key properti, dan menulis key yang mengandung karakter khusus menggunakan tanda kutip.

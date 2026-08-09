@@ -3,8 +3,6 @@ title: "Ringkasan BAB 7"
 description: Rangkuman lengkap materi BAB 7 — interface cheat sheet, type alias cheat sheet, tabel perbandingan, dan latihan penutup.
 ---
 
-# Ringkasan BAB 7
-
 ## Selamat! 🎉
 
 Kamu telah menyelesaikan **BAB 7: Interface & Type Alias**! Ini adalah bab penutup kelompok pemodelan data struktural. Kamu sekarang telah menguasai seluruh konsep yang mendefinisikan identitas utama dari bahasa TypeScript dibanding JavaScript biasa.

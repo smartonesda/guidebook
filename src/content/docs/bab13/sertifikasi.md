@@ -3,8 +3,6 @@ title: "Sertifikasi Kompetensi IT — BAB 13"
 description: Mengenal peran sertifikasi kompetensi IT internasional untuk memperkuat CV lamaran kerja.
 ---
 
-# Sertifikasi Kompetensi IT
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan perbedaan sertifikasi lokal (BNSP) dan sertifikasi internasional (vendor).

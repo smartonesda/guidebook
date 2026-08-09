@@ -3,8 +3,6 @@ title: "Environment Variable — BAB 12"
 description: Mengamankan data sensitif seperti password dan API key menggunakan berkas .env dan process.env di TypeScript.
 ---
 
-# Environment Variable
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dan kegunaan dari *Environment Variable* (Variabel Lingkungan).

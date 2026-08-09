@@ -3,8 +3,6 @@ title: "Apa itu Asynchronous?"
 description: Memahami konsep dasar pemrograman Asynchronous di TypeScript.
 ---
 
-# Apa itu Asynchronous?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti istilah Asynchronous.

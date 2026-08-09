@@ -3,8 +3,6 @@ title: "Apa itu Variabel?"
 description: Memahami konsep variabel sebagai tempat penyimpanan data dalam program TypeScript.
 ---
 
-# Apa itu Variabel?
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:
@@ -79,13 +77,13 @@ Setiap variabel menempati satu "laci" di RAM. Komputer mengingat di laci mana se
 Buat file baru: `src/bab1/apa-itu-variabel.ts`
 
 ```ts
-let namaSiswa = "Putra"
-let umur = 17
-let sekolah = "SMKS Antartika 1 Sidoarjo"
+let namaSiswa = "Putra";
+let umur = 17;
+let sekolah = "SMKS Antartika 1 Sidoarjo";
 
-console.log(namaSiswa)
-console.log(umur)
-console.log(sekolah)
+console.log(namaSiswa);
+console.log(umur);
+console.log(sekolah);
 ```
 
 Jalankan dengan:
@@ -107,7 +105,7 @@ SMKS Antartika 1 Sidoarjo
 ## Penjelasan Baris per Baris
 
 ```ts
-let namaSiswa = "Putra"
+let namaSiswa = "Putra";
 ```
 
 - `let` — kata kunci yang memberitahu TypeScript: "saya ingin membuat variabel baru"
@@ -117,7 +115,7 @@ let namaSiswa = "Putra"
 - Baris ini secara keseluruhan artinya: "Buat variabel bernama `namaSiswa` dan isi dengan teks `"Putra"`"
 
 ```ts
-console.log(namaSiswa)
+console.log(namaSiswa);
 ```
 
 - `console.log()` — fungsi untuk menampilkan output di terminal
@@ -131,10 +129,10 @@ console.log(namaSiswa)
 Coba bayangkan program tanpa variabel:
 
 ```ts
-console.log("Nama: Putra")
-console.log("Halo, Putra!")
-console.log("Selamat datang, Putra!")
-console.log("Nilai Putra adalah 90")
+console.log("Nama: Putra");
+console.log("Halo, Putra!");
+console.log("Selamat datang, Putra!");
+console.log("Nilai Putra adalah 90");
 ```
 
 Bagaimana jika nama siswanya berubah menjadi "Budi"? Kamu harus mengubah kata "Putra" di **setiap baris** secara manual.
@@ -142,12 +140,12 @@ Bagaimana jika nama siswanya berubah menjadi "Budi"? Kamu harus mengubah kata "P
 Dengan variabel:
 
 ```ts
-let nama = "Putra"
+let nama = "Putra";
 
-console.log("Nama: " + nama)
-console.log("Halo, " + nama + "!")
-console.log("Selamat datang, " + nama + "!")
-console.log("Nilai " + nama + " adalah 90")
+console.log("Nama: " + nama);
+console.log("Halo, " + nama + "!");
+console.log("Selamat datang, " + nama + "!");
+console.log("Nilai " + nama + " adalah 90");
 ```
 
 Sekarang untuk mengubah nama, cukup ubah **satu baris** — baris deklarasi variabel. Semua tempat lain yang menggunakan `nama` akan otomatis ikut berubah.
@@ -161,8 +159,8 @@ Inilah salah satu kekuatan terbesar variabel: **satu perubahan, efek di mana-man
 ### ❌ Menggunakan variabel sebelum dideklarasikan
 
 ```ts
-console.log(namaKu)   // Error!
-let namaKu = "Ani"
+console.log(namaKu); // Error!
+let namaKu = "Ani";
 ```
 
 **Mengapa error?** TypeScript tidak bisa menggunakan variabel yang belum dibuat. Variabel harus dideklarasikan **sebelum** digunakan.
@@ -170,8 +168,8 @@ let namaKu = "Ani"
 **Cara memperbaiki:**
 
 ```ts
-let namaKu = "Ani"
-console.log(namaKu)   // ✓
+let namaKu = "Ani";
+console.log(namaKu); // ✓
 ```
 
 ---

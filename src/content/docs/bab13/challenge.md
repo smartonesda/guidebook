@@ -3,8 +3,6 @@ title: "Challenge BAB 13"
 description: Sepuluh tantangan persiapan karir dan portofolio untuk siswa SMK RPL.
 ---
 
-# Challenge BAB 13: Persiapan Karir
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
 - Menyusun portofolio online nyata di GitHub.

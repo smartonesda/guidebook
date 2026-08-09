@@ -3,8 +3,6 @@ title: "Ringkasan BAB 8"
 description: Rangkuman lengkap materi Object-Oriented Programming (OOP) — tabel modifier, perbandingan class vs object, dan checklist belajar.
 ---
 
-# Ringkasan BAB 8
-
 ## Selamat! 🎉
 
 Kamu telah menyelesaikan **BAB 8: Object-Oriented Programming (OOP)**! Ini adalah pencapaian luar biasa. OOP adalah paradigma pemrograman standar industri yang digunakan oleh tim pengembang software profesional di seluruh dunia untuk membangun aplikasi besar yang kokoh dan mudah dirawat.

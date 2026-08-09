@@ -3,8 +3,6 @@ title: "Generic Constraint"
 description: Menggunakan kata kunci extends untuk membatasi tipe data pada Generic di TypeScript.
 ---
 
-# Generic Constraint (Batasan Generic)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dari Generic Constraint.

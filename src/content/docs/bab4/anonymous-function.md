@@ -3,8 +3,6 @@ title: "Anonymous Function"
 description: Memahami fungsi tanpa nama yang disimpan dalam variabel di TypeScript.
 ---
 
-# Anonymous Function
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat anonymous function dan memahami kapan menggunakannya.

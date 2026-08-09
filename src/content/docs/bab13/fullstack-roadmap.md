@@ -3,8 +3,6 @@ title: "Fullstack Developer Roadmap — BAB 13"
 description: Peta jalan belajar menjadi Fullstack Developer menggunakan TypeScript dan Next.js.
 ---
 
-# Fullstack Developer Roadmap
-
 ## Tujuan Pembelajaran
 After this page, you should be able to explain the role of a Fullstack Developer, identify the advantages of using a single language (TypeScript) for both client and server, and understand the role of Next.js.
 

@@ -3,8 +3,6 @@ title: "Apa itu Interface?"
 description: Memahami konsep dasar interface sebagai kontrak formal pendefinisian bentuk objek di TypeScript.
 ---
 
-# Apa itu Interface?
-
 ## Tujuan Pembelajaran
 
 After this page, you should be able to explain what an `interface` is, how it enforces structure on objects, and identify the syntax structure of interfaces.

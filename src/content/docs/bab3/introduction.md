@@ -3,8 +3,6 @@ title: "BAB 3 — Perulangan"
 description: Gambaran BAB 3 — mengotomatiskan tugas berulang menggunakan loop di TypeScript.
 ---
 
-# BAB 3: Perulangan
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan BAB 3, kamu dapat menjelaskan konsep loop, memilih jenis loop yang tepat, dan membangun program yang memproses banyak data secara otomatis.

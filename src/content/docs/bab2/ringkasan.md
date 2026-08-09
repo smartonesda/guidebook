@@ -3,8 +3,6 @@ title: "Ringkasan BAB 2"
 description: Rangkuman lengkap BAB 2 — operator cheat sheet, alur percabangan, checklist, dan peta konsep.
 ---
 
-# Ringkasan BAB 2
-
 ## Selamat!
 
 Kamu telah menyelesaikan **BAB 2: Operator & Percabangan**. Ini adalah bab yang membangun kemampuan berpikir logis — kemampuan yang akan terus kamu gunakan di setiap program yang pernah dibuat.

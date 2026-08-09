@@ -3,8 +3,6 @@ title: "Studi Kasus: Sistem Perhitungan Nilai Siswa"
 description: Membangun sistem perhitungan nilai menggunakan fungsi-fungsi terpisah yang saling bekerja sama.
 ---
 
-# Studi Kasus: Sistem Perhitungan Nilai Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah studi kasus ini, kamu dapat merancang dan membangun program modular menggunakan beberapa function yang saling berinteraksi.

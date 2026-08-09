@@ -3,8 +3,6 @@ title: "Studi Kasus: Sistem Absensi Siswa"
 description: Membangun sistem absensi menggunakan for loop, continue, dan break di TypeScript.
 ---
 
-# Studi Kasus: Sistem Absensi Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah studi kasus ini, kamu dapat menggabungkan `for` loop, `continue`, `break`, dan kondisi untuk membangun program absensi yang logis.

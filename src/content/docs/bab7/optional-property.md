@@ -3,8 +3,6 @@ title: "Optional Property"
 description: Mendefinisikan properti opsional menggunakan tanda ? pada interface di TypeScript.
 ---
 
-# Optional Property
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat properti opsional pada interface menggunakan tanda `?` dan mengakses nilainya dengan aman.

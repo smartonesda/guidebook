@@ -3,8 +3,6 @@ title: "Challenge BAB 2"
 description: Sepuluh soal latihan operator dan percabangan dari mudah ke menengah.
 ---
 
-# Challenge BAB 2
-
 ## Tujuan Pembelajaran
 
 Setelah mengerjakan challenge ini, kamu dapat mengukur pemahamanmu tentang operator dan percabangan, lalu mengetahui topik mana yang perlu dipelajari ulang.

@@ -3,8 +3,6 @@ title: "Default Parameter"
 description: Memberikan nilai default untuk parameter sehingga function tetap bekerja meski argument tidak dikirim.
 ---
 
-# Default Parameter
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat parameter dengan nilai default menggunakan operator `=`.

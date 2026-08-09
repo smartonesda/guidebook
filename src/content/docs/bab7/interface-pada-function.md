@@ -3,8 +3,6 @@ title: "Interface pada Function"
 description: Menggunakan interface untuk memvalidasi tipe parameter dan hasil return value pada function.
 ---
 
-# Interface pada Function
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan interface sebagai tipe parameter function dan mendefinisikan tipe bentuk function (*function type*) secara lengkap menggunakan interface.

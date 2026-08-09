@@ -3,8 +3,6 @@ title: "Loop: do...while"
 description: Memakai do...while untuk loop yang selalu berjalan minimal satu kali.
 ---
 
-# Loop `do...while`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat loop `do...while` dan menjelaskan perbedaannya dengan `while`.

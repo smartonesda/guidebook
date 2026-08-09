@@ -3,8 +3,6 @@ title: "Infinite Loop"
 description: Memahami infinite loop, penyebabnya, cara mendeteksinya, dan cara menghindarinya.
 ---
 
-# Infinite Loop
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan apa itu infinite loop, mengidentifikasi kode yang berpotensi menyebabkannya, dan menulis loop yang aman.

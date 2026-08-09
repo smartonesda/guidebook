@@ -3,8 +3,6 @@ title: "Challenge BAB 4"
 description: Sepuluh soal latihan function dari tingkat mudah hingga menengah.
 ---
 
-# Challenge BAB 4
-
 ## Tujuan Pembelajaran
 
 Setelah mengerjakan challenge ini, kamu dapat mengukur pemahaman tentang function dan membangun program modular secara mandiri.

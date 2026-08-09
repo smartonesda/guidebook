@@ -3,8 +3,6 @@ title: "Iterasi Array"
 description: Memproses setiap elemen array menggunakan berbagai jenis loop di TypeScript.
 ---
 
-# Iterasi Array
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memilih loop yang tepat untuk memproses data array dan melakukan operasi umum seperti penjumlahan, pencarian, dan pemfilteran.

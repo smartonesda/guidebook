@@ -3,8 +3,6 @@ title: "Ringkasan BAB 9"
 description: Rangkuman lengkap materi Generic dan Utility Types — cheat sheet, tabel perbandingan, checklist belajar, dan pertanyaan wawancara kerja.
 ---
 
-# Ringkasan BAB 9
-
 ## Selamat! 🎉
 
 Kamu telah menyelesaikan **BAB 9: Generic & Utility Types**! Ini adalah salah satu bab yang paling menantang dan berbobot dalam pemrograman TypeScript. Dengan menguasai Generic dan Utility Types, kamu sekarang memiliki keahlian yang sejajar dengan programmer tingkat menengah (*Intermediate Developer*) yang siap membaca dan berkontribusi di codebase industri nyata.

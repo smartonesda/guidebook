@@ -3,8 +3,6 @@ title: "Studi Kasus: Sistem Data Siswa & Kelas"
 description: Studi kasus lengkap merancang dan memvalidasi struktur data siswa, guru, dan kelas menggunakan Interface di TypeScript.
 ---
 
-# Studi Kasus: Sistem Data Siswa & Kelas
-
 ## Tujuan Pembelajaran
 
 Setelah studi kasus ini, kamu dapat merancang struktur data sekolah secara modular menggunakan interface, memperluas tipe data dengan extends, dan memvalidasi struktur objek kompleks.
@@ -142,7 +140,9 @@ tsx src/bab7/studi-kasus-akademik.ts
 ==================================================
   Wali Kelas   : Pak Budi (NIP: 19890102)
   Mata Pelaj.  : Pemrograman Web
---------------------------------------------------
+---
+
+-----------------------------------------------
   Daftar Siswa :
     1. [NIS 1001] Putra    (usia 17 th)
     2. [NIS 1002] Dewi     (usia 16 th)

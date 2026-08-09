@@ -3,8 +3,6 @@ title: "Callback"
 description: Memahami dan menggunakan callback — function yang dikirim sebagai argument ke function lain.
 ---
 
-# Callback
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan apa itu callback dan membuat function yang menerima serta memanggil callback.

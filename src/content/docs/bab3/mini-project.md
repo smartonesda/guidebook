@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Daftar Nilai Siswa"
 description: Membangun aplikasi daftar nilai lengkap yang menggabungkan konsep BAB 1, BAB 2, dan BAB 3.
 ---
 
-# Mini Project: Aplikasi Daftar Nilai Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah mini project ini, kamu dapat membangun program terminal yang mengolah data banyak siswa menggunakan array, loop, kondisi, dan template literal.
@@ -196,7 +194,9 @@ tsx src/bab3/aplikasi-daftar-nilai.ts
   LAPORAN NILAI KELAS — Tahun Pelajaran 2025/2026
 =======================================================
 No  Nama      Rata-rata   Grade   Status
--------------------------------------------------------
+---
+
+----------------------------------------------------
 1   Andi      90          A       Lulus
 2   Budi      65          D       Perlu Bimbingan
 3   Citra     93.33       A       Lulus

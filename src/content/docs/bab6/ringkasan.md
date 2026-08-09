@@ -3,8 +3,6 @@ title: "Ringkasan BAB 6"
 description: Rangkuman lengkap materi BAB 6 — objek cheat sheet, visual alur data, checklist, dan latihan penutup.
 ---
 
-# Ringkasan BAB 6
-
 ## Selamat! 🎉
 
 Kamu telah menyelesaikan **BAB 6: Object**! Ini adalah bab penutup dalam kelompok data terstruktur. Dengan menguasai objek, kamu sekarang siap untuk melangkah ke materi tingkat lanjut seperti **Interface**, **Class**, dan **Object-Oriented Programming (OOP)**.

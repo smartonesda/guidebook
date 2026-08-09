@@ -3,8 +3,6 @@ title: "Iterasi Array"
 description: Mengulangi proses untuk setiap elemen array menggunakan for, for...of, dan forEach.
 ---
 
-# Iterasi Array
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memilih loop yang tepat (`for`, `for...of`, atau `forEach`) untuk mengunjungi semua elemen array satu per satu.

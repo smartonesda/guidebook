@@ -3,8 +3,6 @@ title: "README.md — BAB 12"
 description: Panduan mendokumentasikan project secara profesional menggunakan file README.md di GitHub.
 ---
 
-# README.md
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari berkas `README.md` pada repositori project.

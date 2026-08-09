@@ -3,8 +3,6 @@ title: "export & import"
 description: Belajar konsep dasar membagikan dan mengambil kode antar file module di TypeScript.
 ---
 
-# export & import
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dari kata kunci `export` dan `import`.

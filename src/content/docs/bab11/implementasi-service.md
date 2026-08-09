@@ -3,8 +3,6 @@ title: "Implementasi Service Layer — BAB 11"
 description: Membangun class SiswaService untuk menangani logika bisnis, perhitungan rata-rata, dan pemuatan tugas online secara asynchronous.
 ---
 
-# Implementasi Service Layer
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat file `siswa-service.ts` di folder `services/`.

@@ -3,8 +3,6 @@ title: "Loop: for...of"
 description: Mengiterasi setiap elemen array atau string dengan for...of secara ringkas dan ekspresif.
 ---
 
-# Loop `for...of`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan `for...of` untuk mengambil setiap nilai dari array atau string satu per satu.

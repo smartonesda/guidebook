@@ -3,8 +3,6 @@ title: "Error Corner BAB 5"
 description: Mengenali dan memperbaiki kesalahan paling umum saat menggunakan array di TypeScript.
 ---
 
-# Error Corner BAB 5
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengidentifikasi bug umum manipulasi array dan mengatasinya dengan benar.

@@ -3,8 +3,6 @@ title: "BAB 9 — Generic & Utility Types"
 description: Pendahuluan Generic dan Utility Types di TypeScript — konsep dasar, tujuan pembelajaran, dan persiapan.
 ---
 
-# BAB 9: Generic & Utility Types
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan bab ini, kamu diharapkan dapat:
 - Menjelaskan konsep dan kegunaan Generic di TypeScript.

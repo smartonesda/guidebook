@@ -3,8 +3,6 @@ title: "Ringkasan BAB 11"
 description: Rangkuman akhir pengerjaan Final Project, checklist penyelesaian, dan langkah mengupload portofolio ke GitHub.
 ---
 
-# Ringkasan BAB 11
-
 ## Tujuan Pembelajaran
 Setelah halaman ini, kamu diharapkan dapat:
 - Merangkum seluruh arsitektur dan folder project SIAKAD.

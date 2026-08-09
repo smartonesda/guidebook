@@ -3,8 +3,6 @@ title: "Array: includes & indexOf"
 description: Mencari keberadaan elemen dengan includes() dan menemukan posisinya dengan indexOf().
 ---
 
-# Array: `includes` & `indexOf`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memeriksa keberadaan elemen dengan `includes()` dan mencari nomor indeks elemen dengan `indexOf()`.

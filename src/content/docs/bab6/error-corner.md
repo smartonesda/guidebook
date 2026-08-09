@@ -3,8 +3,6 @@ title: "Error Corner BAB 6"
 description: Mengenali dan memperbaiki kesalahan paling umum saat menggunakan object di TypeScript.
 ---
 
-# Error Corner BAB 6
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengidentifikasi bug umum manipulasi object dan mengatasinya dengan benar.

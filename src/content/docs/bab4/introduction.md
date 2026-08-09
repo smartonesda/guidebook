@@ -3,8 +3,6 @@ title: "BAB 4 — Function"
 description: Gambaran BAB 4 — membuat dan menggunakan fungsi sebagai blok kode yang dapat digunakan ulang.
 ---
 
-# BAB 4: Function
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan BAB 4, kamu dapat membuat fungsi, memanggil fungsi, memberikan data melalui parameter, mendapatkan hasil dari return value, dan mulai membangun program secara modular.

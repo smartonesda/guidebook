@@ -3,8 +3,6 @@ title: "Utility Type: Extract"
 description: Menggunakan Utility Type Extract<T, U> untuk mengambil beberapa tipe tertentu dari tipe union di TypeScript.
 ---
 
-# Utility Type: `Extract`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Extract<T, U>`.

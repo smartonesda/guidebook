@@ -3,8 +3,6 @@ title: "BAB 1 — Variabel & Tipe Data"
 description: Gambaran umum BAB 1 — mempelajari variabel dan tipe data sebagai fondasi utama TypeScript.
 ---
 
-# BAB 1: Variabel & Tipe Data
-
 Selamat datang di **BAB 1**! Kamu sudah berhasil menyelesaikan BAB 0 — instalasi selesai, program pertama sudah berjalan. Sekarang kita masuk ke inti dari belajar TypeScript.
 
 Di bab ini, kamu akan mempelajari dua konsep yang menjadi **fondasi dari hampir semua program yang pernah ditulis manusia**: **variabel** dan **tipe data**.

@@ -3,8 +3,6 @@ title: "Loop: while"
 description: Memakai while untuk mengulang tindakan selama kondisi masih true.
 ---
 
-# Loop `while`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat loop `while` yang berjalan berdasarkan kondisi boolean.

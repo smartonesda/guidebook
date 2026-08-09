@@ -1,0 +1,23 @@
+---
+import HomeHighlights from './HomeHighlights.astro';
+import HomeWhyTypeScript from './HomeWhyTypeScript.astro';
+import HomeRoadmap from './HomeRoadmap.astro';
+import LearningMethod from './LearningMethod.astro';
+import UsageSteps from './UsageSteps.astro';
+import LearningOutcome from './LearningOutcome.astro';
+import FinalCTA from './FinalCTA.astro';
+---
+
+<div class="home-page">
+  <HomeHighlights />
+  <HomeWhyTypeScript />
+  <HomeRoadmap />
+  <LearningMethod />
+  <UsageSteps />
+  <LearningOutcome />
+  <FinalCTA />
+</div>
+
+<style>
+  .home-page { display: grid; gap: clamp(4.5rem, 9vw, 8rem); padding-bottom: clamp(3.5rem, 7vw, 6rem); }
+</style>

@@ -3,8 +3,6 @@ title: "Frontend Developer Roadmap — BAB 13"
 description: Peta jalan belajar menjadi Frontend Developer yang profesional menggunakan TypeScript.
 ---
 
-# Frontend Developer Roadmap
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan peran dan tanggung jawab dari seorang Frontend Developer.

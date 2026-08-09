@@ -3,8 +3,6 @@ title: "Operator Aritmatika"
 description: Menghitung dengan operator +, -, *, /, %, dan ** di TypeScript.
 ---
 
-# Operator Aritmatika
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memakai operator aritmatika untuk penjumlahan, pengurangan, perkalian, pembagian, sisa bagi, dan pangkat.

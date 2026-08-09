@@ -3,8 +3,6 @@ title: "Generic Class"
 description: Cara mendefinisikan dan menginstansiasi Class Generic di TypeScript untuk membuat objek penyimpan data serbaguna.
 ---
 
-# Generic Class
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Membuat Class bertipe Generic menggunakan parameter `<T>`.

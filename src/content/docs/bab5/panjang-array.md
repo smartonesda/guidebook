@@ -3,8 +3,6 @@ title: "Panjang Array"
 description: Menggunakan properti length untuk mengetahui jumlah elemen di dalam array.
 ---
 
-# Panjang Array
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan properti `length` untuk mengetahui jumlah elemen array dan mengakses elemen terakhir secara dinamis.

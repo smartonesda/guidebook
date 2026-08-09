@@ -3,8 +3,6 @@ title: "Rest Parameter"
 description: Menerima jumlah argument yang tidak terbatas menggunakan rest parameter (...) di TypeScript.
 ---
 
-# Rest Parameter
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat function yang menerima jumlah argument tidak terbatas menggunakan sintaks `...`.

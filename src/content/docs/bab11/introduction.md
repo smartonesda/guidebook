@@ -3,8 +3,6 @@ title: "Introduction — BAB 11"
 description: Pendahuluan Bab 11 — Capstone Project integrasi seluruh konsep pemrograman TypeScript.
 ---
 
-# Introduction: Capstone Project
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Memahami tujuan dan peta jalan dari pengerjaan Final Project.

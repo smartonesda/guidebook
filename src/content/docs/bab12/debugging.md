@@ -3,8 +3,6 @@ title: "Debugging & Compiler Error — BAB 12"
 description: Panduan melacak dan memperbaiki error compiler serta membaca stack trace di TypeScript secara sistematis.
 ---
 
-# Debugging & Compiler Error
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dari *Debugging* (pelacakan bug).

@@ -3,8 +3,6 @@ title: "Menghapus Property"
 description: Menggunakan kata kunci delete untuk menghapus properti dari sebuah object di TypeScript.
 ---
 
-# Menghapus Property
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menghapus properti dari object menggunakan operator `delete` pada properti opsional.

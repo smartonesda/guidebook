@@ -3,8 +3,6 @@ title: "BAB 10 — Asynchronous & Module"
 description: Pendahuluan Asynchronous Programming dan Module System di TypeScript — konsep dasar, tujuan pembelajaran, dan persiapan.
 ---
 
-# BAB 10: Asynchronous & Module
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan bab ini, kamu diharapkan dapat:
 - Menjelaskan perbedaan antara Synchronous dan Asynchronous programming.

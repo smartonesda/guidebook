@@ -3,8 +3,6 @@ title: "Clean Code — BAB 12"
 description: Aturan emas menulis kode program yang bersih, modular, dan mudah dipelihara di TypeScript.
 ---
 
-# Clean Code
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dan pentingnya prinsip *Clean Code* (Kode Bersih).

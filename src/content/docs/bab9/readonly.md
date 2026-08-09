@@ -3,8 +3,6 @@ title: "Utility Type: Readonly"
 description: Menggunakan Utility Type Readonly<T> untuk mengunci seluruh properti objek secara bersamaan di TypeScript.
 ---
 
-# Utility Type: `Readonly`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Readonly<T>`.

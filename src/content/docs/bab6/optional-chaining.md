@@ -3,8 +3,6 @@ title: "Optional Chaining"
 description: Menggunakan operator ?. untuk mengakses properti nested secara aman tanpa takut program crash.
 ---
 
-# Optional Chaining: `?.`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan optional chaining (`?.`) untuk mengakses properti nested yang mungkin bernilai `null` atau `undefined` secara aman.

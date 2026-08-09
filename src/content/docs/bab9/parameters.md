@@ -3,8 +3,6 @@ title: "Utility Type: Parameters"
 description: Menggunakan Utility Type Parameters<T> untuk mengambil tipe data parameter input dari sebuah fungsi dalam bentuk tuple di TypeScript.
 ---
 
-# Utility Type: `Parameters`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Parameters<T>`.

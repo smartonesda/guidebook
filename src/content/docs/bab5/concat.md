@@ -3,8 +3,6 @@ title: "Array: concat"
 description: Menggabungkan dua atau lebih array menjadi satu array baru menggunakan method concat().
 ---
 
-# Array: `concat`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggabungkan beberapa array menjadi satu array baru menggunakan `concat()`.

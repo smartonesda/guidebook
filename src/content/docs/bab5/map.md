@@ -3,8 +3,6 @@ title: "Array: map"
 description: Mengubah bentuk atau memanipulasi setiap elemen array menjadi data baru dengan map().
 ---
 
-# Array: `map`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan `map()` untuk mentransformasikan setiap elemen array dan menghasilkan array baru dengan panjang yang sama.

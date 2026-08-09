@@ -3,8 +3,6 @@ title: "Tipe Data: unknown"
 description: Memahami unknown — tipe aman untuk data yang belum diketahui sebelum diperiksa.
 ---
 
-# Tipe Data: `unknown`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

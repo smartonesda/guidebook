@@ -3,8 +3,6 @@ title: "Studi Kasus: Sistem Manajemen Data Akademik"
 description: Studi kasus merancang repository data akademik sekolah yang modular dan fleksibel menggunakan Generic dan Utility Types di TypeScript.
 ---
 
-# Studi Kasus: Sistem Data Akademik
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan studi kasus ini, kamu diharapkan dapat:
 - Merancang arsitektur penyimpanan data Generic (Repository Pattern) sederhana.

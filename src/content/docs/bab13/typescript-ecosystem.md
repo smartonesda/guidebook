@@ -3,8 +3,6 @@ title: "Ekosistem TypeScript Modern — BAB 13"
 description: Pengenalan ekosistem TypeScript modern di dunia industri perangkat lunak.
 ---
 
-# Ekosistem TypeScript Modern
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan cakupan ekosistem JavaScript dan TypeScript di era modern.

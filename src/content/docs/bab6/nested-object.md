@@ -3,8 +3,6 @@ title: "Nested Object"
 description: Membuat object di dalam object (nested object) untuk menstrukturkan data yang kompleks.
 ---
 
-# Nested Object
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat nested object, menentukan tipenya secara modular, dan mengakses properti di dalam nested object dengan aman.

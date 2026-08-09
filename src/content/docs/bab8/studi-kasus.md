@@ -3,8 +3,6 @@ title: "Studi Kasus: Sistem Informasi Akademik"
 description: Studi kasus lengkap merancang sistem informasi akademik sekolah menggunakan paradigma OOP, relasi objek, dan inheritance di TypeScript.
 ---
 
-# Studi Kasus: Sistem Informasi Akademik
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan studi kasus ini, kamu diharapkan dapat:
 - Merancang struktur data sekolah yang kompleks menggunakan paradigma OOP.

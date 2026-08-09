@@ -3,8 +3,6 @@ title: "Deployment (Meluncurkan Aplikasi) — BAB 13"
 description: Pengenalan konsep deployment aplikasi ke cloud menggunakan Vercel, Railway, Docker, dan CI/CD.
 ---
 
-# Deployment (Meluncurkan Aplikasi)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti istilah *Deployment* (Penerbitan Aplikasi).

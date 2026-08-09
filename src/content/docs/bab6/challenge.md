@@ -3,8 +3,6 @@ title: "Challenge BAB 6"
 description: Sepuluh latihan pemrosesan data menggunakan object, nested object, destructuring, dan spread operator.
 ---
 
-# Challenge BAB 6
-
 ## Tujuan Pembelajaran
 
 Setelah mengerjakan challenge ini, kamu dapat menerapkan properti objek, nested object, destructuring, spread operator, optional chaining, dan nullish coalescing untuk menyelesaikan berbagai masalah pemrograman berbasis objek.

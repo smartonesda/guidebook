@@ -3,8 +3,6 @@ title: "Property"
 description: Memahami property sebagai variabel penyimpan data di dalam Class.
 ---
 
-# Property (Variabel Kelas)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti property di dalam Class.
@@ -116,11 +114,15 @@ tsx src/bab8/property-class.ts
 Siswa: Putra Ramadhan (XI RPL 1)
   HP   : 081234567890
   Email: (tidak ada email)
-------------------------------
+---
+
+---------------------------
 Siswa: Dewi Rahayu (XI RPL 1)
   HP   : (belum diisi)
   Email: (tidak ada email)
-------------------------------
+---
+
+---------------------------
 ```
 
 ---

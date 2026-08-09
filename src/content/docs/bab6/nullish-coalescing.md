@@ -3,8 +3,6 @@ title: "Nullish Coalescing dengan Object"
 description: Menggabungkan Optional Chaining dan operator ?? untuk menyediakan nilai default pada properti object.
 ---
 
-# Nullish Coalescing dengan Object
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggabungkan Optional Chaining (`?.`) dan Nullish Coalescing (`??`) untuk mengambil properti objek secara aman dengan nilai default cadangan.

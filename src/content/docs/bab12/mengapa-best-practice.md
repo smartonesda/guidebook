@@ -3,8 +3,6 @@ title: "Mengapa Best Practice?"
 description: Memahami pentingnya menerapkan praktik terbaik (best practice) dalam pengembangan software nyata di industri.
 ---
 
-# Mengapa Best Practice?
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan kerugian jika mengabaikan praktik terbaik dalam project jangka panjang.

@@ -3,8 +3,6 @@ title: "Implementasi Class OOP — BAB 11"
 description: Membangun class Manusia, SiswaClass, dan GuruClass lengkap dengan pilar-pilar OOP di TypeScript.
 ---
 
-# Implementasi Class OOP
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat abstract class `Manusia` di folder `models/`.

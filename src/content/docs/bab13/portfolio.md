@@ -3,8 +3,6 @@ title: "Membangun Personal Portfolio — BAB 13"
 description: Panduan menyusun personal portfolio yang menarik perhatian industri software bagi siswa SMK.
 ---
 
-# Membangun Personal Portfolio
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti penting dari personal portfolio.

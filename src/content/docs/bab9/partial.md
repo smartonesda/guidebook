@@ -3,8 +3,6 @@ title: "Utility Type: Partial"
 description: Menggunakan Utility Type Partial<T> untuk mengubah semua properti objek menjadi opsional di TypeScript.
 ---
 
-# Utility Type: `Partial`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Partial<T>`.

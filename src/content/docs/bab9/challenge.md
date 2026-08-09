@@ -3,8 +3,6 @@ title: "Challenge BAB 9"
 description: Sepuluh latihan Generic dan Utility Types tingkat menengah di TypeScript untuk menguji pemahaman.
 ---
 
-# Challenge BAB 9
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
 - Merancang dan memodifikasi tipe data menggunakan kombinasi Generic dan Utility Types secara mandiri.

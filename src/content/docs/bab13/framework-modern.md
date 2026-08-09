@@ -3,8 +3,6 @@ title: "Framework Modern Terpopuler — BAB 13"
 description: Ringkasan daftar framework modern terpopuler dalam ekosistem TypeScript.
 ---
 
-# Framework Modern Terpopuler
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Mengenali nama-nama framework frontend dan backend terpopuler di industri.

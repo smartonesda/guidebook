@@ -3,8 +3,6 @@ title: "Tipe Data"
 description: Pengenalan konsep tipe data di TypeScript — apa itu tipe data, mengapa penting, dan gambaran semua tipe data primitif.
 ---
 
-# Tipe Data
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

@@ -3,8 +3,6 @@ title: "Callback Asynchronous"
 description: Menggunakan fungsi Callback untuk menangani proses Asynchronous di TypeScript.
 ---
 
-# Callback Asynchronous
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan konsep Callback dalam operasi asynchronous.

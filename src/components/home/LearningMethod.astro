@@ -1,0 +1,40 @@
+---
+const steps = [
+  ['01', '🎯', 'Tujuan Pembelajaran'],
+  ['02', '📖', 'Penjelasan Materi'],
+  ['03', '💡', 'Analogi'],
+  ['04', '💻', 'Live Coding'],
+  ['05', '🧪', 'Studi Kasus'],
+  ['06', '🏆', 'Mini Project'],
+  ['07', '❓', 'Challenge'],
+  ['08', '🚨', 'Error Corner'],
+  ['09', '📝', 'Ringkasan'],
+];
+---
+
+<section class="learning-method" aria-labelledby="learning-method-title">
+  <div class="learning-method__heading">
+    <p class="section-label">Pola setiap bab</p>
+    <h2 id="learning-method-title">Belajar dengan Metode yang Konsisten</h2>
+    <p>Mulai dari memahami konsep hingga mampu menerapkannya dalam program.</p>
+  </div>
+  <ol class="learning-method__steps">
+    {steps.map(([number, icon, title]) => (
+      <li><span class="learning-method__number">{number}</span><span class="learning-method__icon" aria-hidden="true">{icon}</span><strong>{title}</strong></li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .learning-method { padding: clamp(1.5rem, 4vw, 3rem); border-radius: var(--sod-radius-xl); background: var(--sod-card); }
+  .learning-method__heading { max-width: 42rem; }
+  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
+  .learning-method__heading > p:last-child { margin: 1rem 0 0; color: var(--sl-color-gray-2); line-height: 1.7; }
+  .learning-method__steps { display: grid; gap: 0.65rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+  .learning-method__steps li { display: grid; grid-template-columns: 1.7rem 2.25rem 1fr; align-items: center; gap: 0.7rem; min-height: 3.5rem; padding: 0.6rem 0.75rem; border: 1px solid var(--sod-border); border-radius: var(--sod-radius); background: var(--sod-surface); }
+  .learning-method__number { color: var(--sl-color-gray-3); font-size: 0.7rem; font-weight: 750; }
+  .learning-method__icon { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border-radius: 0.55rem; background: color-mix(in srgb, var(--sod-accent) 10%, transparent); }
+  .learning-method strong { color: var(--sl-color-white); font-size: 0.9rem; }
+  @media (min-width: 50rem) { .learning-method__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } .learning-method__steps li { grid-template-columns: 1.5rem 2rem 1fr; } }
+</style>

@@ -3,8 +3,6 @@ title: "Operator Logika"
 description: Menggabungkan kondisi dengan &&, ||, dan ! di TypeScript.
 ---
 
-# Operator Logika
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggabungkan atau membalik kondisi boolean dengan `&&`, `||`, dan `!`.

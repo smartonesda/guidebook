@@ -3,8 +3,6 @@ title: "Error Corner BAB 7"
 description: Mengenali dan memperbaiki kesalahan paling umum saat menggunakan Interface dan Type Alias di TypeScript.
 ---
 
-# Error Corner BAB 7
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengidentifikasi bug umum pendefinisian tipe data kustom dan mengatasinya dengan benar.

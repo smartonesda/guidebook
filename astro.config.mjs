@@ -1,16 +1,21 @@
-const isGithub = process.env.GITHUB_ACTIONS === "true";
-
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
-  site: isGithub ? "https://smartonesda.github.io" : undefined,
-  base: isGithub ? "/typescript-guidebook/" : "/",
+  site: "https://typescript-guidebook.vercel.app",
+  base: "/",
   integrations: [
     starlight({
       title: "TypeScript Guidebook",
+      favicon: "/images/light-smartone.png",
+      locales: {
+        root: {
+          label: "Indonesia",
+          lang: "id",
+        },
+      },
       social: [
         {
           icon: "github",
@@ -20,6 +25,7 @@ export default defineConfig({
       ],
       components: {
         Hero: "./src/components/Hero.astro",
+        Head: "./src/components/SeoHead.astro",
       },
       customCss: ["./src/styles/custom.css"],
       sidebar: [

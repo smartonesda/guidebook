@@ -3,8 +3,6 @@ title: "Mengapa Generic?"
 description: Memahami masalah duplikasi tipe data dan bahaya tipe any yang diselesaikan oleh Generic.
 ---
 
-# Mengapa Generic?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan masalah duplikasi kode akibat menulis fungsi terpisah untuk setiap tipe data.

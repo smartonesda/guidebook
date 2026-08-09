@@ -3,8 +3,6 @@ title: "Readonly Property"
 description: Mengunci nilai properti interface agar tidak bisa diubah setelah inisialisasi dengan readonly.
 ---
 
-# Readonly Property
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat properti objek yang tidak bisa diubah setelah dibuat menggunakan kata kunci `readonly`.

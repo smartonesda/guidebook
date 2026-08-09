@@ -3,8 +3,6 @@ title: "Implementasi main.ts — BAB 11"
 description: Membangun pintu masuk utama program (main.ts) berupa loop menu konsol interaktif menggunakan modul readline Node.js.
 ---
 
-# Implementasi main.ts (Presentation Layer)
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat berkas entry point utama `main.ts` di folder `src/`.

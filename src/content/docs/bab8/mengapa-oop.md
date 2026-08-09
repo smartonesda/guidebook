@@ -3,8 +3,6 @@ title: "Mengapa OOP?"
 description: Memahami alasan mengapa Object-Oriented Programming (OOP) sangat penting untuk pengembangan aplikasi skala besar.
 ---
 
-# Mengapa OOP?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan masalah yang timbul dari kode prosedural yang tidak terstruktur (Spaghetti Code).

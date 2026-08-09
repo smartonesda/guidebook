@@ -3,8 +3,6 @@ title: "Percabangan else if"
 description: Menangani beberapa kondisi berurutan dengan if...else if...else.
 ---
 
-# Percabangan `else if`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memilih satu hasil dari beberapa kondisi yang diperiksa berurutan.

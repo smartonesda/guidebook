@@ -3,8 +3,6 @@ title: "Membuat Object (Instansiasi)"
 description: Belajar proses mencetak objek nyata dari cetak biru class menggunakan kata kunci new.
 ---
 
-# Membuat Object (Instansiasi)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dari instansiasi (*instantiation*).

@@ -3,8 +3,6 @@ title: "Implementasi Interface Kontrak — BAB 11"
 description: Membuat kontrak method formal untuk Class Repository dan Service di dalam folder interfaces/.
 ---
 
-# Implementasi Interface Kontrak
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat file `repository-interface.ts` bertipe Generic.

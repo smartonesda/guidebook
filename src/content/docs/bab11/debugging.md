@@ -3,8 +3,6 @@ title: "Panduan Debugging — BAB 11"
 description: Panduan melacak dan memperbaiki error umum saat menyusun aplikasi modular multi-file di TypeScript.
 ---
 
-# Panduan Debugging (Pelacakan Error)
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Mengenali dan memperbaiki error *Cannot find module* akibat salah menulis path impor.

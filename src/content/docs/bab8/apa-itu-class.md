@@ -3,8 +3,6 @@ title: "Apa itu Class?"
 description: Mengenal konsep Class sebagai cetak biru (blueprint) untuk mencetak objek di TypeScript.
 ---
 
-# Apa itu Class?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan perbedaan antara Class dan Object.

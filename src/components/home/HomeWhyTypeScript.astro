@@ -1,0 +1,27 @@
+<section class="why-typescript" aria-labelledby="why-typescript-title">
+  <div class="why-typescript__copy">
+    <p class="section-label">Fondasi yang tepat</p>
+    <h2 id="why-typescript-title">Mengapa Belajar TypeScript?</h2>
+    <p>JavaScript digunakan oleh hampir semua website modern. Namun, banyak kesalahan baru terlihat saat program dijalankan.</p>
+    <p>TypeScript membantu menemukan kesalahan lebih awal, sehingga kamu dapat menulis kode dengan lebih percaya diri untuk aplikasi modern.</p>
+  </div>
+  <ul class="why-typescript__benefits" aria-label="Manfaat TypeScript">
+    <li><span aria-hidden="true">✓</span><div><strong>Lebih aman</strong><small>Kesalahan lebih cepat ditemukan.</small></div></li>
+    <li><span aria-hidden="true">✓</span><div><strong>Lebih mudah dipelajari</strong><small>Tipe data membuat kode lebih jelas.</small></div></li>
+    <li><span aria-hidden="true">✓</span><div><strong>Lebih mudah dikembangkan</strong><small>Struktur kode lebih terjaga.</small></div></li>
+    <li><span aria-hidden="true">✓</span><div><strong>Lebih mudah dikerjakan dalam tim</strong><small>Kontrak data lebih mudah dipahami bersama.</small></div></li>
+  </ul>
+</section>
+
+<style>
+  .why-typescript { display: grid; gap: 2rem; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--sod-border); border-radius: var(--sod-radius-xl); background: linear-gradient(135deg, color-mix(in srgb, var(--sod-accent) 8%, var(--sod-surface)), var(--sod-surface) 55%); }
+  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
+  .why-typescript__copy > p:not(.section-label) { max-width: 38rem; margin: 1rem 0 0; color: var(--sl-color-gray-2); line-height: 1.7; }
+  .why-typescript__benefits { display: grid; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
+  .why-typescript__benefits li { display: flex; gap: 0.8rem; align-items: flex-start; padding: 0.85rem; border: 1px solid var(--sod-border); border-radius: var(--sod-radius); background: color-mix(in srgb, var(--sod-card) 80%, transparent); }
+  .why-typescript__benefits > li > span { display: grid; flex: 0 0 auto; width: 1.35rem; height: 1.35rem; place-items: center; border-radius: 50%; background: var(--sod-gradient); color: #fff; font-size: 0.75rem; font-weight: 800; }
+  strong { display: block; color: var(--sl-color-white); font-size: 0.92rem; }
+  small { display: block; margin-top: 0.18rem; color: var(--sl-color-gray-2); font-size: 0.8rem; line-height: 1.45; }
+  @media (min-width: 50rem) { .why-typescript { grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr); align-items: center; } }
+</style>

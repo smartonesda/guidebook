@@ -3,8 +3,6 @@ title: "Naming Convention — BAB 12"
 description: Aturan baku penamaan variabel, fungsi, class, interface, dan enum di TypeScript.
 ---
 
-# Naming Convention (Aturan Penamaan)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan pentingnya konsistensi penamaan dalam penulisan kode program.

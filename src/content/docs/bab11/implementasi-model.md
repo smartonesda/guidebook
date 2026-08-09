@@ -3,8 +3,6 @@ title: "Implementasi Model Data — BAB 11"
 description: Membuat berkas model data siswa, guru, dan rombel secara terstruktur di folder models/ menggunakan TypeScript.
 ---
 
-# Implementasi Model Data
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat file model data `siswa-model.ts` dan `guru-model.ts`.

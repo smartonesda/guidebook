@@ -3,8 +3,6 @@ title: "tsconfig.json — BAB 12"
 description: Memahami arti dan konfigurasi parameter compiler utama di dalam berkas tsconfig.json.
 ---
 
-# tsconfig.json
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari berkas `tsconfig.json` di dalam project TypeScript.

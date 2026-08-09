@@ -3,8 +3,6 @@ title: "Challenge BAB 1"
 description: Sepuluh soal latihan dari tingkat mudah hingga menengah untuk menguji pemahaman variabel dan tipe data TypeScript.
 ---
 
-# Challenge BAB 1
-
 ## Tujuan Pembelajaran
 
 Setelah mengerjakan challenge ini, kamu akan mampu:

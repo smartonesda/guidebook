@@ -3,8 +3,6 @@ title: "let vs const"
 description: Memahami perbedaan antara let dan const — kapan menggunakan masing-masing dan mengapa const lebih disukai.
 ---
 
-# let vs const
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

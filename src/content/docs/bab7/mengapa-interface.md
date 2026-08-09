@@ -3,8 +3,6 @@ title: "Mengapa Interface?"
 description: Memahami masalah yang diselesaikan interface — standardisasi objek dan kolaborasi antar fungsi.
 ---
 
-# Mengapa Interface?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan pentingnya standardisasi bentuk objek menggunakan interface dan bagaimana interface membantu koordinasi antar developer.

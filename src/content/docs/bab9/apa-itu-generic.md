@@ -3,8 +3,6 @@ title: "Apa itu Generic?"
 description: Memahami konsep dasar Generic di TypeScript sebagai parameter tipe data.
 ---
 
-# Apa itu Generic?
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan definisi Generic di TypeScript.

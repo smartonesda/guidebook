@@ -3,8 +3,6 @@ title: "Utility Type: Exclude"
 description: Menggunakan Utility Type Exclude<T, U> untuk menghapus beberapa tipe tertentu dari tipe union di TypeScript.
 ---
 
-# Utility Type: `Exclude`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Exclude<T, U>`.

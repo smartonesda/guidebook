@@ -3,8 +3,6 @@ title: "Mini Project: Aplikasi Manajemen Data Siswa"
 description: Membangun aplikasi manajemen data siswa berbasis terminal yang menggabungkan seluruh materi BAB 1 sampai BAB 6.
 ---
 
-# Mini Project: Aplikasi Manajemen Data Siswa
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan mini project ini, kamu dapat membuat program terstruktur untuk menambah, menghapus, mengupdate, dan mencari siswa menggunakan array of object, modular function, destructuring, dan spread operator.

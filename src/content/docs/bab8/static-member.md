@@ -3,8 +3,6 @@ title: "Static Member"
 description: Menggunakan Static Property dan Static Method untuk membuat anggota Class milik bersama di TypeScript.
 ---
 
-# Static Member
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan perbedaan properti instance dan properti static.

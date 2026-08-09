@@ -3,8 +3,6 @@ title: "Prinsip KISS (Keep It Simple, Stupid) — BAB 12"
 description: Mengenal prinsip KISS untuk menulis kode yang sederhana dan menghindari over-engineering.
 ---
 
-# Prinsip KISS (Keep It Simple, Stupid)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dan pentingnya prinsip KISS dalam penulisan kode.

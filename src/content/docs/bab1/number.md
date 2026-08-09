@@ -3,8 +3,6 @@ title: "Tipe Data: number"
 description: Mempelajari tipe data number di TypeScript — bilangan bulat, desimal, operasi aritmatika, dan metode berguna.
 ---
 
-# Tipe Data: `number`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

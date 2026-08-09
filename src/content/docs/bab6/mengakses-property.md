@@ -3,8 +3,6 @@ title: "Mengakses Property"
 description: Memahami dua cara mengambil nilai properti object menggunakan Dot Notation dan Bracket Notation.
 ---
 
-# Mengakses Property
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengambil nilai properti object menggunakan **Dot Notation** (titik) maupun **Bracket Notation** (kurung siku), serta tahu kapan harus menggunakan masing-masing cara.

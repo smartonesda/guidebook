@@ -3,8 +3,6 @@ title: "Array: filter"
 description: Memilih semua elemen yang memenuhi kriteria tertentu menggunakan method filter().
 ---
 
-# Array: `filter`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan `filter()` untuk menyaring elemen array dan menghasilkan array baru berisi semua elemen yang lolos seleksi.

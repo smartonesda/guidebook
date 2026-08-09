@@ -3,8 +3,6 @@ title: "Desktop Development — BAB 13"
 description: Menggunakan TypeScript untuk membangun aplikasi desktop cross-platform menggunakan Electron dan Tauri.
 ---
 
-# Desktop Development dengan TypeScript
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Mengenali framework utama pembuat aplikasi desktop menggunakan TypeScript (Electron, Tauri).

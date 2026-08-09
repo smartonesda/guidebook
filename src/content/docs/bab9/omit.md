@@ -3,8 +3,6 @@ title: "Utility Type: Omit"
 description: Menggunakan Utility Type Omit<T, K> untuk membuang beberapa properti tertentu dari tipe objek di TypeScript.
 ---
 
-# Utility Type: `Omit`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `Omit<T, K>`.

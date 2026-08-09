@@ -3,8 +3,6 @@ title: "Nested if"
 description: Membuat kondisi di dalam kondisi lain untuk aturan bertahap.
 ---
 
-# Nested `if`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memakai `if` di dalam `if` untuk memeriksa syarat bertahap.

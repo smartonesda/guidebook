@@ -3,8 +3,6 @@ title: "Multiple Parameter"
 description: Membuat function yang menerima lebih dari satu parameter di TypeScript.
 ---
 
-# Multiple Parameter
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat function dengan beberapa parameter bertipe berbeda dan menggunakannya secara efektif.

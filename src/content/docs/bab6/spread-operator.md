@@ -3,8 +3,6 @@ title: "Object Spread Operator"
 description: Menggunakan spread operator (...) untuk menyalin dan menggabungkan properti objek secara aman di TypeScript.
 ---
 
-# Object Spread Operator
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan spread operator (`...`) untuk menyalin objek, menggabungkan objek, dan memperbarui properti objek secara immutable.

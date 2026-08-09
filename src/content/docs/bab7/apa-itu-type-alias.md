@@ -3,8 +3,6 @@ title: "Apa itu Type Alias?"
 description: Memahami konsep Type Alias sebagai cara membuat nama panggilan kustom untuk tipe data di TypeScript.
 ---
 
-# Apa itu Type Alias?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan apa itu type alias, perbedaannya dengan tipe data bawaan, dan mengapa ia membantu keterbacaan kode.

@@ -3,8 +3,6 @@ title: "Optional Parameter"
 description: Membuat parameter yang boleh tidak dikirim menggunakan tanda ? di TypeScript.
 ---
 
-# Optional Parameter
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat parameter opsional dengan tanda `?` dan menangani nilainya dengan aman.

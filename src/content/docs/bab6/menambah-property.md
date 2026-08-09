@@ -3,8 +3,6 @@ title: "Menambah Property"
 description: Cara menyisipkan properti baru ke dalam object setelah object dideklarasikan.
 ---
 
-# Menambah Property
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menyisipkan properti baru ke dalam object menggunakan properti opsional pada type alias.

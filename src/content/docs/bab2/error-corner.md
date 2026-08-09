@@ -3,8 +3,6 @@ title: "Error Corner BAB 2"
 description: Memahami dan memperbaiki kesalahan paling umum saat menggunakan operator dan percabangan.
 ---
 
-# Error Corner BAB 2
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat mengenali penyebab error umum operator dan percabangan, lalu memperbaikinya dengan tepat.

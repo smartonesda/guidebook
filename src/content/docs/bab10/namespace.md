@@ -3,8 +3,6 @@ title: "Namespace"
 description: Menggunakan Namespace di TypeScript untuk mengelompokkan kode secara internal dan menghindari bentrok nama.
 ---
 
-# Namespace
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan perbedaan antara Module dan Namespace.

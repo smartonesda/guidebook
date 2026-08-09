@@ -3,8 +3,6 @@ title: "Persiapan Karier Profesional — BAB 13"
 description: Panduan melangkah dari lulusan SMK menjadi Junior Software Engineer profesional di industri IT.
 ---
 
-# Persiapan Karier Profesional
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Mengenali jenjang karir (*career path*) seorang programmer di industri IT.

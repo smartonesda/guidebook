@@ -3,8 +3,6 @@ title: "Pendahuluan — BAB 13"
 description: Pendahuluan bab ekosistem TypeScript dan peta karir software engineering.
 ---
 
-# Pendahuluan: Langkah Awal Menuju Dunia Industri
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Memahami peta materi dan tujuan dari BAB 13.

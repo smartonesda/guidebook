@@ -3,8 +3,6 @@ title: "BAB 2 — Operator & Percabangan"
 description: Gambaran BAB 2 — memakai operator untuk menghitung dan percabangan untuk membuat keputusan.
 ---
 
-# BAB 2: Operator & Percabangan
-
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan BAB 2, kamu dapat menghitung nilai, membandingkan data, menggabungkan syarat, lalu membuat program memilih tindakan yang tepat.

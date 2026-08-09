@@ -3,8 +3,6 @@ title: "Array of Object"
 description: Menggabungkan array dan object untuk mengelola daftar data terstruktur yang kompleks.
 ---
 
-# Array of Object
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat array yang berisi kumpulan objek, mengiterasi data array of object, serta melakukan pencarian data spesifik.

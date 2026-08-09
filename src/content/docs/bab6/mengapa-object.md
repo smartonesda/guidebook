@@ -3,8 +3,6 @@ title: "Mengapa Object?"
 description: Memahami masalah yang diselesaikan object — menghindari variabel berhamburan dan mengorganisir data terelasi.
 ---
 
-# Mengapa Object?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan mengapa object digunakan dan membandingkan struktur data tanpa object dengan struktur data menggunakan object.

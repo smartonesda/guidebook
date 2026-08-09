@@ -3,8 +3,6 @@ title: "Default Export"
 description: Menggunakan Default Export untuk mengekspor satu komponen utama dari file module di TypeScript.
 ---
 
-# Default Export
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dan kegunaan dari Default Export.

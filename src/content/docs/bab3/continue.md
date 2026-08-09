@@ -3,8 +3,6 @@ title: "Kontrol Loop: continue"
 description: Melewati satu putaran loop menggunakan perintah continue.
 ---
 
-# Perintah `continue`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan `continue` untuk melewati putaran tertentu tanpa menghentikan loop secara keseluruhan.

@@ -3,8 +3,6 @@ title: "Parameter & Argument"
 description: Memahami perbedaan parameter (definisi) dan argument (nilai yang dikirim) dalam function TypeScript.
 ---
 
-# Parameter & Argument
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan perbedaan parameter dan argument, dan menggunakan keduanya dengan benar.

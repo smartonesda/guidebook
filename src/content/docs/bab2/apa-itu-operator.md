@@ -3,8 +3,6 @@ title: "Apa itu Operator?"
 description: Memahami operator sebagai simbol untuk melakukan tindakan pada nilai dan variabel.
 ---
 
-# Apa itu Operator?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan operator, operand, dan hasil operasi sederhana.

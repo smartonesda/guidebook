@@ -3,8 +3,6 @@ title: "Implementasi Helper Utilities — BAB 11"
 description: Membuat fungsi pembantu pembatas cetak dan formatting data di folder helpers/.
 ---
 
-# Implementasi Helper Utilities
-
 ## Tujuan Pembelajaran
 Setelah mengikuti halaman ini, kamu diharapkan dapat:
 - Membuat file `utility.ts` di folder `helpers/`.

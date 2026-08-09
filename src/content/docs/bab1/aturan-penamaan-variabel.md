@@ -3,8 +3,6 @@ title: "Aturan Penamaan Variabel"
 description: Konvensi dan aturan penamaan variabel di TypeScript — camelCase, karakter yang boleh digunakan, dan nama yang harus dihindari.
 ---
 
-# Aturan Penamaan Variabel
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

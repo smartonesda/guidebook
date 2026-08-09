@@ -3,8 +3,6 @@ title: "Error Handling Async"
 description: Menangani error pada pemrograman Asynchronous menggunakan blok try...catch di TypeScript.
 ---
 
-# Error Handling Async
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Mengidentifikasi potensi error pada operasi asynchronous.

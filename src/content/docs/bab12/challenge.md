@@ -3,8 +3,6 @@ title: "Challenge BAB 12"
 description: Sepuluh latihan refactoring (perapian kode) untuk melatih penulisan kode bersih di TypeScript.
 ---
 
-# Challenge BAB 12: Refactoring
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan challenge ini, kamu diharapkan dapat:
 - Mengidentifikasi *code smell* (gejala kode buruk) secara mandiri.

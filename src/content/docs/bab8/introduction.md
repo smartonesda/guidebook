@@ -3,8 +3,6 @@ title: "BAB 8 — Object-Oriented Programming"
 description: Pendahuluan Object-Oriented Programming (OOP) di TypeScript — konsep dasar, tujuan pembelajaran, dan persiapan.
 ---
 
-# BAB 8: Object-Oriented Programming (OOP)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan bab ini, kamu diharapkan dapat:
 - Menjelaskan konsep dasar Object-Oriented Programming (OOP).

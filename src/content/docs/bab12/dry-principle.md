@@ -3,8 +3,6 @@ title: "Prinsip DRY (Don't Repeat Yourself) — BAB 12"
 description: Mengenal dan menerapkan prinsip DRY untuk menghindari duplikasi kode program.
 ---
 
-# Prinsip DRY (Don't Repeat Yourself)
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan arti dan bahaya dari duplikasi kode program.

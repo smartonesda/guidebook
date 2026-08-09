@@ -3,8 +3,6 @@ title: "package.json — BAB 12"
 description: Memahami struktur dan peran berkas package.json dalam manajemen project Node.js dan TypeScript.
 ---
 
-# package.json
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi berkas `package.json` di project Node.js/TypeScript.

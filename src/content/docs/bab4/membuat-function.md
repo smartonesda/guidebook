@@ -3,8 +3,6 @@ title: "Membuat Function"
 description: Belajar sintaks lengkap mendefinisikan function di TypeScript dengan tipe parameter dan return value.
 ---
 
-# Membuat Function
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menulis deklarasi function yang lengkap dengan parameter dan anotasi tipe.

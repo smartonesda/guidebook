@@ -3,8 +3,6 @@ title: "Error Corner BAB 9"
 description: Mengenali dan memperbaiki berbagai kesalahan paling umum saat menulis kode Generic dan Utility Types di TypeScript.
 ---
 
-# Error Corner BAB 9
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Mengidentifikasi penyebab error umum pada Generic dan Utility Types.

@@ -3,8 +3,6 @@ title: "Array: find"
 description: Mencari elemen spesifik pertama yang memenuhi kriteria menggunakan callback find() di TypeScript.
 ---
 
-# Array: `find`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menggunakan `find()` dengan callback arrow function untuk mencari satu elemen pertama yang memenuhi kondisi tertentu.

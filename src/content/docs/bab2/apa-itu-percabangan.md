@@ -3,8 +3,6 @@ title: "Apa itu Percabangan?"
 description: Memahami percabangan sebagai cara program memilih tindakan berdasarkan kondisi.
 ---
 
-# Apa itu Percabangan?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan percabangan dan hubungan antara kondisi boolean dengan keputusan program.

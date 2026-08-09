@@ -3,8 +3,6 @@ title: "Project Requirements — BAB 11"
 description: Spesifikasi kebutuhan data dan fungsionalitas teknis dari aplikasi SIAKAD-Konsol.
 ---
 
-# Project Requirements (Spesifikasi Kebutuhan)
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menyebutkan spesifikasi data minimal untuk entitas Siswa, Guru, dan Kelas.

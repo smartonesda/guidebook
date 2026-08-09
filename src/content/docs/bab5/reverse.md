@@ -3,8 +3,6 @@ title: "Array: reverse"
 description: Membalik urutan elemen array dari belakang ke depan menggunakan method reverse().
 ---
 
-# Array: `reverse`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membalikkan urutan elemen array menggunakan `reverse()` dan memahami efek perubahannya pada array asli.

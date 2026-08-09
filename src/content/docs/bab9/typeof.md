@@ -3,8 +3,6 @@ title: "typeof Operator"
 description: Menggunakan operator typeof di TypeScript untuk mengekstrak tipe data dari variabel nyata.
 ---
 
-# typeof Operator
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan perbedaan `typeof` di JavaScript biasa dengan TypeScript.

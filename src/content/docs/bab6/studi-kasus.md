@@ -3,8 +3,6 @@ title: "Studi Kasus: Biodata Siswa Lengkap"
 description: Membangun data biodata siswa kompleks yang terstruktur menggunakan object, nested object, opsional properti, dan destructuring.
 ---
 
-# Studi Kasus: Biodata Siswa Lengkap
-
 ## Tujuan Pembelajaran
 
 Setelah studi kasus ini, kamu dapat merancang struktur data siswa yang kompleks menggunakan type alias modular, nested object, properti opsional, dan memformat datanya menggunakan destructuring serta template literal.

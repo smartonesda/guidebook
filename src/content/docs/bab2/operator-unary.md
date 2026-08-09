@@ -3,8 +3,6 @@ title: "Operator Unary"
 description: "Menggunakan operator satu nilai: ++, --, -, +, !, dan typeof."
 ---
 
-# Operator Unary
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat memakai operator unary untuk mengubah atau memeriksa satu nilai.

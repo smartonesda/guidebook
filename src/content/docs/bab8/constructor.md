@@ -3,8 +3,6 @@ title: "Constructor"
 description: Memahami constructor sebagai method khusus yang dipanggil otomatis saat objek pertama kali dibuat.
 ---
 
-# Constructor
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari constructor dalam class.
@@ -120,7 +118,9 @@ tsx src/bab8/constructor-standar.ts
 [Constructor]: Sedang membuat objek siswa Putra Ramadhan...
 [Constructor]: Sedang membuat objek siswa Dewi Rahayu...
 
---- INFO SISWA ---
+---
+
+INFO SISWA ---
 Siswa: Putra Ramadhan | Nilai: 85
 Siswa: Dewi Rahayu | Nilai: 78
 ```

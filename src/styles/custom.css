@@ -33,7 +33,7 @@
 /* ─────────────────────────────────────────────────────────────
    1. FONTS
    ───────────────────────────────────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+/* Font Inter dimuat via <link> di SeoHead.astro untuk menghindari render-blocking */
 
 /* ─────────────────────────────────────────────────────────────
    2. DESIGN TOKENS — DARK (applied as root defaults)
@@ -181,10 +181,25 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Paksa seluruh dokumen mewarisi Inter dari body — termasuk elemen Starlight yang tidak explicit */
+*,
+*::before,
+*::after {
+  font-family: inherit;
+}
+
 body {
   font-family: var(--sl-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Elemen yang secara eksplisit harus tetap monospace */
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--sl-font-mono);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -261,6 +276,18 @@ details.sidebar-group[open] > summary .group-label span {
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.2;
+}
+
+/* PageTitle (rendered by Starlight as h1 inside .content-panel, outside .sl-markdown-content) */
+.content-panel > .sl-container > h1 {
+  background: var(--sod-gradient) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.15 !important;
 }
 
 /* H2 — subtle divider */

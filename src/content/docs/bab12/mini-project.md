@@ -3,8 +3,6 @@ title: "Mini Project: Refactor Existing Project — BAB 12"
 description: Panduan mempraktikkan refactoring lengkap pada project SIAKAD dengan menambahkan ESLint, Prettier, dan merapikan struktur modul.
 ---
 
-# Mini Project: Refactor Existing Project
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan mini project ini, kamu diharapkan dapat:
 - Merapikan struktur folder project yang berantakan menjadi modular.

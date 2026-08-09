@@ -3,8 +3,6 @@ title: "Utility Type: ReturnType"
 description: Menggunakan Utility Type ReturnType<T> untuk mengambil tipe data hasil kembalian (return) dari sebuah fungsi di TypeScript.
 ---
 
-# Utility Type: `ReturnType`
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan fungsi dari Utility Type `ReturnType<T>`.

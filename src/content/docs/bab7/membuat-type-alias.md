@@ -3,8 +3,6 @@ title: "Membuat Type Alias"
 description: Panduan langkah demi langkah mendefinisikan objek kustom menggunakan kata kunci type di TypeScript.
 ---
 
-# Membuat Type Alias
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat membuat type alias untuk objek secara mandiri dan memahami kegunaannya dibanding type bawaan.

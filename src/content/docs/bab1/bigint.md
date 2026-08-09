@@ -3,8 +3,6 @@ title: "Tipe Data: bigint"
 description: Mengenal bigint — tipe data untuk menyimpan bilangan bulat yang sangat besar.
 ---
 
-# Tipe Data: `bigint`
-
 ## Tujuan Pembelajaran
 
 Setelah membaca halaman ini, kamu akan mampu:

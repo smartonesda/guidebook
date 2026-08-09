@@ -1,0 +1,49 @@
+---
+const { head, entry } = Astro.locals.starlightRoute;
+const isHome = Astro.url.pathname === '/';
+const isNotFound = entry.id === '404' || entry.id.endsWith('/404');
+const siteName = 'TypeScript Guidebook';
+const fallbackDescription = 'Panduan belajar TypeScript modern dari nol hingga siap membangun aplikasi nyata untuk siswa SMK Rekayasa Perangkat Lunak.';
+const description = entry.data.description || fallbackDescription;
+const pageTitle = isHome
+  ? 'TypeScript Guidebook | Belajar TypeScript untuk SMK RPL'
+  : `${entry.data.title} | ${siteName}`;
+const socialTitle = isHome
+  ? 'TypeScript Guidebook — Belajar TypeScript untuk SMK RPL'
+  : pageTitle;
+const socialImage = new URL('/images/cover-learn.png', Astro.site ?? Astro.url).href;
+const robots = isNotFound
+  ? 'noindex, nofollow'
+  : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+const replacedMeta = new Set(['og:title', 'og:type', 'og:locale']);
+const baseHead = head.filter(({ tag, attrs }) => {
+  if (tag === 'title') return false;
+  return !(tag === 'meta' && typeof attrs?.property === 'string' && replacedMeta.has(attrs.property));
+});
+---
+
+{baseHead.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<title>{pageTitle}</title>
+<meta property="og:title" content={socialTitle} />
+<meta property="og:type" content={isHome ? 'website' : 'article'} />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:image" content={socialImage} />
+<meta property="og:image:secure_url" content={socialImage} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1672" />
+<meta property="og:image:height" content="941" />
+<meta property="og:image:alt" content="TypeScript Guidebook untuk siswa SMK RPL" />
+<meta name="twitter:title" content={socialTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImage} />
+<meta name="twitter:image:alt" content="TypeScript Guidebook untuk siswa SMK RPL" />
+<meta name="robots" content={robots} />
+<meta name="theme-color" content="#ff5533" />
+<meta name="application-name" content="TypeScript Guidebook" />
+<meta name="apple-mobile-web-app-title" content="TypeScript Guidebook" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-icon" href="/images/light-smartone.png" />
+<link rel="manifest" href="/site.webmanifest" />

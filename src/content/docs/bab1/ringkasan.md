@@ -3,8 +3,6 @@ title: "Ringkasan BAB 1"
 description: Rangkuman lengkap BAB 1 — variabel, tipe data, type inference, literal type, template literal, dan checklist belajar.
 ---
 
-# Ringkasan BAB 1
-
 ## Selamat! 🎉
 
 Kamu telah menyelesaikan **BAB 1: Variabel & Tipe Data**. Ini adalah fondasi yang sangat penting. Hampir semua program yang akan kamu tulis setelah ini akan memakai variabel dan tipe data.

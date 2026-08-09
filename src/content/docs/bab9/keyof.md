@@ -3,8 +3,6 @@ title: "keyof Operator"
 description: Menggunakan operator keyof di TypeScript untuk mengambil semua key properti dari sebuah objek sebagai tipe union.
 ---
 
-# keyof Operator
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan kegunaan operator `keyof`.

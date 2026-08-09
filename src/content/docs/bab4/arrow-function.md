@@ -3,8 +3,6 @@ title: "Arrow Function"
 description: Menulis function lebih singkat menggunakan sintaks arrow (=>) di TypeScript.
 ---
 
-# Arrow Function
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menulis arrow function dan memilih kapan menggunakannya.

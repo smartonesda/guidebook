@@ -3,8 +3,6 @@ title: "Access Modifier"
 description: Mengamankan properti dan method Class menggunakan public, private, dan protected di TypeScript.
 ---
 
-# Access Modifier
-
 ## Tujuan Pembelajaran
 Setelah membaca halaman ini, kamu diharapkan dapat:
 - Menjelaskan perbedaan antara `public`, `private`, & `protected`.

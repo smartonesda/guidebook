@@ -3,8 +3,6 @@ title: "Array: shift & unshift"
 description: Menambah dan menghapus elemen di bagian depan (awal) array menggunakan method shift() dan unshift().
 ---
 
-# Array: `shift` & `unshift`
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menambahkan elemen ke depan array dengan `unshift()` dan menghapus elemen pertama dengan `shift()`.

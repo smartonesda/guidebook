@@ -3,8 +3,6 @@ title: "Challenge BAB 3"
 description: Sepuluh soal latihan loop dari tingkat mudah hingga menengah.
 ---
 
-# Challenge BAB 3
-
 ## Tujuan Pembelajaran
 
 Setelah mengerjakan challenge ini, kamu dapat mengukur pemahaman tentang loop, memilih jenis loop yang tepat, dan menulis program yang memproses banyak data.

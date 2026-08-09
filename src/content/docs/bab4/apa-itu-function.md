@@ -3,8 +3,6 @@ title: "Apa itu Function?"
 description: Memahami konsep function sebagai blok kode yang dapat diberi nama dan dipanggil kapan saja.
 ---
 
-# Apa itu Function?
-
 ## Tujuan Pembelajaran
 
 Setelah halaman ini, kamu dapat menjelaskan apa itu function dan mengidentifikasi komponen-komponen utamanya.

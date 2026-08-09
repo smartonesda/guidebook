@@ -3,8 +3,6 @@ title: "Belajar Git & GitHub — BAB 13"
 description: Pentingnya menguasai Git dan GitHub sebagai alat kolaborasi utama developer.
 ---
 
-# Belajar Git & GitHub
-
 ## Tujuan Pembelajaran
 Setelah menyelesaikan halaman ini, kamu diharapkan dapat:
 - Menjelaskan perbedaan antara Git dan GitHub.
