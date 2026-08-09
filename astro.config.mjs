@@ -6,16 +6,51 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
-  site: isGithub ? "https://smartonesda.github.io" : undefined,
+  site: isGithub
+    ? "https://smartonesda.github.io"
+    : "https://html5-guidebook.vercel.app",
   base: isGithub ? "/html-guidebook/" : "/",
   integrations: [
     starlight({
       title: "HTML Guidebook",
+      favicon: "/images/light-smartone.png",
+      head: [
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image",
+            content:
+              "https://html5-guidebook.vercel.app/images/cover-learn.png",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image:width",
+            content: "1200",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image:height",
+            content: "630",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            name: "twitter:image",
+            content:
+              "https://html5-guidebook.vercel.app/images/cover-learn.png",
+          },
+        },
+      ],
       social: [
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/smartonesda/html-guidebook",
+          href: "https://github.com/smartonesda/guidebook/tree/html",
         },
       ],
       components: {
@@ -29,11 +64,23 @@ export default defineConfig({
           items: [
             { label: "Introduction", link: "/bab0/introduction/" },
             { label: "Selamat Datang", link: "/bab0/selamat-datang/" },
-            { label: "Cara Menggunakan Guidebook", link: "/bab0/cara-menggunakan-guidebook/" },
+            {
+              label: "Cara Menggunakan Guidebook",
+              link: "/bab0/cara-menggunakan-guidebook/",
+            },
             { label: "Apa itu Web?", link: "/bab0/apa-itu-web/" },
-            { label: "Bagaimana Browser Bekerja", link: "/bab0/bagaimana-browser-bekerja/" },
-            { label: "HTML, CSS, JavaScript", link: "/bab0/html-css-javascript/" },
-            { label: "Mengapa Belajar HTML", link: "/bab0/mengapa-belajar-html/" },
+            {
+              label: "Bagaimana Browser Bekerja",
+              link: "/bab0/bagaimana-browser-bekerja/",
+            },
+            {
+              label: "HTML, CSS, JavaScript",
+              link: "/bab0/html-css-javascript/",
+            },
+            {
+              label: "Mengapa Belajar HTML",
+              link: "/bab0/mengapa-belajar-html/",
+            },
             { label: "Persiapan Software", link: "/bab0/persiapan-software/" },
             { label: "Install VS Code", link: "/bab0/install-vscode/" },
             { label: "File Pertama", link: "/bab0/file-pertama/" },
@@ -52,10 +99,16 @@ export default defineConfig({
             { label: "Sejarah HTML", link: "/bab1/sejarah-html/" },
             { label: "HTML5 — Standar Modern", link: "/bab1/html5/" },
             { label: "Browser Rendering", link: "/bab1/browser-rendering/" },
-            { label: "Struktur Dokumen HTML", link: "/bab1/struktur-dokumen-html/" },
+            {
+              label: "Struktur Dokumen HTML",
+              link: "/bab1/struktur-dokumen-html/",
+            },
             { label: "Anatomi Elemen HTML", link: "/bab1/anatomy-element/" },
             { label: "Komentar HTML", link: "/bab1/komentar-html/" },
-            { label: "Whitespace & Indentasi", link: "/bab1/whitespace-indentation/" },
+            {
+              label: "Whitespace & Indentasi",
+              link: "/bab1/whitespace-indentation/",
+            },
             { label: "HTML Validator", link: "/bab1/html-validator/" },
             { label: "Studi Kasus", link: "/bab1/studi-kasus/" },
             { label: "Mini Project", link: "/bab1/mini-project/" },
@@ -72,11 +125,17 @@ export default defineConfig({
             { label: "Heading h1–h6", link: "/bab2/heading/" },
             { label: "Paragraf", link: "/bab2/paragraf/" },
             { label: "Line Break & HR", link: "/bab2/line-break-hr/" },
-            { label: "Bold, Italic, Underline", link: "/bab2/bold-italic-underline/" },
+            {
+              label: "Bold, Italic, Underline",
+              link: "/bab2/bold-italic-underline/",
+            },
             { label: "Teks Semantik", link: "/bab2/teks-semantik/" },
             { label: "Blockquote & Kutipan", link: "/bab2/blockquote/" },
             { label: "Pre & Code", link: "/bab2/pre-code/" },
-            { label: "Subscript & Superscript", link: "/bab2/subscript-superscript/" },
+            {
+              label: "Subscript & Superscript",
+              link: "/bab2/subscript-superscript/",
+            },
             { label: "Studi Kasus", link: "/bab2/studi-kasus/" },
             { label: "Mini Project", link: "/bab2/mini-project/" },
             { label: "Challenge", link: "/bab2/challenge/" },
@@ -90,10 +149,16 @@ export default defineConfig({
           items: [
             { label: "Introduction", link: "/bab3/introduction/" },
             { label: "Elemen Anchor", link: "/bab3/elemen-anchor/" },
-            { label: "URL Relatif vs Absolut", link: "/bab3/url-relatif-absolut/" },
+            {
+              label: "URL Relatif vs Absolut",
+              link: "/bab3/url-relatif-absolut/",
+            },
             { label: "Atribut target", link: "/bab3/atribut-target/" },
             { label: "Anchor Internal", link: "/bab3/anchor-internal/" },
-            { label: "Link Email & Telepon", link: "/bab3/link-email-telepon/" },
+            {
+              label: "Link Email & Telepon",
+              link: "/bab3/link-email-telepon/",
+            },
             { label: "Navigasi Website", link: "/bab3/navigasi-website/" },
             { label: "Studi Kasus", link: "/bab3/studi-kasus/" },
             { label: "Mini Project", link: "/bab3/mini-project/" },
@@ -184,7 +249,10 @@ export default defineConfig({
             { label: "section & aside", link: "/bab8/section-aside/" },
             { label: "footer", link: "/bab8/footer/" },
             { label: "div vs Semantic", link: "/bab8/div-vs-semantic/" },
-            { label: "Struktur Halaman Nyata", link: "/bab8/struktur-halaman-nyata/" },
+            {
+              label: "Struktur Halaman Nyata",
+              link: "/bab8/struktur-halaman-nyata/",
+            },
             { label: "Studi Kasus", link: "/bab8/studi-kasus/" },
             { label: "Mini Project", link: "/bab8/mini-project/" },
             { label: "Challenge", link: "/bab8/challenge/" },
@@ -215,11 +283,17 @@ export default defineConfig({
           collapsed: true,
           items: [
             { label: "Introduction", link: "/bab10/introduction/" },
-            { label: "Mengapa Aksesibilitas?", link: "/bab10/mengapa-aksesibilitas/" },
+            {
+              label: "Mengapa Aksesibilitas?",
+              link: "/bab10/mengapa-aksesibilitas/",
+            },
             { label: "WCAG Dasar", link: "/bab10/wcag-dasar/" },
             { label: "Alt Text yang Baik", link: "/bab10/alt-text/" },
             { label: "ARIA Roles", link: "/bab10/aria-roles/" },
-            { label: "Keyboard Navigation", link: "/bab10/keyboard-navigation/" },
+            {
+              label: "Keyboard Navigation",
+              link: "/bab10/keyboard-navigation/",
+            },
             { label: "Skip Navigation", link: "/bab10/skip-navigation/" },
             { label: "Studi Kasus", link: "/bab10/studi-kasus/" },
             { label: "Mini Project", link: "/bab10/mini-project/" },
@@ -251,11 +325,17 @@ export default defineConfig({
           items: [
             { label: "Introduction", link: "/bab12/introduction/" },
             { label: "Clean HTML", link: "/bab12/clean-html/" },
-            { label: "Naming & Struktur File", link: "/bab12/naming-struktur/" },
+            {
+              label: "Naming & Struktur File",
+              link: "/bab12/naming-struktur/",
+            },
             { label: "Validasi & Linting", link: "/bab12/validasi-linting/" },
             { label: "HTML yang Accessible", link: "/bab12/html-accessible/" },
             { label: "HTML untuk SEO", link: "/bab12/html-seo/" },
-            { label: "Checklist Sebelum Deploy", link: "/bab12/checklist-deploy/" },
+            {
+              label: "Checklist Sebelum Deploy",
+              link: "/bab12/checklist-deploy/",
+            },
             { label: "Studi Kasus", link: "/bab12/studi-kasus/" },
             { label: "Challenge", link: "/bab12/challenge/" },
             { label: "Ringkasan", link: "/bab12/ringkasan/" },
@@ -267,8 +347,14 @@ export default defineConfig({
           items: [
             { label: "Introduction", link: "/bab13/introduction/" },
             { label: "Dari HTML ke CSS", link: "/bab13/dari-html-ke-css/" },
-            { label: "Dari CSS ke JavaScript", link: "/bab13/dari-css-ke-javascript/" },
-            { label: "Mengenal Framework Modern", link: "/bab13/framework-modern/" },
+            {
+              label: "Dari CSS ke JavaScript",
+              link: "/bab13/dari-css-ke-javascript/",
+            },
+            {
+              label: "Mengenal Framework Modern",
+              link: "/bab13/framework-modern/",
+            },
             { label: "Portfolio & GitHub", link: "/bab13/portfolio-github/" },
             { label: "Persiapan Karier", link: "/bab13/persiapan-karier/" },
             { label: "Resources Lanjutan", link: "/bab13/resources/" },
@@ -279,4 +365,3 @@ export default defineConfig({
     }),
   ],
 });
-

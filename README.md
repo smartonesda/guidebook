@@ -1,21 +1,21 @@
 <div align="center">
 
-# 📘 TypeScript Guidebook
+# 📘 HTML Guidebook
 
-### Belajar TypeScript Modern dari Nol Hingga Mahir
+### Belajar HTML Modern dari Nol Hingga Mahir
 
-Panduan pembelajaran TypeScript berbahasa Indonesia yang dirancang khusus untuk siswa SMK Rekayasa Perangkat Lunak, mahasiswa, dan developer pemula.
+Panduan pembelajaran HTML5 lengkap berbahasa Indonesia yang dirancang khusus untuk siswa SMK Rekayasa Perangkat Lunak (RPL), mahasiswa, dan developer pemula.
 
 <p>
 
 ![Astro](https://img.shields.io/badge/Astro-7.x-FF5D01?logo=astro)
 ![Starlight](https://img.shields.io/badge/Starlight-Latest-FF5D01)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript)
+![HTML5](https://img.shields.io/badge/HTML5-Modern-E34F26?logo=html5)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 </p>
 
-<img src="public\images\hero-dark.png" alt="TypeScript Guidebook"/>
+<img src="public/images/cover-learn.png" alt="HTML Guidebook" width="800" style="max-width:100%; border-radius: 12px;"/>
 
 </div>
 
@@ -23,13 +23,14 @@ Panduan pembelajaran TypeScript berbahasa Indonesia yang dirancang khusus untuk 
 
 # ✨ Tentang Project
 
-**TypeScript Guidebook** adalah website dokumentasi interaktif yang dibuat menggunakan **Astro Starlight** sebagai media belajar TypeScript modern.
+**HTML Guidebook** adalah website pembelajaran dokumentasi interaktif yang dibangun menggunakan **Astro Starlight** sebagai media belajar HTML5 modern secara terstruktur.
 
-Materi disusun secara bertahap mulai dari konsep dasar hingga implementasi nyata sehingga cocok digunakan sebagai:
+Materi disusun secara bertahap mulai dari konsep dasar (*getting started*) hingga pembuatan website nyata yang valid W3C, *semantic*, dan *accessible*.
 
-- 👨‍🎓 Siswa SMK RPL
-- 🎓 Mahasiswa Informatika
-- 👨‍💻 Developer Pemula
+Proyek ini sangat cocok digunakan sebagai media pembelajaran bagi:
+- 👨‍🎓 Siswa SMK Rekayasa Perangkat Lunak (RPL)
+- 🎓 Mahasiswa Informatika / Ilmu Komputer
+- 👨‍💻 Developer Pemula (Self-taught Learner)
 - 👨‍🏫 Guru / Mentor Programming
 
 ---
@@ -38,133 +39,74 @@ Materi disusun secara bertahap mulai dari konsep dasar hingga implementasi nyata
 
 ### Website
 
-> https://typescript-guidebook.vercel.app
+> https://html5-guidebook.vercel.app
 
 atau
 
-> https://smartonesda.github.io/typescript-guidebook/
+> https://smartonesda.github.io/html-guidebook/
 
 ---
 
-# ✨ Fitur
+# ✨ Fitur Utama
 
-- 📚 Materi TypeScript lengkap
-- 🌙 Dark Mode
-- ☀️ Light Mode
-- 💻 Responsive Design
-- 🔍 Full Text Search
-- 📋 Copy Code Block
-- 🎨 Modern Documentation UI
-- ⚡ Dibangun menggunakan Astro Starlight
-- 📱 Mobile Friendly
-- 🔥 Syntax Highlight
-- 📖 Sidebar Navigation
-- 📑 Table of Contents
-- 🚀 Static Site (Fast Loading)
+- 📚 **Materi Terstruktur**: Penjelasan teori mendalam yang dilengkapi analogi kehidupan nyata.
+- 🌙 **Tema Gelap & Terang**: Mendukung dark mode & light mode bawaan.
+- 💻 **Desain Responsif**: Nyaman dibaca melalui layar HP, tablet, maupun laptop.
+- 🔍 **Pencarian Cepat**: Dilengkapi fitur pencarian kata kunci (*full-text search*).
+- 📋 **Salin Kode Instan**: Tombol satu klik untuk menyalin seluruh blok kode contoh.
+- 🎨 **Expressive Code**: Blok visual kode dengan pewarnaan syntax modern.
+- 🧱 **Proyek Linier Terintegrasi**: Membangun portfolio pribadi yang tumbuh secara bertahap di setiap bab.
 
 ---
 
-# 📖 Materi
+# 📖 Jalur Pembelajaran (Roadmap)
 
-Guidebook ini mencakup berbagai materi seperti:
+Website ini menyajikan kurikulum lengkap berjenjang:
 
-## BAB 0 — Pengenalan
+### **BAB 0 — Getting Started**
+Orientasi internet/web, peran HTML/CSS/JS, dan persiapan VS Code.
 
-- Introduction
-- Apa itu Programming
-- Computational Thinking
-- Mengenal Dunia Web
-- HTML CSS JavaScript
-- Mengapa TypeScript
-- JavaScript vs TypeScript
-- Workflow Developer Modern
-- Install Node.js
-- Install VS Code
-- Install TypeScript
+### **BAB 1 — HTML Fundamentals**
+Anatomi tag, elemen, atribut, dan validasi standar W3C.
 
----
+### **BAB 2 — Text & Typography**
+Format teks semantik (`<strong>`, `<em>`, `blockquote`, `pre`, `code`, `abbr`, `time`).
 
-## BAB 1 — Dasar TypeScript
+### **BAB 3 — Hyperlinks & Navigation**
+Anchor `<a>`, rute relative path (`.` & `..`), target tab, dan link download/surel.
 
-- Variabel
-- Tipe Data
-- Operator
-- Conditional
-- Looping
-- Function
-- Object
-- Array
+### **BAB 4 — Images & Multimedia**
+Aset gambar responsif (`<picture>`, `srcset`), audio, video, dan frame eksternal (`<iframe>`).
 
----
+### **BAB 5 — Lists & Tables**
+Data terstruktur (`<ul>`, `<ol>`, `<dl>`) dan tabel data semantik (`<thead>`, `colspan`, `rowspan`).
 
-## BAB 2 — Intermediate
+### **BAB 6 — Forms** (Upcoming)
+Menerima input pengguna (`<form>`, `<input>`, `<textarea>`, `<select>`).
 
-- Interface
-- Type Alias
-- Enum
-- Generic
-- Union
-- Intersection
-- Literal Type
-- Utility Type
-
----
-
-## BAB 3 — OOP
-
-- Class
-- Constructor
-- Access Modifier
-- Inheritance
-- Abstract Class
-- Polymorphism
-- Encapsulation
-
----
-
-## BAB 4 — Advanced
-
-- Module
-- Namespace
-- Decorator
-- Async Await
-- Promise
-- Fetch API
-- Error Handling
-
----
-
-## BAB 5 — Project
-
-- Studi Kasus
-- Mini Project
-- Best Practice
-- Struktur Project
-- Clean Code
+... hingga **BAB 15 — HTML Handbook (Referensi Tag Lengkap)**.
 
 ---
 
 # 🛠 Tech Stack
 
-Project ini dibangun menggunakan:
+Proyek ini dibangun menggunakan:
 
-- Astro
-- Astro Starlight
-- TypeScript
-- Markdown
-- MDX
-- Pagefind Search
-- Astro Assets
+- **Astro v7.x** (Static Site Generator)
+- **Astro Starlight** (Documentation integration)
+- **MDX** (Rich Markdown components)
+- **Expressive Code** (Code block highlights)
+- **Sharp** (Image optimization)
 
 ---
 
-# 📂 Struktur Project
+# 📂 Struktur Folder Proyek
 
 ```text
 .
 ├── public/
 │   ├── favicon.svg
-│   ├── images/
+│   ├── images/              ← Folder logo, smartone, dan cover-learn.png
 │   └── robots.txt
 │
 ├── src/
@@ -172,13 +114,13 @@ Project ini dibangun menggunakan:
 │   │   └── images/
 │   │
 │   ├── components/
-│   │   └── Hero.astro
+│   │   └── Hero.astro       ← Custom Hero halaman muka
 │   │
 │   ├── content/
-│   │   └── docs/
+│   │   └── docs/            ← File-file bab materi markdown (.md)
 │   │
 │   ├── styles/
-│   │   └── custom.css
+│   │   └── custom.css       ← Kustomisasi CSS stylesheet
 │   │
 │   └── content.config.ts
 │
@@ -190,148 +132,50 @@ Project ini dibangun menggunakan:
 
 ---
 
-# ⚙️ Instalasi
+# ⚙️ Pemasangan Proyek Lokal
 
-Clone repository
+Jika kamu ingin menjalankan situs dokumentasi ini secara lokal di komputermu sendiri:
 
-```bash
-git clone https://github.com/smartonesda/typescript-guidebook.git
-```
-
-Masuk ke project
-
-```bash
-cd typescript-guidebook
-```
-
-Install dependency
-
-```bash
-npm install
-```
-
-Jalankan development server
-
-```bash
-npm run dev
-```
-
-Build production
-
-```bash
-npm run build
-```
-
-Preview hasil build
-
-```bash
-npm run preview
-```
+1. Clone repositori ini:
+   ```bash
+   git clone https://github.com/smartonesda/html-guidebook.git
+   ```
+2. Masuk ke folder proyek:
+   ```bash
+   cd html-guidebook
+   ```
+3. Pasang dependensi:
+   ```bash
+   npm install
+   ```
+4. Jalankan server lokal:
+   ```bash
+   npm run dev
+   ```
+5. Akses halaman lokal di browsermu:
+   > http://localhost:4321
 
 ---
 
-# 📦 Scripts
+# 📦 Perintah Script (Scripts)
 
-| Command         | Keterangan                     |
-| --------------- | ------------------------------ |
-| npm install     | Install dependency             |
-| npm run dev     | Menjalankan development server |
-| npm run build   | Build production               |
-| npm run preview | Preview hasil build            |
-| npm run astro   | Menjalankan Astro CLI          |
+| Perintah | Kegunaan |
+|---|---|
+| `npm run dev` | Menjalankan server pengembangan lokal. |
+| `npm run build` | Melakukan kompilasi static production build. |
+| `npm run preview` | Meninjau hasil kompilasi build sebelum di-deploy. |
 
 ---
 
-# 🎨 Tampilan
+# 📄 Lisensi
 
-Fitur UI yang tersedia:
-
-- Hero Section Modern
-- Premium Code Block
-- Responsive Sidebar
-- Dark Mode
-- Light Mode
-- Auto Theme
-- Search Modal
-- Copy Code
-- Responsive Layout
-- Mobile Friendly
-
----
-
-# 🎯 Target Pembelajaran
-
-Setelah menyelesaikan guidebook ini, pembaca diharapkan mampu:
-
-- Memahami dasar TypeScript
-- Menulis kode yang type-safe
-- Menggunakan Generic
-- Menggunakan Interface
-- Menggunakan OOP TypeScript
-- Membuat aplikasi modern menggunakan TypeScript
-- Mengikuti best practice industri
-
----
-
-# 🤝 Kontribusi
-
-Kontribusi selalu terbuka.
-
-Langkah-langkah:
-
-1. Fork repository
-2. Buat branch baru
-
-```bash
-git checkout -b feature/nama-fitur
-```
-
-3. Commit perubahan
-
-```bash
-git commit -m "Menambahkan fitur baru"
-```
-
-4. Push
-
-```bash
-git push origin feature/nama-fitur
-```
-
-5. Buat Pull Request
-
----
-
-# 📝 Roadmap
-
-- [x] Dark Mode
-- [x] Light Mode
-- [x] Auto Theme
-- [x] Search
-- [x] Premium Hero
-- [x] Copy Code
-- [x] Responsive Layout
-- [ ] Playground TypeScript
-- [ ] Quiz Interaktif
-- [ ] Latihan Coding
-- [ ] Video Pembelajaran
-- [ ] Progress Belajar
-- [ ] Sertifikat
-
----
-
-# 📄 License
-
-Project ini menggunakan lisensi **MIT License**.
-
-Silakan digunakan untuk pembelajaran maupun pengembangan lebih lanjut.
-
----
+Proyek ini didistribusikan di bawah lisensi **MIT License**. Silakan digunakan dan dimanfaatkan untuk media pembelajaran maupun pengembangan akademis lebih lanjut.
 
 <div align="center">
 
-Made with ❤️ by **SmartOne Dev**
+Dibuat dengan ❤️ oleh **SmartOne Dev**
 
-**Belajar TypeScript Modern dengan Cara yang Mudah Dipahami**
+**Belajar Web Development Modern dari Langkah Paling Mendasar**
 
 </div>
+
