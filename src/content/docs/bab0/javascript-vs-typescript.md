@@ -128,7 +128,7 @@ TypeScript membantu kamu menghindari typo (salah ketik) yang bisa menyebabkan bu
 
 ## Ilustrasi: Kapan Error Terdeteksi
 
-```
+```text
 JavaScript                          TypeScript
 ────────────────────────────────    ────────────────────────────────
 Kamu menulis kode                   Kamu menulis kode
@@ -138,7 +138,7 @@ Kamu menulis kode                   Kamu menulis kode
         ▼                                   ▼
 Kamu menjalankan program            Kamu menjalankan program
         │                                   │
-Error terdeteksi ◄── SINI           Program berjalan aman ✓
+        Error terdeteksi ◄── SINI           Program berjalan aman ✓
         │
 Panik 😱
 ```
@@ -155,7 +155,7 @@ Ada satu hal penting yang perlu kamu pahami:
 
 Komputer dan browser tidak mengerti TypeScript secara langsung. TypeScript harus "dikompilasi" (diubah) menjadi JavaScript terlebih dahulu sebelum bisa dijalankan.
 
-```
+```text
 Kode TypeScript (.ts)
         │
         ▼

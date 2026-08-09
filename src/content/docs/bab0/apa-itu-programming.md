@@ -90,7 +90,7 @@ Jauh lebih mudah dibaca, kan? Nantinya, ada program lain (disebut **compiler** a
 
 ## Ilustrasi: Alur Programming
 
-```
+```text
 Programmer            Komputer
     │                     │
     │  Menulis kode        │

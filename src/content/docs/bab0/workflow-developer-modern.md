@@ -136,7 +136,7 @@ Ada alat serupa bernama `ts-node`. Tapi TSX lebih cepat, lebih mudah dikonfigura
 
 Begini alur kerja kita selama belajar di guidebook ini:
 
-```
+```text
 1. Buka VS Code
        │
        ▼
@@ -161,7 +161,7 @@ Sederhana, bukan? Seluruh proses belajar kita akan mengikuti pola ini.
 
 ## Ilustrasi: Ekosistem Tools Kita
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │               VS Code                   │
 │  ┌─────────────────┐ ┌───────────────┐  │
