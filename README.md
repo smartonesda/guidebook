@@ -40,10 +40,6 @@ Materi disusun secara bertahap mulai dari konsep dasar hingga implementasi nyata
 
 > https://typescript-guidebook.vercel.app
 
-atau
-
-> https://smartonesda.github.io/typescript-guidebook/
-
 ---
 
 # ✨ Fitur
