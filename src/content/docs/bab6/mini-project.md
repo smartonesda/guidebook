@@ -1,262 +1,120 @@
-﻿---
-title: "Mini Project: Aplikasi Manajemen Data Siswa"
-description: Membangun aplikasi manajemen data siswa berbasis terminal yang menggabungkan seluruh materi BAB 1 sampai BAB 6.
+---
+title: "Mini Project"
+description: Buat dan lengkapi Contact & Project Inquiry Form interaktif dengan validasi input bawaan di halaman utama portfolio.
 ---
 
-## Tujuan Pembelajaran
+Saatnya melanjutkan pengembangan proyek portfolio pribadimu! Di bab ini, kita akan mengubah bagian Kontak di file `index.html` menjadi formulir interaktif (**Contact & Project Inquiry Form**) yang lengkap dengan pengelompokan dan validasi bawaan.
 
-Setelah menyelesaikan mini project ini, kamu dapat membuat program terstruktur untuk menambah, menghapus, mengupdate, dan mencari siswa menggunakan array of object, modular function, destructuring, dan spread operator.
-
----
-
-## Pendahuluan
-
-Kita akan membuat fondasi sistem informasi sekolah sederhana: **Aplikasi Manajemen Data Siswa**. Aplikasi ini akan mensimulasikan penyimpanan database siswa di memori komputer, menyediakan fungsi operasi data (Create, Read, Update, Delete - CRUD) yang umum digunakan oleh software developer profesional.
+Proyek ini adalah **versi pembaruan (v0.6)** dari halaman portofolio pribadimu.
 
 ---
 
-## Fitur Aplikasi
+## 🎯 Deskripsi Project
 
-1. Menampilkan seluruh data siswa beserta alamatnya
-2. Menambah data siswa baru dengan NIS unik (`push()`)
-3. Mengupdate nilai siswa berdasarkan NIS secara aman (`spread operator`)
-4. Menghapus data siswa berdasarkan NIS (`splice()`)
-5. Mencari siswa berdasarkan nama (`filter()`)
+Buka kembali file `index.html` di editor VS Code-mu, lalu modifikasi bagian Kontak agar:
+- Seluruh isian dibungkus oleh tag `<form>` dengan metode `POST`.
+- Isian dikelompokkan rapi menggunakan tag `<fieldset>` dan `<legend>`.
+- Menyediakan isian **Nama Lengkap** (input text), **Alamat Email** (input email), **Pilihan Inquiry** (dropdown select), **Pesan Utama** (textarea), dan **Checkbox Persetujuan** (checkbox).
+- Memiliki tombol pengiriman (`<button type="submit">`).
+- Menerapkan atribut validasi `required` dan batasan panjang karakter `minlength`.
 
 ---
 
-## Visual Architecture
+## 📋 Requirements Wajib
 
-```text
-Database Sekolah: Siswa[] (Array of Objects)
-  ├── tampilkanSemuaSiswa() ──► .forEach() + destructuring
-  ├── tambahSiswa(siswa)     ──► .includes() check + .push()
-  ├── updateNilai(nis, nilai)──► .map() + spread operator
-  └── hapusSiswa(nis)        ──► .findIndex() + .splice()
+### A. Struktur Formulir & Hubungan Label (40 poin)
+
+- [ ] Seluruh kolom input wajib dibungkus di dalam tag `<form>` dengan atribut `method="POST"` dan `action="/proses-kontak.html"`.
+- [ ] Kelompokkan isian menggunakan tag `<fieldset>` yang memiliki judul kelompok `<legend>Hubungi Saya</legend>`.
+- [ ] Setiap isian wajib memiliki tag `<label>` yang terhubung secara aksesibel dengan tag inputnya masing-masing menggunakan atribut **`for`** (pada label) dan **`id`** (pada input) dengan nilai yang sama persis.
+- [ ] Setiap input dan pilihan wajib menyertakan atribut **`name`** sebagai kunci pengiriman data ke server.
+
+### B. Variasi Elemen Input & Validasi HTML5 (40 poin)
+
+- [ ] **Nama Lengkap**: Gunakan `<input type="text">` yang memiliki atribut `required` dan `minlength="3"`.
+- [ ] **Alamat Email**: Gunakan `<input type="email">` dengan atribut `required`.
+- [ ] **Kategori Kepentingan**: Gunakan tag `<select>` yang memiliki minimal 3 pilihan `<option>` bertema kolaborasi (misal: tanya proyek, tawaran magang, say hello) dengan opsi pertama kosong. Atribut `required` harus terpasang di tag select.
+- [ ] **Pesan Detail**: Gunakan tag `<textarea>` yang memiliki atribut `required` dan `minlength="10"`.
+- [ ] **Persetujuan**: Gunakan `<input type="checkbox">` di bagian bawah dengan atribut `required` sebagai persetujuan pengiriman data.
+- [ ] **Tombol Kirim**: Gunakan tag `<button type="submit">` untuk memicu pengiriman formulir.
+
+### C. Kualitas Kode & Validasi (20 poin)
+
+- [ ] Gunakan penulisan atribut menggunakan huruf kecil (*lowercase*) dan gunakan tanda kutip ganda secara konsisten.
+- [ ] Gunakan indentasi 2 spasi secara disiplin untuk merapikan tingkatan tag anak di dalam `<fieldset>`.
+- [ ] **0 Error** di W3C Validator (`validator.w3.org`) untuk file `index.html` milikmu.
+
+---
+
+## 📝 Contoh Referensi Kode Pembantu
+
+Gunakan potongan kode ini sebagai referensi penempatan struktur form di dalam file `index.html` milikmu:
+
+```html
+<h2 id="kontak">Hubungi Saya</h2>
+<form action="/proses.html" method="POST">
+  <fieldset>
+    <legend>Kirim Pesan</legend>
+    
+    <p>
+      <label for="id-nama">Nama Lengkap:</label><br />
+      <input type="text" id="id-nama" name="user_name" minlength="3" required />
+    </p>
+    
+    <p>
+      <label for="id-email">Email:</label><br />
+      <input type="email" id="id-email" name="user_email" required />
+    </p>
+    
+    <p>
+      <label for="id-layanan">Layanan:</label><br />
+      <select id="id-layanan" name="user_service" required>
+        <option value="">-- Pilih --</option>
+        <option value="dev">Development</option>
+      </select>
+    </p>
+    
+    <p>
+      <label for="id-pesan">Pesan:</label><br />
+      <textarea id="id-pesan" name="user_message" rows="4" minlength="10" required></textarea>
+    </p>
+    
+    <p>
+      <input type="checkbox" id="id-setuju" name="user_consent" value="setuju" required />
+      <label for="id-setuju">Saya setuju data ini dikirim.</label>
+    </p>
+    
+    <p>
+      <button type="submit">Kirim</button>
+    </p>
+  </fieldset>
+</form>
 ```
 
 ---
 
-## Mari Mencoba
+## 📊 Rubrik Penilaian
 
-Buat `src/bab6/aplikasi-manajemen-siswa.ts`:
-
-```ts
-// =====================================================
-// MINI PROJECT: APLIKASI MANAJEMEN DATA SISWA
-// Menggabungkan BAB 1 s.d. BAB 6
-// =====================================================
-
-type Alamat = {
-  kota: string
-  provinsi: string
-}
-
-type Siswa = {
-  nis: number
-  nama: string
-  nilai: number
-  alamat: Alamat
-}
-
-// Database Utama (Array of Objects)
-let databaseSiswa: Siswa[] = [
-  { nis: 1001, nama: "Andi", nilai: 80, alamat: { kota: "Sidoarjo", provinsi: "Jatim" } },
-  { nis: 1002, nama: "Budi", nilai: 65, alamat: { kota: "Surabaya", provinsi: "Jatim" } },
-  { nis: 1003, nama: "Citra", nilai: 95, alamat: { kota: "Malang", provinsi: "Jatim" } }
-]
-
-// 1. Tampilkan Semua Siswa
-function tampilkanSemua(daftar: Siswa[] = databaseSiswa): void {
-  console.log("=".repeat(50))
-  if (daftar.length === 0) {
-    console.log("  (Tidak ada data siswa)")
-    console.log("=".repeat(50))
-    return
-  }
-
-  daftar.forEach((siswa, indeks) => {
-    // Destructuring object siswa & alamat
-    const { nis, nama, nilai, alamat } = siswa
-    const { kota } = alamat
-    const status = nilai >= 75 ? "LULUS" : "REMEDIAL"
-
-    console.log(`  ${indeks + 1}. [NIS ${nis}] ${nama.padEnd(8)} | Nilai: ${nilai} [${status}] | Kota: ${kota}`)
-  })
-  console.log(`  Total: ${daftar.length} siswa`)
-  console.log("=".repeat(50))
-}
-
-// 2. Tambah Siswa Baru (Cek NIS Unik)
-function tambahSiswa(siswaBaru: Siswa): void {
-  // Cek apakah NIS sudah dipakai
-  const nisDipakai = databaseSiswa.some((s) => s.nis === siswaBaru.nis)
-  if (nisDipakai) {
-    console.log(`⚠ Gagal: Siswa dengan NIS ${siswaBaru.nis} sudah terdaftar!`)
-    return
-  }
-
-  databaseSiswa.push(siswaBaru)
-  console.log(`✓ Sukses: Siswa "${siswaBaru.nama}" berhasil ditambahkan.`)
-}
-
-// 3. Update Nilai Siswa (Secara Immutable menggunakan Map & Spread)
-function updateNilai(nis: number, nilaiBaru: number): void {
-  const siswaKetemu = databaseSiswa.find((s) => s.nis === nis)
-  if (siswaKetemu === undefined) {
-    console.log(`⚠ Gagal: Siswa dengan NIS ${nis} tidak ditemukan!`)
-    return
-  }
-
-  // Update nilai secara immutable menggunakan map & spread operator
-  databaseSiswa = databaseSiswa.map((s) => {
-    if (s.nis === nis) {
-      return { ...s, nilai: nilaiBaru } // salin data lama, timpa nilai baru
-    }
-    return s
-  })
-
-  console.log(`✓ Sukses: Nilai siswa NIS ${nis} diperbarui menjadi ${nilaiBaru}.`)
-}
-
-// 4. Hapus Siswa berdasarkan NIS
-function hapusSiswa(nis: number): void {
-  const indeks = databaseSiswa.findIndex((s) => s.nis === nis)
-
-  if (indeks === -1) {
-    console.log(`⚠ Gagal: Siswa dengan NIS ${nis} tidak ditemukan!`)
-    return
-  }
-
-  const namaDihapus = databaseSiswa[indeks].nama
-  databaseSiswa.splice(indeks, 1)
-  console.log(`✓ Sukses: Siswa "${namaDihapus}" (NIS ${nis}) berhasil dihapus.`)
-}
-
-// 5. Cari Siswa berdasarkan Nama
-function cariSiswa(namaCari: string): void {
-  const keyword = namaCari.toLowerCase().trim()
-  const hasil = databaseSiswa.filter((s) =>
-    s.nama.toLowerCase().includes(keyword)
-  )
-
-  console.log(`\n=== Hasil Pencarian Nama: "${namaCari}" ===`)
-  tampilkanSemua(hasil)
-}
-
-// ── Simulasi Program ──────────────────────────────────
-console.log("==================================================")
-console.log("     Amanah Student Information System v2.0")
-console.log("==================================================")
-
-console.log("\nDatabase Siswa Saat Ini:")
-tampilkanSemua()
-
-console.log("\n[Aksi 1] Menambah Siswa Baru:")
-tambahSiswa({
-  nis: 1004,
-  nama: "Dian",
-  nilai: 72,
-  alamat: { kota: "Sidoarjo", provinsi: "Jatim" }
-})
-tambahSiswa({ // Tes duplikasi NIS
-  nis: 1001,
-  nama: "Andi Palsu",
-  nilai: 50,
-  alamat: { kota: "Gresik", provinsi: "Jatim" }
-})
-tampilkanSemua()
-
-console.log("\n[Aksi 2] Mengupdate Nilai Siswa (NIS 1002):")
-updateNilai(1002, 80) // Dari 65 (remedial) menjadi 80 (lulus)
-updateNilai(9999, 90) // Tes NIS tidak terdaftar
-tampilkanSemua()
-
-console.log("\n[Aksi 3] Menghapus Siswa (NIS 1003):")
-hapusSiswa(1003) // Menghapus Citra
-tampilkanSemua()
-
-console.log("\n[Aksi 4] Mencari Siswa:")
-cariSiswa("an") // Harus mencocokkan Andi dan Dian
-```
-
-Jalankan:
-
-```text
-tsx src/bab6/aplikasi-manajemen-siswa.ts
-```
+| Kategori | Kriteria | Poin Maksimal |
+|---|---|---|
+| **Struktur & Aksesibilitas** | Tag form, fieldset, legend terpasang valid, for-id pada label terhubung secara presisi. | 40 |
+| **Pilihan Input & Validasi** | Menyediakan input text, email, select dropdown, textarea, dan checkbox persetujuan dengan atribut required & minlength. | 40 |
+| **Tombol & Kualitas W3C** | Tombol submit terpasang benar, dokumentasi kode lolos uji validator resmi. | 20 |
+| **Total** | | **100** |
 
 ---
 
-## Output (sebagian)
+## ✅ Checklist Sebelum Mengumpulkan
 
-```text
-==================================================
-     Amanah Student Information System v2.0
-==================================================
-
-Database Siswa Saat Ini:
-==================================================
-  1. [NIS 1001] Andi     | Nilai: 80 [LULUS] | Kota: Sidoarjo
-  2. [NIS 1002] Budi     | Nilai: 65 [REMEDIAL] | Kota: Surabaya
-  3. [NIS 1003] Citra    | Nilai: 95 [LULUS] | Kota: Malang
-  Total: 3 siswa
-==================================================
-...
+Buka file `index.html` di browsermu lewat Live Server, lalu pastikan:
+```
+☐ Mengetik di dalam kotak isian teks menyembunyikan input kata sandi (jika ada).
+☐ Mengklik tulisan teks label (seperti label nama) otomatis memindahkan kursor ke dalam kotak input terkait.
+☐ Mengosongkan kolom penting lalu mengklik tombol Kirim memicu pesan peringatan "Harap isi kolom ini" dari browser.
+☐ Formulir kontak dibungkus rapi oleh garis bingkai fieldset.
+☐ File HTML lolos uji validasi di validator.w3.org dengan warna hijau.
 ```
 
----
+Portfolio pribadimu sekarang sudah interaktif dan siap menerima pesan dari pengunjung! Pada bab selanjutnya, kita akan membedah konsep **HTML Attributes** secara mendalam.
 
-## Penjelasan Bagian Penting
-
-### Destructuring Nested Object dalam Loop
-
-```ts
-daftar.forEach((siswa) => {
-  const { nis, nama, nilai, alamat } = siswa
-  const { kota } = alamat
-```
-
-Membongkar data `siswa` sekaligus properti `alamat` di dalam loop menggunakan destructuring bertingkat agar penulisan format laporan sangat rapi.
-
-### Validasi NIS Unik
-
-```ts
-const nisDipakai = databaseSiswa.some((s) => s.nis === siswaBaru.nis)
-```
-
-Method `.some()` mengembalikan boolean `true` jika setidaknya ada satu elemen yang memenuhi kondisi. Sangat cocok untuk mendeteksi duplikasi ID/NIS.
-
-### Immutable Update dengan Map & Spread
-
-```ts
-databaseSiswa = databaseSiswa.map((s) => {
-  if (s.nis === nis) {
-    return { ...s, nilai: nilaiBaru }
-  }
-  return s
-})
-```
-
-Alih-alih mengubah objek asli secara paksa, kita memetakan array lama menjadi array baru menggunakan `.map()`. Ketika siswa dengan NIS yang dicari ditemukan, kita membuat objek fotokopi baru dengan properti diperbarui `{ ...s, nilai: nilaiBaru }`. Cara ini adalah standar best practice industri.
-
----
-
-## Latihan
-
-Tambahkan fitur ke aplikasi:
-1. `hitungRataRataKelas()` — mengembalikan rata-rata nilai kelas menggunakan `reduce()`.
-2. `tampilkanSiswaTerbaik()` — menampilkan nama dan nilai siswa yang memiliki nilai tertinggi.
-
----
-
-## Ringkasan
-
-- Aplikasi manajemen siswa terstruktur menggunakan array of object untuk database.
-- `.some()` memeriksa duplikasi NIS/ID secara efisien.
-- `.map()` dan spread operator `...` memperbarui properti objek secara immutable.
-- Destructuring menyederhanakan penulisan properti objek nested dalam tampilan.
-
-:::tip[Selesai Mini Project]
-Selamat! Kamu sudah menyelesaikan aplikasi manajemen siswa yang modular. Hubungi guru untuk memeriksa hasil kerjamu.
-:::
+**[Lanjut: Challenge →](/bab6/challenge/)**
