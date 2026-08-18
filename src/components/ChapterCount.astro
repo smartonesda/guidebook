@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+
+const { class: className } = Astro.props;
+const docs = await getCollection('docs');
+const chapterCount = new Set(
+  docs.map((entry) => entry.id.match(/^bab(\d+)\//)?.[1]).filter((chapter): chapter is string => chapter !== undefined),
+).size;
+---
+
+<span class={className}>{chapterCount}</span>

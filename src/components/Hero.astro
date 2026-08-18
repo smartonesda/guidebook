@@ -5,11 +5,17 @@
  * the compiling of semantic HTML code into a rendered web page structure.
  */
 import DraftContentNotice from 'virtual:starlight/components/DraftContentNotice';
+import { getCollection } from 'astro:content';
 
 const PAGE_TITLE_ID = '_top';
 
 const { data } = Astro.locals.starlightRoute.entry;
 const { title = data.title, tagline, actions = [] } = data.hero || {};
+const docs = await getCollection('docs');
+const chapterCount = new Set(
+  docs.map((entry) => entry.id.match(/^bab(\d+)\//)?.[1]).filter((chapter): chapter is string => chapter !== undefined),
+).size;
+const miniProjectCount = docs.filter((entry) => /^bab12\/project-/.test(entry.id)).length;
 
 const formatLink = (url: string) => {
   if (url.startsWith('/')) {
@@ -55,18 +61,18 @@ const formatLink = (url: string) => {
       {/* Proof / stat row */}
       <div class="hero-stats-custom" role="list" aria-label="Ringkasan kurikulum">
         <div class="stat-item-custom" role="listitem">
-          <span class="stat-value">16</span>
+          <span class="stat-value">{chapterCount}</span>
           <span class="stat-label">Bab Materi</span>
         </div>
         <span class="stat-sep" aria-hidden="true"></span>
         <div class="stat-item-custom" role="listitem">
-          <span class="stat-value">Mini</span>
-          <span class="stat-label">Projects</span>
+          <span class="stat-value">{miniProjectCount}</span>
+          <span class="stat-label">Mini Project</span>
         </div>
         <span class="stat-sep" aria-hidden="true"></span>
         <div class="stat-item-custom" role="listitem">
-          <span class="stat-value">Challenges</span>
-          <span class="stat-label">Latihan</span>
+          <span class="stat-value">Debug</span>
+          <span class="stat-label">Challenge Lab</span>
         </div>
         <span class="stat-sep" aria-hidden="true"></span>
         <div class="stat-item-custom" role="listitem">

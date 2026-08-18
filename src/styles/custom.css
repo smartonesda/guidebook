@@ -1487,6 +1487,27 @@ a.hp-tl-link:hover {
   padding: 0.15rem 0.5rem;
 }
 
+.hp-showcase-action {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--sod-accent);
+  text-decoration: none;
+}
+
+.hp-showcase-action:hover {
+  color: var(--sod-accent);
+  text-decoration: underline;
+}
+
+.hp-showcase-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 @media (max-width: 48rem) {
   .hp-showcase-grid {
     grid-template-columns: 1fr;

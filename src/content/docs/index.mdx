@@ -1,11 +1,11 @@
 ---
 title: "Belajar HTML dari Nol"
-description: Panduan belajar HTML lengkap berbahasa Indonesia — dari dokumen HTML pertama hingga website yang semantic, accessible, dan siap dikembangkan. Untuk siswa SMK RPL dan pemula web development.
+description: HTML Guidebook berbahasa Indonesia untuk siswa SMK RPL dan pemula web development — dari fondasi HTML hingga membangun, memvalidasi, dan mengaudit website nyata.
 template: splash
 
 hero:
-  title: "Belajar HTML<br/>dari Nol"
-  tagline: Panduan belajar HTML lengkap berbahasa Indonesia untuk siswa SMK RPL dan pemula. Kuasai sintaks dasar, penulisan kode semantik, aksesibilitas, hingga siap membangun portofolio website nyata yang valid standar W3C.
+  title: "Bangun Fondasi Web<br/>dengan HTML"
+  tagline: HTML Guidebook berbahasa Indonesia untuk siswa SMK RPL dan pemula web development. Pelajari struktur, semantic HTML, forms, accessibility, metadata, project, validasi, dan debugging.
   actions:
     - text: "🚀 Mulai Belajar"
       link: /bab0/introduction/
@@ -15,6 +15,9 @@ hero:
       variant: secondary
 ---
 
+import HomeRoadmap from '../../components/HomeRoadmap.astro';
+import ChapterCount from '../../components/ChapterCount.astro';
+
 {/* ════════════════════════════════════════════
     SECTION 1 — WHY HTML ("Semua Dimulai dari Sini" — editorial)
     ════════════════════════════════════════════ */}
@@ -22,32 +25,32 @@ hero:
   <div class="hp-section-inner">
     <div class="hp-why-editorial">
       <header class="hp-why-header">
-        <span class="hp-label">Landasan Utama</span>
-        <h2 class="hp-why-main-title" id="why-title">Semua Dimulai dari Sini</h2>
+        <span class="hp-label">Lebih dari Tutorial</span>
+        <h2 class="hp-why-main-title" id="why-title">Belajar HTML untuk Dipakai</h2>
         <p class="hp-why-subtitle">
-          Sebelum CSS mempercantik tampilan, JavaScript menambahkan logika interaktif, atau React mengelola antarmuka modern — browser membutuhkan HTML.
+          HTML memberi struktur dan makna pada web. CSS dan JavaScript bekerja lebih baik saat fondasinya ditulis dengan benar.
         </p>
       </header>
       <div class="hp-why-pillars" role="list">
         <div class="hp-pillar-item" role="listitem">
           <span class="hp-pillar-num">01</span>
-          <h3>Bahasa yang Dipahami Browser</h3>
-          <p>HTML adalah satu-satunya bahasa yang dipahami browser secara asli untuk menyusun dan menampilkan halaman web.</p>
+          <h3>Materi Terstruktur</h3>
+          <p>Mulai dari file pertama, struktur dokumen, hingga HTML yang rapi, semantik, dan mudah dirawat.</p>
         </div>
         <div class="hp-pillar-item" role="listitem">
           <span class="hp-pillar-num">02</span>
-          <h3>Struktur Halaman</h3>
-          <p>HTML bertindak sebagai kerangka tulang. Ia menentukan posisi kepala, isi, dan kaki halaman secara logis.</p>
+          <h3>Practice &amp; Build</h3>
+          <p>Terapkan konsep lewat studi kasus, mini project, dan satu final project berbasis kebutuhan nyata.</p>
         </div>
         <div class="hp-pillar-item" role="listitem">
           <span class="hp-pillar-num">03</span>
-          <h3>Fondasi Gaya &amp; Logika</h3>
-          <p>CSS membutuhkan tag selector untuk memberi gaya, dan JavaScript membutuhkan DOM untuk mengelola aksi interaksi.</p>
+          <h3>Challenge &amp; Debug</h3>
+          <p>Latih kemampuan membaca, mendiagnosis, dan memperbaiki HTML yang bermasalah secara sistematis.</p>
         </div>
         <div class="hp-pillar-item" role="listitem">
           <span class="hp-pillar-num">04</span>
-          <h3>Aksesibilitas &amp; SEO</h3>
-          <p>Penulisan tag semantik membantu mesin pencari (SEO) memahami website dan mempermudah pembaca layar bagi difabel.</p>
+          <h3>HTML Handbook</h3>
+          <p>Simpan pusat referensi elemen, atribut, accessibility, dan metadata untuk dipakai setelah roadmap selesai.</p>
         </div>
       </div>
     </div>
@@ -55,234 +58,9 @@ hero:
 </section>
 
 {/* ════════════════════════════════════════════
-    SECTION 2 — ROADMAP (separated pre-course & timeline)
+    SECTION 2 — ROADMAP
     ════════════════════════════════════════════ */}
-<section class="hp-section hp-roadmap" id="roadmap" aria-labelledby="roadmap-title">
-  <div class="hp-section-inner">
-    <header class="hp-section-header">
-      <span class="hp-label">Rencana Belajar</span>
-      <h2 class="hp-title" id="roadmap-title">Kurikulum HTML</h2>
-      <p class="hp-subtitle">
-        Perjalanan belajar terstruktur dari dasar instalasi hingga panduan referensi siap pakai.
-      </p>
-    </header>
-
-    {/* Getting Started Block */}
-    <div class="hp-pre-course">
-      <div class="hp-pre-course-badge">Pre-Course</div>
-      <div class="hp-pre-course-content">
-        <a href="/bab0/introduction/" class="hp-pre-course-link">
-          <h3>Getting Started</h3>
-          <p>Tahap orientasi awal: mengenal cara kerja internet dan browser, memahami konsep HTML/CSS/JS, menyiapkan VS Code, dan menulis file HTML pertamamu.</p>
-          <span class="hp-pre-course-action">Mulai Orientasi →</span>
-        </a>
-      </div>
-    </div>
-
-    {/* Numbered Roadmap Timeline */}
-    <div class="hp-roadmap-timeline-wrapper">
-      <h3 class="hp-roadmap-sub">Learning Roadmap</h3>
-      <ol class="hp-timeline" aria-label="Jalur Pembelajaran Utama">
-
-        <li class="hp-tl-item hp-tl-active">
-          <div class="hp-tl-marker" aria-hidden="true"><span>01</span></div>
-          <div class="hp-tl-content">
-            <a href="/bab1/introduction/" class="hp-tl-link">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-beginner">Aktif</span>
-                <h3>HTML Fundamentals</h3>
-              </div>
-              <p>Struktur dasar dokumen, tag, elemen, atribut, penanganan whitespace, komentar, dan validasi W3C.</p>
-            </a>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-active">
-          <div class="hp-tl-marker" aria-hidden="true"><span>02</span></div>
-          <div class="hp-tl-content">
-            <a href="/bab2/introduction/" class="hp-tl-link">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-beginner">Aktif</span>
-                <h3>Text &amp; Typography</h3>
-              </div>
-              <p>Mengelola elemen teks mulai dari heading, paragraf, penekanan semantik, kutipan, hingga kode program.</p>
-            </a>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-active">
-          <div class="hp-tl-marker" aria-hidden="true"><span>03</span></div>
-          <div class="hp-tl-content">
-            <a href="/bab3/introduction/" class="hp-tl-link">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-beginner">Aktif</span>
-                <h3>Links &amp; Navigation</h3>
-              </div>
-              <p>Memahami URL relatif vs absolut, tautan eksternal dan internal, email/telepon, serta struktur menu navigasi.</p>
-            </a>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-active">
-          <div class="hp-tl-marker" aria-hidden="true"><span>04</span></div>
-          <div class="hp-tl-content">
-            <a href="/bab4/introduction/" class="hp-tl-link">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-beginner">Aktif</span>
-                <h3>Images &amp; Multimedia</h3>
-              </div>
-              <p>Menampilkan gambar responsif, menyisipkan video dan audio bawaan browser, serta menggunakan iframe.</p>
-            </a>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-active">
-          <div class="hp-tl-marker" aria-hidden="true"><span>05</span></div>
-          <div class="hp-tl-content">
-            <a href="/bab5/introduction/" class="hp-tl-link">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-beginner">Aktif</span>
-                <h3>Lists &amp; Tables</h3>
-              </div>
-              <p>Menyusun data terstruktur dengan list terurut dan tak terurut, serta membuat tabel data yang rapi.</p>
-            </a>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-active">
-          <div class="hp-tl-marker" aria-hidden="true"><span>06</span></div>
-          <div class="hp-tl-content">
-            <a href="/bab6/introduction/" class="hp-tl-link">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-intermediate">Aktif</span>
-                <h3>Forms</h3>
-              </div>
-              <p>Menerima input pengguna melalui form, tombol, input teks, checkbox, radio button, dan validasi dasar.</p>
-            </a>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted">
-          <div class="hp-tl-marker" aria-hidden="true"><span>07</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>HTML Attributes</h3>
-              </div>
-              <p>Mengenal atribut global, atribut event, custom data-* attributes, dan peran pentingnya dalam script.</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted">
-          <div class="hp-tl-marker" aria-hidden="true"><span>08</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>Semantic HTML</h3>
-              </div>
-              <p>Penyusunan struktur halaman modern menggunakan header, nav, main, article, section, aside, dan footer.</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted">
-          <div class="hp-tl-marker" aria-hidden="true"><span>09</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>Metadata &amp; SEO</h3>
-              </div>
-              <p>Pengaturan meta tags untuk Search Engine Optimization (SEO), Open Graph, favicon, dan dokumentasi metadata.</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted">
-          <div class="hp-tl-marker" aria-hidden="true"><span>10</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>Accessibility</h3>
-              </div>
-              <p>Prinsip aksesibilitas WCAG, deskripsi alt text yang baik, keyboard navigasi, dan pengenalan atribut ARIA.</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted">
-          <div class="hp-tl-marker" aria-hidden="true"><span>11</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>HTML Best Practices</h3>
-              </div>
-              <p>Aturan penulisan kode bersih, panduan linting, validasi wajib, dan checklist sebelum deploy.</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted">
-          <div class="hp-tl-marker" aria-hidden="true"><span>12</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>Mini Projects</h3>
-              </div>
-              <p>Praktik integrasi bertahap untuk membangun berbagai website berukuran kecil hingga sedang secara mandiri.</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted">
-          <div class="hp-tl-marker" aria-hidden="true"><span>13</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>Final Project</h3>
-              </div>
-              <p>Mengerjakan studi kasus komprehensif dari nol untuk melahirkan sebuah website yang benar-benar siap tayang.</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted">
-          <div class="hp-tl-marker" aria-hidden="true"><span>14</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>Challenge Collection</h3>
-              </div>
-              <p>Selesaikan berbagai tantangan menarik dengan tingkat kesulitan dari level pemula hingga mahir.</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="hp-tl-item hp-tl-muted hp-tl-item--end">
-          <div class="hp-tl-marker" aria-hidden="true"><span>15</span></div>
-          <div class="hp-tl-content">
-            <div class="hp-tl-link hp-tl-soon">
-              <div class="hp-tl-head">
-                <span class="hp-tl-badge badge-muted">Muted</span>
-                <h3>HTML Handbook</h3>
-              </div>
-              <p>Kamus referensi cepat semua tag dan atribut HTML yang diakui standar web W3C.</p>
-            </div>
-          </div>
-        </li>
-
-      </ol>
-    </div>
-  </div>
-</section>
+<HomeRoadmap />
 
 {/* ════════════════════════════════════════════
     SECTION 3 — LEARNING METHOD (connected journey flow)
@@ -330,7 +108,7 @@ hero:
           <div class="hp-journey-num" aria-hidden="true">05</div>
           <div class="hp-journey-body">
             <h3>Challenge</h3>
-            <p>Selesaikan tantangan mandiri tingkat kesulitan berjenjang untuk mematangkan kodemu.</p>
+            <p>Uji pemahaman lewat challenge, lalu gunakan debugging lab untuk menemukan dan memperbaiki masalah nyata.</p>
           </div>
         </li>
       </ol>
@@ -355,18 +133,19 @@ hero:
       {/* Portfolio — Primary/Featured project (Takes 2 columns on desktop) */}
       <article class="hp-showcase-card hp-showcase-featured">
         <div class="hp-showcase-meta">
-          <span class="hp-showcase-tag">Featured Project</span>
-          <span class="hp-showcase-chapter">Bab 12</span>
+          <span class="hp-showcase-tag">Final Project</span>
+          <span class="hp-showcase-chapter">BAB 13</span>
         </div>
         <div class="hp-showcase-body">
-          <h3>Website Portfolio Pribadi</h3>
-          <p>Halaman portofolio lengkap yang menampilkan profil developer, resume pendidikan, daftar proyek, keahlian teknis, dan formulir kontak yang dapat berfungsi dengan baik. Proyek ini memvalidasi penggunaan kerangka semantik HTML5, tag metadata, navigasi internal, dan form isian pengguna dalam satu kesatuan dokumen terstruktur.</p>
+          <h3>Final Project dari Project Brief</h3>
+          <p>Pilih satu dari tujuh project brief, lalu terjemahkan kebutuhan nyata menjadi struktur website utuh yang memenuhi quality gate, validasi, dan presentasi portofolio.</p>
           <div class="hp-showcase-techs">
             <span>Semantic HTML5</span>
             <span>Anchor Links</span>
-            <span>Structured Data</span>
-            <span>Validasi W3C</span>
+            <span>Quality Gate</span>
+            <span>Portfolio</span>
           </div>
+          <a href="/bab13/introduction/" class="hp-showcase-action">Lihat Final Project →</a>
         </div>
       </article>
 
@@ -374,16 +153,17 @@ hero:
       <article class="hp-showcase-card">
         <div class="hp-showcase-meta">
           <span class="hp-showcase-tag">Project</span>
-          <span class="hp-showcase-chapter">Bab 8</span>
+          <span class="hp-showcase-chapter">BAB 12</span>
         </div>
         <div class="hp-showcase-body">
-          <h3>Portal Berita &amp; Artikel</h3>
-          <p>Struktur halaman web portal informasi sekolah menggunakan tag konten seperti header, article, aside, section, dan footer untuk memudahkan pembaca layar dan meningkatkan SEO.</p>
+          <h3>School Profile</h3>
+          <p>Rancang profil resmi sekolah dengan navigasi multi-seksi, informasi program keahlian, dan peta lokasi.</p>
           <div class="hp-showcase-techs">
             <span>Article &amp; Section</span>
             <span>Aksesibilitas</span>
             <span>SEO Tags</span>
           </div>
+          <a href="/bab12/project-2-school-profile/" class="hp-showcase-action">Buka Mini Project →</a>
         </div>
       </article>
 
@@ -391,16 +171,17 @@ hero:
       <article class="hp-showcase-card">
         <div class="hp-showcase-meta">
           <span class="hp-showcase-tag">Project</span>
-          <span class="hp-showcase-chapter">Bab 6</span>
+          <span class="hp-showcase-chapter">BAB 12</span>
         </div>
         <div class="hp-showcase-body">
-          <h3>Form Registrasi Siswa Baru</h3>
-          <p>Formulir interaktif lengkap dengan penataan label, pengelompokan menggunakan fieldset, validasi input bawaan browser, dan penanganan tipe data isian.</p>
+          <h3>Event Registration</h3>
+          <p>Bangun formulir pendaftaran event multi-seksi yang valid, aman, dan aksesibel.</p>
           <div class="hp-showcase-techs">
             <span>Form &amp; Input</span>
             <span>Validasi Browser</span>
             <span>Labeling</span>
           </div>
+          <a href="/bab12/project-5-event-registration/" class="hp-showcase-action">Buka Mini Project →</a>
         </div>
       </article>
 
@@ -408,15 +189,19 @@ hero:
       <article class="hp-showcase-card">
         <div class="hp-showcase-meta">
           <span class="hp-showcase-tag">Project</span>
-          <span class="hp-showcase-chapter">Bab 5</span>
+          <span class="hp-showcase-chapter">BAB 14 &amp; 15</span>
         </div>
         <div class="hp-showcase-body">
-          <h3>Halaman Menu Restoran</h3>
-          <p>Menyusun daftar menu kuliner terstruktur rapi menggunakan lists terurut serta perbandingan daftar harga hidangan terperinci menggunakan tabel data.</p>
+          <h3>Debugging Lab &amp; Handbook</h3>
+          <p>Uji kemampuan memperbaiki HTML bermasalah, lalu lanjutkan dengan pusat referensi cepat elemen, atribut, metadata, dan accessibility.</p>
           <div class="hp-showcase-techs">
-            <span>Lists &amp; Tables</span>
-            <span>HTML Entities</span>
-            <span>Data Layout</span>
+            <span>Debugging</span>
+            <span>Quick Lookup</span>
+            <span>Reference Center</span>
+          </div>
+          <div class="hp-showcase-actions">
+            <a href="/bab14/introduction/" class="hp-showcase-action">Challenge Lab →</a>
+            <a href="/bab15/introduction/" class="hp-showcase-action">HTML Handbook →</a>
           </div>
         </div>
       </article>
@@ -507,13 +292,13 @@ hero:
         </div>
         <div class="hp-cta-stats" role="list" aria-label="Statistik kurikulum">
           <div class="hp-stat" role="listitem">
-            <span class="hp-stat-num">16</span>
+            <ChapterCount class="hp-stat-num" />
             <span class="hp-stat-label">Bab</span>
           </div>
           <div class="hp-stat-divider" aria-hidden="true"></div>
           <div class="hp-stat" role="listitem">
-            <span class="hp-stat-num">150+</span>
-            <span class="hp-stat-label">Pelajaran</span>
+            <span class="hp-stat-num">5</span>
+            <span class="hp-stat-label">Mini Project</span>
           </div>
           <div class="hp-stat-divider" aria-hidden="true"></div>
           <div class="hp-stat" role="listitem">
@@ -522,8 +307,8 @@ hero:
           </div>
           <div class="hp-stat-divider" aria-hidden="true"></div>
           <div class="hp-stat" role="listitem">
-            <span class="hp-stat-num">Free</span>
-            <span class="hp-stat-label">Selamanya</span>
+            <span class="hp-stat-num">HTML</span>
+            <span class="hp-stat-label">Handbook</span>
           </div>
         </div>
       </div>
