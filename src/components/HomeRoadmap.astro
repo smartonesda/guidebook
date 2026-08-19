@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+
+const chapterTitles = [
+  'Getting Started', 'HTML Fundamentals', 'Text & Typography',
+  'Hyperlinks & Navigation', 'Images & Multimedia', 'Lists & Tables',
+  'Forms', 'HTML Attributes', 'Semantic HTML', 'Metadata & SEO',
+  'Accessibility', 'HTML Best Practices', 'Mini Project Collection',
+  'Final Project', 'Challenge Collection', 'HTML Handbook',
+];
+
+const docs = await getCollection('docs');
+const introductions = new Map(
+  docs.flatMap((entry) => {
+    const match = entry.id.match(/^bab(\d+)\/introduction(?:\.md)?$/);
+    return match ? [[Number(match[1]), entry] as const] : [];
+  }),
+);
+const chapters = chapterTitles.flatMap((title, number) => {
+  const introduction = introductions.get(number);
+  return introduction ? [{ number, title, description: introduction.data.description, href: `/bab${number}/introduction/` }] : [];
+});
+---
+
+<section class="hp-section hp-roadmap" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="hp-section-inner">
+    <header class="hp-section-header">
+      <span class="hp-label">Kurikulum Lengkap</span>
+      <h2 class="hp-title" id="roadmap-title">16 BAB, Satu Jalur Belajar</h2>
+      <p class="hp-subtitle">Dari menyiapkan alat hingga mengaudit kode dan memakai handbook HTML, semua bab sudah tersedia untuk dipelajari sekarang.</p>
+    </header>
+    <div class="hp-roadmap-timeline-wrapper">
+      <h3 class="hp-roadmap-sub">BAB 0 — BAB 15</h3>
+      <ol class="hp-timeline" aria-label="Jalur pembelajaran HTML Guidebook">
+        {chapters.map((chapter, index) => (
+          <li class:list={['hp-tl-item', 'hp-tl-active', index === chapters.length - 1 && 'hp-tl-item--end']}>
+            <div class="hp-tl-marker" aria-hidden="true"><span>{String(chapter.number).padStart(2, '0')}</span></div>
+            <div class="hp-tl-content">
+              <a href={chapter.href} class="hp-tl-link">
+                <div class="hp-tl-head">
+                  <span class="hp-tl-badge badge-beginner">Tersedia</span>
+                  <h3>{chapter.title}</h3>
+                </div>
+                <p>{chapter.description}</p>
+              </a>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

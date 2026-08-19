@@ -1,0 +1,1822 @@
+/*
+ * ============================================================
+ *  SmartOneDev Theme — TypeScript Guidebook
+ *  Astro Starlight custom CSS
+ *
+ *  Strategy: CSS variables only. No layout changes.
+ *  Dark-first. Light via variable swap.
+ *
+ *  Sections:
+ *  1. Fonts
+ *  2. Design Tokens — Dark (root)
+ *  3. Design Tokens — Light override
+ *  4. Global base
+ *  5. Header / Navbar
+ *  6. Sidebar
+ *  7. Content — headings, links, lists
+ *  8. Inline code
+ *  9. Blockquote
+ * 10. Admonitions
+ * 11. Tables
+ * 12. Buttons
+ * 13. Hero
+ * 14. Pagination
+ * 15. Search
+ * 16. Table of Contents
+ * 17. Footer
+ * 18. Scrollbar
+ * 19. Selection & focus ring
+ * 20. Code blocks (shell overrides on top of ec.config.mjs)
+ * ============================================================
+ */
+
+/* ─────────────────────────────────────────────────────────────
+   1. FONTS
+   ───────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ─────────────────────────────────────────────────────────────
+   2. DESIGN TOKENS — DARK (applied as root defaults)
+   Starlight reads :root for the dark palette.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* --- Starlight colour slots -------------------------------- */
+  /* Accent: #ff5533 primary, #ff4d4d–#ff8a3d gradient         */
+  --sl-color-accent-low: #3d0e00; /* dark tint for low-contrast uses  */
+  --sl-color-accent: #ff5533; /* primary accent                    */
+  --sl-color-accent-high: #ffb199; /* high-contrast accent on dark bg   */
+
+  /* Backgrounds */
+  --sl-color-bg: #09090b; /* page background                   */
+  --sl-color-bg-nav: #09090b; /* navbar background                 */
+  --sl-color-bg-sidebar: #09090b; /* sidebar background                */
+  --sl-color-bg-inline-code: #16161b; /* inline <code> chip background     */
+
+  /* Hairlines (borders Starlight uses internally) */
+  --sl-color-hairline-shade: rgba(255, 255, 255, 0.04);
+  --sl-color-hairline-light: rgba(255, 255, 255, 0.06);
+  --sl-color-hairline: rgba(255, 255, 255, 0.08);
+
+  /* Text scale — Starlight maps these to its prose */
+  --sl-color-white: #f8fafc; /* primary text                      */
+  --sl-color-gray-1: #e2e8f0;
+  --sl-color-gray-2: #a1a1aa; /* secondary text                    */
+  --sl-color-gray-3: #71717a; /* muted                             */
+  --sl-color-gray-4: #3f3f46;
+  --sl-color-gray-5: #27272a;
+  --sl-color-gray-6: #18181b;
+  --sl-color-black: #09090b;
+
+  /* Font stacks */
+  --sl-font: "Inter", system-ui, -apple-system, sans-serif;
+  --sl-font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+
+  /* --- SmartOneDev custom tokens ---------------------------- */
+  --sod-accent: #ff5533;
+  --sod-accent-2: #ff8a3d;
+  --sod-gradient: linear-gradient(135deg, #ff4d4d, #ff8a3d);
+
+  --sod-bg: #09090b;
+  --sod-surface: #111114;
+  --sod-card: #16161b;
+  --sod-border: rgba(255, 255, 255, 0.08);
+  --sod-border-strong: rgba(255, 255, 255, 0.14);
+
+  --sod-text: #f8fafc;
+  --sod-text-2: #a1a1aa;
+  --sod-text-muted: #71717a;
+
+  --sod-radius-sm: 0.375rem;
+  --sod-radius: 0.625rem;
+  --sod-radius-lg: 0.875rem;
+  --sod-radius-xl: 1.25rem;
+
+  --sod-transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Glow for active elements */
+  --sod-glow: 0 0 16px rgba(255, 85, 51, 0.18);
+
+  /* Search theme-aware styling tokens (Dark) */
+  --sod-search-bg: #0d1117;
+  --sod-search-hover: #1f2937;
+  --sod-search-text-title: #f8fafc;
+  --sod-search-text-excerpt: #a1a1aa;
+  --sod-search-text-path: #71717a;
+  --sod-search-mark-bg: rgba(255, 120, 73, 0.18);
+  --sod-search-mark-text: #ff7849;
+  --sod-search-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  --sod-search-border: #30363d;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3. DESIGN TOKENS — LIGHT
+   Swap only the colour tokens. Everything structural stays.
+   ───────────────────────────────────────────────────────────── */
+[data-theme="light"] {
+  /* Starlight accent slots */
+  --sl-color-accent-low: #fff0ed;
+  --sl-color-accent: #e63e1e; /* slightly darker for AA on white  */
+  --sl-color-accent-high: #7a1a07;
+
+  /* Backgrounds */
+  --sl-color-bg: #fafafa;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #ffffff;
+  --sl-color-bg-inline-code: #f3f4f6;
+
+  /* Hairlines */
+  --sl-color-hairline-shade: rgba(0, 0, 0, 0.03);
+  --sl-color-hairline-light: rgba(0, 0, 0, 0.05);
+  --sl-color-hairline: rgba(0, 0, 0, 0.08);
+
+  /* Text scale — INVERTED for light bg */
+  --sl-color-white: #111827; /* primary text on light             */
+  --sl-color-gray-1: #1f2937;
+  --sl-color-gray-2: #4b5563; /* secondary text                    */
+  --sl-color-gray-3: #6b7280; /* muted                             */
+  --sl-color-gray-4: #d1d5db;
+  --sl-color-gray-5: #e5e7eb;
+  --sl-color-gray-6: #f9fafb;
+  --sl-color-black: #111827;
+
+  /* SmartOneDev custom tokens — light variants */
+  --sod-accent: #e63e1e;
+  --sod-accent-2: #ea6a1e;
+  --sod-gradient: linear-gradient(135deg, #e63e1e, #ea6a1e);
+
+  --sod-bg: #fafafa;
+  --sod-surface: #ffffff;
+  --sod-card: #ffffff;
+  --sod-border: rgba(0, 0, 0, 0.08);
+  --sod-border-strong: rgba(0, 0, 0, 0.14);
+
+  --sod-text: #111827;
+  --sod-text-2: #4b5563;
+  --sod-text-muted: #6b7280;
+
+  --sod-glow: 0 0 16px rgba(230, 62, 30, 0.1);
+
+  /* Search theme-aware styling tokens (Light) */
+  --sod-search-bg: #ffffff;
+  --sod-search-hover: #fff7f3;
+  --sod-search-text-title: #222222;
+  --sod-search-text-excerpt: #555555;
+  --sod-search-text-path: #888888;
+  --sod-search-mark-bg: #ffe4d8;
+  --sod-search-mark-text: #ff5533;
+  --sod-search-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  --sod-search-border: #ececec;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. GLOBAL BASE
+   ───────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sl-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   5. HEADER / NAVBAR
+   Glass effect, sticky, thin border.
+   ───────────────────────────────────────────────────────────── */
+header.header {
+  /* Glassmorphism */
+  background: color-mix(in srgb, var(--sod-bg) 80%, transparent) !important;
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid var(--sod-border) !important;
+  box-shadow: 0 1px 0 var(--sod-border);
+}
+
+/* Site title — gradient text */
+.site-title {
+  background: var(--sod-gradient) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 700 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6. SIDEBAR
+   ───────────────────────────────────────────────────────────── */
+.sidebar-pane {
+  background: var(--sl-color-bg-sidebar) !important;
+  border-inline-end: 1px solid var(--sod-border) !important;
+}
+
+/* Sidebar links */
+a.sidebar-link {
+  border-radius: var(--sod-radius-sm) !important;
+  transition:
+    background var(--sod-transition),
+    color var(--sod-transition),
+    padding-inline-start var(--sod-transition) !important;
+}
+
+a.sidebar-link:hover {
+  background: color-mix(in srgb, var(--sod-accent) 8%, transparent) !important;
+  color: var(--sl-color-white) !important;
+}
+
+/* Active link */
+a.sidebar-link[aria-current="page"] {
+  background: color-mix(in srgb, var(--sod-accent) 12%, transparent) !important;
+  border-inline-start: 2px solid var(--sod-accent) !important;
+  color: var(--sod-accent) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--sod-glow) !important;
+}
+
+/* Group label (BAB heading) */
+details.sidebar-group > summary:hover {
+  background: color-mix(in srgb, var(--sod-accent) 6%, transparent) !important;
+}
+details.sidebar-group[open] > summary .group-label span {
+  color: var(--sod-accent);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. CONTENT — headings, links, lists, hr
+   ───────────────────────────────────────────────────────────── */
+
+/* H1 — gradient */
+.sl-markdown-content h1,
+h1#_top {
+  background: var(--sod-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+/* H2 — subtle divider */
+.sl-markdown-content h2 {
+  border-bottom: 1px solid var(--sod-border);
+  padding-bottom: 0.35em;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+}
+
+/* Links — orange accent, animated underline */
+.sl-markdown-content a:not([class]) {
+  color: var(--sod-accent);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition:
+    color var(--sod-transition),
+    text-decoration-color var(--sod-transition);
+  font-weight: 500;
+}
+
+.sl-markdown-content a:not([class]):hover {
+  color: var(--sod-accent-2);
+  text-decoration-color: var(--sod-accent-2);
+}
+
+/* List markers */
+.sl-markdown-content ul > li::marker {
+  color: var(--sod-accent);
+}
+.sl-markdown-content ol > li::marker {
+  color: var(--sod-accent);
+  font-weight: 600;
+}
+
+/* HR */
+.sl-markdown-content hr {
+  border: none;
+  border-top: 1px solid var(--sod-border);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   8. INLINE CODE
+   Pill shape, subtle bg, accent text.
+   ───────────────────────────────────────────────────────────── */
+.sl-markdown-content :not(pre) > code {
+  background: var(--sl-color-bg-inline-code) !important;
+  border: 1px solid var(--sod-border) !important;
+  border-radius: var(--sod-radius-sm) !important;
+  padding: 0.1em 0.42em !important;
+  font-family: var(--sl-font-mono) !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  color: var(--sod-accent) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   9. BLOCKQUOTE
+   Accent left border, soft tinted background.
+   ───────────────────────────────────────────────────────────── */
+.sl-markdown-content blockquote {
+  border-inline-start: 3px solid var(--sod-accent) !important;
+  background: color-mix(in srgb, var(--sod-accent) 5%, transparent) !important;
+  border-radius: 0 var(--sod-radius) var(--sod-radius) 0 !important;
+  padding: 0.75rem 1.25rem !important;
+  color: var(--sl-color-gray-2) !important;
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────────────────────────
+  10. ADMONITIONS (tip / note / caution / danger)
+   ───────────────────────────────────────────────────────────── */
+.starlight-aside {
+  border-radius: var(--sod-radius) !important;
+  border: 1px solid var(--sod-border) !important;
+  border-inline-start-width: 3px !important;
+}
+
+/* Tip */
+.starlight-aside--tip {
+  background: color-mix(in srgb, #22c55e 6%, transparent) !important;
+  border-inline-start-color: #22c55e !important;
+  border-color: color-mix(in srgb, #22c55e 20%, transparent) !important;
+}
+/* Note */
+.starlight-aside--note {
+  background: color-mix(in srgb, #6366f1 6%, transparent) !important;
+  border-inline-start-color: #6366f1 !important;
+  border-color: color-mix(in srgb, #6366f1 20%, transparent) !important;
+}
+/* Caution */
+.starlight-aside--caution {
+  background: color-mix(in srgb, #f59e0b 6%, transparent) !important;
+  border-inline-start-color: #f59e0b !important;
+  border-color: color-mix(in srgb, #f59e0b 20%, transparent) !important;
+}
+/* Danger */
+.starlight-aside--danger {
+  background: color-mix(in srgb, #ef4444 6%, transparent) !important;
+  border-inline-start-color: #ef4444 !important;
+  border-color: color-mix(in srgb, #ef4444 20%, transparent) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+  11. TABLES
+   ───────────────────────────────────────────────────────────── */
+.sl-markdown-content table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border: 1px solid var(--sod-border) !important;
+  border-radius: var(--sod-radius-lg) !important;
+  overflow: hidden !important;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.sl-markdown-content thead tr {
+  background: var(--sod-surface) !important;
+}
+
+.sl-markdown-content thead th {
+  padding: 0.65rem 1rem;
+  text-align: start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sod-accent) !important;
+  border-bottom: 1px solid var(--sod-border) !important;
+}
+
+.sl-markdown-content tbody tr {
+  transition: background var(--sod-transition);
+}
+.sl-markdown-content tbody tr:hover {
+  background: color-mix(in srgb, var(--sod-accent) 4%, transparent) !important;
+}
+
+.sl-markdown-content td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--sod-border) !important;
+  vertical-align: top;
+  color: var(--sl-color-gray-1);
+}
+.sl-markdown-content tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+  12. BUTTONS (hero actions / link buttons)
+   ───────────────────────────────────────────────────────────── */
+a.sl-link-button {
+  border-radius: var(--sod-radius-xl) !important;
+  font-weight: 600 !important;
+  transition:
+    box-shadow var(--sod-transition),
+    transform var(--sod-transition),
+    background var(--sod-transition) !important;
+}
+
+/* Primary — gradient */
+a.sl-link-button.sl-link-button--primary {
+  background: var(--sod-gradient) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(255, 85, 51, 0.35) !important;
+}
+a.sl-link-button.sl-link-button--primary:hover {
+  box-shadow: 0 6px 22px rgba(255, 85, 51, 0.5) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Secondary — outline */
+a.sl-link-button.sl-link-button--secondary {
+  background: transparent !important;
+  border: 1px solid var(--sod-border-strong) !important;
+  color: var(--sl-color-white) !important;
+}
+a.sl-link-button.sl-link-button--secondary:hover {
+  background: color-mix(in srgb, var(--sod-accent) 8%, transparent) !important;
+  border-color: var(--sod-accent) !important;
+  color: var(--sod-accent) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+  13. HERO
+   Keep layout from Hero.astro. Only colour / glow touches here.
+   ───────────────────────────────────────────────────────────── */
+/* H1 gradient already handled by section 7. No layout changes. */
+
+/* ─────────────────────────────────────────────────────────────
+  14. PAGINATION — prev/next cards
+   ───────────────────────────────────────────────────────────── */
+.pagination-links a {
+  background: var(--sod-surface) !important;
+  border: 1px solid var(--sod-border) !important;
+  border-radius: var(--sod-radius-lg) !important;
+  transition:
+    border-color var(--sod-transition),
+    box-shadow var(--sod-transition),
+    transform var(--sod-transition) !important;
+  color: var(--sl-color-white) !important;
+  text-decoration: none !important;
+}
+.pagination-links a:hover {
+  border-color: var(--sod-accent) !important;
+  box-shadow: var(--sod-glow) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+  15. SEARCH
+   ───────────────────────────────────────────────────────────── */
+/* Search trigger button in navbar */
+site-search button[data-open-modal] {
+  background: var(--sod-surface) !important;
+  border: 1px solid var(--sod-border) !important;
+  border-radius: var(--sod-radius) !important;
+  color: var(--sod-text-muted) !important;
+  transition:
+    border-color var(--sod-transition),
+    color var(--sod-transition) !important;
+}
+site-search button[data-open-modal]:hover {
+  border-color: var(--sod-accent) !important;
+  color: var(--sl-color-white) !important;
+}
+
+/* Outer dialog container overlay */
+site-search dialog {
+  background: var(--sod-search-bg) !important;
+  border: 1px solid var(--sod-search-border) !important;
+  border-radius: var(--sod-radius-xl) !important;
+  box-shadow: var(--sod-search-shadow) !important;
+}
+
+/* Inner frame layout wrapper */
+site-search .dialog-frame {
+  background: transparent !important;
+}
+
+/* Pagefind UI base scope */
+#starlight__search {
+  --pagefind-ui-background: var(--sod-search-bg) !important;
+  --pagefind-ui-border: var(--sod-search-border) !important;
+  --pagefind-ui-text: var(--sod-search-text-excerpt) !important;
+  --pagefind-ui-primary: var(--sod-accent) !important;
+  --pagefind-ui-font: var(--sl-font) !important;
+  --pagefind-ui-border-radius: var(--sod-radius-lg) !important;
+}
+
+/* Search input field */
+#starlight__search input.pagefind-ui__search-input {
+  background: var(--sod-surface) !important;
+  border: 1px solid var(--sod-search-border) !important;
+  border-radius: var(--sod-radius) !important;
+  color: var(--sod-text) !important;
+  font-family: var(--sl-font) !important;
+  transition:
+    border-color var(--sod-transition),
+    box-shadow var(--sod-transition) !important;
+}
+#starlight__search input.pagefind-ui__search-input:focus {
+  border-color: var(--sod-accent) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--sod-accent) 15%, transparent) !important;
+}
+
+/* Heading & Excerpt Texts */
+#starlight__search .pagefind-ui__result-link {
+  color: var(--sod-search-text-title) !important;
+}
+#starlight__search .pagefind-ui__result-excerpt {
+  color: var(--sod-search-text-excerpt) !important;
+  font-size: 0.85rem !important;
+}
+
+/* Custom highlighted mark matching text */
+#starlight__search mark {
+  background: var(--sod-search-mark-bg) !important;
+  color: var(--sod-search-mark-text) !important;
+  border-radius: 2px !important;
+  padding-inline: 0.15em !important;
+}
+
+/* Nested search results list & separators */
+#starlight__search .pagefind-ui__result-nested {
+  border-inline-start-color: var(--sod-search-border) !important;
+}
+#starlight__search .pagefind-ui__result-nested::before {
+  background: var(--sod-search-border) !important;
+}
+
+/* Hover & Active Keyboard Navigation State */
+#starlight__search
+  .pagefind-ui__result-title:not(:where(.pagefind-ui__result-nested *)):hover,
+#starlight__search
+  .pagefind-ui__result-title:not(
+    :where(.pagefind-ui__result-nested *)
+  ):focus-within,
+#starlight__search .pagefind-ui__result-nested:hover,
+#starlight__search .pagefind-ui__result-nested:focus-within {
+  background-color: var(--sod-search-hover) !important;
+  outline: 1px solid color-mix(in srgb, var(--sod-accent) 30%, transparent) !important;
+}
+
+/* Result count status message & loader */
+#starlight__search .pagefind-ui__message {
+  color: var(--sod-text-muted) !important;
+  font-size: 0.825rem !important;
+}
+
+/* Close/Cancel button (mobile) */
+site-search button[data-close-modal] {
+  color: var(--sod-text-2) !important;
+  font-family: var(--sl-font) !important;
+  font-weight: 500 !important;
+  transition: color var(--sod-transition) !important;
+}
+site-search button[data-close-modal]:hover {
+  color: var(--sod-accent) !important;
+}
+
+/* Search scrollbar */
+site-search dialog::-webkit-scrollbar {
+  width: 6px;
+}
+site-search dialog::-webkit-scrollbar-track {
+  background: transparent;
+}
+site-search dialog::-webkit-scrollbar-thumb {
+  background: var(--sod-search-border) !important;
+  border-radius: 99px;
+}
+site-search dialog::-webkit-scrollbar-thumb:hover {
+  background: var(--sod-accent) !important;
+}
+/* ─────────────────────────────────────────────────────────────
+  16. TABLE OF CONTENTS (right sidebar)
+   ───────────────────────────────────────────────────────────── */
+.right-sidebar {
+  border-inline-start: 1px solid var(--sod-border) !important;
+}
+
+starlight-toc a {
+  color: var(--sod-text-muted) !important;
+  transition: color var(--sod-transition) !important;
+  text-decoration: none !important;
+}
+starlight-toc a:hover {
+  color: var(--sod-accent) !important;
+}
+starlight-toc a[aria-current="true"] {
+  color: var(--sod-accent) !important;
+  font-weight: 600 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+  17. FOOTER
+   ───────────────────────────────────────────────────────────── */
+footer.sl-flex {
+  border-top: 1px solid var(--sod-border) !important;
+  color: var(--sod-text-muted);
+}
+
+/* ─────────────────────────────────────────────────────────────
+  18. SCROLLBAR
+   Thin, rounded, accent thumb.
+   ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sod-border-strong);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sod-accent);
+}
+
+/* ─────────────────────────────────────────────────────────────
+  19. SELECTION & FOCUS RING
+   ───────────────────────────────────────────────────────────── */
+::selection {
+  background: color-mix(in srgb, var(--sod-accent) 28%, transparent);
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sod-accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Social icons */
+.social-icons a {
+  color: var(--sod-text-muted) !important;
+  transition: color var(--sod-transition) !important;
+}
+.social-icons a:hover {
+  color: var(--sod-accent) !important;
+}
+
+/* Badge */
+.sl-badge {
+  border-radius: 99px !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+  20. CODE BLOCKS
+   ec.config.mjs handles:
+     • themes (github-dark + github-light)
+     • dark/light mode switch via [data-theme] selectors
+     • font, padding, border-radius, shadow, line highlights, tab font
+   This section handles global shell adjustments that EC cannot configure.
+   ───────────────────────────────────────────────────────────── */
+
+/* Breathing room around each code block */
+.expressive-code {
+  margin-block: 1.75rem !important;
+}
+
+/* Enforce shared border-radius & overflow */
+.expressive-code .frame {
+  border-radius: var(--sod-radius-lg) !important;
+  overflow: hidden;
+}
+
+/* ── Copy button ────────────────────────────────────────────────────────── */
+.expressive-code .copy button {
+  border-radius: 6px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-theme="light"] .expressive-code .copy button {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  color: #4b5563 !important;
+}
+
+.expressive-code .copy button:hover {
+  background: rgba(255, 85, 51, 0.1) !important;
+  border-color: var(--sod-accent) !important;
+  color: var(--sod-accent) !important;
+  transform: scale(1.05);
+}
+
+.expressive-code .copy button:focus-visible {
+  outline: 2px solid var(--sod-accent) !important;
+  outline-offset: -2px !important;
+}
+
+/* ── Line Numbering & Line Hover ────────────────────────────────────────── */
+/* Add spacing and alignment for line numbers */
+.expressive-code .gutter {
+  padding-inline-end: 1rem !important;
+  user-select: none;
+  opacity: 0.65;
+}
+
+/* Highlight the line on mouse hover to make blocks feel premium and interactive */
+.expressive-code .ec-line:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--sod-accent) 4%,
+    transparent
+  ) !important;
+}
+
+/* Selection highlight inside code */
+.expressive-code .ec-line span::selection,
+.expressive-code .ec-line::selection {
+  background: color-mix(in srgb, var(--sod-accent) 30%, transparent) !important;
+}
+
+/* Horizontal scrollbar inside <pre> */
+.expressive-code pre::-webkit-scrollbar {
+  height: 4px;
+}
+.expressive-code pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+.expressive-code pre::-webkit-scrollbar-thumb {
+  border-radius: 99px;
+  background: rgba(128, 128, 128, 0.25);
+}
+.expressive-code pre::-webkit-scrollbar-thumb:hover {
+  background: var(--sod-accent);
+}
+
+/* Header/title overrides: medium weight typography */
+.expressive-code .frame .title,
+.expressive-code .frame .header {
+  font-weight: 500 !important;
+}
+
+/* ── Inline code ────────────────────────────────────────────────────────── */
+/* Pill shape, accent color-tinted background, accent text color */
+.sl-markdown-content :not(pre) > code {
+  background: var(--sod-inline-code-bg) !important;
+  border: 1px solid var(--sod-border) !important;
+  border-radius: 99px !important; /* Rounded pill */
+  padding: 0.2em 0.55em !important; /* Premium padding */
+  font-family: var(--sl-font-mono) !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  color: var(--sod-accent) !important;
+}
+
+/* Define inline code bg variables inside tokens */
+:root {
+  --sod-inline-code-bg: rgba(255, 85, 51, 0.08);
+}
+[data-theme="light"] {
+  --sod-inline-code-bg: rgba(230, 62, 30, 0.06);
+}
+
+[data-theme="light"] a[aria-current="page"].astro-ojxuodky {
+  color: white !important;
+}
+
+[data-theme="light"]
+  #starlight__search
+  .pagefind-ui__result-title:not(:where(.pagefind-ui__result-nested *)),
+[data-theme="light"] #starlight__search .pagefind-ui__result-nested {
+  background-color: transparent !important;
+}
+
+[data-theme="light"] .ts-title:where(.astro-ge2uvauf),
+[data-theme="light"] .ts-desc:where(.astro-ge2uvauf),
+[data-theme="light"] .stats-label:where(.astro-ge2uvauf) {
+  color: white !important;
+}
+
+
+
+/* ─────────────────────────────────────────────────────────────
+   21. HOMEPAGE SECTIONS — v2.0 REFINED
+   All .hp-* classes power the HTML Guidebook homepage.
+   Design system: 8pt grid, consistent token usage, premium feel.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Accent opacity scale ─────────────────────────────────────
+   Use these across the file for brand-color consistency.        */
+:root {
+  --hp-accent-glow:    rgba(255, 85, 51, 0.06);
+  --hp-accent-soft:    rgba(255, 85, 51, 0.08);
+  --hp-accent-muted:   rgba(255, 85, 51, 0.12);
+  --hp-accent-border:  rgba(255, 85, 51, 0.20);
+  --hp-accent-mid:     rgba(255, 85, 51, 0.30);
+  --hp-accent-strong:  rgba(255, 85, 51, 0.45);
+
+  --hp-card-shadow-rest:  0 1px 3px rgba(0,0,0,0.20), 0 1px 2px rgba(0,0,0,0.14);
+  --hp-card-shadow-hover: 0 8px 24px rgba(0,0,0,0.28), 0 0 0 1px var(--hp-accent-border);
+  --hp-card-shadow-accent: 0 8px 32px var(--hp-accent-soft);
+
+  /* 8pt rhythm tokens */
+  --hp-space-1: 0.5rem;   /* 8px  */
+  --hp-space-2: 1rem;     /* 16px */
+  --hp-space-3: 1.5rem;   /* 24px */
+  --hp-space-4: 2rem;     /* 32px */
+  --hp-space-5: 2.5rem;   /* 40px */
+  --hp-space-6: 3rem;     /* 48px */
+  --hp-space-8: 4rem;     /* 64px */
+  --hp-space-10: 5rem;    /* 80px */
+  --hp-space-12: 6rem;    /* 96px */
+
+  --hp-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --hp-duration: 0.22s;
+  --hp-duration-slow: 0.38s;
+}
+
+[data-theme="light"] {
+  --hp-accent-glow:    rgba(230, 62, 30, 0.04);
+  --hp-accent-soft:    rgba(230, 62, 30, 0.07);
+  --hp-accent-muted:   rgba(230, 62, 30, 0.10);
+  --hp-accent-border:  rgba(230, 62, 30, 0.18);
+  --hp-accent-mid:     rgba(230, 62, 30, 0.28);
+  --hp-card-shadow-rest:  0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --hp-card-shadow-hover: 0 8px 24px rgba(0,0,0,0.10), 0 0 0 1px var(--hp-accent-border);
+  --hp-card-shadow-accent: 0 8px 28px var(--hp-accent-muted);
+}
+
+/* ── Smooth scroll for anchor links ────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ── Section wrapper ────────────────────────────────────────── */
+.hp-section {
+  padding: var(--hp-space-12) 0;
+  position: relative;
+}
+
+/* Gradient separator between sections — subtle, not harsh border */
+.hp-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(72rem, 100%);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--sod-border) 20%,
+    var(--sod-border) 80%,
+    transparent 100%
+  );
+}
+
+.hp-section:first-of-type::before { display: none; }
+
+.hp-section-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 var(--hp-space-3);
+}
+
+/* ── Section header ─────────────────────────────────────────── */
+.hp-section-header {
+  text-align: center;
+  margin-bottom: var(--hp-space-8);
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--hp-space-8);
+}
+
+/* Eyebrow label pill */
+.hp-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--hp-accent-muted);
+  border: 1px solid var(--hp-accent-border);
+  color: var(--sod-accent);
+  border-radius: 99px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--hp-space-2);
+  transition: background var(--hp-duration) var(--hp-ease);
+}
+
+/* Section title — two sizes for variety */
+.hp-title {
+  font-size: clamp(1.625rem, 3.5vw, 2.25rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.18 !important;
+  color: var(--sod-text) !important;
+  margin: 0 0 var(--hp-space-2) !important;
+}
+
+.hp-title--large {
+  font-size: clamp(1.875rem, 4.5vw, 2.75rem) !important;
+}
+
+.hp-subtitle {
+  font-size: 1rem;
+  color: var(--sod-text-2);
+  max-width: 52ch;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 1 — WHY HTML ("Semua Dimulai dari Sini" — editorial columns)
+   ══════════════════════════════════════════════════════════════ */
+
+.hp-why {
+  background: var(--sod-surface);
+}
+
+.hp-why::before { display: none; }
+
+.hp-why-editorial {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.hp-why-header {
+  text-align: center;
+  margin-bottom: var(--hp-space-8);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.hp-why-header .hp-label {
+  margin-bottom: var(--hp-space-2);
+}
+
+.hp-why-main-title {
+  font-size: clamp(2rem, 4vw, 2.75rem) !important;
+  font-weight: 800 !important;
+  color: var(--sod-text) !important;
+  margin: 0 0 1rem !important;
+  line-height: 1.2 !important;
+}
+
+.hp-why-subtitle {
+  font-size: 1.05rem;
+  color: var(--sod-text-2);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hp-why-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--hp-space-4);
+}
+
+.hp-pillar-item {
+  padding: var(--hp-space-3) 0;
+  border-top: 1px solid var(--sod-border);
+  transition: border-color var(--hp-duration) ease;
+}
+
+.hp-pillar-item:hover {
+  border-top-color: var(--sod-accent);
+}
+
+.hp-pillar-num {
+  display: block;
+  font-family: var(--sl-font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--sod-accent);
+  margin-bottom: 0.75rem;
+}
+
+.hp-pillar-item h3 {
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  color: var(--sod-text) !important;
+  margin: 0 0 0.5rem !important;
+  line-height: 1.4 !important;
+}
+
+.hp-pillar-item p {
+  font-size: 0.8125rem;
+  color: var(--sod-text-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 56rem) {
+  .hp-why-pillars {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--hp-space-3);
+  }
+}
+
+@media (max-width: 32rem) {
+  .hp-why-pillars {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 2 — ROADMAP (orientation & progression timeline)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Pre-course Block */
+.hp-pre-course {
+  max-width: 780px;
+  margin: 0 auto var(--hp-space-8);
+  border: 1px solid var(--hp-accent-border);
+  border-radius: var(--sod-radius-lg);
+  background: var(--sod-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.hp-pre-course::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--sod-accent);
+}
+
+.hp-pre-course-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-family: var(--sl-font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sod-accent);
+  background: var(--hp-accent-muted);
+  border: 1px solid var(--hp-accent-border);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+
+.hp-pre-course-content {
+  padding: var(--hp-space-4);
+}
+
+.hp-pre-course-link {
+  display: block;
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.hp-pre-course-link h3 {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--sod-text) !important;
+  margin: 0 0 0.5rem !important;
+}
+
+.hp-pre-course-link p {
+  font-size: 0.875rem;
+  color: var(--sod-text-2);
+  line-height: 1.65;
+  margin: 0 0 1rem;
+  max-width: 60ch;
+}
+
+.hp-pre-course-action {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--sod-accent);
+  transition: transform var(--hp-duration) ease;
+  display: inline-block;
+}
+
+.hp-pre-course-link:hover .hp-pre-course-action {
+  transform: translateX(4px);
+}
+
+/* Timeline Progression */
+.hp-roadmap-timeline-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.hp-roadmap-sub {
+  font-family: var(--sl-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--sod-text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--hp-space-3);
+  text-align: left;
+}
+
+.hp-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Timeline vertical line */
+.hp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 1.25rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: var(--sod-border);
+  border-radius: 2px;
+}
+
+.hp-tl-item {
+  display: flex;
+  gap: var(--hp-space-3);
+  margin-bottom: var(--hp-space-2);
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Markers */
+.hp-tl-marker {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--sod-bg);
+  border: 2px solid var(--sod-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-top: 0.625rem;
+  transition: border-color var(--hp-duration) ease, background var(--hp-duration) ease;
+}
+
+.hp-tl-marker span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--sod-text-muted);
+  font-family: var(--sl-font-mono);
+}
+
+/* Active roadmap node */
+.hp-tl-active .hp-tl-marker {
+  border-color: var(--sod-accent);
+  background: var(--hp-accent-muted);
+}
+
+.hp-tl-active .hp-tl-marker span {
+  color: var(--sod-accent);
+}
+
+.hp-tl-active .hp-tl-link {
+  border-color: var(--hp-accent-border);
+  box-shadow: var(--hp-card-shadow-accent);
+}
+
+/* Muted roadmap node */
+.hp-tl-muted {
+  opacity: 0.7;
+}
+
+.hp-tl-muted .hp-tl-marker {
+  border-color: var(--sod-border);
+  background: var(--sod-bg);
+}
+
+.hp-tl-muted .hp-tl-marker span {
+  color: var(--sod-text-muted);
+}
+
+/* Hover behaviors */
+.hp-tl-item:hover .hp-tl-marker {
+  border-color: var(--hp-accent-border);
+}
+
+.hp-tl-active:hover .hp-tl-marker {
+  border-color: var(--sod-accent);
+}
+
+.hp-tl-content {
+  flex: 1;
+  padding-bottom: var(--hp-space-2);
+}
+
+.hp-tl-link {
+  display: block;
+  padding: var(--hp-space-2) var(--hp-space-3);
+  border: 1px solid var(--sod-border);
+  border-radius: var(--sod-radius-lg);
+  background: var(--sod-card);
+  text-decoration: none !important;
+  color: inherit;
+  transition: border-color var(--hp-duration) var(--hp-ease),
+              box-shadow var(--hp-duration) var(--hp-ease),
+              transform var(--hp-duration) var(--hp-ease);
+}
+
+a.hp-tl-link:hover {
+  border-color: var(--hp-accent-border);
+  box-shadow: var(--hp-card-shadow-hover);
+  transform: translateX(4px);
+}
+
+.hp-tl-soon {
+  cursor: default;
+}
+
+.hp-tl-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.hp-tl-link h3 {
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  color: var(--sod-text) !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+
+.hp-tl-link p {
+  font-size: 0.8125rem;
+  color: var(--sod-text-2);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Difficulty badges */
+.hp-tl-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 99px;
+  flex-shrink: 0;
+}
+
+.badge-start      { background: rgba(255,85,51,0.15); color: var(--sod-accent); }
+.badge-beginner   { background: rgba(34,197,94,0.12); color: #16a34a; }
+.badge-intermediate { background: rgba(234,179,8,0.12); color: #b45309; }
+.badge-advanced   { background: rgba(99,102,241,0.12); color: #6366f1; }
+.badge-project    { background: rgba(236,72,153,0.12); color: #be185d; }
+.badge-challenge  { background: rgba(249,115,22,0.12); color: #c2410c; }
+.badge-ref        { background: rgba(100,116,139,0.12); color: #475569; }
+.badge-muted      { background: rgba(255, 255, 255, 0.04); color: var(--sod-text-muted); border: 1px solid var(--sod-border); }
+
+[data-theme="light"] .badge-muted { background: rgba(0,0,0,0.03); }
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 3 — LEARNING METHOD (connected journey flow)
+   ══════════════════════════════════════════════════════════════ */
+
+.hp-journey-wrapper {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.hp-journey {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--hp-space-3);
+  position: relative;
+  min-width: 900px;
+}
+
+/* Connection line between steps on desktop */
+.hp-journey::before {
+  content: '';
+  position: absolute;
+  top: 1.125rem;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: var(--sod-border);
+  z-index: 0;
+}
+
+.hp-journey-step {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  background: var(--sod-bg);
+  padding: 0 0.5rem;
+}
+
+.hp-journey-num {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--sod-card);
+  border: 2px solid var(--sod-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--sod-text-muted);
+  font-family: var(--sl-font-mono);
+  margin-bottom: var(--hp-space-3);
+  transition: border-color var(--hp-duration) ease,
+              background var(--hp-duration) ease,
+              color var(--hp-duration) ease;
+}
+
+.hp-journey-step:hover .hp-journey-num {
+  border-color: var(--sod-accent);
+  background: var(--hp-accent-muted);
+  color: var(--sod-accent);
+}
+
+.hp-journey-body h3 {
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  color: var(--sod-text) !important;
+  margin: 0 0 0.35rem !important;
+}
+
+.hp-journey-body p {
+  font-size: 0.8125rem;
+  color: var(--sod-text-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 56rem) {
+  .hp-journey-wrapper {
+    overflow-x: visible;
+  }
+  .hp-journey {
+    flex-direction: column;
+    min-width: 0;
+    gap: var(--hp-space-4);
+  }
+  .hp-journey::before {
+    left: 1.125rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: 2px;
+    height: auto;
+    right: auto;
+  }
+  .hp-journey-step {
+    display: flex;
+    gap: var(--hp-space-3);
+    align-items: flex-start;
+  }
+  .hp-journey-num {
+    margin-bottom: 0;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 4 — PROJECTS PREVIEW (asymmetric grid showcase)
+   ══════════════════════════════════════════════════════════════ */
+
+.hp-projects {
+  background: var(--sod-surface);
+}
+.hp-projects::before { display: none; }
+
+.hp-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--hp-space-4);
+}
+
+.hp-showcase-card {
+  background: var(--sod-card);
+  border: 1px solid var(--sod-border);
+  border-radius: var(--sod-radius-lg);
+  padding: var(--hp-space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color var(--hp-duration) ease,
+              box-shadow var(--hp-duration) ease,
+              transform var(--hp-duration) ease;
+}
+
+.hp-showcase-card:hover {
+  border-color: var(--hp-accent-border);
+  box-shadow: var(--hp-card-shadow-accent);
+  transform: translateY(-2px);
+}
+
+.hp-showcase-featured {
+  grid-column: span 2;
+}
+
+.hp-showcase-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--hp-space-2);
+}
+
+.hp-showcase-tag {
+  font-family: var(--sl-font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--sod-accent);
+}
+
+.hp-showcase-chapter {
+  font-family: var(--sl-font-mono);
+  font-size: 0.65rem;
+  color: var(--sod-text-muted);
+}
+
+.hp-showcase-body h3 {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: var(--sod-text) !important;
+  margin: 0 0 0.5rem !important;
+}
+
+.hp-showcase-body p {
+  font-size: 0.8125rem;
+  color: var(--sod-text-2);
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+.hp-showcase-techs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.hp-showcase-techs span {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--sod-text-muted);
+  background: var(--sod-bg);
+  border: 1px solid var(--sod-border);
+  border-radius: var(--sod-radius-sm);
+  padding: 0.15rem 0.5rem;
+}
+
+.hp-showcase-action {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--sod-accent);
+  text-decoration: none;
+}
+
+.hp-showcase-action:hover {
+  color: var(--sod-accent);
+  text-decoration: underline;
+}
+
+.hp-showcase-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 48rem) {
+  .hp-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  .hp-showcase-featured {
+    grid-column: span 1;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 5 — OUTCOME (checklist editorial split)
+   ══════════════════════════════════════════════════════════════ */
+
+.hp-outcome-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--hp-space-10);
+  align-items: start;
+}
+
+.hp-outcome-lead .hp-label { margin-bottom: var(--hp-space-2); }
+
+.hp-outcome-lead .hp-title {
+  text-align: left !important;
+  margin-bottom: var(--hp-space-3) !important;
+}
+
+.hp-outcome-lead > p {
+  font-size: 0.9375rem;
+  color: var(--sod-text-2);
+  line-height: 1.7;
+  margin: 0 0 var(--hp-space-4);
+}
+
+.hp-outcome-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sod-accent) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid var(--hp-accent-border);
+  padding-bottom: 1px;
+  transition: border-color var(--hp-duration) ease;
+}
+
+.hp-outcome-cta:hover {
+  border-color: var(--sod-accent);
+}
+
+.hp-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.hp-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--sod-text);
+  line-height: 1.5;
+}
+
+.hp-check-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: var(--hp-accent-muted);
+  border: 1px solid var(--hp-accent-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: var(--sod-accent);
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 56rem) {
+  .hp-outcome-layout {
+    grid-template-columns: 1fr;
+    gap: var(--hp-space-6);
+  }
+  .hp-outcome-lead .hp-title { text-align: center !important; }
+  .hp-outcome-lead .hp-label { display: block; text-align: center; }
+  .hp-outcome-lead > p { text-align: center; }
+  .hp-outcome-cta { margin: 0 auto; display: flex; justify-content: center; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 6 — FINAL CTA (strong CTA band)
+   ══════════════════════════════════════════════════════════════ */
+
+.hp-cta { padding-top: var(--hp-space-4); padding-bottom: var(--hp-space-12); }
+.hp-cta::before { display: none; }
+
+.hp-cta-band {
+  position: relative;
+  background: var(--sod-card);
+  border: 1px solid var(--sod-border-strong);
+  border-radius: var(--sod-radius-xl);
+  padding: var(--hp-space-10) var(--hp-space-4);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hp-cta-band-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 0%, var(--hp-accent-soft), transparent 70%);
+  pointer-events: none;
+}
+
+/* Accent hairline at top of band */
+.hp-cta-band::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hp-accent-mid), transparent);
+}
+
+.hp-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.hp-cta-content > .hp-label {
+  display: inline-flex;
+  margin-bottom: var(--hp-space-2);
+}
+
+.hp-cta-content h2 {
+  font-size: clamp(1.75rem, 4vw, 2.625rem) !important;
+  font-weight: 800 !important;
+  color: var(--sod-text) !important;
+  margin: 0.5rem 0 1rem !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.15 !important;
+}
+
+.hp-cta-desc {
+  font-size: 1rem;
+  color: var(--sod-text-2);
+  line-height: 1.7;
+  margin: 0 auto var(--hp-space-5);
+  max-width: 46ch;
+}
+
+.hp-cta-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--hp-space-6);
+}
+
+/* CTA buttons */
+.hp-cta-actions .hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: var(--sod-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all var(--hp-duration) var(--hp-ease);
+  cursor: pointer;
+}
+
+.hp-cta-actions .btn-primary {
+  background: var(--sod-accent);
+  color: #fff !important;
+  box-shadow: 0 2px 12px var(--hp-accent-strong);
+}
+.hp-cta-actions .btn-primary:hover {
+  background: #e63e1e;
+  box-shadow: 0 6px 24px var(--hp-accent-strong);
+  transform: translateY(-1px);
+}
+.hp-cta-actions .btn-primary:focus-visible {
+  outline: 2px solid var(--sod-accent);
+  outline-offset: 3px;
+}
+.hp-cta-actions .btn-secondary {
+  background: transparent;
+  color: var(--sod-text) !important;
+  border: 1px solid var(--sod-border-strong);
+}
+.hp-cta-actions .btn-secondary:hover {
+  border-color: var(--hp-accent-border);
+  color: var(--sod-accent) !important;
+  background: var(--hp-accent-muted);
+}
+.hp-cta-actions .btn-secondary:focus-visible {
+  outline: 2px solid var(--sod-accent);
+  outline-offset: 3px;
+}
+
+/* Stats row */
+.hp-cta-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hp-space-5);
+  flex-wrap: wrap;
+  padding-top: var(--hp-space-4);
+  border-top: 1px solid var(--sod-border);
+}
+
+.hp-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.hp-stat-num {
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--sod-text);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.hp-stat-label {
+  font-size: 0.7rem;
+  color: var(--sod-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.hp-stat-divider {
+  width: 1px;
+  height: 2.25rem;
+  background: var(--sod-border-strong);
+  flex-shrink: 0;
+}
+
+@media (max-width: 40rem) {
+  .hp-cta-stats { gap: var(--hp-space-3); }
+  .hp-stat-divider { display: none; }
+  .hp-cta-band { padding: var(--hp-space-8) var(--hp-space-3); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ROADMAP — shared mobile responsive
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 40rem) {
+  .hp-timeline::before { left: 1rem; }
+  .hp-tl-marker { width: 2rem; height: 2rem; }
+  .hp-tl-item { gap: var(--hp-space-2); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SPLASH template — Starlight overrides
+   ══════════════════════════════════════════════════════════════ */
+.sl-markdown-content { max-width: none !important; }
+
+[data-template="splash"] .main-pane {
+  padding-inline: 0 !important;
+}
+
+[data-template="splash"] .content-panel {
+  padding: 0 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HTML Visual Identity Annotations & Layout Tweaks
+   ══════════════════════════════════════════════════════════════ */
+
+.hp-label {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--sl-font-mono);
+  background: var(--hp-accent-soft);
+  border: 1px solid var(--hp-accent-border);
+  color: var(--sod-accent);
+  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Add custom markup brackets decoration to section headers */
+.hp-title {
+  position: relative;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hp-hl-feat-item,
+  .hp-journey-step,
+  .hp-showcase-card,
+  .hp-tl-link,
+  .hp-cta-actions .hero-btn { transition: none; }
+}
+
