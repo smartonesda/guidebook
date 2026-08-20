@@ -1,22 +1,221 @@
 ---
+import Icon from '../ui/Icon.astro';
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="final-cta" aria-labelledby="final-cta-title">
-  <p class="final-cta__label">Perjalananmu dimulai di sini</p>
-  <h2 id="final-cta-title">Siap Memulai?</h2>
-  <p>Mulai perjalanan belajarmu dari BAB 0 — Pengenalan, lalu ikuti setiap langkah sampai kamu siap membuat aplikasi nyata.</p>
-  <a href={`${base}/bab0/selamat-datang/`}>🚀 Mulai Belajar <span aria-hidden="true">→</span></a>
+  <!-- Atmospheric Spatial Glow Mesh -->
+  <div class="final-cta__ambient" aria-hidden="true">
+    <div class="final-cta__glow-1"></div>
+    <div class="final-cta__glow-2"></div>
+  </div>
+
+  <div class="final-cta__content">
+    <h2 id="final-cta-title" class="final-cta__title">Siap Menguasai TypeScript?</h2>
+
+    <p class="final-cta__desc">
+      Mulailah dari <strong>BAB 0 — Pengenalan & Persiapan</strong>. Ikuti setiap modul interaktifnya dan bangun keahlian software engineering kamu langkah demi langkah hingga siap ke dunia industri.
+    </p>
+
+    <div class="final-cta__actions">
+      <a href={`${base}/bab0/selamat-datang/`} class="final-cta__btn final-cta__btn--primary">
+        <span>Mulai Belajar Sekarang</span>
+        <Icon name="arrow-right" size={17} class="final-cta__btn-icon" />
+      </a>
+      <a href="#roadmap" class="final-cta__btn final-cta__btn--secondary">
+        <Icon name="route" size={17} class="final-cta__btn-icon" />
+        <span>Lihat Roadmap</span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <style>
-  .final-cta { position: relative; overflow: hidden; padding: clamp(2.5rem, 7vw, 5rem) 1.25rem; border-radius: var(--sod-radius-xl); background: var(--sod-gradient); color: #fff; text-align: center; }
-  .final-cta::after { position: absolute; width: 20rem; height: 20rem; right: -9rem; bottom: -14rem; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 50%; content: ''; }
-  .final-cta__label { margin: 0; font-size: 0.78rem; font-weight: 750; letter-spacing: 0.09em; text-transform: uppercase; opacity: 0.84; }
-  h2 { margin: 0.7rem 0 0; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.05em; }
-  .final-cta > p:not(.final-cta__label) { max-width: 43rem; margin: 1rem auto 0; line-height: 1.7; opacity: 0.92; }
-  a { position: relative; z-index: 1; display: inline-flex; gap: 0.55rem; align-items: center; justify-content: center; min-height: 2.9rem; margin-top: 1.7rem; padding: 0.7rem 1.2rem; border-radius: 0.75rem; background: #fff; color: #d94428; font-weight: 800; text-decoration: none; transition: transform var(--sod-transition), box-shadow var(--sod-transition); }
-  a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(88, 17, 5, 0.2); }
-  a span { font-size: 1.15em; }
-  @media (prefers-reduced-motion: reduce) { a { transition: none; } }
+  .final-cta {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    contain: paint;
+    padding: clamp(3.5rem, 8vw, 5.5rem) 1.5rem;
+    border: 1px solid var(--sod-border);
+    border-radius: var(--sod-radius-xl);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--sod-surface) 85%, var(--sod-accent) 15%) 0%,
+      var(--sod-surface) 50%,
+      color-mix(in srgb, var(--sod-surface) 90%, var(--sod-accent-2) 10%) 100%
+    );
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    text-align: center;
+  }
+
+  .final-cta__ambient {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    contain: strict;
+  }
+
+  .final-cta__glow-1 {
+    position: absolute;
+    top: -45%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32rem;
+    height: 20rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--sod-accent) 18%, transparent) 0%, transparent 70%);
+    filter: blur(32px);
+  }
+
+  .final-cta__glow-2 {
+    position: absolute;
+    bottom: -35%;
+    right: 10%;
+    width: 20rem;
+    height: 14rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--sod-accent-2) 12%, transparent) 0%, transparent 70%);
+    filter: blur(28px);
+  }
+
+  .final-cta__content {
+    position: relative;
+    z-index: 1;
+    max-width: 44rem;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .final-cta__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1.25rem;
+    padding: 0.3rem 0.85rem;
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 30%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--sod-accent) 8%, transparent);
+    color: var(--sod-accent);
+    font-size: 0.74rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .final-cta__badge-icon {
+    color: var(--sod-accent);
+  }
+
+  .final-cta__title {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+  }
+
+  .final-cta__desc {
+    max-width: 40ch;
+    margin: 1rem auto 0;
+    color: var(--sl-color-gray-2);
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.7;
+  }
+
+  .final-cta__desc strong {
+    color: var(--sl-color-white);
+  }
+
+  .final-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    margin-top: 2.25rem;
+  }
+
+  .final-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.1rem;
+    padding: 0.75rem 1.45rem;
+    border-radius: var(--sod-radius);
+    font-size: 0.95rem;
+    font-weight: 650;
+    text-decoration: none !important;
+    transition:
+      transform var(--sod-transition),
+      box-shadow var(--sod-transition),
+      border-color var(--sod-transition),
+      background var(--sod-transition);
+  }
+
+  .final-cta__btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .final-cta__btn--primary {
+    background: var(--sod-gradient);
+    border: 1px solid transparent;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--sod-accent) 35%, transparent);
+  }
+
+  .final-cta__btn--primary:hover {
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--sod-accent) 48%, transparent);
+  }
+
+  .final-cta__btn--primary .final-cta__btn-icon {
+    transition: transform var(--sod-transition);
+  }
+
+  .final-cta__btn--primary:hover .final-cta__btn-icon {
+    transform: translateX(3px);
+  }
+
+  .final-cta__btn--secondary {
+    border: 1px solid var(--sod-border-strong);
+    background: color-mix(in srgb, var(--sod-surface) 80%, transparent);
+    color: var(--sl-color-white) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .final-cta__btn--secondary:hover {
+    border-color: var(--sod-accent);
+    background: var(--sod-card);
+    color: var(--sod-accent) !important;
+  }
+
+  .final-cta__btn--secondary .final-cta__btn-icon {
+    color: var(--sod-accent);
+  }
+
+  @media (max-width: 32rem) {
+    .final-cta__actions {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .final-cta__btn {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .final-cta__btn,
+    .final-cta__btn-icon {
+      transition: opacity 0.15s ease, border-color 0.15s ease, background 0.15s ease !important;
+      transform: none !important;
+    }
+  }
 </style>

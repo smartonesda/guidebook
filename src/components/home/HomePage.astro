@@ -8,16 +8,86 @@ import LearningOutcome from './LearningOutcome.astro';
 import FinalCTA from './FinalCTA.astro';
 ---
 
-<div class="home-page">
-  <HomeHighlights />
-  <HomeWhyTypeScript />
-  <HomeRoadmap />
-  <LearningMethod />
-  <UsageSteps />
-  <LearningOutcome />
-  <FinalCTA />
+<div class="home-canvas">
+  <!-- Atmospheric Spatial Background -->
+  <div class="home-canvas__ambient" aria-hidden="true">
+    <div class="home-canvas__glow-1"></div>
+    <div class="home-canvas__glow-2"></div>
+    <div class="home-canvas__glow-3"></div>
+  </div>
+
+  <div class="home-canvas__container">
+    <HomeHighlights />
+    <HomeWhyTypeScript />
+    <HomeRoadmap />
+    <LearningMethod />
+    <UsageSteps />
+    <LearningOutcome />
+    <FinalCTA />
+  </div>
 </div>
 
 <style>
-  .home-page { display: grid; gap: clamp(4.5rem, 9vw, 8rem); padding-bottom: clamp(3.5rem, 7vw, 6rem); }
+  .home-canvas {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .home-canvas__ambient {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    contain: strict;
+  }
+
+  .home-canvas__glow-1 {
+    position: absolute;
+    top: 10%;
+    left: -15%;
+    width: 42rem;
+    height: 42rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--sod-accent) 8%, transparent) 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0.7;
+  }
+
+  .home-canvas__glow-2 {
+    position: absolute;
+    top: 45%;
+    right: -15%;
+    width: 46rem;
+    height: 46rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--sod-accent-2) 7%, transparent) 0%, transparent 70%);
+    filter: blur(45px);
+    opacity: 0.6;
+  }
+
+  .home-canvas__glow-3 {
+    position: absolute;
+    bottom: 12%;
+    left: -10%;
+    width: 38rem;
+    height: 38rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--sod-accent) 6%, transparent) 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0.5;
+  }
+
+  .home-canvas__container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: clamp(4.5rem, 8vw, 7.5rem);
+    padding-bottom: clamp(3.5rem, 7vw, 6rem);
+    max-width: 76rem;
+    margin-inline: auto;
+    width: 100%;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+  }
 </style>

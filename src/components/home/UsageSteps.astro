@@ -1,47 +1,266 @@
 ---
-const steps = [
-  ['01', 'Pelajari sesuai urutan bab', 'Setiap bab menjadi dasar untuk materi setelahnya.'],
-  ['02', 'Ketik ulang contoh kode', 'Belajar lebih kuat saat kamu mencoba sendiri.'],
-  ['03', 'Jalankan dengan TSX', 'Jalankan seluruh contoh yang tersedia.'],
-  ['04', 'Coba dan bereksperimen', 'Jangan takut mengubah kode untuk melihat hasilnya.'],
-  ['05', 'Kerjakan latihan dan challenge', 'Gunakan latihan untuk menguji pemahamanmu.'],
-  ['06', 'Selesaikan mini project', 'Terapkan konsep dari setiap bab menjadi karya nyata.'],
+import Icon, { type Props as IconProps } from '../ui/Icon.astro';
+
+interface UsageStep {
+  number: string;
+  icon: IconProps['name'];
+  title: string;
+  description: string;
+}
+
+const steps: UsageStep[] = [
+  {
+    number: '01',
+    icon: 'route',
+    title: 'Pelajari Sesuai Urutan Bab',
+    description: 'Setiap bab menjadi fondasi untuk materi setelahnya. Ikuti kurikulum secara berurutan agar pemahaman terbentuk utuh.',
+  },
+  {
+    number: '02',
+    icon: 'code',
+    title: 'Ketik Ulang Contoh Kode',
+    description: 'Hindari copy-paste. Mengetik langsung melatih muscle memory, kepekaan sintaks, dan pemahaman logika compiler.',
+  },
+  {
+    number: '03',
+    icon: 'terminal',
+    title: 'Jalankan dengan TSX',
+    description: 'Eksekusi setiap file kode contoh di terminal komputer kamu untuk melihat hasil proses dan output secara langsung.',
+  },
+  {
+    number: '04',
+    icon: 'flask',
+    title: 'Eksperimen & Uji Coba',
+    description: 'Jangan ragu memodifikasi tipe data atau parameter untuk melihat respons dan pesan peringatan compiler.',
+  },
+  {
+    number: '05',
+    icon: 'help-circle',
+    title: 'Kerjakan Challenge Mandiri',
+    description: 'Gunakan tantangan di setiap bab untuk menguji sejauh mana daya analisis logika dan kemandirian problem solvingmu.',
+  },
+  {
+    number: '06',
+    icon: 'trophy',
+    title: 'Tuntaskan Mini Project',
+    description: 'Terapkan konsep teori menjadi modul nyata yang siap kamu jadikan bukti portofolio aplikasi berstandar industri.',
+  },
 ];
 ---
 
 <section class="usage-steps" aria-labelledby="usage-steps-title">
   <div class="usage-steps__heading">
-    <p class="section-label">Belajar lebih maksimal</p>
-    <h2 id="usage-steps-title">Cara Menggunakan Guidebook Ini</h2>
-    <p>Ikuti langkah kecil ini agar materi tidak hanya dibaca, tetapi juga dipraktikkan.</p>
+    <h2 id="usage-steps-title" class="section-title">Cara Menggunakan Guidebook Ini</h2>
+    <p class="section-desc">
+      Ikuti 6 langkah praktis ini agar pemahaman teknis yang kamu pelajari benar-benar melekat dan terbiasa diterapkan saat membangun software nyata.
+    </p>
   </div>
-  <ol class="usage-steps__grid">
-    {steps.map(([number, title, description]) => (
-      <li>
-        <span>{number}</span>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </li>
-    ))}
-  </ol>
-  <aside class="usage-steps__tip"><span aria-hidden="true">💡</span><p><strong>Tips:</strong> Jangan takut ketika menemukan error. Error adalah bagian dari proses belajar seorang programmer.</p></aside>
+
+  <div class="usage-steps__grid">
+    {
+      steps.map(({ number, icon, title, description }) => (
+        <article class="usage-card">
+          <div class="usage-card__top">
+            <span class="usage-card__number">{number}</span>
+            <div class="usage-card__icon-box">
+              <Icon name={icon} size={18} class="usage-card__icon" />
+            </div>
+          </div>
+          <h3 class="usage-card__title">{title}</h3>
+          <p class="usage-card__desc">{description}</p>
+        </article>
+      ))
+    }
+  </div>
+
+  <aside class="usage-tip" aria-label="Tips belajar">
+    <div class="usage-tip__icon-box">
+      <Icon name="lightbulb" size={20} class="usage-tip__icon" />
+    </div>
+    <div class="usage-tip__content">
+      <strong>Tips Sukses Belajar:</strong>
+      <span>
+        Jangan takut ketika melihat garis merah (*red squiggles*) di editor kodemu. Error bukan kegagalan, melainkan asisten cerdas TypeScript yang menyelamatkanmu dari bug sebelum aplikasi sampai ke tangan pengguna.
+      </span>
+    </div>
+  </aside>
 </section>
 
 <style>
-  .usage-steps { padding-inline: clamp(0.25rem, 2vw, 1rem); }
-  .usage-steps__heading { max-width: 43rem; }
-  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
-  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
-  .usage-steps__heading > p:last-child { margin: 1rem 0 0; color: var(--sl-color-gray-2); line-height: 1.7; }
-  .usage-steps__grid { display: grid; gap: 0.75rem; margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: usage; }
-  .usage-steps__grid li { min-height: 10.5rem; padding: 1.15rem; border-top: 2px solid color-mix(in srgb, var(--sod-accent) 42%, transparent); border-radius: var(--sod-radius-lg); background: var(--sod-surface); }
-  .usage-steps__grid span { color: var(--sod-accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; }
-  h3 { margin: 1.3rem 0 0; color: var(--sl-color-white); font-size: 1rem; line-height: 1.35; }
-  .usage-steps__grid p { margin: 0.55rem 0 0; color: var(--sl-color-gray-2); font-size: 0.87rem; line-height: 1.6; }
-  .usage-steps__tip { display: flex; gap: 0.75rem; align-items: flex-start; margin-top: 1rem; padding: 1rem 1.1rem; border: 1px solid color-mix(in srgb, var(--sod-accent) 26%, var(--sod-border)); border-radius: var(--sod-radius); background: color-mix(in srgb, var(--sod-accent) 7%, transparent); }
-  .usage-steps__tip span { font-size: 1.05rem; }
-  .usage-steps__tip p { margin: 0; color: var(--sl-color-gray-2); line-height: 1.6; }
-  .usage-steps__tip strong { color: var(--sl-color-white); }
-  @media (min-width: 40rem) { .usage-steps__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 64rem) { .usage-steps__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .usage-steps {
+    width: 100%;
+  }
+
+  .usage-steps__heading {
+    max-width: 44rem;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 26%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--sod-accent) 7%, transparent);
+    color: var(--sod-accent);
+    font-size: 0.74rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .section-badge__icon {
+    color: var(--sod-accent);
+  }
+
+  .section-title {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    margin: 0.75rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: clamp(0.98rem, 1.8vw, 1.08rem);
+    line-height: 1.7;
+  }
+
+  .usage-steps__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    margin-top: 3rem;
+  }
+
+  .usage-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--sod-border);
+    border-radius: var(--sod-radius-lg);
+    background: var(--sod-surface);
+    transition:
+      transform var(--sod-transition),
+      border-color var(--sod-transition),
+      box-shadow var(--sod-transition);
+  }
+
+  .usage-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--sod-accent) 45%, var(--sod-border));
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .usage-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.15rem;
+  }
+
+  .usage-card__number {
+    font-family: var(--sl-font-mono);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--sod-accent);
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    background: color-mix(in srgb, var(--sod-accent) 12%, transparent);
+  }
+
+  .usage-card__icon-box {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border-radius: 0.65rem;
+    background: color-mix(in srgb, var(--sod-accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 20%, transparent);
+    color: var(--sod-accent);
+    transition: color var(--sod-transition), border-color var(--sod-transition);
+  }
+
+  .usage-card:hover .usage-card__icon-box {
+    color: var(--sod-accent);
+    border-color: color-mix(in srgb, var(--sod-accent) 40%, transparent);
+    background: color-mix(in srgb, var(--sod-accent) 16%, transparent);
+  }
+
+  .usage-card__title {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+
+  .usage-card__desc {
+    margin: 0.5rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: 0.88rem;
+    line-height: 1.62;
+  }
+
+  /* Tip Box */
+  .usage-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.15rem;
+    margin-top: 1.75rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 28%, var(--sod-border));
+    border-radius: var(--sod-radius-lg);
+    background: color-mix(in srgb, var(--sod-accent) 6%, var(--sod-surface));
+  }
+
+  .usage-tip__icon-box {
+    display: grid;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--sod-accent) 14%, transparent);
+    color: var(--sod-accent);
+  }
+
+  .usage-tip__content {
+    color: var(--sl-color-gray-2);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .usage-tip__content strong {
+    color: var(--sl-color-white);
+    margin-right: 0.45rem;
+    display: inline;
+  }
+
+  @media (min-width: 42rem) {
+    .usage-steps__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 68rem) {
+    .usage-steps__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .usage-card {
+      transition: opacity 0.15s ease, border-color 0.15s ease, background-color 0.15s ease !important;
+      transform: none !important;
+    }
+  }
 </style>

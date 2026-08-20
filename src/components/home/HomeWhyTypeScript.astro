@@ -1,27 +1,212 @@
+---
+import Icon, { type Props as IconProps } from '../ui/Icon.astro';
+
+interface BenefitItem {
+  icon: IconProps['name'];
+  title: string;
+  desc: string;
+}
+
+const benefits: BenefitItem[] = [
+  {
+    icon: 'shield-check',
+    title: 'Lebih Aman & Bebas Bug',
+    desc: 'Kesalahan tipe data tertangkap langsung saat menulis kode di editor, bukan saat aplikasi berjalan di hadapan pengguna.',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Pengalaman Developer Superior',
+    desc: 'Nikmati autocomplete cerdas, refactoring instan tanpa rasa waswas, dan dokumentasi tipe data yang selalu up-to-date.',
+  },
+  {
+    icon: 'layers',
+    title: 'Struktur Kode Skalabel',
+    desc: 'Memudahkan pengelolaan aplikasi berskala besar menggunakan kontrak data (Interface & Type Alias) yang tegas dan presisi.',
+  },
+  {
+    icon: 'users',
+    title: 'Standar Industri & Tim Modern',
+    desc: 'Diadopsi secara universal oleh industri teknologi global untuk menjaga standarisasi dan kejelasan kode antar tim developer.',
+  },
+];
+---
+
 <section class="why-typescript" aria-labelledby="why-typescript-title">
+  <!-- Subtle Ambient Spatial Glow -->
+  <div class="why-typescript__ambient" aria-hidden="true"></div>
+
   <div class="why-typescript__copy">
-    <p class="section-label">Fondasi yang tepat</p>
-    <h2 id="why-typescript-title">Mengapa Belajar TypeScript?</h2>
-    <p>JavaScript digunakan oleh hampir semua website modern. Namun, banyak kesalahan baru terlihat saat program dijalankan.</p>
-    <p>TypeScript membantu menemukan kesalahan lebih awal, sehingga kamu dapat menulis kode dengan lebih percaya diri untuk aplikasi modern.</p>
+    <h2 id="why-typescript-title" class="section-title">Mengapa Belajar TypeScript?</h2>
+    <p class="why-typescript__paragraph">
+      JavaScript mentenagai hampir seluruh web modern. Namun tanpa sistem tipe data yang ketat, bug runtime kerap baru terdeteksi saat aplikasi sudah berada di tangan user.
+    </p>
+    <p class="why-typescript__paragraph">
+      TypeScript menambahkan sistem tipe statis di atas JavaScript. Hasilnya? Kamu menulis kode dengan tingkat percaya diri tinggi, produktivitas tim melompat pesat, dan siap bersaing di bursa kerja industri teknologi.
+    </p>
   </div>
-  <ul class="why-typescript__benefits" aria-label="Manfaat TypeScript">
-    <li><span aria-hidden="true">✓</span><div><strong>Lebih aman</strong><small>Kesalahan lebih cepat ditemukan.</small></div></li>
-    <li><span aria-hidden="true">✓</span><div><strong>Lebih mudah dipelajari</strong><small>Tipe data membuat kode lebih jelas.</small></div></li>
-    <li><span aria-hidden="true">✓</span><div><strong>Lebih mudah dikembangkan</strong><small>Struktur kode lebih terjaga.</small></div></li>
-    <li><span aria-hidden="true">✓</span><div><strong>Lebih mudah dikerjakan dalam tim</strong><small>Kontrak data lebih mudah dipahami bersama.</small></div></li>
-  </ul>
+
+  <div class="why-typescript__benefits">
+    {
+      benefits.map(({ icon, title, desc }) => (
+        <article class="benefit-card">
+          <div class="benefit-card__icon-box">
+            <Icon name={icon} size={19} class="benefit-card__icon" />
+          </div>
+          <div class="benefit-card__content">
+            <h3 class="benefit-card__title">{title}</h3>
+            <p class="benefit-card__desc">{desc}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
 </section>
 
 <style>
-  .why-typescript { display: grid; gap: 2rem; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--sod-border); border-radius: var(--sod-radius-xl); background: linear-gradient(135deg, color-mix(in srgb, var(--sod-accent) 8%, var(--sod-surface)), var(--sod-surface) 55%); }
-  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
-  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
-  .why-typescript__copy > p:not(.section-label) { max-width: 38rem; margin: 1rem 0 0; color: var(--sl-color-gray-2); line-height: 1.7; }
-  .why-typescript__benefits { display: grid; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
-  .why-typescript__benefits li { display: flex; gap: 0.8rem; align-items: flex-start; padding: 0.85rem; border: 1px solid var(--sod-border); border-radius: var(--sod-radius); background: color-mix(in srgb, var(--sod-card) 80%, transparent); }
-  .why-typescript__benefits > li > span { display: grid; flex: 0 0 auto; width: 1.35rem; height: 1.35rem; place-items: center; border-radius: 50%; background: var(--sod-gradient); color: #fff; font-size: 0.75rem; font-weight: 800; }
-  strong { display: block; color: var(--sl-color-white); font-size: 0.92rem; }
-  small { display: block; margin-top: 0.18rem; color: var(--sl-color-gray-2); font-size: 0.8rem; line-height: 1.45; }
-  @media (min-width: 50rem) { .why-typescript { grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr); align-items: center; } }
+  .why-typescript {
+    position: relative;
+    overflow: hidden;
+    contain: paint;
+    display: grid;
+    gap: 2.5rem;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    border: 1px solid var(--sod-border);
+    border-radius: var(--sod-radius-xl);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--sod-surface) 90%, var(--sod-accent) 10%) 0%,
+      var(--sod-surface) 50%,
+      color-mix(in srgb, var(--sod-surface) 95%, var(--sod-accent-2) 5%) 100%
+    );
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .why-typescript__ambient {
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 28rem;
+    height: 28rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--sod-accent) 12%, transparent) 0%, transparent 70%);
+    filter: blur(28px);
+    pointer-events: none;
+  }
+
+  .why-typescript__copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 26%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--sod-accent) 7%, transparent);
+    color: var(--sod-accent);
+    font-size: 0.74rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  .why-typescript__paragraph {
+    max-width: 36rem;
+    margin: 0.85rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    line-height: 1.7;
+  }
+
+  .why-typescript__benefits {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .benefit-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem 1.3rem;
+    border: 1px solid var(--sod-border);
+    border-radius: var(--sod-radius);
+    background: color-mix(in srgb, var(--sod-card) 80%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition:
+      transform var(--sod-transition),
+      border-color var(--sod-transition),
+      background-color var(--sod-transition),
+      box-shadow var(--sod-transition);
+  }
+
+  .benefit-card:hover {
+    transform: translateX(4px);
+    border-color: color-mix(in srgb, var(--sod-accent) 40%, var(--sod-border));
+    background: var(--sod-card);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .benefit-card__icon-box {
+    display: grid;
+    flex-shrink: 0;
+    width: 2.35rem;
+    height: 2.35rem;
+    place-items: center;
+    border-radius: 0.7rem;
+    background: color-mix(in srgb, var(--sod-accent) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 20%, transparent);
+    color: var(--sod-accent);
+    margin-top: 0.1rem;
+  }
+
+  .benefit-card__content {
+    min-width: 0;
+  }
+
+  .benefit-card__title {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+  }
+
+  .benefit-card__desc {
+    margin: 0.35rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  @media (min-width: 54rem) {
+    .why-typescript {
+      grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 1fr);
+      align-items: center;
+      gap: 3.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .benefit-card {
+      transition: opacity 0.15s ease, border-color 0.15s ease, background-color 0.15s ease !important;
+      transform: none !important;
+    }
+  }
 </style>

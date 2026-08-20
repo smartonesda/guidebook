@@ -1,46 +1,191 @@
 ---
-const highlights = [
-  ['📖', 'Penjelasan mudah dipahami', 'Materi dijelaskan bertahap dengan bahasa yang jelas.'],
-  ['💡', 'Analogi kehidupan sehari-hari', 'Konsep teknis dibawa ke contoh yang lebih dekat.'],
-  ['💻', 'Live Coding', 'Ikuti contoh kode dan pahami prosesnya.'],
-  ['🧪', 'Studi Kasus', 'Lihat penggunaan konsep dalam situasi nyata.'],
-  ['🏆', 'Mini Project', 'Latih pemahaman lewat proyek di setiap bab.'],
-  ['❓', 'Challenge', 'Uji kemampuanmu setelah mempelajari materi.'],
-  ['🚨', 'Error Corner', 'Belajar menghadapi error sebagai bagian proses.'],
-  ['📝', 'Ringkasan', 'Tutup setiap bab dengan poin penting yang perlu diingat.'],
+import Icon, { type Props as IconProps } from '../ui/Icon.astro';
+
+interface HighlightItem {
+  icon: IconProps['name'];
+  title: string;
+  description: string;
+}
+
+const highlights: HighlightItem[] = [
+  {
+    icon: 'book-open',
+    title: 'Penjelasan Mudah Dipahami',
+    description: 'Materi dijelaskan secara bertahap dan terstruktur dengan bahasa Indonesia yang jelas dan ramah pemula.',
+  },
+  {
+    icon: 'lightbulb',
+    title: 'Analogi Kehidupan Nyata',
+    description: 'Konsep teknis yang abstrak disederhanakan melalui perumpamaan logika yang dekat dengan keseharian.',
+  },
+  {
+    icon: 'terminal',
+    title: 'Live Coding Interaktif',
+    description: 'Ikuti kode baris demi baris, jalankan langsung di terminal, dan pahami alur eksekusi compiler.',
+  },
+  {
+    icon: 'flask',
+    title: 'Studi Kasus Industri',
+    description: 'Penerapan konsep langsung pada skenario nyata dalam pengembangan aplikasi web dan backend modern.',
+  },
+  {
+    icon: 'trophy',
+    title: 'Mini Project Mandiri',
+    description: 'Latih pemahaman teknis dengan membangun modul proyek nyata di setiap akhir bab materi.',
+  },
+  {
+    icon: 'help-circle',
+    title: 'Tantangan & Problem Solving',
+    description: 'Uji daya nalar algoritma dan ketelitian tipe data setelah menuntaskan setiap topik pembahasan.',
+  },
+  {
+    icon: 'alert-triangle',
+    title: 'Error Corner & Debugging',
+    description: 'Bedah pesan error TypeScript yang umum dan pelajari teknik mitigasi serta pencegahannya secara tepat.',
+  },
+  {
+    icon: 'notebook-pen',
+    title: 'Ringkasan & Intisari',
+    description: 'Tutup setiap bab dengan poin-poin krusial dan rangkuman penting yang esensial untuk diingat kembali.',
+  },
 ];
 ---
 
 <section class="section highlights" aria-labelledby="highlights-title">
   <div class="section-heading">
-    <p class="section-label">Pengalaman belajar</p>
-    <h2 id="highlights-title">Yang Akan Kamu Dapatkan</h2>
-    <p>Setiap bab membantu kamu memahami konsep, mencoba kode, dan membangun kebiasaan belajar seperti programmer.</p>
+    <h2 id="highlights-title" class="section-title">Yang Akan Kamu Dapatkan</h2>
+    <p class="section-desc">
+      Setiap bab dirancang secara sistematis untuk membangun fondasi logika yang kokoh, melatih kebiasaan menulis kode berkualitas tinggi, dan mempersiapkanmu ke standar industri.
+    </p>
   </div>
+
   <div class="highlights__grid">
-    {highlights.map(([icon, title, description]) => (
-      <article class="highlight-card">
-        <span class="highlight-card__icon" aria-hidden="true">{icon}</span>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </article>
-    ))}
+    {
+      highlights.map(({ icon, title, description }) => (
+        <article class="highlight-card">
+          <div class="highlight-card__icon-box">
+            <Icon name={icon} size={20} class="highlight-card__icon" />
+          </div>
+          <div class="highlight-card__content">
+            <h3 class="highlight-card__title">{title}</h3>
+            <p class="highlight-card__desc">{description}</p>
+          </div>
+        </article>
+      ))
+    }
   </div>
 </section>
 
 <style>
-  .section { padding-inline: clamp(0.25rem, 2vw, 1rem); }
-  .section-heading { max-width: 43rem; }
-  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
-  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
-  .section-heading > p:last-child { margin: 1rem 0 0; color: var(--sl-color-gray-2); line-height: 1.7; }
-  .highlights__grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 2rem; }
-  .highlight-card { min-height: 10rem; padding: 1.2rem; border: 1px solid var(--sod-border); border-radius: var(--sod-radius-lg); background: var(--sod-surface); transition: transform var(--sod-transition), border-color var(--sod-transition), background var(--sod-transition); }
-  .highlight-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--sod-accent) 48%, var(--sod-border)); background: var(--sod-card); }
-  .highlight-card__icon { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border-radius: 0.65rem; background: color-mix(in srgb, var(--sod-accent) 11%, transparent); font-size: 1.2rem; }
-  h3 { margin: 1rem 0 0; color: var(--sl-color-white); font-size: 1rem; line-height: 1.35; }
-  .highlight-card p { margin: 0.5rem 0 0; color: var(--sl-color-gray-2); font-size: 0.88rem; line-height: 1.6; }
-  @media (min-width: 40rem) { .highlights__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 64rem) { .highlights__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  @media (prefers-reduced-motion: reduce) { .highlight-card { transition: none; } }
+  .section {
+    width: 100%;
+  }
+
+  .section-heading {
+    max-width: 44rem;
+  }
+
+  .section-title {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    margin: 0.75rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: clamp(0.98rem, 1.8vw, 1.08rem);
+    line-height: 1.7;
+  }
+
+  .highlights__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    margin-top: 3rem;
+  }
+
+  .highlight-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--sod-border);
+    border-radius: var(--sod-radius-lg);
+    background: var(--sod-surface);
+    transition:
+      transform var(--sod-transition),
+      border-color var(--sod-transition),
+      background-color var(--sod-transition),
+      box-shadow var(--sod-transition);
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--sod-accent) 45%, var(--sod-border));
+    background: var(--sod-card);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08), 0 0 16px color-mix(in srgb, var(--sod-accent) 8%, transparent);
+  }
+
+  .highlight-card__icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.8rem;
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 22%, transparent);
+    background: color-mix(in srgb, var(--sod-accent) 9%, transparent);
+    color: var(--sod-accent);
+    margin-bottom: 1rem;
+    transition:
+      transform var(--sod-transition),
+      background-color var(--sod-transition),
+      box-shadow var(--sod-transition);
+  }
+
+  .highlight-card:hover .highlight-card__icon-box {
+    transform: scale(1.04);
+    background: color-mix(in srgb, var(--sod-accent) 15%, transparent);
+    box-shadow: 0 0 14px color-mix(in srgb, var(--sod-accent) 25%, transparent);
+  }
+
+  .highlight-card__title {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  .highlight-card__desc {
+    margin: 0.5rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: 0.885rem;
+    line-height: 1.62;
+  }
+
+  @media (min-width: 42rem) {
+    .highlights__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 68rem) {
+    .highlights__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .highlight-card,
+    .highlight-card__icon-box {
+      transition: opacity 0.15s ease, border-color 0.15s ease, background-color 0.15s ease !important;
+      transform: none !important;
+    }
+  }
 </style>

@@ -1,32 +1,10 @@
 /*
  * ============================================================
- *  SmartOneDev Theme — TypeScript Guidebook
+ *  SmartOneDev Theme — TypeScript Guidebook (v2.0)
  *  Astro Starlight custom CSS
  *
  *  Strategy: CSS variables only. No layout changes.
  *  Dark-first. Light via variable swap.
- *
- *  Sections:
- *  1. Fonts
- *  2. Design Tokens — Dark (root)
- *  3. Design Tokens — Light override
- *  4. Global base
- *  5. Header / Navbar
- *  6. Sidebar
- *  7. Content — headings, links, lists
- *  8. Inline code
- *  9. Blockquote
- * 10. Admonitions
- * 11. Tables
- * 12. Buttons
- * 13. Hero
- * 14. Pagination
- * 15. Search
- * 16. Table of Contents
- * 17. Footer
- * 18. Scrollbar
- * 19. Selection & focus ring
- * 20. Code blocks (shell overrides on top of ec.config.mjs)
  * ============================================================
  */
 
@@ -41,50 +19,51 @@
    ───────────────────────────────────────────────────────────── */
 :root {
   /* --- Starlight colour slots -------------------------------- */
-  /* Accent: #ff5533 primary, #ff4d4d–#ff8a3d gradient         */
-  --sl-color-accent-low: #3d0e00; /* dark tint for low-contrast uses  */
-  --sl-color-accent: #ff5533; /* primary accent                    */
-  --sl-color-accent-high: #ffb199; /* high-contrast accent on dark bg   */
+  --sl-color-accent-low: #3d0e00;
+  --sl-color-accent: #ff4d2e;
+  --sl-color-accent-high: #ffb199;
 
   /* Backgrounds */
-  --sl-color-bg: #09090b; /* page background                   */
-  --sl-color-bg-nav: #09090b; /* navbar background                 */
-  --sl-color-bg-sidebar: #09090b; /* sidebar background                */
-  --sl-color-bg-inline-code: #16161b; /* inline <code> chip background     */
+  --sl-color-bg: #09090b;
+  --sl-color-bg-nav: #09090b;
+  --sl-color-bg-sidebar: #09090b;
+  --sl-color-bg-inline-code: #16161b;
 
-  /* Hairlines (borders Starlight uses internally) */
+  /* Hairlines */
   --sl-color-hairline-shade: rgba(255, 255, 255, 0.04);
   --sl-color-hairline-light: rgba(255, 255, 255, 0.06);
   --sl-color-hairline: rgba(255, 255, 255, 0.08);
 
-  /* Text scale — Starlight maps these to its prose */
-  --sl-color-white: #f8fafc; /* primary text                      */
-  --sl-color-gray-1: #e2e8f0;
-  --sl-color-gray-2: #a1a1aa; /* secondary text                    */
-  --sl-color-gray-3: #71717a; /* muted                             */
-  --sl-color-gray-4: #3f3f46;
-  --sl-color-gray-5: #27272a;
-  --sl-color-gray-6: #18181b;
+  /* Text scale - enhanced contrast (WCAG AAA compliant) */
+  --sl-color-white: #f8fafc;
+  --sl-color-gray-1: #f1f5f9;
+  --sl-color-gray-2: #cbd5e1;
+  --sl-color-gray-3: #94a3b8;
+  --sl-color-gray-4: #475569;
+  --sl-color-gray-5: #334155;
+  --sl-color-gray-6: #1e293b;
   --sl-color-black: #09090b;
 
   /* Font stacks */
   --sl-font: "Inter", system-ui, -apple-system, sans-serif;
   --sl-font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
 
-  /* --- SmartOneDev custom tokens ---------------------------- */
-  --sod-accent: #ff5533;
-  --sod-accent-2: #ff8a3d;
-  --sod-gradient: linear-gradient(135deg, #ff4d4d, #ff8a3d);
+  /* --- SmartOneDev custom tokens (Dark) --------------------- */
+  --sod-accent: #ff4d2e;
+  --sod-accent-2: #ff7a45;
+  --sod-gradient: linear-gradient(135deg, #ff4d2e 0%, #ff7a45 50%, #ffa26b 100%);
+  --sod-gradient-subtle: linear-gradient(135deg, rgba(255, 77, 46, 0.12), rgba(255, 122, 69, 0.04));
 
   --sod-bg: #09090b;
-  --sod-surface: #111114;
-  --sod-card: #16161b;
+  --sod-surface: #111115;
+  --sod-card: #15151b;
   --sod-border: rgba(255, 255, 255, 0.08);
-  --sod-border-strong: rgba(255, 255, 255, 0.14);
+  --sod-border-strong: rgba(255, 255, 255, 0.16);
 
   --sod-text: #f8fafc;
-  --sod-text-2: #a1a1aa;
-  --sod-text-muted: #71717a;
+  --sod-text-2: #cbd5e1;
+  --sod-text-muted: #94a3b8;
+  --sod-inline-code-bg: rgba(255, 85, 51, 0.08);
 
   --sod-radius-sm: 0.375rem;
   --sod-radius: 0.625rem;
@@ -92,78 +71,71 @@
   --sod-radius-xl: 1.25rem;
 
   --sod-transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --sod-glow: 0 0 20px rgba(255, 77, 46, 0.2);
 
-  /* Glow for active elements */
-  --sod-glow: 0 0 16px rgba(255, 85, 51, 0.18);
-
-  /* Search theme-aware styling tokens (Dark) */
-  --sod-search-bg: #0d1117;
-  --sod-search-hover: #1f2937;
+  /* Search theme tokens (Dark) */
+  --sod-search-bg: #0e0e13;
+  --sod-search-hover: #191922;
   --sod-search-text-title: #f8fafc;
-  --sod-search-text-excerpt: #a1a1aa;
-  --sod-search-text-path: #71717a;
-  --sod-search-mark-bg: rgba(255, 120, 73, 0.18);
-  --sod-search-mark-text: #ff7849;
-  --sod-search-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
-  --sod-search-border: #30363d;
+  --sod-search-text-excerpt: #cbd5e1;
+  --sod-search-text-path: #94a3b8;
+  --sod-search-mark-bg: rgba(255, 77, 46, 0.2);
+  --sod-search-mark-text: #ff7a45;
+  --sod-search-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  --sod-search-border: rgba(255, 255, 255, 0.12);
 }
 
 /* ─────────────────────────────────────────────────────────────
    3. DESIGN TOKENS — LIGHT
-   Swap only the colour tokens. Everything structural stays.
    ───────────────────────────────────────────────────────────── */
 [data-theme="light"] {
-  /* Starlight accent slots */
   --sl-color-accent-low: #fff0ed;
-  --sl-color-accent: #e63e1e; /* slightly darker for AA on white  */
+  --sl-color-accent: #e63e1e;
   --sl-color-accent-high: #7a1a07;
 
-  /* Backgrounds */
   --sl-color-bg: #fafafa;
   --sl-color-bg-nav: #ffffff;
   --sl-color-bg-sidebar: #ffffff;
   --sl-color-bg-inline-code: #f3f4f6;
 
-  /* Hairlines */
   --sl-color-hairline-shade: rgba(0, 0, 0, 0.03);
   --sl-color-hairline-light: rgba(0, 0, 0, 0.05);
   --sl-color-hairline: rgba(0, 0, 0, 0.08);
 
-  /* Text scale — INVERTED for light bg */
-  --sl-color-white: #111827; /* primary text on light             */
-  --sl-color-gray-1: #1f2937;
-  --sl-color-gray-2: #4b5563; /* secondary text                    */
-  --sl-color-gray-3: #6b7280; /* muted                             */
-  --sl-color-gray-4: #d1d5db;
-  --sl-color-gray-5: #e5e7eb;
-  --sl-color-gray-6: #f9fafb;
-  --sl-color-black: #111827;
+  --sl-color-white: #0f172a;
+  --sl-color-gray-1: #1e293b;
+  --sl-color-gray-2: #334155;
+  --sl-color-gray-3: #64748b;
+  --sl-color-gray-4: #cbd5e1;
+  --sl-color-gray-5: #e2e8f0;
+  --sl-color-gray-6: #f8fafc;
+  --sl-color-black: #0f172a;
 
-  /* SmartOneDev custom tokens — light variants */
   --sod-accent: #e63e1e;
   --sod-accent-2: #ea6a1e;
-  --sod-gradient: linear-gradient(135deg, #e63e1e, #ea6a1e);
+  --sod-gradient: linear-gradient(135deg, #e63e1e 0%, #f06a38 50%, #f78c58 100%);
+  --sod-gradient-subtle: linear-gradient(135deg, rgba(230, 62, 30, 0.08), rgba(240, 106, 56, 0.03));
 
   --sod-bg: #fafafa;
   --sod-surface: #ffffff;
   --sod-card: #ffffff;
   --sod-border: rgba(0, 0, 0, 0.08);
-  --sod-border-strong: rgba(0, 0, 0, 0.14);
+  --sod-border-strong: rgba(0, 0, 0, 0.16);
 
-  --sod-text: #111827;
-  --sod-text-2: #4b5563;
-  --sod-text-muted: #6b7280;
+  --sod-text: #0f172a;
+  --sod-text-2: #334155;
+  --sod-text-muted: #64748b;
+  --sod-inline-code-bg: rgba(230, 62, 30, 0.06);
 
-  --sod-glow: 0 0 16px rgba(230, 62, 30, 0.1);
+  --sod-glow: 0 0 16px rgba(230, 62, 30, 0.12);
 
-  /* Search theme-aware styling tokens (Light) */
   --sod-search-bg: #ffffff;
   --sod-search-hover: #fff7f3;
-  --sod-search-text-title: #222222;
-  --sod-search-text-excerpt: #555555;
-  --sod-search-text-path: #888888;
+  --sod-search-text-title: #0f172a;
+  --sod-search-text-excerpt: #334155;
+  --sod-search-text-path: #64748b;
   --sod-search-mark-bg: #ffe4d8;
-  --sod-search-mark-text: #ff5533;
+  --sod-search-mark-text: #e63e1e;
   --sod-search-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   --sod-search-border: #ececec;
 }
@@ -181,7 +153,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Paksa seluruh dokumen mewarisi Inter dari body — termasuk elemen Starlight yang tidak explicit */
 *,
 *::before,
 *::after {
@@ -194,7 +165,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Elemen yang secara eksplisit harus tetap monospace */
+/* Monospace */
 code,
 kbd,
 pre,
@@ -204,24 +175,25 @@ samp {
 
 /* ─────────────────────────────────────────────────────────────
    5. HEADER / NAVBAR
-   Glass effect, sticky, thin border.
    ───────────────────────────────────────────────────────────── */
 header.header {
-  /* Glassmorphism */
-  background: color-mix(in srgb, var(--sod-bg) 80%, transparent) !important;
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  background: color-mix(in srgb, var(--sod-bg) 85%, transparent) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   border-bottom: 1px solid var(--sod-border) !important;
   box-shadow: 0 1px 0 var(--sod-border);
 }
 
-/* Site title — gradient text */
+/* Site title — solid confident brand typography */
 .site-title {
-  background: var(--sod-gradient) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  font-weight: 700 !important;
+  color: var(--sl-color-white) !important;
+  font-weight: 750 !important;
+  letter-spacing: -0.02em !important;
+  transition: color var(--sod-transition);
+}
+
+.site-title:hover {
+  color: var(--sod-accent) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -249,9 +221,9 @@ a.sidebar-link:hover {
 /* Active link */
 a.sidebar-link[aria-current="page"] {
   background: color-mix(in srgb, var(--sod-accent) 12%, transparent) !important;
-  border-inline-start: 2px solid var(--sod-accent) !important;
+  border: 1px solid color-mix(in srgb, var(--sod-accent) 30%, transparent) !important;
   color: var(--sod-accent) !important;
-  font-weight: 600 !important;
+  font-weight: 650 !important;
   box-shadow: var(--sod-glow) !important;
 }
 
@@ -267,26 +239,19 @@ details.sidebar-group[open] > summary .group-label span {
    7. CONTENT — headings, links, lists, hr
    ───────────────────────────────────────────────────────────── */
 
-/* H1 — gradient */
+/* H1 — High contrast solid typography */
 .sl-markdown-content h1 {
-  background: var(--sod-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  color: var(--sl-color-white);
+  font-weight: 850;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
 }
 
 /* PageTitle (rendered by Starlight as h1 inside .content-panel, outside .sl-markdown-content) */
-.content-panel > .sl-container > h1 {
-  background: var(--sod-gradient) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  font-weight: 800 !important;
-  letter-spacing: -0.03em !important;
+.content-panel > .sl-container > h1:not(.course-hero__title) {
+  color: var(--sl-color-white) !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.035em !important;
   line-height: 1.15 !important;
 }
 
@@ -294,8 +259,9 @@ details.sidebar-group[open] > summary .group-label span {
 .sl-markdown-content h2 {
   border-bottom: 1px solid var(--sod-border);
   padding-bottom: 0.35em;
-  font-weight: 700;
-  letter-spacing: -0.018em;
+  color: var(--sl-color-white);
+  font-weight: 750;
+  letter-spacing: -0.02em;
 }
 
 /* Links — orange accent, animated underline */
@@ -307,7 +273,7 @@ details.sidebar-group[open] > summary .group-label span {
   transition:
     color var(--sod-transition),
     text-decoration-color var(--sod-transition);
-  font-weight: 500;
+  font-weight: 550;
 }
 
 .sl-markdown-content a:not([class]):hover {
@@ -332,13 +298,12 @@ details.sidebar-group[open] > summary .group-label span {
 
 /* ─────────────────────────────────────────────────────────────
    8. INLINE CODE
-   Pill shape, subtle bg, accent text.
    ───────────────────────────────────────────────────────────── */
 .sl-markdown-content :not(pre) > code {
-  background: var(--sl-color-bg-inline-code) !important;
+  background: var(--sod-inline-code-bg) !important;
   border: 1px solid var(--sod-border) !important;
   border-radius: var(--sod-radius-sm) !important;
-  padding: 0.1em 0.42em !important;
+  padding: 0.12em 0.45em !important;
   font-family: var(--sl-font-mono) !important;
   font-size: 0.875em !important;
   font-weight: 500 !important;
@@ -347,15 +312,14 @@ details.sidebar-group[open] > summary .group-label span {
 
 /* ─────────────────────────────────────────────────────────────
    9. BLOCKQUOTE
-   Accent left border, soft tinted background.
    ───────────────────────────────────────────────────────────── */
 .sl-markdown-content blockquote {
-  border-inline-start: 3px solid var(--sod-accent) !important;
-  background: color-mix(in srgb, var(--sod-accent) 5%, transparent) !important;
-  border-radius: 0 var(--sod-radius) var(--sod-radius) 0 !important;
-  padding: 0.75rem 1.25rem !important;
+  border: 1px solid color-mix(in srgb, var(--sod-accent) 25%, var(--sod-border)) !important;
+  background: color-mix(in srgb, var(--sod-accent) 4%, var(--sod-surface)) !important;
+  border-radius: var(--sod-radius) !important;
+  padding: 0.85rem 1.25rem !important;
   color: var(--sl-color-gray-2) !important;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -364,32 +328,28 @@ details.sidebar-group[open] > summary .group-label span {
 .starlight-aside {
   border-radius: var(--sod-radius) !important;
   border: 1px solid var(--sod-border) !important;
-  border-inline-start-width: 3px !important;
+  padding: 1rem 1.25rem !important;
 }
 
 /* Tip */
 .starlight-aside--tip {
-  background: color-mix(in srgb, #22c55e 6%, transparent) !important;
-  border-inline-start-color: #22c55e !important;
-  border-color: color-mix(in srgb, #22c55e 20%, transparent) !important;
+  background: color-mix(in srgb, #22c55e 6%, var(--sod-surface)) !important;
+  border-color: color-mix(in srgb, #22c55e 25%, var(--sod-border)) !important;
 }
 /* Note */
 .starlight-aside--note {
-  background: color-mix(in srgb, #6366f1 6%, transparent) !important;
-  border-inline-start-color: #6366f1 !important;
-  border-color: color-mix(in srgb, #6366f1 20%, transparent) !important;
+  background: color-mix(in srgb, #6366f1 6%, var(--sod-surface)) !important;
+  border-color: color-mix(in srgb, #6366f1 25%, var(--sod-border)) !important;
 }
 /* Caution */
 .starlight-aside--caution {
-  background: color-mix(in srgb, #f59e0b 6%, transparent) !important;
-  border-inline-start-color: #f59e0b !important;
-  border-color: color-mix(in srgb, #f59e0b 20%, transparent) !important;
+  background: color-mix(in srgb, #f59e0b 6%, var(--sod-surface)) !important;
+  border-color: color-mix(in srgb, #f59e0b 25%, var(--sod-border)) !important;
 }
 /* Danger */
 .starlight-aside--danger {
-  background: color-mix(in srgb, #ef4444 6%, transparent) !important;
-  border-inline-start-color: #ef4444 !important;
-  border-color: color-mix(in srgb, #ef4444 20%, transparent) !important;
+  background: color-mix(in srgb, #ef4444 6%, var(--sod-surface)) !important;
+  border-color: color-mix(in srgb, #ef4444 25%, var(--sod-border)) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -474,13 +434,7 @@ a.sl-link-button.sl-link-button--secondary:hover {
 }
 
 /* ─────────────────────────────────────────────────────────────
-  13. HERO
-   Keep layout from Hero.astro. Only colour / glow touches here.
-   ───────────────────────────────────────────────────────────── */
-/* H1 gradient already handled by section 7. No layout changes. */
-
-/* ─────────────────────────────────────────────────────────────
-  14. PAGINATION — prev/next cards
+  13. PAGINATION — prev/next cards
    ───────────────────────────────────────────────────────────── */
 .pagination-links a {
   background: var(--sod-surface) !important;
@@ -500,21 +454,84 @@ a.sl-link-button.sl-link-button--secondary:hover {
 }
 
 /* ─────────────────────────────────────────────────────────────
-  15. SEARCH
+  14. SEARCH
    ───────────────────────────────────────────────────────────── */
-/* Search trigger button in navbar */
 site-search button[data-open-modal] {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
   background: var(--sod-surface) !important;
   border: 1px solid var(--sod-border) !important;
   border-radius: var(--sod-radius) !important;
   color: var(--sod-text-muted) !important;
+  padding: 0.4rem 0.85rem !important;
+  font-size: 0.85rem !important;
   transition:
     border-color var(--sod-transition),
-    color var(--sod-transition) !important;
+    color var(--sod-transition),
+    background var(--sod-transition) !important;
 }
 site-search button[data-open-modal]:hover {
   border-color: var(--sod-accent) !important;
   color: var(--sl-color-white) !important;
+  background: var(--sod-card) !important;
+}
+
+site-search button[data-open-modal] kbd {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.2rem !important;
+  padding: 0.15rem 0.45rem !important;
+  border-radius: 4px !important;
+  background: color-mix(in srgb, var(--sod-border) 70%, transparent) !important;
+  border: 1px solid var(--sod-border-strong) !important;
+  font-family: var(--sl-font-mono) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  color: var(--sod-text-2) !important;
+  box-shadow: 0 1px 0 var(--sod-border-strong) !important;
+}
+
+/* Theme selector in navbar */
+starlight-theme-select label {
+  border: 1px solid var(--sod-border) !important;
+  border-radius: var(--sod-radius) !important;
+  background: var(--sod-surface) !important;
+  transition: border-color var(--sod-transition), background var(--sod-transition) !important;
+}
+starlight-theme-select label:hover {
+  border-color: var(--sod-accent) !important;
+  background: var(--sod-card) !important;
+}
+starlight-theme-select select {
+  background: transparent !important;
+  color: var(--sod-text-2) !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] site-search button[data-open-modal] {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: var(--sl-color-gray-3) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+[data-theme="light"] site-search button[data-open-modal]:hover {
+  border-color: var(--sod-accent) !important;
+  color: var(--sl-color-white) !important;
+  background: #f8fafc !important;
+}
+[data-theme="light"] site-search button[data-open-modal] kbd {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+[data-theme="light"] starlight-theme-select label {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+[data-theme="light"] starlight-theme-select select {
+  color: #334155 !important;
 }
 
 /* Outer dialog container overlay */
@@ -626,8 +643,9 @@ site-search dialog::-webkit-scrollbar-thumb {
 site-search dialog::-webkit-scrollbar-thumb:hover {
   background: var(--sod-accent) !important;
 }
+
 /* ─────────────────────────────────────────────────────────────
-  16. TABLE OF CONTENTS (right sidebar)
+  15. TABLE OF CONTENTS (right sidebar)
    ───────────────────────────────────────────────────────────── */
 .right-sidebar {
   border-inline-start: 1px solid var(--sod-border) !important;
@@ -647,7 +665,7 @@ starlight-toc a[aria-current="true"] {
 }
 
 /* ─────────────────────────────────────────────────────────────
-  17. FOOTER
+  16. FOOTER
    ───────────────────────────────────────────────────────────── */
 footer.sl-flex {
   border-top: 1px solid var(--sod-border) !important;
@@ -655,7 +673,7 @@ footer.sl-flex {
 }
 
 /* ─────────────────────────────────────────────────────────────
-  18. SCROLLBAR
+  17. SCROLLBAR
    Thin, rounded, accent thumb.
    ───────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
@@ -674,7 +692,7 @@ footer.sl-flex {
 }
 
 /* ─────────────────────────────────────────────────────────────
-  19. SELECTION & FOCUS RING
+  18. SELECTION & FOCUS RING
    ───────────────────────────────────────────────────────────── */
 ::selection {
   background: color-mix(in srgb, var(--sod-accent) 28%, transparent);
@@ -704,26 +722,17 @@ footer.sl-flex {
 }
 
 /* ─────────────────────────────────────────────────────────────
-  20. CODE BLOCKS
-   ec.config.mjs handles:
-     • themes (github-dark + github-light)
-     • dark/light mode switch via [data-theme] selectors
-     • font, padding, border-radius, shadow, line highlights, tab font
-   This section handles global shell adjustments that EC cannot configure.
+  19. CODE BLOCKS
    ───────────────────────────────────────────────────────────── */
-
-/* Breathing room around each code block */
 .expressive-code {
   margin-block: 1.75rem !important;
 }
 
-/* Enforce shared border-radius & overflow */
 .expressive-code .frame {
   border-radius: var(--sod-radius-lg) !important;
   overflow: hidden;
 }
 
-/* ── Copy button ────────────────────────────────────────────────────────── */
 .expressive-code .copy button {
   border-radius: 6px !important;
   background: rgba(255, 255, 255, 0.05) !important;
@@ -750,15 +759,12 @@ footer.sl-flex {
   outline-offset: -2px !important;
 }
 
-/* ── Line Numbering & Line Hover ────────────────────────────────────────── */
-/* Add spacing and alignment for line numbers */
 .expressive-code .gutter {
   padding-inline-end: 1rem !important;
   user-select: none;
   opacity: 0.65;
 }
 
-/* Highlight the line on mouse hover to make blocks feel premium and interactive */
 .expressive-code .ec-line:hover {
   background-color: color-mix(
     in srgb,
@@ -767,13 +773,11 @@ footer.sl-flex {
   ) !important;
 }
 
-/* Selection highlight inside code */
 .expressive-code .ec-line span::selection,
 .expressive-code .ec-line::selection {
   background: color-mix(in srgb, var(--sod-accent) 30%, transparent) !important;
 }
 
-/* Horizontal scrollbar inside <pre> */
 .expressive-code pre::-webkit-scrollbar {
   height: 4px;
 }
@@ -788,46 +792,7 @@ footer.sl-flex {
   background: var(--sod-accent);
 }
 
-/* Header/title overrides: medium weight typography */
 .expressive-code .frame .title,
 .expressive-code .frame .header {
   font-weight: 500 !important;
-}
-
-/* ── Inline code ────────────────────────────────────────────────────────── */
-/* Pill shape, accent color-tinted background, accent text color */
-.sl-markdown-content :not(pre) > code {
-  background: var(--sod-inline-code-bg) !important;
-  border: 1px solid var(--sod-border) !important;
-  border-radius: 99px !important; /* Rounded pill */
-  padding: 0.2em 0.55em !important; /* Premium padding */
-  font-family: var(--sl-font-mono) !important;
-  font-size: 0.875em !important;
-  font-weight: 500 !important;
-  color: var(--sod-accent) !important;
-}
-
-/* Define inline code bg variables inside tokens */
-:root {
-  --sod-inline-code-bg: rgba(255, 85, 51, 0.08);
-}
-[data-theme="light"] {
-  --sod-inline-code-bg: rgba(230, 62, 30, 0.06);
-}
-
-[data-theme="light"] a[aria-current="page"].astro-ojxuodky {
-  color: white !important;
-}
-
-[data-theme="light"]
-  #starlight__search
-  .pagefind-ui__result-title:not(:where(.pagefind-ui__result-nested *)),
-[data-theme="light"] #starlight__search .pagefind-ui__result-nested {
-  background-color: transparent !important;
-}
-
-[data-theme="light"] .ts-title:where(.astro-ge2uvauf),
-[data-theme="light"] .ts-desc:where(.astro-ge2uvauf),
-[data-theme="light"] .stats-label:where(.astro-ge2uvauf) {
-  color: white !important;
 }

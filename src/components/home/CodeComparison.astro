@@ -1,0 +1,410 @@
+---
+import Icon from '../ui/Icon.astro';
+---
+
+<div class="code-compare" id="code-preview" aria-label="Perbandingan Kode TypeScript vs JavaScript">
+  <div class="code-compare__header">
+    <div class="code-compare__window-controls" aria-hidden="true">
+      <span class="window-dot window-dot--red"></span>
+      <span class="window-dot window-dot--yellow"></span>
+      <span class="window-dot window-dot--green"></span>
+    </div>
+
+    <!-- Interactive Mode Switcher -->
+    <div class="code-compare__tabs" role="tablist" aria-label="Pilih perbandingan kode">
+      <button
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-ts"
+        id="tab-ts"
+        class="tab-btn tab-btn--active"
+        data-target="ts"
+      >
+        <Icon name="shield-check" size={15} class="tab-btn__icon tab-btn__icon--ts" />
+        <span>siswa.ts</span>
+        <span class="tab-btn__badge tab-btn__badge--ts">Aman & Terproteksi</span>
+      </button>
+
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-js"
+        id="tab-js"
+        class="tab-btn"
+        data-target="js"
+      >
+        <Icon name="alert-triangle" size={15} class="tab-btn__icon tab-btn__icon--js" />
+        <span>siswa.js</span>
+        <span class="tab-btn__badge tab-btn__badge--js">Rawan Silent Bug</span>
+      </button>
+    </div>
+
+    <div class="code-compare__status" aria-live="polite">
+      <span class="status-indicator status-indicator--ts" id="compare-status-indicator"></span>
+      <span class="status-text" id="compare-status-text">TypeScript Compiler: 0 Error</span>
+    </div>
+  </div>
+
+  <div class="code-compare__body">
+    <!-- Panel TypeScript -->
+    <div
+      role="tabpanel"
+      id="panel-ts"
+      aria-labelledby="tab-ts"
+      class="code-panel code-panel--ts code-panel--active"
+    >
+      <pre class="code-pre"><code><span class="code-line"><span class="c-comment">// 1. Definisikan kontrak data yang jelas</span></span>
+<span class="code-line"><span class="c-kw">interface</span> <span class="c-type">Siswa</span> &#123;</span>
+<span class="code-line">  nama: <span class="c-primitive">string</span>;</span>
+<span class="code-line">  nilai: <span class="c-primitive">number</span>;</span>
+<span class="code-line">&#125;</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c-comment">// 2. Fungsi terproteksi dengan parameter bertipe</span></span>
+<span class="code-line"><span class="c-kw">function</span> <span class="c-fn">cekKelulusan</span>(siswa: <span class="c-type">Siswa</span>): <span class="c-primitive">string</span> &#123;</span>
+<span class="code-line">  <span class="c-kw">if</span> (siswa.<span class="c-prop">nilai</span> &gt;= <span class="c-num">75</span>) &#123;</span>
+<span class="code-line">    <span class="c-kw">return</span> <span class="c-str">`$&#123;siswa.nama&#125; dinyatakan LULUS!`</span>;</span>
+<span class="code-line">  &#125;</span>
+<span class="code-line">  <span class="c-kw">return</span> <span class="c-str">`$&#123;siswa.nama&#125; perlu remedial.`</span>;</span>
+<span class="code-line">&#125;</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c-comment">// 3. Autocomplete aktif &amp; divalidasi saat coding</span></span>
+<span class="code-line"><span class="c-kw">const</span> budi: <span class="c-type">Siswa</span> = &#123; nama: <span class="c-str">"Budi Santoso"</span>, nilai: <span class="c-num">85</span> &#125;;</span>
+<span class="code-line"><span class="c-fn">cekKelulusan</span>(budi); <span class="c-comment c-comment--success">// ✅ Output: "Budi Santoso dinyatakan LULUS!"</span></span></code></pre>
+
+      <div class="code-annotation code-annotation--ts">
+        <Icon name="check-circle" size={16} class="code-annotation__icon" />
+        <span><strong>Kelebihan:</strong> Typo atau ketidaksesuaian tipe data langsung dicegah sebelum program dijalankan.</span>
+      </div>
+    </div>
+
+    <!-- Panel JavaScript -->
+    <div
+      role="tabpanel"
+      id="panel-js"
+      aria-labelledby="tab-js"
+      class="code-panel code-panel--js"
+      hidden
+    >
+      <pre class="code-pre"><code><span class="code-line"><span class="c-comment">// 1. Tanpa kontrak tipe data (bebas tanpa pengaman)</span></span>
+<span class="code-line"><span class="c-kw">function</span> <span class="c-fn">cekKelulusan</span>(siswa) &#123;</span>
+<span class="code-line">  <span class="c-comment">// ⚠️ Typo property 'nila' (kurang huruf 'i')</span></span>
+<span class="code-line">  <span class="c-kw">if</span> (siswa.<span class="c-error">nila</span> &gt;= <span class="c-num">75</span>) &#123; <span class="c-comment c-comment--err">// undefined &gt;= 75 -&gt; selalu FALSE!</span></span>
+<span class="code-line">    <span class="c-kw">return</span> siswa.nama + <span class="c-str">" dinyatakan LULUS!"</span>;</span>
+<span class="code-line">  &#125;</span>
+<span class="code-line">  <span class="c-kw">return</span> siswa.nama + <span class="c-str">" perlu remedial."</span>;</span>
+<span class="code-line">&#125;</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c-comment">// 2. Dijalankan tanpa peringatan error dari editor</span></span>
+<span class="code-line"><span class="c-kw">const</span> budi = &#123; nama: <span class="c-str">"Budi Santoso"</span>, nilai: <span class="c-num">85</span> &#125;;</span>
+<span class="code-line"><span class="c-fn">cekKelulusan</span>(budi); <span class="c-comment c-comment--err">// ❌ Silent Bug: "Budi Santoso perlu remedial." (Nilai 85 tapi tidak lulus!)</span></span></code></pre>
+
+      <div class="code-annotation code-annotation--js">
+        <Icon name="alert-triangle" size={16} class="code-annotation__icon" />
+        <span><strong>Bahaya:</strong> JavaScript tidak memvalidasi typo <code class="inline-code">nila</code>, menyebabkan *silent bug* logika yang fatal bagi pengguna.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupCodeCompareTabs() {
+    const compareRoot = document.getElementById('code-preview');
+    if (!compareRoot) return;
+
+    const tabs = compareRoot.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+    const panelTs = compareRoot.querySelector<HTMLElement>('#panel-ts');
+    const panelJs = compareRoot.querySelector<HTMLElement>('#panel-js');
+    const statusIndicator = compareRoot.querySelector<HTMLElement>('#compare-status-indicator');
+    const statusText = compareRoot.querySelector<HTMLElement>('#compare-status-text');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        if (!target) return;
+
+        tabs.forEach((t) => {
+          const isActive = t === tab;
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          t.classList.toggle('tab-btn--active', isActive);
+        });
+
+        if (target === 'ts') {
+          if (panelTs) {
+            panelTs.hidden = false;
+            panelTs.classList.add('code-panel--active');
+          }
+          if (panelJs) {
+            panelJs.hidden = true;
+            panelJs.classList.remove('code-panel--active');
+          }
+          if (statusIndicator) {
+            statusIndicator.className = 'status-indicator status-indicator--ts';
+          }
+          if (statusText) {
+            statusText.textContent = 'TypeScript Compiler: 0 Error';
+          }
+        } else {
+          if (panelTs) {
+            panelTs.hidden = true;
+            panelTs.classList.remove('code-panel--active');
+          }
+          if (panelJs) {
+            panelJs.hidden = false;
+            panelJs.classList.add('code-panel--active');
+          }
+          if (statusIndicator) {
+            statusIndicator.className = 'status-indicator status-indicator--js';
+          }
+          if (statusText) {
+            statusText.textContent = 'JavaScript: Typo Lolos Tanpa Warning';
+          }
+        }
+      });
+    });
+  }
+
+  // Support initial load and view transitions
+  setupCodeCompareTabs();
+  document.addEventListener('astro:page-load', setupCodeCompareTabs);
+</script>
+
+<style>
+  .code-compare {
+    width: 100%;
+    max-width: 48rem;
+    margin: 2.75rem auto 0;
+    border: 1px solid var(--sod-border-strong);
+    border-radius: var(--sod-radius-lg);
+    background: #0d0d12;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    text-align: left;
+    contain: paint;
+  }
+
+  [data-theme="light"] .code-compare {
+    background: #1e1e24;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+  }
+
+  /* Header Bar */
+  .code-compare__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .code-compare__window-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .window-dot {
+    width: 0.68rem;
+    height: 0.68rem;
+    border-radius: 50%;
+  }
+
+  .window-dot--red { background: #ff5f56; }
+  .window-dot--yellow { background: #ffbd2e; }
+  .window-dot--green { background: #27c93f; }
+
+  /* Tabs Switcher */
+  .code-compare__tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.32rem 0.75rem;
+    border-radius: 0.45rem;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #94a3b8;
+    font-family: var(--sl-font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      background var(--sod-transition),
+      color var(--sod-transition),
+      border-color var(--sod-transition);
+  }
+
+  .tab-btn:hover {
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .tab-btn--active {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.16) !important;
+    color: #ffffff !important;
+  }
+
+  .tab-btn__icon--ts {
+    color: #38bdf8;
+  }
+
+  .tab-btn__icon--js {
+    color: #f59e0b;
+  }
+
+  .tab-btn__badge {
+    display: none;
+    font-size: 0.68rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    font-family: var(--sl-font);
+  }
+
+  @media (min-width: 40rem) {
+    .tab-btn__badge {
+      display: inline-block;
+    }
+  }
+
+  .tab-btn__badge--ts {
+    background: rgba(56, 189, 248, 0.16);
+    color: #38bdf8;
+  }
+
+  .tab-btn__badge--js {
+    background: rgba(245, 158, 11, 0.16);
+    color: #fbbf24;
+  }
+
+  /* Status Text */
+  .code-compare__status {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.75rem;
+    font-family: var(--sl-font-mono);
+    color: #94a3b8;
+  }
+
+  .status-indicator {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+  }
+
+  .status-indicator--ts {
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+  }
+
+  .status-indicator--js {
+    background: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+  }
+
+  /* Code Panel */
+  .code-panel {
+    padding: 1.25rem 1.4rem;
+  }
+
+  .code-pre {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    font-family: var(--sl-font-mono);
+    font-size: clamp(0.8rem, 1.8vw, 0.88rem);
+    line-height: 1.68;
+    overflow-x: auto;
+  }
+
+  .code-line {
+    display: block;
+    white-space: pre;
+  }
+
+  /* Syntax Highlighting Tokens */
+  .c-kw { color: #f472b6; font-weight: 600; }
+  .c-type { color: #38bdf8; font-weight: 600; }
+  .c-primitive { color: #2dd4bf; }
+  .c-fn { color: #60a5fa; }
+  .c-prop { color: #e2e8f0; }
+  .c-num { color: #fb923c; }
+  .c-str { color: #a3e635; }
+  .c-comment { color: #64748b; font-style: italic; }
+  .c-comment--success { color: #4ade80 !important; font-weight: 600; }
+  .c-comment--err { color: #f87171 !important; font-weight: 600; }
+
+  .c-error {
+    color: #f87171;
+    text-decoration: underline wavy #ef4444;
+    text-underline-offset: 3px;
+    font-weight: 700;
+  }
+
+  /* Annotation Box */
+  .code-annotation {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-top: 1.15rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--sod-radius);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .code-annotation--ts {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #bbf7d0;
+  }
+
+  .code-annotation--ts .code-annotation__icon {
+    color: #22c55e;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .code-annotation--js {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #fecaca;
+  }
+
+  .code-annotation--js .code-annotation__icon {
+    color: #ef4444;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .inline-code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    font-family: var(--sl-font-mono);
+    color: #fca5a5;
+  }
+
+  @media (max-width: 36rem) {
+    .code-compare__status {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tab-btn {
+      transition: none !important;
+    }
+  }
+</style>

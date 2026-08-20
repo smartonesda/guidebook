@@ -1,41 +1,62 @@
 ---
-const phases = [
+import Icon from '../ui/Icon.astro';
+
+interface ChapterItem {
+  bab: string;
+  title: string;
+  link: string;
+}
+
+interface Phase {
+  number: string;
+  title: string;
+  tagline: string;
+  chapters: ChapterItem[];
+}
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const phases: Phase[] = [
   {
-    number: "01",
-    title: "Mulai dari Fondasi",
+    number: '01',
+    title: 'Mulai dari Fondasi',
+    tagline: 'Konsep dasar & logika pemrograman',
     chapters: [
-      ["BAB 0", "Pengenalan & Persiapan"],
-      ["BAB 1", "Variabel & Tipe Data"],
-      ["BAB 2", "Operator & Percabangan"],
-      ["BAB 3", "Perulangan"],
+      { bab: 'BAB 0', title: 'Pengenalan & Persiapan', link: `${base}/bab0/selamat-datang/` },
+      { bab: 'BAB 1', title: 'Variabel & Tipe Data', link: `${base}/bab1/introduction/` },
+      { bab: 'BAB 2', title: 'Operator & Percabangan', link: `${base}/bab2/introduction/` },
+      { bab: 'BAB 3', title: 'Perulangan & Iterasi', link: `${base}/bab3/introduction/` },
     ],
   },
   {
-    number: "02",
-    title: "Bangun Logika Program",
+    number: '02',
+    title: 'Bangun Struktur Data',
+    tagline: 'Logika fungsi & abstraksi tipe',
     chapters: [
-      ["BAB 4", "Function"],
-      ["BAB 5", "Array"],
-      ["BAB 6", "Object"],
-      ["BAB 7", "Interface & Type Alias"],
+      { bab: 'BAB 4', title: 'Function & Modularitas', link: `${base}/bab4/introduction/` },
+      { bab: 'BAB 5', title: 'Array & Manipulasi Data', link: `${base}/bab5/introduction/` },
+      { bab: 'BAB 6', title: 'Object & Nested Data', link: `${base}/bab6/introduction/` },
+      { bab: 'BAB 7', title: 'Interface & Type Alias', link: `${base}/bab7/introduction/` },
     ],
   },
   {
-    number: "03",
-    title: "Naik ke Konsep Lanjutan",
+    number: '03',
+    title: 'Konsep Lanjutan',
+    tagline: 'Paradigma OOP & Generic Types',
     chapters: [
-      ["BAB 8", "Object Oriented Programming (OOP)"],
-      ["BAB 9", "Generic & Utility Types"],
-      ["BAB 10", "Asynchronous Programming"],
+      { bab: 'BAB 8', title: 'OOP & Class Architecture', link: `${base}/bab8/introduction/` },
+      { bab: 'BAB 9', title: 'Generic & Utility Types', link: `${base}/bab9/introduction/` },
+      { bab: 'BAB 10', title: 'Asynchronous & Promises', link: `${base}/bab10/introduction/` },
     ],
   },
   {
-    number: "04",
-    title: "Siap ke Dunia Nyata",
+    number: '04',
+    title: 'Siap ke Industri',
+    tagline: 'Proyek nyata & best practices',
     chapters: [
-      ["BAB 11", "Final Project"],
-      ["BAB 12", "Best Practice TypeScript"],
-      ["BAB 13", "TypeScript di Dunia Nyata"],
+      { bab: 'BAB 11', title: 'Real World Project', link: `${base}/bab11/introduction/` },
+      { bab: 'BAB 12', title: 'Best Practice & Clean Code', link: `${base}/bab12/introduction/` },
+      { bab: 'BAB 13', title: 'Ecosystem & Karir TS', link: `${base}/bab13/introduction/` },
     ],
   },
 ];
@@ -43,31 +64,40 @@ const phases = [
 
 <section class="roadmap" id="roadmap" aria-labelledby="roadmap-title">
   <div class="roadmap__heading">
-    <p class="section-label">Jalur belajar terarah</p>
-    <h2 id="roadmap-title">Apa yang Akan Kamu Pelajari?</h2>
-    <p>
-      Ikuti bab secara berurutan. Setiap materi menjadi dasar untuk materi
-      berikutnya.
+    <h2 id="roadmap-title" class="section-title">Kurikulum & Roadmap Belajar</h2>
+    <p class="section-desc">
+      Disusun secara linear dan bertahap dari 14 bab lengkap. Setiap modul menjadi pijakan kokoh untuk memahami bab berikutnya hingga siap membangun aplikasi nyata.
     </p>
   </div>
-  <div class="roadmap__track">
+
+  <div class="roadmap__grid">
     {
       phases.map((phase) => (
-        <article class="roadmap-phase">
-          <div class="roadmap-phase__marker" aria-hidden="true">
-            {phase.number}
+        <article class="roadmap-card">
+          <div class="roadmap-card__header">
+            <div class="roadmap-card__badge">
+              <span class="roadmap-card__number">{phase.number}</span>
+            </div>
+            <div class="roadmap-card__heading">
+              <span class="roadmap-card__phase-label">FASE {phase.number}</span>
+              <h3 class="roadmap-card__title">{phase.title}</h3>
+              <p class="roadmap-card__tagline">{phase.tagline}</p>
+            </div>
           </div>
-          <div class="roadmap-phase__content">
-            <h3>{phase.title}</h3>
-            <ol>
-              {phase.chapters.map(([chapter, title]) => (
-                <li>
-                  <span>{chapter}</span>
-                  <strong>{title}</strong>
-                </li>
-              ))}
-            </ol>
-          </div>
+
+          <div class="roadmap-card__divider" aria-hidden="true"></div>
+
+          <ul class="roadmap-card__chapters">
+            {phase.chapters.map((ch) => (
+              <li>
+                <a href={ch.link} class="chapter-item">
+                  <span class="chapter-item__bab">{ch.bab}</span>
+                  <span class="chapter-item__title">{ch.title}</span>
+                  <Icon name="arrow-right" size={14} class="chapter-item__arrow" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </article>
       ))
     }
@@ -76,159 +106,220 @@ const phases = [
 
 <style>
   .roadmap {
-    scroll-margin-top: calc(var(--sl-nav-height) + 1.5rem);
-    padding-inline: clamp(0.25rem, 2vw, 1rem);
+    scroll-margin-top: calc(var(--sl-nav-height) + 2rem);
+    width: 100%;
   }
+
   .roadmap__heading {
-    max-width: 43rem;
+    max-width: 44rem;
   }
-  .section-label {
-    margin: 0 0 0.7rem;
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 26%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--sod-accent) 7%, transparent);
     color: var(--sod-accent);
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 750;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
-  h2 {
+
+  .section-badge__icon {
+    color: var(--sod-accent);
+  }
+
+  .section-title {
     margin: 0;
     color: var(--sl-color-white);
-    font-size: clamp(1.9rem, 4vw, 3rem);
-    letter-spacing: -0.04em;
-    line-height: 1.12;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
   }
-  .roadmap__heading > p:last-child {
-    margin: 1rem 0 0;
+
+  .section-desc {
+    margin: 0.75rem 0 0;
     color: var(--sl-color-gray-2);
+    font-size: clamp(0.98rem, 1.8vw, 1.08rem);
     line-height: 1.7;
   }
-  .roadmap__track {
+
+  .roadmap__grid {
     display: grid;
-    gap: 1rem;
-    margin-top: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 3rem;
+    width: 100%;
   }
-  .roadmap-phase {
-    position: relative;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.9rem;
-  }
-  .roadmap-phase:not(:last-child)::before {
-    position: absolute;
-    top: 2.8rem;
-    bottom: -1.1rem;
-    left: 1.1rem;
-    width: 1px;
-    background: var(--sod-border-strong);
-    content: "";
-  }
-  .roadmap-phase__marker {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    width: 2.25rem;
-    height: 2.25rem;
-    place-items: center;
-    border-radius: 50%;
-    background: var(--sod-gradient);
-    color: #fff;
-    font-size: 0.72rem;
-    font-weight: 800;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  .roadmap-phase__content {
+
+  .roadmap-card {
     min-width: 0;
-    padding: 0.25rem 0 1rem;
-  }
-  h3 {
-    margin: 0;
-    color: var(--sl-color-white);
-    font-size: 1.08rem;
-  }
-  ol {
-    display: grid;
-    gap: 0.55rem;
-    margin: 0.9rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
-  li {
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.55rem;
-    padding: 0.7rem 0.8rem;
+    flex-direction: column;
+    padding: 1.5rem;
     border: 1px solid var(--sod-border);
-    border-radius: var(--sod-radius);
+    border-radius: var(--sod-radius-xl);
     background: var(--sod-surface);
+    transition:
+      transform var(--sod-transition),
+      border-color var(--sod-transition),
+      box-shadow var(--sod-transition);
   }
-  li span {
+
+  .roadmap-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--sod-accent) 45%, var(--sod-border));
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08), 0 0 18px color-mix(in srgb, var(--sod-accent) 8%, transparent);
+  }
+
+  .roadmap-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .roadmap-card__badge {
+    display: grid;
+    flex-shrink: 0;
+    width: 2.65rem;
+    height: 2.65rem;
+    place-items: center;
+    border-radius: 0.8rem;
+    background: var(--sod-gradient);
+    color: #ffffff;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--sod-accent) 35%, transparent);
+  }
+
+  .roadmap-card__number {
+    font-size: 0.88rem;
+    font-weight: 850;
+    letter-spacing: -0.02em;
+  }
+
+  .roadmap-card__heading {
+    min-width: 0;
+  }
+
+  .roadmap-card__phase-label {
+    display: block;
     color: var(--sod-accent);
     font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .roadmap-card__title {
+    margin: 0.15rem 0 0;
+    color: var(--sl-color-white);
+    font-size: 1.15rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .roadmap-card__tagline {
+    margin: 0.25rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .roadmap-card__divider {
+    height: 1px;
+    margin: 1.25rem 0;
+    background: var(--sod-border);
+  }
+
+  .roadmap-card__chapters {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-grow: 1;
+  }
+
+  .chapter-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--sod-border) 60%, transparent);
+    border-radius: var(--sod-radius);
+    background: color-mix(in srgb, var(--sod-card) 60%, transparent);
+    text-decoration: none !important;
+    transition:
+      border-color var(--sod-transition),
+      background var(--sod-transition),
+      transform var(--sod-transition);
+  }
+
+  .chapter-item:hover {
+    border-color: color-mix(in srgb, var(--sod-accent) 40%, var(--sod-border));
+    background: var(--sod-card);
+    transform: translateX(3px);
+  }
+
+  .chapter-item__bab {
+    flex-shrink: 0;
+    padding: 0.2rem 0.45rem;
+    border-radius: 0.35rem;
+    background: color-mix(in srgb, var(--sod-accent) 12%, transparent);
+    color: var(--sod-accent);
+    font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
-  li strong {
+
+  .chapter-item__title {
     color: var(--sl-color-white);
-    font-size: 0.88rem;
-    line-height: 1.45;
+    font-size: 0.86rem;
+    font-weight: 550;
+    line-height: 1.4;
+    flex-grow: 1;
   }
-  @media (min-width: 50rem) {
-    .roadmap__track {
+
+  .chapter-item__arrow {
+    color: var(--sod-accent);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity var(--sod-transition), transform var(--sod-transition);
+  }
+
+  .chapter-item:hover .chapter-item__arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (min-width: 44rem) {
+    .roadmap__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
     }
-    .roadmap-phase:not(:last-child)::before {
-      display: none;
-    }
-    .roadmap-phase {
-      display: block;
-      padding: 1.25rem;
-      border: 1px solid var(--sod-border);
-      border-radius: var(--sod-radius-xl);
-      background: var(--sod-surface);
-    }
-    .roadmap-phase__marker {
-      margin-bottom: 1.25rem;
-    }
-    .roadmap-phase__content {
-      padding: 0;
+  }
+
+  @media (min-width: 72rem) {
+    .roadmap__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
     }
   }
-  @media (min-width: 72rem) {
-    .roadmap__track {
-      position: relative;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.8rem;
+
+  @media (prefers-reduced-motion: reduce) {
+    .roadmap-card,
+    .chapter-item {
+      transition: opacity 0.15s ease, border-color 0.15s ease, background 0.15s ease !important;
+      transform: none !important;
     }
-    .roadmap__track::before {
-      position: absolute;
-      top: 1.1rem;
-      right: 1.1rem;
-      left: 1.1rem;
-      height: 1px;
-      background: var(--sod-border-strong);
-      content: "";
-    }
-    .roadmap-phase {
-      position: relative;
-      z-index: 1;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-    }
-    .roadmap-phase__marker {
-      margin: 0 0 1rem;
-    }
-    .roadmap-phase__content {
-      min-height: 100%;
-      padding: 1rem;
-      border: 1px solid var(--sod-border);
-      border-radius: var(--sod-radius-lg);
-      background: var(--sod-surface);
+    .chapter-item__arrow {
+      transform: none !important;
     }
   }
 </style>

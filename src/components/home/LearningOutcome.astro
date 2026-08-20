@@ -1,35 +1,207 @@
 ---
+import Icon from '../ui/Icon.astro';
+
 const outcomes = [
-  'Memahami dasar-dasar TypeScript.',
-  'Menulis kode yang rapi dan terstruktur.',
-  'Menggunakan TypeScript dalam proyek nyata.',
-  'Memahami praktik terbaik pengembangan aplikasi.',
-  'Melanjutkan belajar framework modern dengan lebih percaya diri.',
+  'Memahami konsep fundamental dan sintaks modern TypeScript secara mendalam dan menyeluruh.',
+  'Menulis kode yang rapi, terstruktur, aman dari runtime bug, dan mudah dipelihara jangka panjang.',
+  'Mampu mengimplementasikan TypeScript dalam proyek aplikasi dunia nyata secara mandiri.',
+  'Menerapkan praktik terbaik industri, arsitektur clean code, dan teknik debugging efisien.',
+  'Siap melanjutkan ke framework modern dengan fondasi yang kokoh dan percaya diri tinggi.',
 ];
+
+const frameworks = ['React', 'Next.js', 'Vue.js', 'Nuxt', 'Node.js', 'Express', 'NestJS', 'Astro'];
 ---
 
 <section class="learning-outcome" aria-labelledby="learning-outcome-title">
   <div class="learning-outcome__intro">
-    <p class="section-label">Tujuan belajarmu</p>
-    <h2 id="learning-outcome-title">Target Akhir</h2>
-    <p>Setelah menyelesaikan seluruh guidebook ini, kamu diharapkan mampu membangun fondasi sebagai Modern TypeScript Developer.</p>
+    <h2 id="learning-outcome-title" class="section-title">Target Akhir Pembelajaran</h2>
+    <p class="section-desc">
+      Setelah menyelesaikan seluruh 14 bab guidebook ini, kamu memiliki standar kompetensi sebagai <strong>Modern TypeScript Developer</strong> yang siap terjun ke proyek industri profesional.
+    </p>
   </div>
-  <ul>
-    {outcomes.map((outcome) => <li><span aria-hidden="true">✓</span>{outcome}</li>)}
+
+  <ul class="learning-outcome__list">
+    {
+      outcomes.map((outcome) => (
+        <li class="outcome-item">
+          <div class="outcome-item__check">
+            <Icon name="check" size={14} class="outcome-item__check-icon" />
+          </div>
+          <span class="outcome-item__text">{outcome}</span>
+        </li>
+      ))
+    }
   </ul>
-  <p class="learning-outcome__next">Fondasi ini membantu kamu melanjutkan ke Vue, React, Angular, Express, NestJS, maupun Next.js.</p>
+
+  <div class="learning-outcome__next">
+    <p class="learning-outcome__next-label">Fondasi ini menjadi jembatan langsung untuk menguasai ekosistem industri modern:</p>
+    <div class="framework-pills">
+      {frameworks.map((fw) => (
+        <span class="framework-pill">{fw}</span>
+      ))}
+    </div>
+  </div>
 </section>
 
 <style>
-  .learning-outcome { padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--sod-border); border-radius: var(--sod-radius-xl); background: linear-gradient(145deg, var(--sod-surface), color-mix(in srgb, var(--sod-accent) 9%, var(--sod-surface))); }
-  .learning-outcome__intro { max-width: 44rem; }
-  .section-label { margin: 0 0 0.7rem; color: var(--sod-accent); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
-  h2 { margin: 0; color: var(--sl-color-white); font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1.12; }
-  .learning-outcome__intro > p:last-child, .learning-outcome__next { color: var(--sl-color-gray-2); line-height: 1.7; }
-  .learning-outcome__intro > p:last-child { margin: 1rem 0 0; }
-  ul { display: grid; gap: 0.75rem; margin: 2rem 0 0; padding: 0; list-style: none; }
-  li { display: flex; gap: 0.7rem; align-items: flex-start; color: var(--sl-color-white); line-height: 1.55; }
-  li span { display: grid; flex: 0 0 auto; width: 1.3rem; height: 1.3rem; place-items: center; margin-top: 0.08rem; border-radius: 50%; background: color-mix(in srgb, var(--sod-accent) 18%, transparent); color: var(--sod-accent); font-size: 0.75rem; font-weight: 900; }
-  .learning-outcome__next { max-width: 47rem; margin: 1.75rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--sod-border); }
-  @media (min-width: 50rem) { ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .learning-outcome {
+    position: relative;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    border: 1px solid var(--sod-border);
+    border-radius: var(--sod-radius-xl);
+    background: linear-gradient(
+      145deg,
+      var(--sod-surface) 0%,
+      color-mix(in srgb, var(--sod-surface) 92%, var(--sod-accent) 8%) 100%
+    );
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .learning-outcome__intro {
+    max-width: 44rem;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 26%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--sod-accent) 7%, transparent);
+    color: var(--sod-accent);
+    font-size: 0.74rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .section-badge__icon {
+    color: var(--sod-accent);
+  }
+
+  .section-title {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    margin: 0.75rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    line-height: 1.7;
+  }
+
+  .section-desc strong {
+    color: var(--sl-color-white);
+    font-weight: 650;
+  }
+
+  .learning-outcome__list {
+    display: grid;
+    gap: 0.85rem;
+    margin: 3rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .outcome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.95rem;
+    padding: 0.85rem 1.15rem;
+    border: 1px solid var(--sod-border);
+    border-radius: var(--sod-radius);
+    background: color-mix(in srgb, var(--sod-card) 75%, transparent);
+    transition:
+      border-color var(--sod-transition),
+      background var(--sod-transition),
+      transform var(--sod-transition);
+  }
+
+  .outcome-item:hover {
+    border-color: color-mix(in srgb, var(--sod-accent) 35%, var(--sod-border));
+    background: var(--sod-card);
+    transform: translateX(3px);
+  }
+
+  .outcome-item__check {
+    display: grid;
+    flex-shrink: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    place-items: center;
+    margin-top: 0.1rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--sod-accent) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 25%, transparent);
+    color: var(--sod-accent);
+  }
+
+  .outcome-item__text {
+    flex: 1 1 auto;
+    color: var(--sl-color-white);
+    font-size: 0.94rem;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .learning-outcome__next {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--sod-border);
+  }
+
+  .learning-outcome__next-label {
+    margin: 0 0 0.85rem;
+    color: var(--sl-color-gray-2);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .framework-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .framework-pill {
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--sod-border);
+    border-radius: 999px;
+    background: var(--sod-card);
+    color: var(--sl-color-gray-2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition:
+      border-color var(--sod-transition),
+      color var(--sod-transition),
+      transform var(--sod-transition);
+  }
+
+  .framework-pill:hover {
+    border-color: var(--sod-accent);
+    color: var(--sod-accent);
+    transform: translateY(-1px);
+  }
+
+  @media (min-width: 48rem) {
+    .learning-outcome__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .outcome-item,
+    .framework-pill {
+      transition: opacity 0.15s ease, border-color 0.15s ease, background-color 0.15s ease !important;
+      transform: none !important;
+    }
+  }
 </style>

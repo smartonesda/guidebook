@@ -1,63 +1,103 @@
 ---
-import DraftContentNotice from "virtual:starlight/components/DraftContentNotice";
-import HomePage from "./home/HomePage.astro";
+import DraftContentNotice from 'virtual:starlight/components/DraftContentNotice';
+import HomePage from './home/HomePage.astro';
+import CodeComparison from './home/CodeComparison.astro';
+import Icon from './ui/Icon.astro';
 
-const PAGE_TITLE_ID = "_top";
+const PAGE_TITLE_ID = '_top';
 const { data } = Astro.locals.starlightRoute.entry;
 const { title = data.title, tagline, actions = [] } = data.hero || {};
 
 const formatLink = (url: string) => {
-  if (url.startsWith("/")) {
-    const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  if (url.startsWith('/')) {
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     return `${base}${url}`;
   }
-
   return url;
 };
 ---
 
 <section class="course-hero" aria-labelledby={PAGE_TITLE_ID}>
-  <div class="course-hero__glow" aria-hidden="true"></div>
+  <!-- Optimized Ambient Spatial Glow System -->
+  <div class="course-hero__ambient" aria-hidden="true">
+    <div class="course-hero__glow-primary"></div>
+    <div class="course-hero__glow-secondary"></div>
+  </div>
+
   <div class="course-hero__content">
-    <p class="course-hero__eyebrow">
-      <span aria-hidden="true"></span>TypeScript Guidebook
-    </p>
-    <h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
+    <!-- Main Headline -->
+    <h1 id={PAGE_TITLE_ID} data-page-title class="course-hero__title">
+      <span class="course-hero__title-accent">Belajar TypeScript</span>
+      <span class="course-hero__title-sub">dari Nol</span>
+    </h1>
+
     {data.draft && <DraftContentNotice />}
-    {tagline && <p class="course-hero__tagline" set:html={tagline} />}
-    <p class="course-hero__reassurance">
-      Tidak perlu pengalaman programming sebelumnya.
-    </p>
+
+    {tagline && (
+      <p class="course-hero__tagline">
+        {tagline}
+      </p>
+    )}
+
+    <div class="course-hero__reassurance">
+      <Icon name="shield-check" size={15} class="course-hero__reassurance-icon" />
+      <span>Disusun bertahap dari pemula &bull; Siap untuk proyek nyata industri</span>
+    </div>
+
+    <!-- Action CTAs -->
     {
       actions.length > 0 && (
         <div class="course-hero__actions">
-          {actions.map(({ link: href, text, variant }) => (
-            <a
-              href={formatLink(href)}
-              class:list={[
-                "course-hero__button",
-                variant === "primary"
-                  ? "course-hero__button--primary"
-                  : "course-hero__button--secondary",
-              ]}
-            >
-              <span>{text}</span>
-              {variant === "primary" && (
-                <span class="course-hero__arrow" aria-hidden="true">
-                  →
-                </span>
-              )}
-            </a>
-          ))}
+          {actions.map(({ link: href, text, variant }) => {
+            const isPrimary = variant === 'primary';
+            return (
+              <a
+                href={formatLink(href)}
+                class:list={[
+                  'course-hero__btn',
+                  isPrimary ? 'course-hero__btn--primary' : 'course-hero__btn--secondary',
+                ]}
+              >
+                {isPrimary ? (
+                  <>
+                    <span>{text}</span>
+                    <Icon name="arrow-right" size={17} class="course-hero__btn-icon" />
+                  </>
+                ) : (
+                  <>
+                    <Icon name="route" size={17} class="course-hero__btn-icon" />
+                    <span>{text}</span>
+                  </>
+                )}
+              </a>
+            );
+          })}
         </div>
       )
     }
-    <ul class="course-hero__proof" aria-label="Ringkasan guidebook">
-      <li><strong>13</strong> Bab</li>
-      <li><strong>SMK</strong> RPL</li>
-      <li><strong>ID</strong> Bahasa Indonesia</li>
+
+    <!-- Semantic Metadata Proof Chips -->
+    <ul class="course-hero__meta-group" role="list" aria-label="Informasi kurikulum">
+      <li class="course-hero__meta-chip">
+        <Icon name="book-open" size={14} class="course-hero__meta-icon" />
+        <span><strong>14</strong> Bab Lengkap</span>
+      </li>
+      <li class="course-hero__meta-chip">
+        <Icon name="graduation-cap" size={14} class="course-hero__meta-icon" />
+        <span><strong>SMK</strong> RPL Standard</span>
+      </li>
+      <li class="course-hero__meta-chip">
+        <Icon name="languages" size={14} class="course-hero__meta-icon" />
+        <span><strong>100%</strong> Bahasa Indonesia</span>
+      </li>
     </ul>
+
+    <!-- Interactive Code Comparison Preview -->
+    <CodeComparison />
   </div>
+
+  <!-- Bottom visual fade into main canvas -->
+  <div class="course-hero__fade-bottom" aria-hidden="true"></div>
 </section>
 
 <HomePage />
@@ -67,164 +107,273 @@ const formatLink = (url: string) => {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: clamp(3.5rem, 8vw, 6.5rem) 1rem clamp(3rem, 7vw, 5.5rem);
+    contain: paint;
+    padding: clamp(3.5rem, 8vw, 6.5rem) 1.25rem clamp(4rem, 8vw, 6rem);
     text-align: center;
   }
-  .course-hero__glow {
+
+  /* Ambient Lighting System - GPU optimized */
+  .course-hero__ambient {
     position: absolute;
+    inset: 0;
     z-index: -1;
-    width: min(42rem, 100vw);
-    aspect-ratio: 1;
-    top: -65%;
+    overflow: hidden;
+    pointer-events: none;
+    contain: strict;
+  }
+
+  .course-hero__glow-primary {
+    position: absolute;
+    top: -25%;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 999px;
+    width: min(52rem, 110vw);
+    height: min(30rem, 70vw);
     background: radial-gradient(
-      circle,
-      color-mix(in srgb, var(--sod-accent) 18%, transparent) 0%,
-      transparent 68%
+      ellipse 60% 50% at 50% 30%,
+      color-mix(in srgb, var(--sod-accent) 20%, transparent) 0%,
+      color-mix(in srgb, var(--sod-accent) 6%, transparent) 50%,
+      transparent 70%
     );
-    pointer-events: none;
+    filter: blur(32px);
+    opacity: 0.85;
   }
+
+  .course-hero__glow-secondary {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(38rem, 80vw);
+    height: 14rem;
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      color-mix(in srgb, var(--sod-accent-2) 10%, transparent) 0%,
+      transparent 65%
+    );
+    filter: blur(28px);
+    opacity: 0.6;
+  }
+
   .course-hero__content {
-    max-width: 48rem;
+    max-width: 54rem;
     margin-inline: auto;
-  }
-  .course-hero__eyebrow {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    margin: 0 0 1.25rem;
-    padding: 0.42rem 0.75rem;
-    border: 1px solid color-mix(in srgb, var(--sod-accent) 26%, transparent);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--sod-accent) 7%, transparent);
-    color: var(--sod-accent);
-    font-size: 0.78rem;
-    font-weight: 750;
-    letter-spacing: 0.04em;
   }
-  .course-hero__eyebrow span {
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 50%;
-    background: var(--sod-accent);
-    box-shadow: 0 0 0 0.25rem
-      color-mix(in srgb, var(--sod-accent) 16%, transparent);
-  }
-  .course-hero h1 {
-    max-width: 13ch;
+
+  /* Eyebrow Badge */
+  /* Display Headline */
+  .course-hero__title {
     margin: 0 auto;
-    background: var(--sod-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: clamp(2.65rem, 8vw, 5.5rem);
+    font-size: clamp(2.75rem, 7.5vw, 5.25rem);
     font-weight: 850;
-    letter-spacing: -0.055em;
-    line-height: 0.98;
+    letter-spacing: -0.04em;
+    line-height: 1.06;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+    color: var(--sl-color-white) !important;
   }
+
+  .course-hero__title-accent {
+    color: var(--sl-color-white);
+    display: inline-block;
+  }
+
+  .course-hero__title-sub {
+    color: var(--sl-color-gray-1);
+    display: inline-block;
+  }
+
+  /* Tagline & Reassurance */
   .course-hero__tagline {
-    max-width: 58ch;
+    max-width: 48ch;
     margin: 1.5rem auto 0;
     color: var(--sl-color-gray-2);
-    font-size: clamp(1rem, 2vw, 1.15rem);
+    font-size: clamp(1.05rem, 2.2vw, 1.22rem);
     line-height: 1.7;
+    font-weight: 400;
   }
+
   .course-hero__reassurance {
-    margin: 0.85rem 0 0;
-    color: var(--sl-color-gray-3);
-    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.15rem;
+    padding: 0.38rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--sod-accent) 20%, var(--sod-border));
+    background: color-mix(in srgb, var(--sod-accent) 6%, var(--sod-surface));
+    color: var(--sl-color-gray-2);
+    font-size: 0.84rem;
+    font-weight: 550;
   }
+
+  .course-hero__reassurance-icon {
+    color: var(--sod-accent);
+    flex-shrink: 0;
+  }
+
+  /* Action Buttons */
   .course-hero__actions {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    margin-top: 2rem;
+    gap: 0.9rem;
+    margin-top: 2.25rem;
   }
-  .course-hero__button {
+
+  .course-hero__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.55rem;
-    min-height: 2.9rem;
-    padding: 0.7rem 1.2rem;
-    border: 1px solid transparent;
-    border-radius: 0.75rem;
+    gap: 0.6rem;
+    min-height: 3.1rem;
+    padding: 0.75rem 1.45rem;
+    border-radius: var(--sod-radius);
     font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
+    font-weight: 650;
+    text-decoration: none !important;
     transition:
       transform var(--sod-transition),
+      box-shadow var(--sod-transition),
       border-color var(--sod-transition),
-      box-shadow var(--sod-transition);
+      background var(--sod-transition);
   }
-  .course-hero__button:hover {
+
+  .course-hero__btn:hover {
     transform: translateY(-2px);
   }
-  .course-hero__button--primary {
+
+  .course-hero__btn--primary {
     background: var(--sod-gradient);
-    box-shadow: 0 10px 22px
-      color-mix(in srgb, var(--sod-accent) 24%, transparent);
-    color: #fff;
+    border: 1px solid transparent;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--sod-accent) 35%, transparent);
   }
-  .course-hero__button--secondary {
-    border-color: var(--sod-border-strong);
-    background: var(--sod-surface);
-    color: var(--sl-color-white);
+
+  .course-hero__btn--primary:hover {
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--sod-accent) 48%, transparent);
   }
-  .course-hero__button--secondary:hover {
-    border-color: var(--sod-accent);
-  }
-  .course-hero__arrow {
-    font-size: 1.15em;
+
+  .course-hero__btn--primary .course-hero__btn-icon {
     transition: transform var(--sod-transition);
   }
-  .course-hero__button--primary:hover .course-hero__arrow {
-    transform: translateX(0.2rem);
+
+  .course-hero__btn--primary:hover .course-hero__btn-icon {
+    transform: translateX(3px);
   }
-  .course-hero__proof {
+
+  .course-hero__btn--secondary {
+    border: 1px solid var(--sod-border-strong);
+    background: color-mix(in srgb, var(--sod-surface) 80%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--sl-color-white) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .course-hero__btn--secondary:hover {
+    border-color: color-mix(in srgb, var(--sod-accent) 60%, var(--sod-border-strong));
+    background: var(--sod-card);
+    color: var(--sod-accent) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .course-hero__btn--secondary .course-hero__btn-icon {
+    color: var(--sod-accent);
+  }
+
+  /* Metadata Chips */
+  .course-hero__meta-group {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 0.55rem;
-    margin: 1.7rem 0 0;
+    gap: 0.65rem;
+    margin: 2.25rem 0 0;
     padding: 0;
     list-style: none;
   }
-  .course-hero__proof li {
+
+  .course-hero__meta-chip {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.45rem 0.65rem;
+    gap: 0.45rem;
+    padding: 0.45rem 0.85rem;
     border: 1px solid var(--sod-border);
     border-radius: 999px;
-    background: color-mix(in srgb, var(--sod-surface) 78%, transparent);
+    background: color-mix(in srgb, var(--sod-surface) 70%, transparent);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     color: var(--sl-color-gray-2);
-    font-size: 0.78rem;
+    font-size: 0.815rem;
+    transition: border-color var(--sod-transition), background var(--sod-transition);
   }
-  .course-hero__proof strong {
+
+  .course-hero__meta-chip:hover {
+    border-color: var(--sod-border-strong);
+    background: var(--sod-surface);
+  }
+
+  .course-hero__meta-icon {
+    color: var(--sod-accent);
+    opacity: 0.9;
+    flex-shrink: 0;
+  }
+
+  .course-hero__meta-chip strong {
     color: var(--sl-color-white);
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
+    font-weight: 700;
   }
-  @media (max-width: 25rem) {
-    .course-hero__actions {
-      display: grid;
+
+  /* Bottom Fade */
+  .course-hero__fade-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    background: linear-gradient(to bottom, transparent, var(--sl-color-bg));
+    pointer-events: none;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 36rem) {
+    .course-hero {
+      padding-top: 2.5rem;
+      padding-bottom: 3.5rem;
     }
-    .course-hero__button {
+
+    .course-hero__actions {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .course-hero__btn {
       width: 100%;
     }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .course-hero__button,
-    .course-hero__arrow {
-      transition: none;
+
+    .course-hero__meta-group {
+      gap: 0.5rem;
+    }
+
+    .course-hero__meta-chip {
+      font-size: 0.76rem;
+      padding: 0.38rem 0.75rem;
     }
   }
 
-  .course-hero #_top {
-    line-height: normal !important;
+  @media (prefers-reduced-motion: reduce) {
+    .course-hero__btn,
+    .course-hero__btn-icon,
+    .course-hero__meta-chip {
+      transition: opacity 0.15s ease, border-color 0.15s ease, background 0.15s ease !important;
+      transform: none !important;
+    }
   }
 </style>
