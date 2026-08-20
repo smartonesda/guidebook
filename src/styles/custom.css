@@ -1,6 +1,4 @@
 ﻿/* CSS Guidebook — custom.css (Precision Layout & Unified Container Spec) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600&display=swap");
-
 /* ===== SECTION A: TOKENS & GLOBAL CONTAINER SYSTEM ===== */
 :root {
   /* Global Container System (Single Source of Truth) */
@@ -146,7 +144,19 @@
   --c-search-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
 }
 
+
+/* Ensure solid font fallbacks without metric shift */
+:root {
+  --sl-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --sl-font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
 /* ===== SECTION B: STARLIGHT RESETS ===== */
+/* Instant Zero-Layout-Shift Starlight Splash Resets */
+html[data-has-hero] .main-pane,
+html[data-has-hero] .content-panel,
+html[data-has-hero] .sl-container,
+html[data-has-hero] .sl-markdown-content,
 .main-pane:has(.home-page),
 .content-panel:has(.home-page),
 .sl-container:has(.home-page),
@@ -644,6 +654,7 @@ site-search dialog {
 
 /* ===== SECTION D: CSS PLAYGROUND WORKBENCH ===== */
 .home-page .hp-playground {
+  min-height: 280px;
   width: 100%;
   max-width: 100%;
   min-width: 0;
