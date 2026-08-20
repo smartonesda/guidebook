@@ -1,0 +1,54 @@
+---
+/**
+ * ModernCSSBoard.astro — Modern CSS Features Showcase
+ */
+const features = [
+  {
+    tag: "LAYOUT",
+    title: "Container Queries",
+    desc: "Menyesuaikan styling komponen berdasarkan lebar induknya (@container), bukan hanya ukuran layar viewport.",
+    code: `<span class="ct-at">@container</span> (<span class="ct-prop">min-width</span>: <span class="ct-num">400</span><span class="ct-unit">px</span>) <span class="ct-br">&#123;</span>\n  <span class="ct-sel">.card</span> <span class="ct-br">&#123;</span> <span class="ct-prop">display</span>: <span class="ct-val">flex</span>; <span class="ct-br">&#125;</span>\n<span class="ct-br">&#125;</span>`,
+    support: "Universal"
+  },
+  {
+    tag: "CASCADE",
+    title: "Cascade Layers (@layer)",
+    desc: "Mengontrol prioritas spesifisitas CSS secara eksplisit agar library atau utility tidak bertabrakan.",
+    code: `<span class="ct-at">@layer</span> <span class="ct-val">reset, base, theme, components</span>;`,
+    support: "Universal"
+  },
+  {
+    tag: "DESIGN TOKEN",
+    title: "CSS Custom Properties",
+    desc: "Sistem token desain dinamis untuk theming, dark mode instan, dan konsistensi warna serta tipografi.",
+    code: `<span class="ct-sel">:root</span> <span class="ct-br">&#123;</span>\n  <span class="ct-prop">--primary</span>: <span class="ct-val">#e8392b</span>;\n  <span class="ct-prop">--radius</span>: <span class="ct-num">1</span><span class="ct-unit">rem</span>;\n<span class="ct-br">&#125;</span>`,
+    support: "Universal"
+  },
+  {
+    tag: "I18N & FLOW",
+    title: "Logical Properties",
+    desc: "Mengganti margin-left/right dengan margin-inline yang aman untuk layout multiteks (LTR & RTL).",
+    code: `<span class="ct-sel">.container</span> <span class="ct-br">&#123;</span>\n  <span class="ct-prop">margin-inline</span>: <span class="ct-val">auto</span>;\n  <span class="ct-prop">padding-block</span>: <span class="ct-num">2</span><span class="ct-unit">rem</span>;\n<span class="ct-br">&#125;</span>`,
+    support: "Universal"
+  }
+];
+---
+
+<div class="hp-modern-grid">
+  {features.map((feat) => (
+    <div class="hp-modern-card">
+      <div class="hp-mc-head">
+        <span class="hp-mc-badge">{feat.tag}</span>
+        <h3 class="hp-mc-title">{feat.title}</h3>
+      </div>
+      <p class="hp-mc-desc">{feat.desc}</p>
+      <div class="hp-mc-snippet">
+        <pre><code><Fragment set:html={feat.code} /></code></pre>
+      </div>
+      <div class="hp-mc-footer">
+        <span class="hp-mc-support-dot"></span>
+        <span class="hp-mc-support-txt">Didukung Semua Browser Modern</span>
+      </div>
+    </div>
+  ))}
+</div>

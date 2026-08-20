@@ -1,0 +1,58 @@
+---
+/**
+ * HomeFAQ.astro — Interactive accessible FAQ accordion for homepage
+ */
+const faqs = [
+  {
+    q: "Apakah CSS Guidebook ini benar-benar 100% gratis?",
+    a: "Ya, gratis selamanya! Seluruh 16 Bab, 5 Mini Project, Final Project, Challenge Lab, dan CSS Handbook dapat diakses bebas tanpa registrasi berbayar. Guidebook ini dibuat untuk mendukung siswa SMK RPL, mahasiswa, dan pembelajar mandiri di Indonesia.",
+    tag: "Akses"
+  },
+  {
+    q: "Apakah saya harus menguasai HTML sebelum memulai?",
+    a: "Sangat disarankan memahami dasar tag HTML. Namun jika kamu benar-benar baru, BAB 0 menyediakan pengenalan komprehensif: cara kerja web & browser, instalasi VS Code, penggunaan DevTools, hingga file HTML pertama.",
+    tag: "Prasyarat"
+  },
+  {
+    q: "Mengapa harus memahami Vanilla CSS sebelum ke Tailwind / Bootstrap?",
+    a: "Framework adalah alat bantu, bukan pengganti pemahaman. Ketika terjadi bug layout aneh, specificity war, atau isu responsive di Tailwind, hanya developer yang paham 'cara browser membaca CSS' yang bisa memperbaikinya dengan cepat tanpa frustrasi.",
+    tag: "Metode"
+  },
+  {
+    q: "Apakah ada proyek nyata yang bisa masuk ke portofolio?",
+    a: "Tentu ada! Di BAB 12 terdapat 5 Mini Project (Card UI, Responsive Navbar, Hero Banner, Pricing Table, Dashboard Card), serta BAB 13 yaitu Final Project pembuatan Landing Page modern siap deploy ke GitHub Pages / Vercel.",
+    tag: "Portofolio"
+  },
+  {
+    q: "Apa itu Challenge Lab & Debugging di BAB 14?",
+    a: "Sebagian besar waktu developer dihabiskan untuk men-debug CSS yang bermasalah. Challenge Lab menyediakan skenario CSS rusak di dunia nyata (layout overflow, z-index glitch, specificity war) agar kamu terlatih menganalisis dan memperbaikinya.",
+    tag: "Praktek"
+  },
+  {
+    q: "Apakah guidebook ini selalu up-to-date dengan standar CSS terbaru?",
+    a: "Ya! Materi telah disesuaikan dengan fitur modern CSS seperti Container Queries, Cascade Layers (@layer), Logical Properties, Subgrid, CSS Nesting, hingga modern color functions (oklch, color-mix).",
+    tag: "Kurikulum"
+  }
+];
+---
+
+<div class="hp-faq-wrap">
+  <div class="hp-faq-list" role="region" aria-label="Tanya Jawab">
+    {faqs.map((item, idx) => (
+      <details class="hp-faq-item" open={idx === 0}>
+        <summary class="hp-faq-summary">
+          <div class="hp-faq-title-wrap">
+            <span class="hp-faq-tag">{item.tag}</span>
+            <span class="hp-faq-q">{item.q}</span>
+          </div>
+          <span class="hp-faq-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
+        </summary>
+        <div class="hp-faq-answer">
+          <p>{item.a}</p>
+        </div>
+      </details>
+    ))}
+  </div>
+</div>

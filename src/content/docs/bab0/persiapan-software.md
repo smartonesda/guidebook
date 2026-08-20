@@ -1,44 +1,51 @@
 ---
-title: "Persiapan Software"
-description: Daftar software yang diperlukan untuk belajar HTML dan cara mengaturnya.
+title: "Tools yang Digunakan"
+description: Menyiapkan perangkat lunak esensial untuk belajar CSS secara efisien, ringan, dan profesional.
 ---
 
-Kabar gembira bagi kamu: untuk mulai belajar menulis kode HTML dan membuat website sendiri, **kamu tidak memerlukan laptop berspesifikasi tinggi**. 
+Kabar baik untukmu: **kamu tidak memerlukan laptop berspesifikasi tinggi atau software berbayar untuk belajar CSS.** Seluruh ekosistem web development dibangun di atas peralatan yang gratis, berstandar terbuka, dan sangat ringan.
 
-Kamu hanya membutuhkan dua software gratis yang sangat ringan.
-
----
-
-## 🛠️ Peralatan Tempur Kita
-
-Kita hanya akan menggunakan dua alat utama ini:
-
-| Software | Peran | Mengapa Memilih Ini? |
-|---|---|---|
-| **Visual Studio Code (VS Code)** | Editor Kode | Aplikasi nulis kode paling populer di dunia, ringan, gratis, dan kaya fitur bantuan ketik otomatis (*autocomplete*). |
-| **Google Chrome** | Web Browser | Browser dengan standar rendering Blink yang sangat cepat dan memiliki alat inspeksi kode (*DevTools*) terlengkap. |
+Berikut adalah 3 peralatan utama yang wajib ada di komputermu:
 
 ---
 
-## 🔌 Ekstensi Penunjang di VS Code
+## 1. 📝 Code Editor: Visual Studio Code (VS Code)
+Code editor adalah tempat kamu menulis baris-baris kode HTML dan CSS.
 
-Di dalam VS Code, kita bisa memasang alat tambahan kecil (ekstensi) agar proses belajar kita lebih cepat dan menyenangkan:
-
-1. **Live Server** (Oleh Ritwick Dey): Ekstensi super penting yang membuat browsermu otomatis memperbarui tampilan (*refresh*) setiap kali kamu menyimpan perubahan file di editor kode.
-2. **Prettier - Code formatter**: Alat pembantu yang merapikan posisi tulisan kodemu secara otomatis saat file disimpan agar tidak berantakan.
+- **Rekomendasi Utama**: [Visual Studio Code (VS Code)](https://code.visualstudio.com/) — Gratis, open-source buatan Microsoft, dan merupakan standar industri di hampir seluruh perusahaan teknologi saat ini.
+- **Fitur Andalan untuk CSS**:
+  - *Syntax Highlighting*: Memberi warna berbeda untuk selector, properti, dan nilai sehingga kode mudah dibaca.
+  - *IntelliSense*: Melengkapi nama properti CSS secara otomatis saat kamu mengetik (auto-completion).
+  - *Color Picker*: Memilih warna langsung dengan antarmuka visual kotak warna di dalam file CSS.
 
 ---
 
-## 🚫 Yang TIDAK Kamu Butuhkan Sekarang
+## 2. 🌐 Modern Web Browser: Chrome, Firefox, atau Edge
+Browser adalah tempat kamu melihat, menguji, dan men-debug hasil karyamu secara langsung.
 
-Banyak pemula yang pusing sebelum belajar karena mengira harus memasang banyak program rumit. **Kamu tidak perlu memasang**:
-- Node.js atau Python
-- git atau github (untuk tahap awal)
-- Database (MySQL, MongoDB, dll)
-- Framework apa pun
+- **Rekomendasi Utama**: Google Chrome, Mozilla Firefox (Developer Edition), atau Microsoft Edge.
+- **Mengapa Browser Modern Wajib?**: Browser modern dilengkapi dengan mesin rendering Chromium / Gecko terbaru yang mendukung semua fitur CSS modern (Flexbox, CSS Grid, CSS Variables, Container Queries) serta panel **Developer Tools (DevTools)** kelas dunia.
 
-HTML berjalan secara asli langsung di dalam browsermu. Cukup simpan file, klik dua kali, dan browsermu langsung bisa menampilkannya!
+---
 
-Mari kita pasang Visual Studio Code di laptopmu sekarang.
+## 3. 🔌 Ekstensi VS Code Wajib: Live Server
+Secara default, jika kamu mengubah file CSS di editor, kamu harus menekan tombol Refresh (`F5`) di browser untuk melihat perubahannya. 
 
-**[Lanjut: Install VS Code →](/bab0/install-vscode/)**
+Ekstensi **Live Server** (oleh *Ritwick Dey*) mengubah cara kerja ini:
+- Live Server menjalankan server lokal mini di komputermu (`http://127.0.0.1:5500`).
+- Setiap kali kamu menekan tombol Simpan (`Ctrl + S` atau `Cmd + S`) di VS Code, browser akan otomatis memuat ulang tampilan secara instan (*Hot Reloading*).
+
+---
+
+## ⚙️ Ringkasan Peralatan Perang
+
+| Kategori | Software Rekomendasi | Biaya | Status |
+| :--- | :--- | :--- | :--- |
+| **Code Editor** | Visual Studio Code | Gratis | Wajib |
+| **Browser** | Google Chrome / Firefox | Gratis | Wajib |
+| **VS Code Extension** | Live Server | Gratis | Sangat Direkomendasikan |
+| **VS Code Extension** | Prettier (Code Formatter) | Gratis | Opsional tapi Bermanfaat |
+
+Mari kita lanjutkan ke langkah konfigurasi VS Code secara praktis di halaman berikutnya!
+
+**[Lanjut: Setup VS Code untuk CSS →](/bab0/install-vscode/)**

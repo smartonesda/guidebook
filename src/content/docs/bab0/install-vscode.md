@@ -1,50 +1,60 @@
 ---
-title: "Install VS Code"
-description: Panduan langkah demi langkah menginstal Visual Studio Code untuk belajar HTML.
+title: "Setup VS Code untuk CSS"
+description: Panduan konfigurasi editor VS Code, pemasangan ekstensi esensial, dan shortcut produktivitas untuk CSS.
 ---
 
-Visual Studio Code (disingkat **VS Code**) adalah editor kode gratis buatan Microsoft yang sangat ringan dan mudah digunakan oleh pemula.
-
----
-
-## 📥 Langkah-Langkah Instalasi
-
-### 1. Unduh Installer Resmi
-1. Buka browser di laptopmu, lalu kunjungi situs **[code.visualstudio.com](https://code.visualstudio.com)**.
-2. Klik tombol download biru besar bertuliskan **"Download for Windows"** (atau untuk macOS/Linux jika kamu menggunakan sistem operasi lain).
-3. Tunggu hingga proses unduhan selesai.
-
-### 2. Proses Pemasangan (Windows)
-1. Buka folder tempat file unduhan disimpan, lalu klik dua kali file installer tersebut.
-2. Pilih **"I accept the agreement"** (Saya setuju), lalu klik **Next**.
-3. Di bagian opsi tambahan, **pastikan kamu mencentang semua pilihan ini**:
-   - *Add "Open with Code" action to Windows Explorer directory context menu* (Memudahkan membuka folder langsung lewat klik kanan).
-   - *Add to PATH* (Wajib agar VS Code dikenali oleh sistem komputermu).
-4. Klik **Next**, lalu klik **Install**.
-5. Tunggu proses instalasi selesai, lalu klik **Finish** untuk langsung membuka VS Code pertama kalinya.
+Menulis CSS dengan konfigurasi editor yang tepat akan menghemat 50% waktumu dan melindungimu dari kesalahan ketik (*typo*) yang sepele. Mari kita lakukan setup singkat bersama-sama.
 
 ---
 
-## 🔌 Memasang Ekstensi "Live Server"
+## 📥 Langkah 1: Memasang Ekstensi Wajib
 
-Agar browsermu otomatis me-refresh halaman saat kamu melakukan edit kode, mari pasang ekstensi **Live Server**:
+Buka VS Code, klik ikon **Extensions** di bilah sisi kiri (`Ctrl + Shift + X` di Windows/Linux atau `Cmd + Shift + X` di Mac), lalu cari dan pasang ekstensi berikut:
 
-1. Di sisi kiri tampilan VS Code, klik ikon berbentuk 4 kotak bertumpuk (**Extensions**) atau tekan tombol `Ctrl + Shift + X` di keyboard.
-2. Di kolom pencarian bagian atas, ketik kata kunci: **"Live Server"**.
-3. Temukan ekstensi yang dibuat oleh **Ritwick Dey**, lalu klik tombol **Install** (pasang).
-4. Tunggu beberapa detik sampai tombolnya berubah menjadi *Uninstall* (berarti berhasil dipasang).
+1. **Live Server** (oleh *Ritwick Dey*)
+   - Klik tombol **Install**.
+   - Ekstensi ini menambahkan tombol **"Go Live"** di pojok kanan bawah jendela VS Code.
+2. **Prettier - Code Formatter** (oleh *Prettier*)
+   - Memformat indentasi dan spasi file CSS-mu secara otomatis agar rapi dan konsisten setiap kali disimpan.
+3. **CSS Peek** (oleh *Pranay Kothari*)
+   - Memungkinkanmu mengintip (*hover*) aturan CSS dari nama class di dalam file HTML secara langsung tanpa harus membuka file CSS.
 
 ---
 
-## ⚙️ Rekomendasi Pengaturan Awal (Nyaman & Rapi)
+## ⚡ Langkah 2: Mengaktifkan Format on Save
 
-Mari kita aktifkan fitur **Auto Save** agar kamu tidak perlu berulang kali menekan tombol simpan manual:
+Agar kodemu otomatis dirapikan setiap kali kamu menekan `Ctrl + S`:
+1. Buka Settings dengan menekan `Ctrl + ,` (Windows/Linux) atau `Cmd + ,` (Mac).
+2. Di kotak pencarian atas, ketik: `format on save`.
+3. Centang opsi **Editor: Format On Save**.
+4. Di kotak pencarian, ketik: `default formatter`, lalu pilih **Prettier - Code Formatter**.
 
-1. Buka menu pengaturan dengan mengklik ikon gerigi di pojok kiri bawah, lalu pilih **Settings** (atau tekan `Ctrl + ,`).
-2. Cari kata kunci: **"Auto Save"** di kolom pencarian atas.
-3. Ubah nilainya dari *off* menjadi **afterDelay** atau **onFocusChange**.
-4. Selesai! Sekarang semua tulisan kodemu akan tersimpan secara otomatis setiap kali kamu mengetik.
+---
 
-Mari kita buat folder proyek pertamamu dan menulis file HTML pertamamu!
+## 📂 Langkah 3: Membuat Struktur Folder Project Pertama
 
-**[Lanjut: File Pertama →](/bab0/file-pertama/)**
+Buat sebuah folder baru di komputermu, misalnya bernama `belajar-css`, lalu buka folder tersebut di VS Code (`File > Open Folder...`).
+
+Struktur standar sebuah proyek web pemula adalah sebagai berikut:
+
+```text
+belajar-css/
+│
+├── index.html       → File halaman utama HTML
+└── style.css        → File stylesheet utama CSS
+```
+
+---
+
+## ⌨️ Shortcut Produktivitas yang Berguna
+
+| Aksi | Windows / Linux | Mac |
+| :--- | :--- | :--- |
+| **Komentar Satu Baris CSS** | `Ctrl + /` | `Cmd + /` |
+| **Duplikasi Baris ke Bawah** | `Shift + Alt + Panah Bawah` | `Shift + Option + Panah Bawah` |
+| **Pindahkan Baris ke Atas/Bawah** | `Alt + Panah Atas/Bawah` | `Option + Panah Atas/Bawah` |
+| **Buka File Cepat** | `Ctrl + P` | `Cmd + P` |
+
+Sekarang peralatan dan editor kodemu sudah siap 100%! Mari kita pelajari 3 cara memasang CSS ke dalam dokumen HTML di halaman berikutnya.
+
+**[Lanjut: Tiga Cara Memasang CSS →](/bab0/file-pertama/)**

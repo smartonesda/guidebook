@@ -1,56 +1,127 @@
 ---
-title: "Error Corner"
-description: Kesalahan umum yang sering dilakukan pemula saat mulai belajar HTML.
+title: "Error Corner: 5 Kesalahan Pemula"
+description: Mendiagnosis dan menyelesaikan lima masalah paling umum yang membuat CSS tidak bekerja.
 ---
 
-Membuat kesalahan saat belajar coding adalah hal yang sangat wajar. Kunci menjadi developer hebat bukanlah tidak pernah melakukan kesalahan, melainkan tahu bagaimana cara memperbaikinya.
+Selamat datang di **Error Corner**! Di setiap bab, kita akan membedah kesalahan nyata yang paling sering membuat pusing para pemula.
 
-Berikut adalah daftar kesalahan umum yang sering dialami pemula di awal belajar HTML dan cara mengatasinya.
+Di CSS, browser tidak akan menampilkan layar merah berkedip bertuliskan *"FATAL ERROR"*. Sebaliknya, browser akan **mengabaikan baris yang salah secara diam-diam (*silent failure*)** dan melanjutkan membaca baris berikutnya. Hal ini sering membuat pemula bingung: *"Kenapa kodenya tidak berubah sama sekali?"*
 
----
-
-## ❌ 1. Menggunakan Huruf Kapital pada Nama File
-
-**Penyebab Error**: Memberi nama file dengan huruf besar, seperti `Index.html` atau `index.HTML`.
-
-**Mengapa Bermasalah**: Server komputer internet (seperti server Linux) bersifat **case-sensitive** (membedakan huruf besar-kecil secara ketat). Bagi server, `index.html` dan `Index.html` adalah dua file yang berbeda. Jika nama filemu salah huruf kapital, server tidak akan bisa memuat website-mu.
-
-**Cara Memperbaiki**: Selalu gunakan **huruf kecil semua** untuk nama file dan folder proyek web. Gunakan `index.html`, bukan `Index.html`.
+Berikut adalah 5 biang kerok paling umum dan cara memperbaikinya:
 
 ---
 
-## ❌ 2. Ekstensi File Double atau Salah (.html.txt)
+## ❌ Kesalahan 1: Lupa Titik Koma (Missing Semicolon)
 
-**Penyebab Error**: File tersimpan dengan nama `index.html.txt` atau hanya `index` tanpa ekstensi. Hal ini sering terjadi karena Windows menyembunyikan ekstensi file asli secara default.
+Di CSS, setiap deklarasi **wajib** diakhiri dengan tanda titik koma (`;`). Jika kamu lupa menulisnya, browser akan menganggap dua baris deklarasi tersebut sebagai satu baris yang rusak:
 
-**Mengapa Bermasalah**: Browser mengenali jenis file berdasarkan ekstensi belakangnya. Jika ekstensinya `.txt`, browser akan membacanya sebagai dokumen teks biasa dan tidak akan menerjemahkan tag-tag HTML-mu.
+```css title="Contoh Rusak"
+/* ❌ SALAH: Lupa titik koma di baris background */
+.kartu {
+  background: #ffffff
+  color: #e8392b;
+  padding: 16px;
+}
+```
 
-**Cara Memperbaiki**: 
-- Di VS Code, pastikan nama file yang tertera di tab adalah `index.html` dengan ikon kurung siku kecil di depannya.
-- Di Windows Explorer, aktifkan fitur **"File name extensions"** di menu *View* untuk memastikan tidak ada akhiran `.txt` yang tersembunyi.
+```css title="Contoh Benar"
+/* ✅ BENAR: Semua deklarasi diakhiri titik koma */
+.kartu {
+  background: #ffffff;
+  color: #e8392b;
+  padding: 16px;
+}
+```
+
+:::tip[Cara Deteksi via DevTools]
+Buka DevTools panel *Styles*. Aturan yang kehilangan titik koma akan diberi tanda seru kuning dengan teks dicoret (*invalid property value*).
+:::
 
 ---
 
-## ❌ 3. Live Server Tidak Otomatis Refresh
+## ❌ Kesalahan 2: Path File Stylesheet Salah (404 Not Found)
 
-**Penyebab Error**: Kamu mengubah kode di VS Code, tetapi halaman di browser tidak berubah otomatis.
+Kamu sudah menulis CSS dengan sangat bagus di `style.css`, tetapi di browser tampilan tetap polos putih.
 
-**Mengapa Bermasalah**: Biasanya karena kamu lupa menyimpan file atau tidak menggunakan server lokal.
+```html title="index.html"
+<!-- ❌ SALAH: Nama file atau jalurnya tidak cocok -->
+<link rel="stylesheet" href="styles.css"> <!-- padahal nama aslinya style.css -->
+```
 
-**Cara Memperbaiki**:
-1. Pastikan fitur **Auto Save** di VS Code sudah menyala (lihat kembali bagian Setup VS Code).
-2. Pastikan browsermu dibuka melalui Live Server (alamatnya `http://127.0.0.1:5500/...`), bukan dibuka langsung dari folder (`file:///C:/...`).
+```html title="index.html"
+<!-- ✅ BENAR: Pastikan nama file dan foldernya 100% presisi (case-sensitive) -->
+<link rel="stylesheet" href="style.css">
+```
+
+:::tip[Cara Cek Cepat]
+Buka DevTools, lalu klik tab **Network** atau tab **Console**. Jika file CSS tidak ditemukan, browser akan menampilkan pesan error merah: `GET http://.../styles.css net::ERR_FILE_NOT_FOUND (404)`.
+:::
 
 ---
 
-## ❌ 4. Salah Menulis Kurung Siku atau Lupa Menutup Tag
+## ❌ Kesalahan 3: Lupa Satuan Ukuran (Missing Unit)
 
-**Penyebab Error**: Mengetik kode seperti `<p>Teks penjelasan` tanpa ditutup dengan `</p>`, atau mengetik tag pembuka salah seperti `(p>`.
+Di CSS, angka `0` boleh ditulis tanpa satuan (`margin: 0;`). Namun untuk angka selain 0, **kamu WAJIB menyertakan satuannya** (`px`, `rem`, `%`, `em`):
 
-**Mengapa Bermasalah**: Browser akan bingung menentukan batas akhir dari elemen tersebut, membuat tampilan elemen di bawahnya menjadi rusak atau berantakan.
+```css title="style.css"
+/* ❌ SALAH: Browser tidak tahu 20 apa? 20 piksel? 20 meter? 20 persen? */
+.kotak {
+  width: 300;
+  padding: 20;
+}
 
-**Cara Memperbaiki**: Selalu biasakan berhati-hati saat mengetik tag. Pastikan setiap tag pembuka memiliki tag penutup yang lengkap dengan garis miring (`/`).
+/* ✅ BENAR: Selalu sertakan satuan */
+.kotak {
+  width: 300px;
+  padding: 20px;
+}
+```
 
-Mari kita rekap semua yang sudah kita pelajari sebelum kamu melangkah masuk ke pembelajaran HTML utama di BAB 1!
+---
 
-**[Lanjut: Ringkasan →](/bab0/ringkasan/)**
+## ❌ Kesalahan 4: Salah Membedakan Class (`.`) dan ID (`#`)
+
+- Di HTML: `class="tombol"` &rarr; Di CSS harus diawali titik: `.tombol`
+- Di HTML: `id="header"` &rarr; Di CSS harus diawali pagar: `#header`
+
+```html title="index.html"
+<button class="btn-utama">Kirim</button>
+```
+
+```css title="style.css"
+/* ❌ SALAH: Menulis tanpa titik menganggap btn-utama sebagai nama tag HTML */
+btn-utama {
+  background: red;
+}
+
+/* ✅ BENAR: Gunakan tanda titik untuk memilih class */
+.btn-utama {
+  background: red;
+}
+```
+
+---
+
+## ❌ Kesalahan 5: Browser Caching Menahan File Lama
+
+Terkadang kamu sudah mengubah file CSS dan menyimpannya, tetapi browser tetap menampilkan versi lama karena browser menyimpan stylesheet di memori cache untuk menghemat kuota.
+
+### Cara Mengatasinya:
+- Lakukan **Hard Refresh**:
+  - **Windows / Linux**: `Ctrl + F5` atau `Ctrl + Shift + R`
+  - **Mac**: `Cmd + Shift + R`
+- Atau centang opsi **"Disable cache"** di tab **Network** pada panel DevTools selama kamu sedang dalam sesi belajar.
+
+---
+
+## 🩺 Checklist 10 Detik Saat CSS-mu Tidak Bekerja
+
+1. Apakah file HTML dan file CSS sudah disimpan (`Ctrl + S`)?
+2. Apakah nama file di `<link href="...">` sudah cocok dengan nama file aslinya?
+3. Apakah ada tanda titik koma (`;`) atau kurung kurawal (`}`) yang hilang?
+4. Apakah ada tanda titik (`.`) di depan nama class selector?
+5. Apakah kamu sudah memeriksa panel DevTools untuk melihat apakah baris tersebut dicoret atau diabaikan?
+
+Sekarang mari kita rangkum seluruh pembelajaran BAB 0 ini dan membangun **Mini Project pertama kita!**
+
+**[Lanjut: Ringkasan & Mini Project →](/bab0/ringkasan/)**

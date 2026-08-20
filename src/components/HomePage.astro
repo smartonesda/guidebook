@@ -1,0 +1,522 @@
+﻿---
+import { getCollection } from "astro:content";
+import ChapterCount from "./ChapterCount.astro";
+import HomeRoadmap from "./HomeRoadmap.astro";
+import CSSStudio from "./CSSStudio.astro";
+import ConceptGrid from "./ConceptGrid.astro";
+import ModernCSSBoard from "./ModernCSSBoard.astro";
+import HomeFAQ from "./HomeFAQ.astro";
+import Icon from "./Icon.astro";
+
+const docs = await getCollection("docs");
+const chapterCount = new Set(
+  docs.map((e) => e.id.match(/^bab(\d+)\//)?.[1]).filter(Boolean),
+).size;
+
+const whyItems = [
+  {
+    icon: "layers",
+    title: "16 Bab Berurutan & Terstruktur",
+    desc: "Mulai dari cara kerja browser merender style, sampai arsitektur design token dan CSS scalability untuk tim.",
+  },
+  {
+    icon: "code-2",
+    title: "100% Bahasa Indonesia",
+    desc: "Seluruh konsep rumit dijelaskan dengan analogi visual dan bahasa yang mudah dipahami pemula maupun siswa SMK RPL.",
+  },
+  {
+    icon: "badge-check",
+    title: "Standar CSS Modern 2026",
+    desc: "Container Queries, Cascade Layers, Subgrid, CSS Nesting, dan modern color functions (OKLCH, color-mix).",
+  },
+];
+
+const audienceItems = [
+  {
+    icon: "graduation-cap",
+    title: "Siswa SMK RPL & Mahasiswa",
+    desc: "Penjelasan ramah pemula, analogi visual, dan istilah standar industri tanpa membingungkan.",
+  },
+  {
+    icon: "users",
+    title: "Pemula & Autodidak",
+    desc: "Jalur linear dari nol. Tidak perlu bingung harus mulai dari mana — cukup ikuti urutan bab.",
+  },
+  {
+    icon: "wrench",
+    title: "Frontend yang Butuh Fondasi",
+    desc: "Hentikan kebiasaan asal coba-coba atau !important. Pahami cara browser menghitung layout.",
+  },
+  {
+    icon: "briefcase",
+    title: "Pencari Kerja & Portofolio",
+    desc: "5 mini project + 1 final landing page yang rapi, responsif, dan siap dipamerkan ke recruiter.",
+  },
+];
+
+const projectSteps = [
+  {
+    num: "01",
+    title: "5 Mini Projects",
+    desc: "Card UI, Responsive Navbar, Hero Banner, Pricing Table, Dashboard Card.",
+    href: "/bab12/introduction/",
+  },
+  {
+    num: "02",
+    title: "Final Landing Page",
+    desc: "Membangun website lengkap dari nol, responsif, siap deploy publik.",
+    href: "/bab13/introduction/",
+  },
+  {
+    num: "03",
+    title: "Challenge Debug Lab",
+    desc: "Perbaiki skenario CSS rusak di dunia nyata (overflow, z-index glitch).",
+    href: "/bab14/introduction/",
+  },
+  {
+    num: "04",
+    title: "CSS Handbook",
+    desc: "Kamus referensi cepat seluruh properti, selector, dan fungsi CSS.",
+    href: "/bab15/introduction/",
+  },
+];
+
+const outcomes = [
+  "Memahami algoritma Cascade, Specificity, dan Inheritance secara mendalam",
+  "Membangun layout kompleks apapun dengan Flexbox dan CSS Grid 2D",
+  "Menciptakan antarmuka responsif Mobile-First dengan fluid typography (clamp)",
+  "Mendesain micro-interaction dan transisi animasi 60fps yang nyaman di mata",
+  "Mendiagnosis dan men-debug bug layout menggunakan browser DevTools",
+  "Menerapkan CSS Custom Properties dan Design Token System",
+  "Membuat proyek portofolio Landing Page lengkap siap deploy ke publik",
+  "Mudah beradaptasi ke Tailwind CSS, CSS Modules, dan framework modern lainnya",
+];
+---
+
+<div class="home-page">
+  <!-- ═══════════════════════════════════════════════════
+       1. HERO SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-hero" aria-label="Hero">
+    <div class="hp-hero-glow" aria-hidden="true"></div>
+    <div class="hp-wrap hp-hero-inner">
+      <div class="hp-hero-content">
+        <!-- Eyebrow Badge -->
+        <div class="hp-hero-badge-row">
+          <div class="hp-hero-badge">
+            <span class="hp-badge-dot" aria-hidden="true"></span>
+            <span class="hp-badge-text">CSS Guidebook 2026</span>
+          </div>
+          <span class="hp-badge-sep" aria-hidden="true">/</span>
+          <span class="hp-badge-sub">100% Bahasa Indonesia &bull; Gratis</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hp-hero-headline">
+          Kuasai CSS dari <span class="hp-hl-accent">Fondasi</span><br />
+          hingga <span class="hp-hl-accent">Visual Modern</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hp-hero-tagline">
+          Bukan sekadar menghafal properti. Pahami cara browser membaca layout,
+          taklukkan Cascade &amp; Specificity, kuasai Flexbox &amp; Grid, dan
+          ciptakan antarmuka web profesional.
+        </p>
+
+        <!-- CTA Button Group -->
+        <div class="hp-hero-actions" role="group" aria-label="Aksi utama">
+          <a href="/bab0/introduction/" class="hp-btn hp-btn--primary">
+            <span>Mulai Belajar</span>
+            <Icon name="arrow-right" size={16} />
+          </a>
+          <a href="#roadmap" class="hp-btn hp-btn--secondary">
+            <Icon name="route" size={15} />
+            <span>Lihat Roadmap</span>
+          </a>
+          <a href="/bab15/introduction/" class="hp-btn hp-btn--ghost">
+            <Icon name="book-open" size={15} />
+            <span>CSS Handbook</span>
+          </a>
+        </div>
+
+        <!-- Stat Row -->
+        <div class="hp-hero-stats" role="list" aria-label="Statistik kurikulum">
+          <div class="hp-stat-box" role="listitem">
+            <span class="hp-stat-val">{chapterCount}</span>
+            <span class="hp-stat-lbl">Bab Lengkap</span>
+          </div>
+          <div class="hp-stat-sep" aria-hidden="true"></div>
+          <div class="hp-stat-box" role="listitem">
+            <span class="hp-stat-val">5+</span>
+            <span class="hp-stat-lbl">Mini Project</span>
+          </div>
+          <div class="hp-stat-sep" aria-hidden="true"></div>
+          <div class="hp-stat-box" role="listitem">
+            <span class="hp-stat-val">6+</span>
+            <span class="hp-stat-lbl">Challenge Lab</span>
+          </div>
+          <div class="hp-stat-sep" aria-hidden="true"></div>
+          <div class="hp-stat-box" role="listitem">
+            <span class="hp-stat-val">Free</span>
+            <span class="hp-stat-lbl">Selamanya</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Interactive Workbench -->
+      <div class="hp-hero-visual" aria-label="CSS Studio Preview">
+        <CSSStudio />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       2. WHY CSS GUIDEBOOK — Editorial
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec hp-sec--alt" aria-labelledby="why-title">
+    <div class="hp-wrap">
+      <div class="hp-editorial-grid">
+        <div class="hp-editorial-sticky">
+          <span class="hp-pill-tag">Mengapa Guidebook Ini</span>
+          <h2 class="hp-h2" id="why-title">
+            Pengalaman Belajar CSS<br />yang Berbeda
+          </h2>
+          <p class="hp-lead">
+            Bukan tutorial acak. Bukan kumpulan snippet tanpa konteks. CSS
+            Guidebook adalah kurikulum lengkap bertahap yang membimbing kamu
+            dari nol sampai mampu mendesain antarmuka web modern sendiri.
+          </p>
+          <a href="/bab0/introduction/" class="hp-arrow-link">
+            <span>Mulai langkah pertamamu</span>
+            <Icon name="arrow-right" size={14} />
+          </a>
+        </div>
+
+        <div class="hp-editorial-cards">
+          {
+            whyItems.map((item) => (
+              <div class="hp-why-card">
+                <div class="hp-why-icon-wrap" aria-hidden="true">
+                  <Icon name={item.icon} size={20} />
+                </div>
+                <div class="hp-why-content">
+                  <h3 class="hp-why-title">{item.title}</h3>
+                  <p class="hp-why-desc">{item.desc}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       3. SIAPA YANG COCOK
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec" aria-labelledby="aud-title">
+    <div class="hp-wrap">
+      <div class="hp-sec-head hp-sec-head--center">
+        <span class="hp-pill-tag">Target Pembaca</span>
+        <h2 class="hp-h2" id="aud-title">
+          Dirancang Khusus untuk Membantu Kamu
+        </h2>
+        <p class="hp-lead">
+          Materi disesuaikan dengan kebutuhan kejuruan SMK RPL, mahasiswa, dan
+          pemula web development.
+        </p>
+      </div>
+
+      <div class="hp-aud-grid">
+        {
+          audienceItems.map((item) => (
+            <div class="hp-aud-item">
+              <div class="hp-aud-icon-box" aria-hidden="true">
+                <Icon name={item.icon} size={20} />
+              </div>
+              <h3 class="hp-aud-item-title">{item.title}</h3>
+              <p class="hp-aud-item-desc">{item.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       4. CURRICULUM TIMELINE
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec hp-sec--alt" aria-labelledby="phase-title">
+    <div class="hp-wrap">
+      <div class="hp-sec-head hp-sec-head--center">
+        <span class="hp-pill-tag">Alur Belajar</span>
+        <h2 class="hp-h2" id="phase-title">4 Fase Menuju Penguasaan CSS</h2>
+        <p class="hp-lead">
+          Setiap fase berfokus pada fondasi nyata yang langsung bisa kamu
+          praktikkan.
+        </p>
+      </div>
+
+      <div class="hp-phase-track">
+        <div class="hp-phase-block hp-phase-block--1" data-phase="fondasi">
+          <div class="hp-phase-top">
+            <span class="hp-phase-idx">01</span>
+            <span class="hp-phase-chip">Fase 1</span>
+          </div>
+          <h3 class="hp-phase-heading">Fondasi CSS</h3>
+          <span class="hp-phase-sub">BAB 0 &ndash; 4 &bull; 5 Bab</span>
+          <p class="hp-phase-text">
+            Sintaks dasar, Selectors, The Cascade, Specificity, dan Box Model.
+          </p>
+        </div>
+
+        <div class="hp-phase-block hp-phase-block--2" data-phase="layout">
+          <div class="hp-phase-top">
+            <span class="hp-phase-idx">02</span>
+            <span class="hp-phase-chip">Fase 2</span>
+          </div>
+          <h3 class="hp-phase-heading">Layout &amp; Visual</h3>
+          <span class="hp-phase-sub">BAB 5 &ndash; 9 &bull; 5 Bab</span>
+          <p class="hp-phase-text">
+            Flexbox, CSS Grid, Fluid Typography, Modern Color, dan Animasi GPU.
+          </p>
+        </div>
+
+        <div class="hp-phase-block hp-phase-block--3" data-phase="arsitektur">
+          <div class="hp-phase-top">
+            <span class="hp-phase-idx">03</span>
+            <span class="hp-phase-chip">Fase 3</span>
+          </div>
+          <h3 class="hp-phase-heading">Arsitektur CSS</h3>
+          <span class="hp-phase-sub">BAB 10 &ndash; 11 &bull; 2 Bab</span>
+          <p class="hp-phase-text">
+            Design Tokens, CSS Custom Properties, BEM, CSS Modules, dan @layer.
+          </p>
+        </div>
+
+        <div class="hp-phase-block hp-phase-block--4" data-phase="portofolio">
+          <div class="hp-phase-top">
+            <span class="hp-phase-idx">04</span>
+            <span class="hp-phase-chip">Fase 4</span>
+          </div>
+          <h3 class="hp-phase-heading">Portofolio &amp; Lab</h3>
+          <span class="hp-phase-sub">BAB 12 &ndash; 15 &bull; 4 Bab</span>
+          <p class="hp-phase-text">
+            5 Mini Project, 1 Final Landing Page, Debugging Lab, dan Handbook.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       5. ROADMAP CHAPTER LIST
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec" aria-labelledby="roadmap-title" id="roadmap">
+    <div class="hp-wrap">
+      <div class="hp-sec-head hp-sec-head--center">
+        <span class="hp-pill-tag">Daftar Bab</span>
+        <h2 class="hp-h2" id="roadmap-title">16 Bab, Satu Kurikulum Utuh</h2>
+        <p class="hp-lead">
+          Pilih bab yang ingin kamu pelajari, atau ikuti secara berurutan dari
+          BAB 0.
+        </p>
+      </div>
+
+      <HomeRoadmap />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       6. CORE SKILLS GRID
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec hp-sec--alt" aria-labelledby="skills-title">
+    <div class="hp-wrap">
+      <div class="hp-sec-head hp-sec-head--center">
+        <span class="hp-pill-tag">Konsep Inti</span>
+        <h2 class="hp-h2" id="skills-title">6 Pilar CSS yang Wajib Dikuasai</h2>
+        <p class="hp-lead">
+          Fondasi terpenting yang membedakan developer biasa dengan ahli CSS
+          modern.
+        </p>
+      </div>
+
+      <ConceptGrid />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       7. PROJECT JOURNEY
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec" aria-labelledby="proj-title">
+    <div class="hp-wrap">
+      <div class="hp-sec-head hp-sec-head--center">
+        <span class="hp-pill-tag">Proyek Nyata</span>
+        <h2 class="hp-h2" id="proj-title">
+          Bangun Portofolio yang Siap Dipamerkan
+        </h2>
+        <p class="hp-lead">
+          Bukan sekadar teori. Kamu akan membangun komponen dan landing page
+          nyata di setiap fase.
+        </p>
+      </div>
+
+      <div class="hp-proj-track">
+        {
+          projectSteps.map((step) => (
+            <a href={step.href} class="hp-proj-card">
+              <span class="hp-proj-num" aria-hidden="true">
+                {step.num}
+              </span>
+              <div class="hp-proj-content">
+                <h3 class="hp-proj-heading">{step.title}</h3>
+                <p class="hp-proj-desc">{step.desc}</p>
+              </div>
+              <div class="hp-proj-arrow" aria-hidden="true">
+                <Icon name="arrow-right" size={14} />
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       8. MODERN CSS 2026
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec hp-sec--alt" aria-labelledby="modern-title">
+    <div class="hp-wrap">
+      <div class="hp-sec-head hp-sec-head--center">
+        <span class="hp-pill-tag">Standar Modern 2026</span>
+        <h2 class="hp-h2" id="modern-title">
+          Fitur CSS Terbaru yang Sudah Browser-Safe
+        </h2>
+        <p class="hp-lead">
+          Pelajari fitur CSS masa kini yang sudah didukung penuh oleh semua
+          browser modern.
+        </p>
+      </div>
+
+      <ModernCSSBoard />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       9. OUTCOMES CHECKLIST
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec" aria-labelledby="outcomes-title">
+    <div class="hp-wrap">
+      <div class="hp-outcomes-wrap">
+        <div class="hp-outcomes-left">
+          <span class="hp-pill-tag">Hasil Belajar</span>
+          <h2 class="hp-h2" id="outcomes-title">
+            Kemampuan Nyata yang Akan Kamu Miliki
+          </h2>
+          <p class="hp-lead">
+            Setelah menyelesaikan seluruh materi di guidebook ini, kamu akan
+            percaya diri menulis CSS modern yang rapi, efisien, dan siap pakai
+            di industri.
+          </p>
+          <a href="/bab0/introduction/" class="hp-arrow-link">
+            <span>Mulai belajar gratis sekarang</span>
+            <Icon name="arrow-right" size={14} />
+          </a>
+        </div>
+
+        <ul class="hp-outcomes-grid" role="list">
+          {
+            outcomes.map((item) => (
+              <li class="hp-outcomes-item" role="listitem">
+                <span class="hp-check-icon" aria-hidden="true">
+                  <Icon name="check" size={12} />
+                </span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       10. FAQ
+  ═══════════════════════════════════════════════════ -->
+
+  <!-- sengaja saya matikan , jangan di hidupkan -->
+  <!-- <section class="hp-sec hp-sec--alt" aria-labelledby="faq-title">
+    <div class="hp-wrap">
+      <div class="hp-sec-head hp-sec-head--center">
+        <span class="hp-pill-tag">Tanya Jawab</span>
+        <h2 class="hp-h2" id="faq-title">Pertanyaan yang Sering Diajukan</h2>
+        <p class="hp-lead">
+          Informasi penting seputar guidebook, prasyarat, dan metode belajarnya.
+        </p>
+      </div>
+
+      <HomeFAQ />
+    </div>
+  </section> -->
+
+  <!-- ═══════════════════════════════════════════════════
+       11. FINAL CTA BANNER
+  ═══════════════════════════════════════════════════ -->
+  <section class="hp-sec" aria-labelledby="cta-title">
+    <div class="hp-wrap">
+      <div class="hp-cta-banner">
+        <div class="hp-cta-glow-pulse" aria-hidden="true"></div>
+        <div class="hp-cta-content">
+          <span class="hp-pill-tag hp-pill-tag--white"
+            >Siap Menjadi Ahli CSS?</span
+          >
+          <h2 class="hp-cta-heading" id="cta-title">
+            Mulai Perjalanan Belajar CSS-mu Hari Ini
+          </h2>
+          <p class="hp-cta-desc">
+            100% Gratis selamanya. Berbahasa Indonesia. Dirancang ramah untuk
+            siswa SMK RPL, mahasiswa, dan siapa saja yang ingin belajar web
+            development dari nol.
+          </p>
+
+          <div class="hp-cta-btn-group">
+            <a
+              href="/bab0/introduction/"
+              class="hp-btn hp-btn--primary hp-btn--lg"
+            >
+              <span>Mulai dari BAB 0</span>
+              <Icon name="arrow-right" size={16} />
+            </a>
+            <a
+              href="/bab1/introduction/"
+              class="hp-btn hp-btn--secondary hp-btn--lg"
+            >
+              <Icon name="book-open" size={15} />
+              <span>Langsung ke BAB 1</span>
+            </a>
+          </div>
+
+          <div class="hp-cta-metrics" role="list">
+            <div class="hp-metric-col" role="listitem">
+              <ChapterCount class="hp-metric-val" />
+              <span class="hp-metric-lbl">Bab Lengkap</span>
+            </div>
+            <div class="hp-metric-col" role="listitem">
+              <span class="hp-metric-val">5+</span>
+              <span class="hp-metric-lbl">Mini Project</span>
+            </div>
+            <div class="hp-metric-col" role="listitem">
+              <span class="hp-metric-val">100%</span>
+              <span class="hp-metric-lbl">Bahasa Indonesia</span>
+            </div>
+            <div class="hp-metric-col" role="listitem">
+              <span class="hp-metric-val">&infin;</span>
+              <span class="hp-metric-lbl">Gratis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

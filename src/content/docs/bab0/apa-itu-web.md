@@ -1,70 +1,91 @@
 ---
-title: "Apa itu Web?"
-description: Memahami Internet, World Wide Web, URL, domain, dan bagaimana web bekerja secara konseptual.
+title: "Apa itu CSS?"
+description: Memahami definisi, sejarah singkat, alasan pemisahan konten dan presentasi, serta peran fundamental CSS dalam web modern.
 ---
 
-Sebelum kita membuat website, kita harus tahu dulu **di mana website itu berada** dan **bagaimana cara kita mengaksesnya**.
+**CSS** adalah singkatan dari **Cascading Style Sheets**. 
 
----
-
-## 🌐 Internet vs Web
-
-Banyak orang mengira Internet dan Web adalah hal yang sama. Padahal keduanya berbeda secara konsep:
-
-- **Internet** adalah **infrastruktur fisik** berupa jaringan kabel bawah laut, satelit, dan komputer di seluruh dunia yang saling terhubung. Analogi sederhananya, Internet adalah **jaringan jalan raya** global.
-- **World Wide Web (Web)** adalah **sistem informasi** yang berjalan di atas Internet. Menggunakan analogi jalan raya di atas, Web adalah **kendaraan dan gedung-gedung** (website) yang berdiri di sepanjang jalan raya tersebut.
+CSS adalah bahasa desain berbentuk aturan (*rule-based stylesheet language*) yang digunakan untuk mengontrol bagaimana dokumen yang ditulis dalam bahasa markup (seperti HTML) ditampilkan kepada pengguna di layar monitor, kertas cetak, layar ponsel, atau media lainnya.
 
 ---
 
-## 🏢 Browser dan Web Server
+## 🏛️ Sejarah Singkat: Kenapa CSS Diciptakan?
 
-Dalam dunia web, ada dua aktor utama yang selalu bekerja sama:
+Di awal era web (awal 1990-an), HTML awalnya hanya dirancang untuk berbagi dokumen teks ilmiah sederhana. Namun, seiring bertambahnya pengguna web, para pembuat website mulai ingin mengatur warna teks, latar belakang, jenis huruf, dan tata letak visual.
 
-1. **Browser (Client)**: Aplikasi di HP atau laptopmu yang kamu gunakan untuk menjelajah web (seperti Google Chrome, Firefox, Safari, atau Microsoft Edge). Browser bertindak sebagai **pemesan**.
-2. **Web Server**: Komputer khusus berspesifikasi tinggi yang menyala 24 jam penuh di suatu tempat, bertugas menyimpan file-file website. Server bertindak sebagai **penyedia**.
+Saat itu, browser mulai menambahkan tag presentasi seperti `<font>`, `<center>`, dan atribut `bgcolor` langsung ke dalam HTML:
 
----
-
-## 🗺️ Bagaimana Website Bekerja?
-
-Bayangkan kamu sedang pergi ke sebuah restoran. Kamu memesan makanan, koki memasaknya di dapur, lalu pelayan menyajikan makanan hangat di mejamu.
-
-Proses serupa terjadi saat kamu mengetik alamat website (misalnya `https://google.com`) di browsermu:
-
-```text
-Laptop Kamu (Browser)
-       │
-   1. Minta File (Request via Internet)
-       │
-       ▼
-Web Server (Menyimpan file website)
-       │
-   2. Kirim File HTML/CSS/JS (Response)
-       │
-       ▼
-Laptop Kamu (Browser membaca kode & menggambar halaman)
+```html
+<!-- Cara lama (TIDAK DIGUNAKAN LAGI): HTML bercampur aduk dengan styling -->
+<body bgcolor="#ffffcc">
+  <center>
+    <h1><font color="red" face="Arial">Selamat Datang</font></h1>
+  </center>
+</body>
 ```
 
-Browser bertindak sebagai penerjemah. Ia menerima file teks mentah yang berisi kode-kode, lalu menerjemahkannya menjadi tampilan halaman visual yang indah di layarmu.
+### Masalah Besar dari Cara Lama Ini:
+1. **Sangat Melelahkan Diperbaiki**: Jika sebuah website memiliki 50 halaman dan kamu ingin mengubah warna judul dari merah menjadi biru, kamu harus membuka dan mengubah 50 file satu per satu secara manual.
+2. **Kode Sangat Berantakan**: Dokumen HTML menjadi sangat panjang dan sulit dibaca karena struktur dokumen tercampur dengan styling visual.
+3. **Aksesibilitas Rusak**: Pembaca layar (*screen reader*) untuk tunanetra menjadi kesulitan membedakan mana informasi penting dan mana instruksi visual semata.
+
+Untuk menyelesaikan masalah ini, pada tahun **1996**, konsorsium web dunia (**W3C**) merilis standar **CSS Level 1** yang diusulkan oleh **Håkon Wium Lie** dan **Bert Bos**.
 
 ---
 
-## 🏷️ Mengenal URL (Alamat Website)
+## 🎯 Prinsip Inti: Pemisahan Konten dan Presentasi (Separation of Concerns)
 
-Agar browsermu bisa menemukan server website yang tepat, ia membutuhkan alamat unik yang disebut **URL (Uniform Resource Locator)**.
-
-Mari kita bedah alamat URL sederhana ini:
+Filosofi terpenting dari pengembangan web modern adalah:
 
 ```text
-https://  www.sekolahku.sch.id  /berita
-  │               │                │
-  │               │                └─ Path (Halaman spesifik yang dicari)
-  │               └─ Domain (Nama alamat web server tujuan)
-  └─ Protokol (Aturan berkomunikasi aman)
+┌───────────────────────────────────────┐
+│ HTML bertanggung jawab atas KONTEN    │  → "Apa isi halaman ini?"
+│ (Judul, Teks, Gambar, Tabel, Formulir)│
+└───────────────────────────────────────┘
+                   +
+┌───────────────────────────────────────┐
+│ CSS bertanggung jawab atas TAMPILAN   │  → "Bagaimana rupa & posisinya?"
+│ (Warna, Font, Jarak, Grid, Animasi)   │
+└───────────────────────────────────────┘
 ```
 
-Dengan memahami domain dan path, browsermu tahu persis ke server mana ia harus meminta data dan halaman bagian apa yang perlu diambil.
+Dengan memisahkan kedua hal ini:
+- Kamu bisa mengubah seluruh tema visual website ribuan halaman hanya dengan mengedit **satu file CSS** saja.
+- File HTML tetap bersih, semantik, mudah dibaca manusia, dan ramah mesin pencari (SEO).
+- Halaman web yang sama bisa diberikan style yang berbeda untuk layar komputer (*desktop*), layar sentuh (*mobile*), atau saat dokumen dicetak (*print stylesheet*).
 
-Di halaman berikutnya, kita akan melihat lebih dekat bagaimana browser memproses file HTML yang dikirim oleh server!
+---
 
-**[Lanjut: Bagaimana Browser Bekerja →](/bab0/bagaimana-browser-bekerja/)**
+## 🔬 Anatomi Dasar Aturan CSS (Rule Set)
+
+Sebuah aturan CSS terdiri dari beberapa komponen utama:
+
+```css title="Contoh Aturan CSS"
+h1 {
+  color: #e8392b;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+```
+
+```text
+┌────────────────────────────────────────────────────────┐
+│  h1               → SELECTOR (Siapa yang ingin dihias?)│
+│  {                                                     │
+│    color:         → PROPERTY (Sifat apa yang diubah?)  │
+│    #e8392b;       → VALUE    (Nilai apa yang dipakai?) │
+│  }                                                     │
+│                                                        │
+│  "color: #e8392b;" = DECLARATION (Deklarasi)           │
+│  Seluruh blok di atas = DECLARATION BLOCK / RULE SET   │
+└────────────────────────────────────────────────────────┘
+```
+
+- **Selector**: Memilih elemen HTML target di halaman (misal: semua tag `<h1>`, class `.tombol`, atau id `#header`).
+- **Property**: Aspek visual yang ingin dimodifikasi (misal: warna teks, ukuran huruf, jarak tepi).
+- **Value**: Nilai atau instruksi baru untuk properti tersebut (misal: `#e8392b`, `2rem`, `center`).
+- **Declaration**: Pasangan antara properti dan nilainya, dipisahkan oleh titik dua (`:`) dan diakhiri dengan titik koma (`;`).
+
+Sekarang setelah kita memahami apa itu CSS dan mengapa ia dipisahkan dari HTML, bagaimana cara browser membaca dan memproses kedua file tersebut? Mari kita bedah alur kerja browser di halaman berikutnya!
+
+**[Lanjut: Cara Browser Membaca HTML + CSS →](/bab0/bagaimana-browser-bekerja/)**

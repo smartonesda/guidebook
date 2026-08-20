@@ -1,0 +1,72 @@
+﻿---
+/**
+ * BoxModelDemo.astro — Visual DevTools Inspector for Box Model. Zero emoji.
+ */
+import Icon from "./Icon.astro";
+---
+
+<div class="hp-boxmodel-widget">
+  <div class="hp-bm-header">
+    <div class="hp-bm-title-group">
+      <span class="hp-bm-dot"></span>
+      <span class="hp-bm-title">CSS Box Model Inspector</span>
+    </div>
+    <span class="hp-bm-chip">box-sizing: border-box</span>
+  </div>
+
+  <div class="hp-bm-body">
+    <div class="hp-bm-layer hp-bm-margin" data-layer="margin">
+      <span class="hp-bm-tag hp-bm-tag-margin">margin : 24px</span>
+      <div class="hp-bm-layer hp-bm-border" data-layer="border">
+        <span class="hp-bm-tag hp-bm-tag-border">border : 2px</span>
+        <div class="hp-bm-layer hp-bm-padding" data-layer="padding">
+          <span class="hp-bm-tag hp-bm-tag-padding">padding : 16px</span>
+          <div class="hp-bm-layer hp-bm-content" data-layer="content">
+            <span class="hp-bm-content-text">320 × 64 px</span>
+            <span class="hp-bm-content-sub">Content Box</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hp-bm-legend">
+    <div class="hp-bm-legend-item is-margin">
+      <span class="hp-bm-swatch bg-margin"></span>
+      <div class="hp-bm-leg-info">
+        <span class="hp-bm-leg-k">Margin</span>
+        <span class="hp-bm-leg-v">24px (Ruang Luar)</span>
+      </div>
+    </div>
+    <div class="hp-bm-legend-item is-border">
+      <span class="hp-bm-swatch bg-border"></span>
+      <div class="hp-bm-leg-info">
+        <span class="hp-bm-leg-k">Border</span>
+        <span class="hp-bm-leg-v">2px (Garis Tepi)</span>
+      </div>
+    </div>
+    <div class="hp-bm-legend-item is-padding">
+      <span class="hp-bm-swatch bg-padding"></span>
+      <div class="hp-bm-leg-info">
+        <span class="hp-bm-leg-k">Padding</span>
+        <span class="hp-bm-leg-v">16px (Ruang Dalam)</span>
+      </div>
+    </div>
+    <div class="hp-bm-legend-item is-content">
+      <span class="hp-bm-swatch bg-content"></span>
+      <div class="hp-bm-leg-info">
+        <span class="hp-bm-leg-k">Content</span>
+        <span class="hp-bm-leg-v">320×64px (Teks/Elemen)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hp-bm-tip">
+    <span class="hp-bm-tip-icon" aria-hidden="true">
+      <Icon name="sparkles" size={14} />
+    </span>
+    <span class="hp-bm-tip-txt">
+      <strong>Pro Tip:</strong> Gunakan <code>box-sizing: border-box</code> agar padding &amp; border tidak menambah lebar total elemen!
+    </span>
+  </div>
+</div>

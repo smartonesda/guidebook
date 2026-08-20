@@ -1,0 +1,89 @@
+﻿---
+/**
+ * ConceptGrid.astro — Core CSS Concepts. No emoji; SVG icons only.
+ */
+import Icon from "./Icon.astro";
+
+const concepts = [
+  {
+    icon: "layout-grid",
+    title: "Flexbox & Grid Layout",
+    desc: "Dua sistem layout modern paling tangguh. Bangun antarmuka dari 1 dimensi hingga grid 2D yang adaptif tanpa float.",
+    code: `<span class="ct-sel">.container</span> <span class="ct-br">&#123;</span>
+  <span class="ct-prop">display</span>: <span class="ct-val">grid</span>;
+  <span class="ct-prop">grid-template-columns</span>: <span class="ct-val">repeat(auto-fit, minmax(200px, 1fr))</span>;
+  <span class="ct-prop">gap</span>: <span class="ct-num">1</span><span class="ct-unit">rem</span>;
+<span class="ct-br">&#125;</span>`,
+    badge: "BAB 6 & 7",
+    href: "/bab6/introduction/"
+  },
+  {
+    icon: "target",
+    title: "Selectors & Specificity",
+    desc: "Kuasai hierarki pemilih, pseudo-class, combinator, dan cara menghitung bobot spesifisitas tanpa terjebak !important.",
+    code: `<span class="ct-sel">:is(.card, .panel):hover</span> <span class="ct-br">&#123;</span>
+  <span class="ct-prop">border-color</span>: <span class="ct-val">var(--accent)</span>;
+<span class="ct-br">&#125;</span>`,
+    badge: "BAB 2",
+    href: "/bab2/introduction/"
+  },
+  {
+    icon: "layers",
+    title: "The Cascade & Layers",
+    desc: "Pahami algoritma inti browser dalam menyelesaikan konflik style: Origin, Specificity, Order, dan Cascade Layers.",
+    code: `<span class="ct-at">@layer</span> <span class="ct-val">base, layout, components</span>;`,
+    badge: "BAB 3",
+    href: "/bab3/introduction/"
+  },
+  {
+    icon: "cpu",
+    title: "Box Model & Sizing",
+    desc: "Margin, border, padding, dan rahasia box-sizing: border-box yang mencegah 90% bug ukuran elemen.",
+    code: `<span class="ct-sel">:where(*)</span> <span class="ct-br">&#123;</span>
+  <span class="ct-prop">box-sizing</span>: <span class="ct-val">border-box</span>;
+<span class="ct-br">&#125;</span>`,
+    badge: "BAB 4",
+    href: "/bab4/introduction/"
+  },
+  {
+    icon: "smartphone",
+    title: "Responsive & Fluid Design",
+    desc: "Pendekatan Mobile-first, range media queries modern, fluid typography dengan clamp(), dan Container Queries.",
+    code: `<span class="ct-sel">.title</span> <span class="ct-br">&#123;</span>
+  <span class="ct-prop">font-size</span>: <span class="ct-val">clamp(1.5rem, 4vw, 2.5rem)</span>;
+<span class="ct-br">&#125;</span>`,
+    badge: "BAB 8",
+    href: "/bab8/introduction/"
+  },
+  {
+    icon: "sparkles",
+    title: "Transitions & Animations",
+    desc: "Ciptakan micro-interaction mulus dan animasi bermakna dengan performa GPU 60fps yang ramah aksesibilitas.",
+    code: `<span class="ct-prop">transition</span>: <span class="ct-val">transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)</span>;`,
+    badge: "BAB 9",
+    href: "/bab9/introduction/"
+  }
+];
+---
+
+<div class="hp-concept-grid">
+  {concepts.map((item) => (
+    <div class="hp-concept-card">
+      <div class="hp-concept-top">
+        <span class="hp-concept-icon" aria-hidden="true">
+          <Icon name={item.icon} size={20} />
+        </span>
+        <span class="hp-concept-badge">{item.badge}</span>
+      </div>
+      <h3 class="hp-concept-title">{item.title}</h3>
+      <p class="hp-concept-desc">{item.desc}</p>
+      <div class="hp-concept-snippet">
+        <pre><code><Fragment set:html={item.code} /></code></pre>
+      </div>
+      <a href={item.href} class="hp-concept-link">
+        Pelajari materi {item.badge}
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  ))}
+</div>

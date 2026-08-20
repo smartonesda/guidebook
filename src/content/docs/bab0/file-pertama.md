@@ -1,65 +1,138 @@
 ---
-title: "File Pertama"
-description: Membuat file index.html pertama — momen bersejarah dalam perjalanan belajarmu.
+title: "Tiga Cara Memasang CSS"
+description: Membedah Inline CSS, Internal CSS, dan External CSS — kelebihan, kelemahan, dan standar industri.
 ---
 
-Saatnya mempraktikkan apa yang sudah kita pelajari! Kita akan membuat file HTML pertama dan menuliskan baris kode pertama kita.
+Agar browser tahu bagaimana cara menghias dokumen HTML, kita harus memberitahukan aturan CSS tersebut. Ada **3 cara berbeda** untuk menyisipkan CSS ke dalam dokumen HTML:
 
----
+```text
+1. Inline CSS   → Ditulis langsung di dalam atribut elemen HTML
+2. Internal CSS → Ditulis di dalam tag <style> di bagian <head>
+3. External CSS → Ditulis di file terpisah (.css) lalu dihubungkan dengan tag <link>
+```
 
-## 📁 Langkah 1: Siapkan Folder Proyek
-
-Sebelum mulai menulis kode, buatlah folder khusus di komputermu agar file-file latihanmu tertata dengan rapi:
-
-1. Buka File Explorer (Windows) atau Finder (Mac).
-2. Buat folder baru di lokasi yang mudah kamu temukan (misalnya di folder *Documents*).
-3. Beri nama folder tersebut: **`belajar-html`**.
-
----
-
-## 🖥️ Langkah 2: Buka Folder di VS Code
-
-1. Jalankan aplikasi **Visual Studio Code** yang sudah kamu pasang.
-2. Di pojok kiri atas, klik menu **File** → **Open Folder...** (atau klik tombol *Open Folder* di halaman awal).
-3. Cari dan pilih folder **`belajar-html`** yang baru saja kamu buat, lalu klik **Select Folder**.
-4. Sekarang, nama folder `BELAJAR-HTML` akan muncul di panel Explorer sebelah kiri VS Code.
+Mari kita pelajari satu per satu secara mendalam.
 
 ---
 
-## 📄 Langkah 3: Buat File index.html
+## 1. Inline CSS (Gaya Baris)
 
-1. Arahkan kursor ke area panel Explorer di sebelah kiri VS Code, lalu klik ikon file kecil dengan tanda tambah (**New File**).
-2. Ketik nama file secara persis: **`index.html`** (Gunakan huruf kecil semua).
-3. Tekan tombol Enter di keyboard. File kosong `index.html` akan langsung terbuka di editor bagian tengah.
+Inline CSS ditulis langsung pada tag HTML menggunakan atribut `style=""`:
 
-:::tip[Mengapa harus nama index.html?]
-Dalam standar web, **`index.html`** adalah nama file default utama. Ketika server web menerima pengunjung yang datang ke suatu alamat (misalnya `www.sekolahku.sch.id`), server akan langsung mencari dan menyajikan file bernama `index.html` ini terlebih dahulu sebelum file lainnya.
-:::
+```html title="index.html"
+<h1 style="color: #e8392b; font-size: 24px;">Judul Merah</h1>
+<p style="color: #555555; line-height: 1.6;">Ini adalah paragraf dengan inline style.</p>
+```
+
+### Karakteristik:
+- **Kelebihan**: Cepat untuk pengujian kilat 1 baris kode (*quick dirty testing*) atau saat mengirim email HTML (*HTML email newsletter*).
+- **Kelemahan Fatal**:
+  - Kode HTML menjadi sangat kotor dan sulit dibaca.
+  - Aturan tidak bisa digunakan ulang (*no reusability*). Jika kamu punya 10 tombol, kamu harus menyalin kode style yang sama 10 kali.
+  - Memiliki prioritas spesifisitas yang terlalu tinggi sehingga sangat sulit diubah atau di-override di kemudian hari.
+- **Rekomendasi**: **Hindari penggunaan Inline CSS untuk proyek website nyata.**
 
 ---
 
-## ✍️ Langkah 4: Ketik Kode HTML Pertamamu
+## 2. Internal CSS (Embedded Stylesheet)
 
-Ketik kode di bawah ini di dalam file `index.html` milikmu. **Ingat, ketik secara manual karakter demi karakter, jangan dicopy-paste!**
+Internal CSS diletakkan di dalam tag `<style>` yang ditempatkan di dalam bagian `<head>` dokumen HTML:
 
-```html
+```html title="index.html"
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Halaman Web Pertamaku</title>
-  </head>
-  <body>
-    <h1>Halo, Dunia!</h1>
-    <p>Ini adalah halaman web pertamaku yang dibuat dengan HTML5.</p>
-    <p>Aku sedang belajar menggunakan HTML Guidebook untuk pemula.</p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Internal CSS</title>
+  
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #e8392b;
+    }
+
+    .kartu {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="kartu">
+    <h1>Selamat Datang</h1>
+    <p>Ini menggunakan internal CSS di bagian head.</p>
+  </div>
+</body>
 </html>
 ```
 
-*Catatan: Jangan khawatir jika kamu belum mengerti arti dari tag-tag di atas (seperti `<head>`, `<body>`, dll). Kita akan membedah semuanya secara mendalam di BAB 1 nanti. Saat ini, fokus kita adalah melihat hasil kodenya tampil di browser!*
+### Karakteristik:
+- **Kelebihan**: Seluruh styling untuk halaman tersebut terkumpul rapi di satu tempat di bagian atas. Cocok untuk halaman tunggal (*single page*) seperti *landing page promo* atau saat membuat demo tugas kecil.
+- **Kelemahan**: Aturan styling tersebut **hanya berlaku untuk file HTML itu saja**. Jika websitemu memiliki halaman `tentang.html` atau `kontak.html`, halaman-halaman tersebut tidak bisa memakai style ini kecuali kamu menyalin seluruh blok `<style>`.
 
-Mari kita lihat hasil ketikan kodemu di browser pada halaman berikutnya.
+---
 
-**[Lanjut: Membuka di Browser →](/bab0/membuka-di-browser/)**
+## 3. External CSS (Standar Industri) ⭐
+
+External CSS memisahkan kode styling ke dalam file tersendiri dengan ekstensi `.css` (misal: `style.css`), lalu dihubungkan ke file HTML menggunakan tag `<link>` di dalam `<head>`:
+
+```html title="index.html"
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Keren</title>
+  
+  <!-- Menghubungkan ke file CSS eksternal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Judul Halaman</h1>
+  <p>Teks halaman utama yang bersih dan terpisah dari CSS.</p>
+</body>
+</html>
+```
+
+```css title="style.css"
+/* File ini murni hanya berisi aturan CSS */
+body {
+  background-color: #0c0c0e;
+  color: #f0f0f3;
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1 {
+  color: #e8392b;
+}
+```
+
+### Karakteristik:
+- **Kelebihan Luar Biasa**:
+  - **Pemisahan Sempurna**: File HTML murni berisi struktur, file CSS murni berisi desain.
+  - **Dapat Digunakan Bersama (Shared Stylesheet)**: 1 file `style.css` bisa dihubungkan ke 100 halaman HTML sekaligus. Mengubah warna di `style.css` otomatis mengubah 100 halaman tersebut secara serentak.
+  - **Kecepatan Browser Cache**: Browser hanya perlu mengunduh file `style.css` satu kali di kunjungan pertama. Untuk halaman berikutnya, browser membaca dari memori lokal (*cache*), membuat website memuat jauh lebih cepat.
+- **Rekomendasi**: **Ini adalah metode standar profesional yang wajib kamu gunakan 99% dari seluruh waktu kerjamu.**
+
+---
+
+## 📊 Tabel Perbandingan 3 Metode
+
+| Fitur | Inline CSS | Internal CSS | External CSS |
+| :--- | :--- | :--- | :--- |
+| **Lokasi Kode** | Atribut `style=""` di tag | Tag `<style>` di `<head>` | File terpisah `.css` |
+| **Bisa Dipakai Ulang?** | Tidak sama sekali | Hanya di 1 file HTML | **Bisa di semua halaman** |
+| **Kerapian Kode HTML** | Sangat Buruk | Sedang | **Sangat Bersih** |
+| **Kecepatan Cache** | Tidak Ada | Tidak Ada | **Sangat Cepat (Cached)** |
+| **Standar Industri** | Hindari | Khusus Demo Singkat | **Wajib (Recommended)** |
+
+Sekarang setelah kita tahu cara memasang stylesheet eksternal, bagaimana cara kita mencari tahu sintaks properti CSS yang belum kita ketahui? Mari belajar membaca dokumentasi resmi di halaman berikutnya!
+
+**[Lanjut: Cara Membaca Dokumentasi CSS →](/bab0/membuka-di-browser/)**

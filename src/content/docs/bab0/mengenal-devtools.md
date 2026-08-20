@@ -1,52 +1,80 @@
 ---
-title: "Mengenal DevTools"
-description: Pengenalan Developer Tools browser — alat wajib setiap web developer.
+title: "Mengenal Browser DevTools"
+description: Menguasai panel Elements, Styles, Computed, dan teknik live-editing CSS langsung di browser.
 ---
 
-**DevTools (Developer Tools)** adalah alat bantu luar biasa yang sudah tertanam di dalam browsermu. Melalui DevTools, kamu bisa melihat dan memanipulasi struktur kode website apa pun di internet.
+Jika ada satu alat yang paling sering digunakan oleh frontend engineer setiap hari, alat itu adalah **Browser Developer Tools (DevTools)**.
 
----
-
-## 🛠️ Cara Membuka DevTools di Google Chrome
-
-Buka halaman web pertamamu di browser, lalu buka DevTools menggunakan salah satu cara di bawah ini:
-
-| Cara | Tombol Windows/Linux | Tombol macOS |
-|---|---|---|
-| Shortcut Utama | Tekan tombol **`F12`** | Tekan **`Cmd + Option + I`** |
-| Shortcut Alternatif | Tekan **`Ctrl + Shift + I`** | Tekan **`Cmd + Shift + I`** |
-| Melalui Menu Browser | Klik menu tiga titik (⋮) → **More Tools** → **Developer Tools** | |
-| Inspect Langsung | Klik kanan pada teks halaman → pilih **Inspect (Periksa)** | |
+DevTools sudah terpasang langsung di dalam browser (Chrome, Firefox, Edge, Safari) tanpa perlu menginstal plugin tambahan apa pun. Dengan DevTools, kamu bisa mengintip kode di balik website mana pun di internet, mengubah warna secara langsung, dan menguji layout sebelum menulisnya secara permanen di VS Code.
 
 ---
 
-## 🔍 Panel Utama yang Paling Sering Digunakan
+## ⌨️ Cara Membuka DevTools
 
-Ketika panel DevTools terbuka (biasanya muncul di sisi kanan atau bawah halaman), kamu akan melihat beberapa tab menu. Berikut dua tab terpenting untuk belajar HTML:
+Ada 3 cara mudah membuka DevTools di komputermu:
 
-### 1. Tab "Elements"
-Tab ini menampilkan struktur HTML utuh dari halaman web yang sedang aktif. 
-- Saat kamu mengarahkan kursor (*hover*) ke salah satu tag HTML di tab Elements, browser akan menyorot elemen tersebut di halaman dengan warna biru (menandakan area konten) dan oranye (menandakan margin luar).
-
-### 2. Tab "Console"
-Console bertindak sebagai terminal log dan error. Jika ada penulisan kode JavaScript yang salah, browsermu akan menampilkan pesan error berwarna merah di tab Console ini.
+1. **Klik Kanan Elemen > Inspect**: Klik kanan pada tombol atau teks apa pun di halaman web, lalu pilih **Inspect** (*Periksa Elemen*).
+2. **Shortcut Universal**:
+   - **Windows / Linux**: Tekan `F12` atau `Ctrl + Shift + I`
+   - **Mac**: Tekan `Cmd + Option + I`
+3. **Shortcut Langsung ke Selector Elemen**:
+   - **Windows / Linux**: `Ctrl + Shift + C`
+   - **Mac**: `Cmd + Shift + C`
 
 ---
 
-## 🧪 Eksperimen Menyenangkan: Mengubah Isi Web Orang Lain!
+## 🖥️ Dua Panel Utama DevTools untuk CSS
 
-Mari lakukan latihan interaktif sederhana untuk membuktikan bahwa browser menerjemahkan kode HTML secara langsung:
+Ketika DevTools terbuka, kamu akan melihat dua area kerja utama:
 
-1. Klik ikon kursor kecil di pojok kiri atas panel DevTools (ikon **Select Element**).
-2. Arahkan kursor ke judul **"Halo, Dunia!"** di halaman webmu, lalu klik kiri. Kode tag `<h1>` yang bersangkutan akan otomatis tersorot di tab Elements.
-3. Klik dua kali teks *"Halo, Dunia!"* yang ada di dalam panel Elements tersebut.
-4. Ubah tulisannya menjadi kalimat sesukamu, lalu tekan Enter.
-5. Perhatikan halaman webmu! Teks judulnya akan langsung berubah mengikuti ketikan barunya.
+```text
+┌──────────────────────────────────────┬──────────────────────────────────────┐
+│  PANEL KIRI: ELEMENTS (Pohon DOM)    │   PANEL KANAN: STYLES & COMPUTED     │
+├──────────────────────────────────────┼──────────────────────────────────────┤
+│ <div class="kartu">                  │ .kartu {                             │
+│   <h1>Selamat Datang</h1>            │   background: #19191e;               │
+│   <p>Teks artikel...</p>             │   padding: 24px;                     │
+│ </div>                               │   border-radius: 12px;               │
+│                                      │ }                                    │
+│ [Sorot elemen untuk melihat ukuran]  │ [Ubah nilai secara langsung di sini] │
+└──────────────────────────────────────┴──────────────────────────────────────┘
+```
 
-:::note[Catatan Penting]
-Perubahan yang kamu lakukan di DevTools hanya bersifat sementara di memori browser laptopmu saja. File asli `index.html` di komputermu tidak akan berubah. Jika kamu me-refresh halaman web tersebut, tampilannya akan kembali seperti semula.
+### 1. Panel Elements (Kiri)
+Menampilkan struktur pohon DOM HTML yang sedang aktif saat ini.
+- Ketika kamu mengarahkan kursor mouse ke suatu baris tag HTML di panel ini, browser akan memberi sorotan (*highlight*) visual pada elemen tersebut di layar:
+  - Warna **Kuning/Oranye**: Menunjukkan area **Margin** (jarak luar).
+  - Warna **Hijau**: Menunjukkan area **Padding** (jarak dalam).
+  - Warna **Biru**: Menunjukkan area **Content** (isi teks/gambar).
+
+### 2. Panel Styles (Kanan)
+Menampilkan semua aturan CSS yang sedang mempengaruhi elemen yang kamu pilih:
+- Diurutkan berdasarkan prioritas spesifisitas dari atas ke bawah.
+- Aturan yang dicoret (*strikethrough*) menandakan bahwa aturan tersebut ditimpa (*overridden*) oleh aturan lain yang lebih spesifik atau ditulis lebih baru.
+
+---
+
+## 🧪 Trik Live-Editing: Bereksperimen Tanpa Takut
+
+Di panel **Styles**, kamu bisa melakukan hal-hal luar biasa berikut:
+
+1. **Mengubah Nilai Secara Instan**: Klik dua kali pada angka atau warna (misal: `16px`), lalu ketik angka baru (misal: `32px`). Layar akan berubah saat itu juga!
+2. **Menggeser Angka dengan Tombol Panah**: Tempatkan kursor di angka, lalu tekan tombol **Panah Atas / Bawah** di keyboard untuk menambah/mengurangi nilai per 1 piksel (`Shift + Panah` untuk kelipatan 10px).
+3. **Mematikan/Menyalakan Aturan**: Arahkan kursor ke deklarasi CSS, lalu hilangkan centang pada kotak centang (*checkbox*) di sebelah kiri untuk melihat bagaimana tampilan jika aturan itu dimatikan.
+4. **Memilih Warna dengan Color Picker Visual**: Klik kotak kecil warna di sebelah nilai kode hex untuk membuka jendela pemilih warna (*eyedropper & color picker*).
+
+:::caution[Ingat: Perubahan di DevTools Bersifat Sementara!]
+Semua perubahan yang kamu lakukan di DevTools hanya terjadi di memori sementara browser. Jika kamu memuat ulang halaman (*refresh*), halaman akan kembali ke kode asli. Setelah kamu menemukan nilai CSS yang pas di DevTools, **jangan lupa menyalin nilai tersebut ke file `style.css` di VS Code!**
 :::
 
-Mari pelajari beberapa kesalahan umum yang sering dialami oleh pemula agar kita bisa menghindarinya.
+---
 
-**[Lanjut: Error Corner →](/bab0/error-corner/)**
+## 📊 Tab Computed: Nilai Akhir yang Dihitung Browser
+
+Di sebelah tab **Styles**, ada tab bernama **Computed**:
+- Menampilkan nilai akhir absolut dalam satuan piksel (`px`) setelah semua perhitungan matematika, pewarisan (*inheritance*), dan unit relatif (`rem`, `%`, `vw`) selesai dihitung oleh browser.
+- Menampilkan diagram kotak interaktif **Box Model** yang memperlihatkan angka pasti dari content, padding, border, dan margin.
+
+Sekarang kamu sudah memiliki alat investigasi terbaik. Mari kita pelajari apa saja kesalahan paling umum yang sering dialami pemula di halaman **Error Corner** berikutnya!
+
+**[Lanjut: Error Corner (5 Kesalahan Pemula) →](/bab0/error-corner/)**

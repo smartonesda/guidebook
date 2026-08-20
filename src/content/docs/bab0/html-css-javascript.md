@@ -1,49 +1,86 @@
 ---
-title: "HTML, CSS, JavaScript"
-description: Memahami peran masing-masing teknologi web dan bagaimana ketiganya bekerja bersama.
+title: "HTML vs CSS vs JavaScript"
+description: Membedah peran, batasan, dan kolaborasi trio teknologi pembangun web modern.
 ---
 
-Setiap halaman website yang pernah kamu kunjungi di internet selalu dibangun menggunakan kombinasi tiga teknologi utama: **HTML, CSS, dan JavaScript**. 
-
-Mari kita pahami peran masing-masing menggunakan analogi sederhana.
-
----
-
-## 🏠 Analogi Pembangunan Rumah
-
-Bayangkan kamu sedang membangun sebuah rumah tinggal:
+Di setiap halaman website modern di dunia—mulai dari Wikipedia, YouTube, hingga aplikasi SaaS kelas dunia—ada tiga bahasa inti yang bekerja bersama di dalam browser client. Ketiganya dikenal sebagai **Trio Web Frontend**:
 
 ```text
-  [HTML]                [CSS]                 [JavaScript]
-  Kerangka &            Cat, Dekorasi,        Sistem Listrik,
-  Dinding               Ubin Indah            Pintu Otomatis
+┌─────────────────────────────────────────────────────────────┐
+│ 1. HTML       → Struktur & Semantik (Apa yang ada di layar) │
+│ 2. CSS        → Presentasi & Tata Letak (Bagaimana rupanya) │
+│ 3. JavaScript → Perilaku & Interaktivitas (Apa yang terjadi)│
+└─────────────────────────────────────────────────────────────┘
 ```
 
-- **HTML (Struktur)**: Menentukan fondasi, tiang besi, dinding batu bata, dan posisi pintu serta jendela. Rumah sudah berdiri, tapi warnanya masih semen abu-abu polos.
-- **CSS (Tampilan)**: Memberikan warna cat dinding, memilih jenis keramik lantai, mengatur tata letak furnitur, dan memperindah pencahayaan. Rumah sekarang terlihat cantik dan nyaman dipandang.
-- **JavaScript (Interaksi)**: Memasang sistem kabel listrik, bel rumah otomatis, kunci pintu sensor sidik jari, dan pendingin ruangan (AC). Rumah sekarang pintar dan responsif terhadap penghuninya.
+Mari kita bedah peran masing-masing dengan analogi dan contoh kode nyata.
 
 ---
 
-## 🔍 Detail Peran Masing-masing
+## 🚗 Analogi Praktis: Membangun Mobil
 
-### 1. HTML (HyperText Markup Language)
-HTML bertugas mendefinisikan **apa kontennya** dan **di mana posisinya**. HTML memberitahu browser: *"Ini adalah judul utama, di bawahnya ada paragraf teks penjelasan, dan di sebelah kanannya ada foto profil."*
+Bayangkan kamu sedang membuat sebuah mobil:
 
-### 2. CSS (Cascading Style Sheets)
-CSS bertugas mengatur **bagaimana tampilannya**. CSS memberitahu browser: *"Judul utama harus berwarna merah bata, menggunakan font Sans-Serif, dan foto profil harus berbentuk lingkaran dengan bayangan lembut."*
-
-### 3. JavaScript (Logika Pemrograman)
-JavaScript bertugas mengatur **bagaimana perilakunya**. JavaScript memberitahu browser: *"Ketika pengunjung mengklik tombol 'Kirim Pesan', periksa apakah isian email sudah diisi dengan benar, lalu tampilkan animasi sukses."*
+| Teknologi | Analogi Mobil | Peran di Website |
+| :--- | :--- | :--- |
+| **HTML** | Rangka besi, roda, stir, kaca, pintu, jok mobil. | Membuat paragraf, heading, gambar, tombol, dan form input. |
+| **CSS** | Warna cat merah metalik, jok kulit halus, aerodinamika body, lampu LED. | Memberi warna tombol, tata letak kolom, jarak spasi, animasi transisi hover. |
+| **JavaScript** | Mesin mobil, pedal gas, sistem rem ABS, GPS dashboard. | Memvalidasi formulir saat dikirim, memuat data baru tanpa refresh, membuka modal pop-up. |
 
 ---
 
-## 🧱 Mengapa HTML Adalah Fondasi Terpenting?
+## 💻 Contoh Nyata: Komponen Tombol (Button)
 
-Kamu bisa memiliki rumah (HTML) yang polos tanpa cat (CSS) dan tanpa pintu otomatis (JavaScript) — rumah itu **tetap berdiri dan berfungsi** sebagai tempat berteduh.
+Mari kita lihat bagaimana ketiga bahasa ini bekerja pada satu elemen tombol sederhana:
 
-Namun, kamu **tidak akan pernah bisa** mengecat (CSS) atau memasang sakelar listrik (JavaScript) jika tiang pancang dan dinding rumahnya (HTML) belum dibangun!
+### 1. HTML Saja (Struktur Mentah)
+```html
+<button id="like-btn">Suka (0)</button>
+```
+*Tampilan*: Tombol abu-abu standar browser yang terlihat kaku dan polos.
 
-Itulah mengapa perjalanan belajarmu dimulai dari HTML. Ini adalah fondasi mutlak setiap web developer.
+### 2. Ditambahkan CSS (Visual & Sentuhan Desain)
+```css
+#like-btn {
+  background-color: #e8392b;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
 
-**[Lanjut: Mengapa Belajar HTML →](/bab0/mengapa-belajar-html/)**
+#like-btn:hover {
+  background-color: #c62828;
+  transform: translateY(-2px);
+}
+```
+*Tampilan*: Tombol merah elegan dengan sudut membulat, font tegas, dan efek animasi halus saat mouse melayang (*hover*).
+
+### 3. Ditambahkan JavaScript (Aksi Nyata)
+```javascript
+let count = 0;
+const button = document.getElementById("like-btn");
+
+button.addEventListener("click", () => {
+  count++;
+  button.textContent = `Suka (${count})`;
+});
+```
+*Hasil*: Setiap kali tombol diklik, angka di dalam tombol bertambah secara dinamis tanpa perlu memuat ulang halaman.
+
+---
+
+## ⚠️ Batasan & Jangan Salah Tempat!
+
+Salah satu kesalahan paling umum di kalangan pemula adalah **memaksa satu bahasa melakukan pekerjaan bahasa lain**:
+
+1. **Jangan gunakan HTML untuk styling**: Hindari menggunakan tag `<br><br><br>` hanya untuk memberi jarak ke bawah. Gunakan properti CSS `margin` atau `padding`.
+2. **Jangan gunakan JavaScript untuk layout**: Hindari menghitung posisi elemen menggunakan kode matematika JS jika kamu bisa menyelesaikannya dengan **Flexbox** atau **CSS Grid**.
+3. **Manfaatkan kapabilitas CSS Modern**: CSS modern saat ini sudah mampu membuat animasi halus, transisi state hover/focus, dark mode theme toggle, hingga layout yang sepenuhnya responsif tanpa membutuhkan satu baris kode JavaScript pun.
+
+Sekarang kita sudah paham bagaimana CSS berkolaborasi dengan HTML dan JS. Mari kita bahas secara spesifik: **apa saja kemampuan teknis yang sebenarnya bisa dilakukan oleh CSS?**
+
+**[Lanjut: Apa yang Sebenarnya Dilakukan CSS? →](/bab0/mengapa-belajar-html/)**

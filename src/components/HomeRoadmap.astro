@@ -1,52 +1,87 @@
----
-import { getCollection } from 'astro:content';
-
-const chapterTitles = [
-  'Getting Started', 'HTML Fundamentals', 'Text & Typography',
-  'Hyperlinks & Navigation', 'Images & Multimedia', 'Lists & Tables',
-  'Forms', 'HTML Attributes', 'Semantic HTML', 'Metadata & SEO',
-  'Accessibility', 'HTML Best Practices', 'Mini Project Collection',
-  'Final Project', 'Challenge Collection', 'HTML Handbook',
+﻿---
+/**
+ * HomeRoadmap.astro — Chapter list grouped by phase.
+ * Layout: vertical list inside each phase block.
+ */
+const phases = [
+  {
+    id: "fondasi",
+    label: "Fase 1 — Fondasi",
+    bab: "BAB 0 – 4",
+    chapters: [
+      { n: 0, title: "Pengenalan & Persiapan", desc: "Web, browser rendering, VS Code, DevTools, file CSS pertama.", badge: "Start", badgeType: "start", href: "/bab0/introduction/" },
+      { n: 1, title: "CSS Fundamentals", desc: "Sintaks, ruleset, selector, properti, nilai, dan 3 cara pasang CSS.", badge: "Core", badgeType: "core", href: "/bab1/introduction/" },
+      { n: 2, title: "Selectors & Specificity", desc: "Elemen, class, ID, pseudo-class, combinator, algoritma spesifisitas.", badge: "Penting", badgeType: "important", href: "/bab2/introduction/" },
+      { n: 3, title: "The Cascade & Inheritance", desc: "Cascade origin, specificity, source order, inheritance — algoritma browser.", badge: "Konsep", badgeType: "core", href: "/bab3/introduction/" },
+      { n: 4, title: "Box Model & Display", desc: "Content, padding, border, margin, dan box-sizing: border-box.", badge: "Wajib", badgeType: "important", href: "/bab4/introduction/" },
+    ],
+  },
+  {
+    id: "layout",
+    label: "Fase 2 — Layout & Visual",
+    bab: "BAB 5 – 9",
+    chapters: [
+      { n: 5, title: "Typography, Color & Visuals", desc: "Font scaling, Google Fonts, HSL/OKLCH, shadow, gradient, visual efek.", badge: "Desain", badgeType: "visual", href: "/bab5/introduction/" },
+      { n: 6, title: "Modern Flexbox", desc: "Flex-direction, justify-content, align-items, grow, shrink, wrap.", badge: "Layout", badgeType: "important", href: "/bab6/introduction/" },
+      { n: 7, title: "Modern CSS Grid", desc: "fr units, repeat, minmax, auto-fit, template-areas, subgrid.", badge: "Layout 2D", badgeType: "important", href: "/bab7/introduction/" },
+      { n: 8, title: "Responsive & Fluid Design", desc: "Mobile-First, media queries, clamp(), Container Queries.", badge: "Responsif", badgeType: "important", href: "/bab8/introduction/" },
+      { n: 9, title: "Transitions & Animations", desc: "CSS transition, cubic-bezier, @keyframes 60fps, prefers-reduced-motion.", badge: "Interaktif", badgeType: "visual", href: "/bab9/introduction/" },
+    ],
+  },
+  {
+    id: "arsitektur",
+    label: "Fase 3 — Arsitektur",
+    bab: "BAB 10 – 11",
+    chapters: [
+      { n: 10, title: "CSS Architecture & Tokens", desc: "Custom Properties, Design Tokens, BEM, CSS Modules, @layer.", badge: "Skalabilitas", badgeType: "arch", href: "/bab10/introduction/" },
+      { n: 11, title: "Best Practices & Clean Code", desc: "Organisasi stylesheet, Logical Properties, CSS Nesting, refactoring.", badge: "Clean Code", badgeType: "arch", href: "/bab11/introduction/" },
+    ],
+  },
+  {
+    id: "portofolio",
+    label: "Fase 4 — Portofolio & Lab",
+    bab: "BAB 12 – 15",
+    chapters: [
+      { n: 12, title: "Mini Project Collection", desc: "5 proyek: Card, Navbar, Hero Section, Pricing Table, Dashboard Widget.", badge: "5 Project", badgeType: "project", href: "/bab12/introduction/" },
+      { n: 13, title: "Final Project: Landing Page", desc: "Landing Page responsif dari nol, siap deploy ke Vercel / GitHub Pages.", badge: "Final", badgeType: "project", href: "/bab13/introduction/" },
+      { n: 14, title: "Challenge Collection & Debug Lab", desc: "Skenario CSS rusak dunia nyata: overflow, specificity war, z-index glitch.", badge: "Debug Lab", badgeType: "lab", href: "/bab14/introduction/" },
+      { n: 15, title: "CSS Handbook & Reference", desc: "Kamus properti, selector, pseudo-class, at-rules, dan fungsi CSS.", badge: "Referensi", badgeType: "handbook", href: "/bab15/introduction/" },
+    ],
+  },
 ];
-
-const docs = await getCollection('docs');
-const introductions = new Map(
-  docs.flatMap((entry) => {
-    const match = entry.id.match(/^bab(\d+)\/introduction(?:\.md)?$/);
-    return match ? [[Number(match[1]), entry] as const] : [];
-  }),
-);
-const chapters = chapterTitles.flatMap((title, number) => {
-  const introduction = introductions.get(number);
-  return introduction ? [{ number, title, description: introduction.data.description, href: `/bab${number}/introduction/` }] : [];
-});
 ---
 
-<section class="hp-section hp-roadmap" id="roadmap" aria-labelledby="roadmap-title">
-  <div class="hp-section-inner">
-    <header class="hp-section-header">
-      <span class="hp-label">Kurikulum Lengkap</span>
-      <h2 class="hp-title" id="roadmap-title">16 BAB, Satu Jalur Belajar</h2>
-      <p class="hp-subtitle">Dari menyiapkan alat hingga mengaudit kode dan memakai handbook HTML, semua bab sudah tersedia untuk dipelajari sekarang.</p>
-    </header>
-    <div class="hp-roadmap-timeline-wrapper">
-      <h3 class="hp-roadmap-sub">BAB 0 — BAB 15</h3>
-      <ol class="hp-timeline" aria-label="Jalur pembelajaran HTML Guidebook">
-        {chapters.map((chapter, index) => (
-          <li class:list={['hp-tl-item', 'hp-tl-active', index === chapters.length - 1 && 'hp-tl-item--end']}>
-            <div class="hp-tl-marker" aria-hidden="true"><span>{String(chapter.number).padStart(2, '0')}</span></div>
-            <div class="hp-tl-content">
-              <a href={chapter.href} class="hp-tl-link">
-                <div class="hp-tl-head">
-                  <span class="hp-tl-badge badge-beginner">Tersedia</span>
-                  <h3>{chapter.title}</h3>
+<div class="hp-roadmap">
+  {phases.map((phase) => (
+    <div class="hp-rphase" id={`phase-${phase.id}`} data-phase={phase.id}>
+      <div class="hp-rphase-head">
+        <div class="hp-rphase-label-group">
+          <span class="hp-rphase-dot" aria-hidden="true"></span>
+          <span class="hp-rphase-label">{phase.label}</span>
+          <span class="hp-rphase-bab">{phase.bab}</span>
+        </div>
+        <a href={`/bab${phase.chapters[0].n}/introduction/`} class="hp-rphase-link">
+          Buka Fase
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <ol class="hp-rphase-list" aria-label={`Bab dalam ${phase.label}`}>
+        {phase.chapters.map(({ n, title, desc, badge, badgeType, href }) => (
+          <li class="hp-rchapter">
+            <a href={href} class="hp-rchapter-inner">
+              <span class="hp-rchapter-num">{String(n).padStart(2, "0")}</span>
+              <div class="hp-rchapter-body">
+                <div class="hp-rchapter-top">
+                  <span class="hp-rchapter-title">{title}</span>
+                  <span class={`hp-rbadge hp-rbadge--${badgeType}`}>{badge}</span>
                 </div>
-                <p>{chapter.description}</p>
-              </a>
-            </div>
+                <p class="hp-rchapter-desc">{desc}</p>
+              </div>
+              <svg class="hp-rchapter-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </li>
         ))}
       </ol>
     </div>
-  </div>
-</section>
+  ))}
+</div>

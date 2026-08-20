@@ -1,37 +1,60 @@
 ---
 title: "Selamat Datang"
-description: Sambutan dan gambaran besar HTML Guidebook untuk siswa SMK RPL.
+description: Membangun pola pikir developer, menurunkan kecemasan, dan menyadari bahwa CSS adalah ruang eksperimen yang aman.
 ---
 
-Jika kamu belum pernah menulis satu baris kode pun seumur hidupmu, **kamu berada di tempat yang tepat**. 
+Jika ini adalah kali pertama kamu bersentuhan dengan CSS (Cascading Style Sheets), wajar jika kamu merasa sedikit ragu atau cemas. Mungkin kamu pernah mendengar lelucon programmer tentang meme *"CSS is Awesome"* di mana sebuah teks keluar dari kotak pembungkusnya, atau cerita bahwa menata posisi elemen di tengah layar (*centering a div*) adalah misteri terbesar di dunia web.
 
-Belajar membuat website adalah perjalanan yang sangat menyenangkan. Kamu tidak memerlukan komputer berspesifikasi tinggi, tidak perlu pintar matematika rumit, dan yang paling penting: **kamu tidak perlu menghafal apa pun**.
+Mari kita bongkar mitos tersebut sejak awal: **CSS bukanlah sihir gelap.**
 
-Semua profesional web developer memulai perjalanannya dari posisi yang sama seperti kamu hari ini.
-
----
-
-## 💡 Tiga Aturan Emas untuk Pemula
-
-Sebelum melangkah lebih jauh, mari kita sepakati tiga hal penting ini:
-
-### 1. Belum Pernah Coding Bukan Masalah
-Semua materi dalam guidebook ini disusun dengan asumsi bahwa pembaca adalah pemula total. Kita akan mulai dari nol dan berjalan perlahan langkah demi langkah.
-
-### 2. Jangan Takut Membuat Kesalahan
-Ketika kodemu tidak berjalan atau halaman webmu terlihat berantakan, jangan panik! Error dan tampilan rusak bukanlah kegagalan. Itu adalah tanda bahwa browser sedang membantumu belajar. Menghadapi dan memperbaiki error adalah cara tercepat menjadi developer yang andal.
-
-### 3. Belajar dengan Praktik
-Membaca tutorial coding tanpa mengetiknya langsung seperti belajar berenang dengan membaca buku panduan di pinggir kolam. Kamu harus basah! Setiap contoh kode di guidebook ini dirancang agar diketik ulang, dijalankan, dan dimodifikasi di komputermu sendiri.
+CSS adalah bahasa deklaratif yang memiliki aturan konsisten, logika yang terstruktur, dan sistem yang sangat terukur. Ketika sebuah tampilan rusak atau tidak sesuai ekspektasi, itu bukan karena CSS "berperilaku aneh", melainkan karena ada aturan browser atau urutan spesifisitas yang belum kita pahami.
 
 ---
 
-## 🚀 Apa Hasil Akhirnya?
+## 💡 Tiga Prinsip Awal untuk Calon Developer
 
-Setelah menyelesaikan perjalanan belajar di guidebook ini, kamu akan mampu merancang halaman web yang terstruktur rapi menggunakan standar HTML modern (HTML5), ramah terhadap mesin pencari (SEO), ramah aksesibilitas (bisa diakses oleh semua kalangan termasuk difabel), dan siap dikembangkan lebih jauh menggunakan CSS dan JavaScript.
+Sebelum kita masuk ke terminologi teknis, tanamkan 3 prinsip ini di pikiranmu:
 
-Kamu akan memiliki portofolio buatanmu sendiri yang bisa kamu pamerkan ke guru, teman, atau calon tempat magang industrimu nanti.
+### 1. Browser Adalah Kanvas yang Aman
+Tidak ada tombol di CSS yang bisa merusak komputermu atau menghapus hard drive. Jika kamu salah mengetik nilai warna, layar hanya akan menampilkan warna lama atau default. Jika kamu salah menentukan ukuran layout, kotak mungkin akan bergeser ke bawah. **Itu saja.** Jangan pernah takut mencoba, memodifikasi angka, atau bahkan sengaja merusak kode untuk melihat apa yang terjadi.
 
-Siap untuk mulai? Mari kita pelajari cara terbaik memanfaatkan media belajar ini!
+### 2. Menghafal Sintaks Bukanlah Kunci
+Developer profesional dengan pengalaman 10 tahun sekalipun masih sering membuka dokumentasi untuk mengecek sintaks properti tertentu. Yang membedakan developer handal dengan pemula bukanlah daya ingat hafalan, melainkan **pemahaman konsep dasar (mental model)**:
+- Bagaimana elemen berinteraksi satu sama lain di layar?
+- Properti mana yang diwariskan (*inherited*) ke elemen anak?
+- Bagaimana browser menentukan aturan mana yang menang ketika terjadi konflik?
+
+### 3. Error Adalah Petunjuk, Bukan Kegagalan
+Ketika CSS-mu tidak menghasilkan tampilan seperti yang kamu inginkan, anggap itu sebagai teka-teki logika yang sedang menunggu untuk dipecahkan. Browser selalu memberikan alasan mengapa suatu elemen tampil demikian melalui panel **DevTools**.
+
+---
+
+## 🧱 Anatomi Mental Model: Dari HTML ke CSS
+
+Bayangkan kamu sedang membangun sebuah produk digital:
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ HTML       → Kerangka & Makna (Heading, Paragraf, Tombol)   │
+├─────────────────────────────────────────────────────────────┤
+│ CSS        → Visual & Ruang (Warna, Jarak, Grid, Animasi)   │
+├─────────────────────────────────────────────────────────────┤
+│ JavaScript → Aksi & Data (Validasi Form, Klik, Fetch API)   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+Tanpa CSS, seluruh website di dunia akan terlihat sama: latar belakang putih polos, teks hitam dengan font Times New Roman, dan link berwarna biru bergaris bawah. CSS adalah bahasa yang mengubah dokumen teks mentah menjadi pengalaman visual yang indah, mudah dibaca, dan nyaman digunakan di berbagai ukuran layar perangkat.
+
+---
+
+## 🚀 Komitmen Kita Bersama
+
+Di dalam guidebook ini, kita tidak akan terburu-buru. Setiap konsep akan dijelaskan:
+1. **Kenapa** fitur itu diciptakan (*Why*)
+2. **Apa** fungsinya (*What*)
+3. **Bagaimana** kodenya bekerja (*How*)
+4. **Apa** kesalahan umum yang sering terjadi (*Error Corner*)
+
+Jika kamu siap mengubah cara pandangmu terhadap desain web, mari kita pelajari bagaimana cara memanfaatkan guidebook ini secara maksimal di halaman berikutnya!
 
 **[Lanjut: Cara Menggunakan Guidebook →](/bab0/cara-menggunakan-guidebook/)**
