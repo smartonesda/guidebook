@@ -1,6 +1,6 @@
 ---
 title: "Cara Browser Membaca HTML + CSS"
-description: Memahami alur kerja rendering browser, DOM, CSSOM, Render Tree, Layout / Reflow, dan Painting.
+description: "Memahami alur kerja rendering browser, DOM, CSSOM, Render Tree, Layout / Reflow, dan Painting."
 ---
 
 Ketika kamu mengetikkan alamat website di browser dan menekan tombol Enter, browser menerima teks mentah berupa kode HTML dan file CSS dari server. Namun, bagaimana caranya kode teks tersebut berubah menjadi piksel visual berwarna-warni di layarmu?
@@ -9,44 +9,44 @@ Proses ini disebut **Critical Rendering Path** (Alur Render Kritis). Memahami al
 
 ---
 
-## ⚙️ 5 Tahapan Alur Kerja Browser
+## ️ 5 Tahapan Alur Kerja Browser
 
 Berikut adalah peta jalan lengkap proses rendering di dalam browser:
 
 ```text
-┌──────────────┐         ┌──────────────┐
-│  HTML File   │         │   CSS File   │
-└──────┬───────┘         └──────┬───────┘
-       │                        │
-       ▼                        ▼
-┌──────────────┐         ┌──────────────┐
-│     DOM      │         │    CSSOM     │
-│(Document OM) │         │ (CSS Object) │
-└──────┬───────┘         └──────┬───────┘
-       │                        │
-       └───────────┬────────────┘
-                   ▼
-         ┌───────────────────┐
-         │    RENDER TREE    │
-         │ (DOM + CSSOM gab) │
-         └─────────┬─────────┘
-                   ▼
-         ┌───────────────────┐
-         │  LAYOUT / REFLOW  │
-         │ (Hitung Ukuran &  │
-         │  Posisi Koordinat)│
-         └─────────┬─────────┘
-                   ▼
-         ┌───────────────────┐
-         │     PAINTING      │
-         │ (Gambar Piksel ke │
-         │   Layar Monitor)  │
-         └───────────────────┘
+┌──────────────┐ ┌──────────────┐
+│ HTML File │ │ CSS File │
+└──────┬───────┘ └──────┬───────┘
+ │ │
+ ▼ ▼
+┌──────────────┐ ┌──────────────┐
+│ DOM │ │ CSSOM │
+│(Document OM) │ │ (CSS Object) │
+└──────┬───────┘ └──────┬───────┘
+ │ │
+ └───────────┬────────────┘
+ ▼
+ ┌───────────────────┐
+ │ RENDER TREE │
+ │ (DOM + CSSOM gab) │
+ └─────────┬─────────┘
+ ▼
+ ┌───────────────────┐
+ │ LAYOUT / REFLOW │
+ │ (Hitung Ukuran & │
+ │ Posisi Koordinat)│
+ └─────────┬─────────┘
+ ▼
+ ┌───────────────────┐
+ │ PAINTING │
+ │ (Gambar Piksel ke │
+ │ Layar Monitor) │
+ └───────────────────┘
 ```
 
 ---
 
-## 🔍 Membedah Setiap Tahapan
+## Membedah Setiap Tahapan
 
 ### 1. Pembentukan DOM (Document Object Model)
 Browser membaca tag-tag HTML baris demi baris dan mengubahnya menjadi struktur pohon hierarkis (*tree structure*).
@@ -76,7 +76,7 @@ Di tahap akhir, browser mengubah instruksi geometri dan warna menjadi piksel nya
 
 ---
 
-## 🧠 Mengapa Mental Model Ini Penting?
+## Mengapa Mental Model Ini Penting?
 
 Ketika kamu mengubah nilai CSS di VS Code:
 1. Kamu sedang mengubah instruksi di dalam **CSSOM**.

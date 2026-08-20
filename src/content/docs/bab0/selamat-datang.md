@@ -1,6 +1,6 @@
 ---
 title: "Selamat Datang"
-description: Membangun pola pikir developer, menurunkan kecemasan, dan menyadari bahwa CSS adalah ruang eksperimen yang aman.
+description: "Membangun pola pikir developer, menurunkan kecemasan, dan menyadari bahwa CSS adalah ruang eksperimen yang aman."
 ---
 
 Jika ini adalah kali pertama kamu bersentuhan dengan CSS (Cascading Style Sheets), wajar jika kamu merasa sedikit ragu atau cemas. Mungkin kamu pernah mendengar lelucon programmer tentang meme *"CSS is Awesome"* di mana sebuah teks keluar dari kotak pembungkusnya, atau cerita bahwa menata posisi elemen di tengah layar (*centering a div*) adalah misteri terbesar di dunia web.
@@ -11,7 +11,7 @@ CSS adalah bahasa deklaratif yang memiliki aturan konsisten, logika yang terstru
 
 ---
 
-## 💡 Tiga Prinsip Awal untuk Calon Developer
+## [TIPS] Tiga Prinsip Awal untuk Calon Developer
 
 Sebelum kita masuk ke terminologi teknis, tanamkan 3 prinsip ini di pikiranmu:
 
@@ -29,17 +29,17 @@ Ketika CSS-mu tidak menghasilkan tampilan seperti yang kamu inginkan, anggap itu
 
 ---
 
-## 🧱 Anatomi Mental Model: Dari HTML ke CSS
+## Anatomi Mental Model: Dari HTML ke CSS
 
 Bayangkan kamu sedang membangun sebuah produk digital:
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
-│ HTML       → Kerangka & Makna (Heading, Paragraf, Tombol)   │
+│ HTML → Kerangka & Makna (Heading, Paragraf, Tombol) │
 ├─────────────────────────────────────────────────────────────┤
-│ CSS        → Visual & Ruang (Warna, Jarak, Grid, Animasi)   │
+│ CSS → Visual & Ruang (Warna, Jarak, Grid, Animasi) │
 ├─────────────────────────────────────────────────────────────┤
-│ JavaScript → Aksi & Data (Validasi Form, Klik, Fetch API)   │
+│ JavaScript → Aksi & Data (Validasi Form, Klik, Fetch API) │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -47,7 +47,7 @@ Tanpa CSS, seluruh website di dunia akan terlihat sama: latar belakang putih pol
 
 ---
 
-## 🚀 Komitmen Kita Bersama
+## Komitmen Kita Bersama
 
 Di dalam guidebook ini, kita tidak akan terburu-buru. Setiap konsep akan dijelaskan:
 1. **Kenapa** fitur itu diciptakan (*Why*)

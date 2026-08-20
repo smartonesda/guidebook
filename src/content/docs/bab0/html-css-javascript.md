@@ -1,14 +1,14 @@
 ---
 title: "HTML vs CSS vs JavaScript"
-description: Membedah peran, batasan, dan kolaborasi trio teknologi pembangun web modern.
+description: "Membedah peran, batasan, dan kolaborasi trio teknologi pembangun web modern."
 ---
 
 Di setiap halaman website modern di dunia—mulai dari Wikipedia, YouTube, hingga aplikasi SaaS kelas dunia—ada tiga bahasa inti yang bekerja bersama di dalam browser client. Ketiganya dikenal sebagai **Trio Web Frontend**:
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
-│ 1. HTML       → Struktur & Semantik (Apa yang ada di layar) │
-│ 2. CSS        → Presentasi & Tata Letak (Bagaimana rupanya) │
+│ 1. HTML → Struktur & Semantik (Apa yang ada di layar) │
+│ 2. CSS → Presentasi & Tata Letak (Bagaimana rupanya) │
 │ 3. JavaScript → Perilaku & Interaktivitas (Apa yang terjadi)│
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -17,7 +17,7 @@ Mari kita bedah peran masing-masing dengan analogi dan contoh kode nyata.
 
 ---
 
-## 🚗 Analogi Praktis: Membangun Mobil
+## Analogi Praktis: Membangun Mobil
 
 Bayangkan kamu sedang membuat sebuah mobil:
 
@@ -29,7 +29,7 @@ Bayangkan kamu sedang membuat sebuah mobil:
 
 ---
 
-## 💻 Contoh Nyata: Komponen Tombol (Button)
+## Contoh Nyata: Komponen Tombol (Button)
 
 Mari kita lihat bagaimana ketiga bahasa ini bekerja pada satu elemen tombol sederhana:
 
@@ -42,19 +42,19 @@ Mari kita lihat bagaimana ketiga bahasa ini bekerja pada satu elemen tombol sede
 ### 2. Ditambahkan CSS (Visual & Sentuhan Desain)
 ```css
 #like-btn {
-  background-color: #e8392b;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+ background-color: #e8392b;
+ color: #ffffff;
+ border: none;
+ padding: 10px 20px;
+ border-radius: 6px;
+ font-weight: 600;
+ cursor: pointer;
+ transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 #like-btn:hover {
-  background-color: #c62828;
-  transform: translateY(-2px);
+ background-color: #c62828;
+ transform: translateY(-2px);
 }
 ```
 *Tampilan*: Tombol merah elegan dengan sudut membulat, font tegas, dan efek animasi halus saat mouse melayang (*hover*).
@@ -65,15 +65,15 @@ let count = 0;
 const button = document.getElementById("like-btn");
 
 button.addEventListener("click", () => {
-  count++;
-  button.textContent = `Suka (${count})`;
+ count++;
+ button.textContent = `Suka (${count})`;
 });
 ```
 *Hasil*: Setiap kali tombol diklik, angka di dalam tombol bertambah secara dinamis tanpa perlu memuat ulang halaman.
 
 ---
 
-## ⚠️ Batasan & Jangan Salah Tempat!
+## [PERHATIAN] Batasan & Jangan Salah Tempat!
 
 Salah satu kesalahan paling umum di kalangan pemula adalah **memaksa satu bahasa melakukan pekerjaan bahasa lain**:
 

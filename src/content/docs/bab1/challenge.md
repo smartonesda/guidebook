@@ -1,156 +1,116 @@
 ---
-title: "Challenge"
-description: Tantangan mandiri untuk membuktikan pemahaman mendalam tentang HTML Fundamentals — dari detektif kode hingga aturan LIFO.
+title: "1.11 Challenge Lab — 5 Lab Praktik CSS Fundamentals"
+description: "Uji ketajaman pemahaman sintaks dan kemampuan debugging-mu melalui 5 tantangan teka-teki kode CSS Fundamentals."
 ---
 
-Challenge ini dirancang untuk melatih kemampuan analisis, pemecahan masalah (*debugging*), dan pemahaman model mental dasar HTML milikmu. 
-
-Kerjakan seluruh tantangan ini menggunakan **hanya tag dasar yang sudah dipelajari di BAB 1**.
-
----
-
-## 🎯 Tujuan Challenge
-
-Setelah menyelesaikan rangkaian tantangan ini, kamu akan mampu:
-- Menemukan dan memperbaiki kesalahan sintaks dasar HTML secara mandiri.
-- Memahami dampak nyata dari ketiadaan deklarasi DOCTYPE di browser.
-- Menerapkan aturan nesting LIFO (Last In, First Out) secara presisi.
-- Menganalisis dan menyusun tingkat hierarki heading yang logis.
+Selamat datang di **Fundamentals Challenge Lab**! Uji intuisimu dalam menemukan kesalahan dan menulis ruleset yang sempurna.
 
 ---
 
-## ⭐ Challenge 1: Detektif Kode (Mudah)
+## Lab 1: Temukan 3 Kesalahan Sintaks Tersembunyi
 
-Temukan **minimal 8 kesalahan** pada penulisan kode HTML di bawah ini. Jelaskan bagian mana yang salah, mengapa itu salah, dan bagaimana memperbaikinya:
+Diberikan kode berikut:
 
-```html
-<HTML>
-<Head>
-<meta charset=UTF-8>
-<title>Halaman Latihanku<title>
-<meta name=viewport content="width=device-width">
-</head>
-<Body>
-<H1>Profil Siswa RPL
-<H3>Selamat Datang di Halaman Saya</H3>
-<p>Nama saya <strong>Rudi Hermawan.<p></strong>
-<p>Saya sedang belajar struktur dasar HTML.
-</Body>
-</HTML>
+```css
+.hero-banner {
+ background-color: #121216
+ padding: 20px 40px
+ color: #ffffff;
+ font-size 1.5rem;
+}
 ```
 
+<details>
+<summary> Lihat Solusi Lab 1</summary>
+
+**3 Kesalahan yang Ada:**
+1. Lupa titik koma `;` setelah `#121216`.
+2. Lupa titik koma `;` setelah `40px`.
+3. Lupa titik dua `:` antara properti `font-size` dan nilainya `1.5rem`.
+
+```css
+/* [BENAR] Kode yang Benar */
+.hero-banner {
+ background-color: #121216;
+ padding: 20px 40px;
+ color: #ffffff;
+ font-size: 1.5rem;
+}
+```
+</details>
+
 ---
 
-## ⭐⭐ Challenge 2: Eksperimen Quirks Mode (Menengah)
+## Lab 2: Refactor 8 Baris Longhand Menjadi Shorthand
 
-Lakukan eksperimen mandiri ini di browsermu untuk melihat perbedaan penafsiran browser terhadap halaman web yang tidak memiliki deklarasi DOCTYPE:
+Diberikan kode berikut:
 
-1. Buat file bernama `quirks-test.html` di VS Code.
-2. Salin kode di bawah ini (sengaja tanpa `<!DOCTYPE html>` di baris pertama):
-
-```html
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <title>Uji Coba Quirks Mode</title>
-  <style>
-    .box {
-      width: 300px;
-      padding: 20px;
-      border: 5px solid #ff5533;
-    }
-  </style>
-</head>
-<body>
-  <div class="box">
-    Berapakah lebar aktual kotak ini di browser?
-  </div>
-</body>
-</html>
+```css
+.box {
+ margin-top: 10px;
+ margin-right: 20px;
+ margin-bottom: 30px;
+ margin-left: 20px;
+ border-width: 2px;
+ border-style: dashed;
+ border-color: #e8392b;
+}
 ```
 
-3. Jalankan file di browser menggunakan Live Server.
-4. Buka **DevTools** (`F12`), masuk ke tab **Console**, lalu ketik perintah ini dan tekan Enter:
-   ```javascript
-   document.compatMode
-   ```
-   *Catatan: Catat nilai yang muncul di Console.*
-5. Sekarang, tambahkan tag `<!DOCTYPE html>` di baris paling pertama file `quirks-test.html` milikmu. Simpan file.
-6. Perhatikan Console kembali, lalu jalankan perintah `document.compatMode` sekali lagi.
-7. **Jawablah pertanyaan ini**:
-   - Apa perbedaan nilai yang dikembalikan oleh `document.compatMode` sebelum dan setelah dipasang DOCTYPE? Apa arti dari masing-masing nilai tersebut?
-   - Mengapa meletakkan deklarasi DOCTYPE di baris pertama sangat wajib bagi seorang web developer profesional?
+<details>
+<summary> Lihat Solusi Lab 2</summary>
+
+```css
+/* [BENAR] Cukup 2 baris ringkas */
+.box {
+ margin: 10px 20px 30px; /* 3 nilai: Top, Left/Right, Bottom */
+ border: 2px dashed #e8392b;
+}
+```
+</details>
 
 ---
 
-## ⭐⭐ Challenge 3: Analisis Struktur Web Asli (Menengah)
+## Lab 3: Prediksi Nilai Computed Style
 
-Pilihlah salah satu situs besar (misalnya: `wikipedia.org`, `google.com`, atau `github.com`). Buka situs tersebut di browsermu, lalu lakukan penyelidikan berikut:
+Jika root dokumen memiliki font default `16px`, berapakah nilai dalam satuan `px` di tab **Computed** untuk:
 
-1. Tampilkan kode sumbernya (Klik kanan → **View Page Source** atau tekan `Ctrl + U`).
-2. Periksa baris paling pertama: Apakah mereka menggunakan deklarasi DOCTYPE? Tuliskan bagaimana mereka menulisnya.
-3. Carilah tag `<html>`: Apakah mereka menyertakan atribut `lang`? Apa nilai bahasa yang mereka gunakan?
-4. Carilah tag `<title>`: Apa judul halaman yang mereka gunakan?
-5. Carilah tag `<meta charset>`: Jenis karakter set apa yang mereka gunakan?
+```css
+h1 {
+ font-size: 2.5rem;
+ padding: 1.5rem 2rem;
+}
+```
 
-Tuliskan temuanmu dalam bentuk laporan teks sederhana menggunakan komentar HTML (`<!-- -->`) di dalam file latihanmu.
+<details>
+<summary> Lihat Solusi Lab 3</summary>
 
----
-
-## ⭐⭐⭐ Challenge 4: Menyusun Hierarki Heading Sekolah (Menengah-Sulit)
-
-Buatlah sebuah kerangka dokumen HTML untuk menggambarkan struktur kepemimpinan dan organisasi di sekolahmu.
-
-**Ketentuan:**
-- Wajib menggunakan `<!DOCTYPE html>` dan struktur dasar lengkap yang valid.
-- Gunakan tag heading `<h1>` hingga `<h6>` untuk menunjukkan tingkatan hierarki organisasi secara logis (tidak boleh melompat tingkat, misalnya dari `<h1>` langsung lompat ke `<h4>`).
-- Tambahkan deskripsi singkat di bawah masing-masing tingkatan menggunakan tag paragraph (`<p>`).
-
-*Contoh struktur:*
-- Judul Utama Halaman (Struktur Sekolah)
-  - Kepala Sekolah
-    - Wakil Kepala Sekolah Bidang Kurikulum
-      - Ketua Jurusan RPL
-        - Wali Kelas X RPL
-        - Wali Kelas XI RPL
-    - Wakil Kepala Sekolah Bidang Kesiswaan
+- `font-size`: $2.5 	imes 16	ext{px} = \mathbf{40	ext{px}}$
+- `padding-top` & `padding-bottom`: $1.5 	imes 16	ext{px} = \mathbf{24	ext{px}}$
+- `padding-left` & `padding-right`: $2 	imes 16	ext{px} = \mathbf{32	ext{px}}$
+</details>
 
 ---
 
-## ⭐⭐⭐ Challenge 5: Detektif Aturan LIFO (Sulit)
+## Lab 4: Mencegah Jebakan Shorthand Background
 
-Aturan LIFO (*Last In, First Out*) sangat penting dalam nesting tag HTML. Periksa apakah penulisan penutupan tag pada contoh-contoh di bawah ini sudah benar atau salah. Jika salah, tuliskan bagaimana perbaikan kode yang benarnya:
+Diberikan kartu yang memiliki gambar latar:
 
-- **Kasus A**:
-  ```html
-  <p>Hari ini saya belajar <strong>HTML dasar dan <em>anatomi tag</strong></em>.</p>
-  ```
-- **Kasus B**:
-  ```html
-  <p>Gunakan komentar untuk <strong>menandai bagian kode yang penting</strong>.</p>
-  ```
-- **Kasus C**:
-  ```html
-  <p>Penting untuk selalu <em>memvalidasi kode kita di <strong>HTML Validator</em></strong>.</p>
-  ```
+```css
+.card {
+ background-color: #333333;
+ background-image: url('banner.jpg');
+}
+```
 
----
+Jika pada saat di-hover kamu hanya ingin mengubah warna background menjadi merah tanpa menghilangkan gambar `banner.jpg`, baris manakah yang benar?
 
-## 📊 Cara Penilaian
+- Opsi A: `.card:hover { background: red; }`
+- Opsi B: `.card:hover { background-color: red; }`
 
-| Challenge | Kriteria Keberhasilan | Poin Maksimal |
-|---|---|---|
-| 1: Detektif Kode | Berhasil menemukan dan menjelaskan minimal 8 kesalahan. | 20 |
-| 2: Quirks Mode | Berhasil menjawab pertanyaan eksperimen dengan analisis yang benar. | 25 |
-| 3: Analisis Web | Menyajikan laporan temuan struktur web asli dengan lengkap. | 15 |
-| 4: Hierarki Heading | Menyusun struktur organisasi sekolah dengan hierarki heading h1–h6 yang logis dan runtut. | 20 |
-| 5: Detektif LIFO | Mengidentifikasi kesalahan nesting dan menulis perbaikannya dengan benar. | 20 |
-| **Total** | | **100** |
+<details>
+<summary> Lihat Solusi Lab 4</summary>
 
----
-
-## ➡ Pelajaran Berikutnya
-
-Tantangan di atas menguji pemahamanmu secara menyeluruh. Sekarang, mari kita lihat kompilasi ringkasan dan checklist penutup dari seluruh rangkaian pembelajaran di BAB 1.
-
-**[Lanjut: Ringkasan →](/bab1/ringkasan/)**
+**Jawaban: Opsi B!** 
+Opsi A menggunakan shorthand `background` yang akan me-reset `background-image` menjadi `none` bawaan. Opsi B menggunakan longhand `background-color` yang aman.
+</details>

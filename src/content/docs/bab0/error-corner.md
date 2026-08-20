@@ -1,6 +1,6 @@
 ---
 title: "Error Corner: 5 Kesalahan Pemula"
-description: Mendiagnosis dan menyelesaikan lima masalah paling umum yang membuat CSS tidak bekerja.
+description: "Mendiagnosis dan menyelesaikan lima masalah paling umum yang membuat CSS tidak bekerja."
 ---
 
 Selamat datang di **Error Corner**! Di setiap bab, kita akan membedah kesalahan nyata yang paling sering membuat pusing para pemula.
@@ -11,25 +11,25 @@ Berikut adalah 5 biang kerok paling umum dan cara memperbaikinya:
 
 ---
 
-## ❌ Kesalahan 1: Lupa Titik Koma (Missing Semicolon)
+## [SALAH] Kesalahan 1: Lupa Titik Koma (Missing Semicolon)
 
 Di CSS, setiap deklarasi **wajib** diakhiri dengan tanda titik koma (`;`). Jika kamu lupa menulisnya, browser akan menganggap dua baris deklarasi tersebut sebagai satu baris yang rusak:
 
 ```css title="Contoh Rusak"
-/* ❌ SALAH: Lupa titik koma di baris background */
+/* [SALAH] SALAH: Lupa titik koma di baris background */
 .kartu {
-  background: #ffffff
-  color: #e8392b;
-  padding: 16px;
+ background: #ffffff
+ color: #e8392b;
+ padding: 16px;
 }
 ```
 
 ```css title="Contoh Benar"
-/* ✅ BENAR: Semua deklarasi diakhiri titik koma */
+/* [BENAR] BENAR: Semua deklarasi diakhiri titik koma */
 .kartu {
-  background: #ffffff;
-  color: #e8392b;
-  padding: 16px;
+ background: #ffffff;
+ color: #e8392b;
+ padding: 16px;
 }
 ```
 
@@ -39,17 +39,17 @@ Buka DevTools panel *Styles*. Aturan yang kehilangan titik koma akan diberi tand
 
 ---
 
-## ❌ Kesalahan 2: Path File Stylesheet Salah (404 Not Found)
+## [SALAH] Kesalahan 2: Path File Stylesheet Salah (404 Not Found)
 
 Kamu sudah menulis CSS dengan sangat bagus di `style.css`, tetapi di browser tampilan tetap polos putih.
 
 ```html title="index.html"
-<!-- ❌ SALAH: Nama file atau jalurnya tidak cocok -->
+<!-- [SALAH] SALAH: Nama file atau jalurnya tidak cocok -->
 <link rel="stylesheet" href="styles.css"> <!-- padahal nama aslinya style.css -->
 ```
 
 ```html title="index.html"
-<!-- ✅ BENAR: Pastikan nama file dan foldernya 100% presisi (case-sensitive) -->
+<!-- [BENAR] BENAR: Pastikan nama file dan foldernya 100% presisi (case-sensitive) -->
 <link rel="stylesheet" href="style.css">
 ```
 
@@ -59,27 +59,27 @@ Buka DevTools, lalu klik tab **Network** atau tab **Console**. Jika file CSS tid
 
 ---
 
-## ❌ Kesalahan 3: Lupa Satuan Ukuran (Missing Unit)
+## [SALAH] Kesalahan 3: Lupa Satuan Ukuran (Missing Unit)
 
 Di CSS, angka `0` boleh ditulis tanpa satuan (`margin: 0;`). Namun untuk angka selain 0, **kamu WAJIB menyertakan satuannya** (`px`, `rem`, `%`, `em`):
 
 ```css title="style.css"
-/* ❌ SALAH: Browser tidak tahu 20 apa? 20 piksel? 20 meter? 20 persen? */
+/* [SALAH] SALAH: Browser tidak tahu 20 apa? 20 piksel? 20 meter? 20 persen? */
 .kotak {
-  width: 300;
-  padding: 20;
+ width: 300;
+ padding: 20;
 }
 
-/* ✅ BENAR: Selalu sertakan satuan */
+/* [BENAR] BENAR: Selalu sertakan satuan */
 .kotak {
-  width: 300px;
-  padding: 20px;
+ width: 300px;
+ padding: 20px;
 }
 ```
 
 ---
 
-## ❌ Kesalahan 4: Salah Membedakan Class (`.`) dan ID (`#`)
+## [SALAH] Kesalahan 4: Salah Membedakan Class (`.`) dan ID (`#`)
 
 - Di HTML: `class="tombol"` &rarr; Di CSS harus diawali titik: `.tombol`
 - Di HTML: `id="header"` &rarr; Di CSS harus diawali pagar: `#header`
@@ -89,27 +89,27 @@ Di CSS, angka `0` boleh ditulis tanpa satuan (`margin: 0;`). Namun untuk angka s
 ```
 
 ```css title="style.css"
-/* ❌ SALAH: Menulis tanpa titik menganggap btn-utama sebagai nama tag HTML */
+/* [SALAH] SALAH: Menulis tanpa titik menganggap btn-utama sebagai nama tag HTML */
 btn-utama {
-  background: red;
+ background: red;
 }
 
-/* ✅ BENAR: Gunakan tanda titik untuk memilih class */
+/* [BENAR] BENAR: Gunakan tanda titik untuk memilih class */
 .btn-utama {
-  background: red;
+ background: red;
 }
 ```
 
 ---
 
-## ❌ Kesalahan 5: Browser Caching Menahan File Lama
+## [SALAH] Kesalahan 5: Browser Caching Menahan File Lama
 
 Terkadang kamu sudah mengubah file CSS dan menyimpannya, tetapi browser tetap menampilkan versi lama karena browser menyimpan stylesheet di memori cache untuk menghemat kuota.
 
 ### Cara Mengatasinya:
 - Lakukan **Hard Refresh**:
-  - **Windows / Linux**: `Ctrl + F5` atau `Ctrl + Shift + R`
-  - **Mac**: `Cmd + Shift + R`
+ - **Windows / Linux**: `Ctrl + F5` atau `Ctrl + Shift + R`
+ - **Mac**: `Cmd + Shift + R`
 - Atau centang opsi **"Disable cache"** di tab **Network** pada panel DevTools selama kamu sedang dalam sesi belajar.
 
 ---

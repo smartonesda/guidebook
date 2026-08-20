@@ -1,0 +1,188 @@
+
+==================== BAB0 ====================
+Config items (14):
+  [OK] /bab0/introduction/                 | Menu: 0.1 Introduction                 | Title: Introduction
+  [OK] /bab0/selamat-datang/               | Menu: 0.2 Selamat Datang               | Title: Selamat Datang
+  [OK] /bab0/cara-menggunakan-guidebook/   | Menu: 0.3 Cara Menggunakan Guidebook   | Title: Cara Menggunakan Guidebook
+  [OK] /bab0/apa-itu-web/                  | Menu: 0.4 Apa itu CSS?                 | Title: Apa itu CSS?
+  [OK] /bab0/bagaimana-browser-bekerja/    | Menu: 0.5 Cara Browser Membaca CSS     | Title: Cara Browser Membaca HTML + CSS
+  [OK] /bab0/html-css-javascript/          | Menu: 0.6 HTML vs CSS vs JavaScript    | Title: HTML vs CSS vs JavaScript
+  [OK] /bab0/mengapa-belajar-html/         | Menu: 0.7 Apa yang Dilakukan CSS?      | Title: Apa yang Sebenarnya Dilakukan CSS?
+  [OK] /bab0/persiapan-software/           | Menu: 0.8 Tools yang Digunakan         | Title: Tools yang Digunakan
+  [OK] /bab0/install-vscode/               | Menu: 0.9 Setup VS Code                | Title: Setup VS Code untuk CSS
+  [OK] /bab0/file-pertama/                 | Menu: 0.10 Tiga Cara Memasang CSS      | Title: Tiga Cara Memasang CSS
+  [OK] /bab0/membuka-di-browser/           | Menu: 0.11 Cara Membaca Dokumentasi    | Title: Cara Membaca Dokumentasi CSS
+  [OK] /bab0/mengenal-devtools/            | Menu: 0.12 Mengenal Browser DevTools   | Title: Mengenal Browser DevTools
+  [OK] /bab0/error-corner/                 | Menu: 0.13 Error Corner (5 Kesalahan)  | Title: Error Corner: 5 Kesalahan Pemula
+  [OK] /bab0/ringkasan/                    | Menu: 0.14 Ringkasan & Mini Project    | Title: Ringkasan & Mini Project
+
+==================== BAB1 ====================
+Config items (14):
+  [OK] /bab1/introduction/                 | Menu: 1.0 Introduction                 | Title: 1.0 Introduction — Anatomi & Cara Kerja CSS
+  [OK] /bab1/apa-itu-css/                  | Menu: 1.1 Apa itu CSS?                 | Title: 1.1 Apa itu CSS? — Filosofi & Spektrum Kemampuan
+  [OK] /bab1/anatomi-ruleset/              | Menu: 1.2 Anatomi Ruleset              | Title: 1.2 Anatomi Lengkap CSS Rule
+  [OK] /bab1/selector-dasar/               | Menu: 1.3 Selector Dasar               | Title: 1.3 Selector Dasar & Pengelompokan
+  [OK] /bab1/komentar-whitespace/          | Menu: 1.4 Komentar & Whitespace        | Title: 1.4 Komentar, Whitespace, & Semicolon
+  [OK] /bab1/shorthand-longhand/           | Menu: 1.5 Shorthand vs Longhand        | Title: 1.5 Shorthand vs Longhand Properties
+  [OK] /bab1/invalid-css-browser/          | Menu: 1.6 Error Handling di CSS        | Title: 1.6 Error Handling: Invalid Declaration & Nilai Tidak Valid
+  [OK] /bab1/browser-cssom/                | Menu: 1.7 Pipeline Browser & CSSOM     | Title: 1.7 Pipeline Browser: Parsing, CSSOM, & Computed Style
+  [OK] /bab1/mengenal-devtools/            | Menu: 1.8 Mengenal DevTools            | Title: 1.8 Memeriksa CSS dengan Browser DevTools
+  [OK] /bab1/studi-kasus/                  | Menu: 1.9 Studi Kasus                  | Title: 1.9 Studi Kasus — Membedah & Merefaktor Stylesheet Berantakan
+  [OK] /bab1/mini-project/                 | Menu: 1.10 Mini Project                | Title: 1.10 Mini Project — Membangun Profile Card Pertama
+  [OK] /bab1/challenge/                    | Menu: 1.11 Challenge Lab               | Title: 1.11 Challenge Lab — 5 Lab Praktik CSS Fundamentals
+  [OK] /bab1/error-corner/                 | Menu: 1.12 Error Corner                | Title: 1.12 Error Corner — 7 Kesalahan Fatal Sintaks Pemula
+  [OK] /bab1/ringkasan/                    | Menu: 1.13 Ringkasan & Kuis            | Title: 1.13 Ringkasan & Kuis Evaluasi Pemahaman
+
+==================== BAB2 ====================
+Config items (14):
+  [OK] /bab2/introduction/                 | Menu: 2.0 Introduction                 | Title: 2.0 Introduction — Seni & Sains Menargetkan Elemen
+  [OK] /bab2/basic-selectors/              | Menu: 2.1 Basic Selectors              | Title: 2.1 Basic Selectors — Universal, Type, Class, & ID
+  [OK] /bab2/combinators/                  | Menu: 2.2 Combinators                  | Title: 2.2 Combinators — Hubungan Silsilah Antar Elemen
+  [OK] /bab2/attribute-selectors/          | Menu: 2.3 Attribute Selectors          | Title: 2.3 Attribute Selectors — Menargetkan Berdasarkan Data HTML
+  [OK] /bab2/pseudo-classes-state/         | Menu: 2.4 Pseudo-Classes: State & Form | Title: 2.4 Pseudo-Classes: State & Form Interaction
+  [OK] /bab2/pseudo-classes-structural/    | Menu: 2.5 Pseudo-Classes: Struktural   | Title: 2.5 Pseudo-Classes: Struktural & Posisi DOM
+  [OK] /bab2/pseudo-elements/              | Menu: 2.6 Pseudo-Elements              | Title: 2.6 Pseudo-Elements — Elemen Virtual & Sub-Struktur
+  [OK] /bab2/modern-functional-selectors/  | Menu: 2.7 Modern Functional Selectors  | Title: 2.7 Modern Functional Selectors — :is(), :where(), :not(), & :has()
+  [OK] /bab2/selector-strategy/            | Menu: 2.8 Selector Strategy            | Title: 2.8 Selector Strategy — Maintainability & Arsitektur
+  [OK] /bab2/studi-kasus/                  | Menu: 2.9 Studi Kasus                  | Title: 2.9 Studi Kasus — Refactoring Selector E-Commerce Card
+  [OK] /bab2/mini-project/                 | Menu: 2.10 Mini Project                | Title: 2.10 Mini Project — Interactive Pricing Table & Selector Lab
+  [OK] /bab2/challenge/                    | Menu: 2.11 Challenge Lab               | Title: 2.11 Challenge Lab — 5 Lab Teka-Teki Selector
+  [OK] /bab2/error-corner/                 | Menu: 2.12 Error Corner                | Title: 2.12 Error Corner — 7 Kesalahan Fatal Seputar Selector
+  [OK] /bab2/ringkasan/                    | Menu: 2.13 Ringkasan                   | Title: 2.13 Ringkasan, Cheatsheet, & Kuis Evaluasi
+
+==================== BAB3 ====================
+Config items (6):
+  [OK] /bab3/introduction/                 | Menu: Introduction                     | Title: Introduction
+  [OK] /bab3/studi-kasus/                  | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab3/mini-project/                 | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab3/challenge/                    | Menu: Challenge                        | Title: Challenge
+  [OK] /bab3/error-corner/                 | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab3/ringkasan/                    | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB4 ====================
+Config items (6):
+  [OK] /bab4/introduction/                 | Menu: Introduction                     | Title: Introduction
+  [OK] /bab4/studi-kasus/                  | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab4/mini-project/                 | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab4/challenge/                    | Menu: Challenge                        | Title: Challenge
+  [OK] /bab4/error-corner/                 | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab4/ringkasan/                    | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB5 ====================
+Config items (6):
+  [OK] /bab5/introduction/                 | Menu: Introduction                     | Title: Introduction
+  [OK] /bab5/studi-kasus/                  | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab5/mini-project/                 | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab5/challenge/                    | Menu: Challenge                        | Title: Challenge
+  [OK] /bab5/error-corner/                 | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab5/ringkasan/                    | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB6 ====================
+Config items (6):
+  [OK] /bab6/introduction/                 | Menu: Introduction                     | Title: Introduction
+  [OK] /bab6/studi-kasus/                  | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab6/mini-project/                 | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab6/challenge/                    | Menu: Challenge                        | Title: Challenge
+  [OK] /bab6/error-corner/                 | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab6/ringkasan/                    | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB7 ====================
+Config items (6):
+  [OK] /bab7/introduction/                 | Menu: Introduction                     | Title: Introduction
+  [OK] /bab7/studi-kasus/                  | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab7/mini-project/                 | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab7/challenge/                    | Menu: Challenge                        | Title: Challenge
+  [OK] /bab7/error-corner/                 | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab7/ringkasan/                    | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB8 ====================
+Config items (6):
+  [OK] /bab8/introduction/                 | Menu: Introduction                     | Title: Introduction
+  [OK] /bab8/studi-kasus/                  | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab8/mini-project/                 | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab8/challenge/                    | Menu: Challenge                        | Title: Challenge
+  [OK] /bab8/error-corner/                 | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab8/ringkasan/                    | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB9 ====================
+Config items (6):
+  [OK] /bab9/introduction/                 | Menu: Introduction                     | Title: Introduction
+  [OK] /bab9/studi-kasus/                  | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab9/mini-project/                 | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab9/challenge/                    | Menu: Challenge                        | Title: Challenge
+  [OK] /bab9/error-corner/                 | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab9/ringkasan/                    | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB10 ====================
+Config items (6):
+  [OK] /bab10/introduction/                | Menu: Introduction                     | Title: Introduction
+  [OK] /bab10/studi-kasus/                 | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab10/mini-project/                | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab10/challenge/                   | Menu: Challenge                        | Title: Challenge
+  [OK] /bab10/error-corner/                | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab10/ringkasan/                   | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB11 ====================
+Config items (6):
+  [OK] /bab11/introduction/                | Menu: Introduction                     | Title: Introduction
+  [OK] /bab11/studi-kasus/                 | Menu: Studi Kasus                      | Title: Studi Kasus
+  [OK] /bab11/mini-project/                | Menu: Mini Project                     | Title: Mini Project
+  [OK] /bab11/challenge/                   | Menu: Challenge                        | Title: Challenge
+  [OK] /bab11/error-corner/                | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab11/ringkasan/                   | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB12 ====================
+Config items (11):
+  [OK] /bab12/introduction/                | Menu: Introduction                     | Title: Introduction
+  [OK] /bab12/project-1-biodata/           | Menu: Project 1 — Personal Biodata     | Title: Project 1 — Personal Biodata
+  [OK] /bab12/project-2-school-profile/    | Menu: Project 2 — School Profile       | Title: Project 2 — School Profile
+  [OK] /bab12/project-3-blog-article/      | Menu: Project 3 — Blog Article         | Title: Project 3 — Blog Article
+  [OK] /bab12/project-4-product-showcase/  | Menu: Project 4 — Product Showcase     | Title: Project 4 — Product Showcase
+  [OK] /bab12/project-5-event-registration/ | Menu: Project 5 — Event Registration   | Title: Project 5 — Event Registration
+  [OK] /bab12/everything-comes-together/   | Menu: Everything Comes Together        | Title: Everything Comes Together
+  [OK] /bab12/mini-project-rubrik/         | Menu: Rubrik & Self-Review             | Title: Rubrik & Self-Review
+  [OK] /bab12/challenge/                   | Menu: Challenge                        | Title: Challenge Collection
+  [OK] /bab12/error-corner/                | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab12/ringkasan/                   | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB13 ====================
+Config items (11):
+  [OK] /bab13/introduction/                | Menu: Introduction                     | Title: Introduction
+  [OK] /bab13/project-briefs/              | Menu: Pilihan Project Briefs           | Title: Pilihan Project Briefs
+  [OK] /bab13/project-requirements/        | Menu: Persyaratan & Spesifikasi        | Title: Persyaratan & Spesifikasi
+  [OK] /bab13/information-architecture/    | Menu: Arsitektur Informasi             | Title: Arsitektur Informasi
+  [OK] /bab13/workflow-guide/              | Menu: Panduan Alur Kerja               | Title: Panduan Alur Kerja
+  [OK] /bab13/everything-comes-together/   | Menu: Everything Comes Together        | Title: Everything Comes Together
+  [OK] /bab13/quality-gate-validation/     | Menu: Quality Gate & Validasi          | Title: Quality Gate & Validasi
+  [OK] /bab13/presentation-guide/          | Menu: Panduan Presentasi Karya         | Title: Panduan Presentasi Karya
+  [OK] /bab13/rubrik-penilaian/            | Menu: Rubrik Penilaian                 | Title: Rubrik Penilaian
+  [OK] /bab13/error-corner/                | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab13/ringkasan/                   | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB14 ====================
+Config items (11):
+  [OK] /bab14/introduction/                | Menu: Introduction                     | Title: Introduction
+  [OK] /bab14/lab-1-syntax-structure/      | Menu: Lab 1 — Selectors & Specificity  | Title: Lab 1 — Syntax & Structure
+  [OK] /bab14/lab-2-text-links/            | Menu: Lab 2 — The Cascade              | Title: Lab 2 — Navigation & Links
+  [OK] /bab14/lab-3-media-tables/          | Menu: Lab 3 — Box Model                | Title: Lab 3 — Multimedia & Tables
+  [OK] /bab14/lab-4-forms-inputs/          | Menu: Lab 4 — Flexbox & Grid           | Title: Lab 4 — Forms & Inputs
+  [OK] /bab14/lab-5-attributes-data/       | Menu: Lab 5 — Responsive               | Title: Lab 5 — Attributes & Data
+  [OK] /bab14/lab-6-semantic-a11y/         | Menu: Lab 6 — Animation & A11y         | Title: Lab 6 — Semantics & A11y
+  [OK] /bab14/boss-challenge/              | Menu: The Ultimate Boss Challenge      | Title: The Ultimate Boss Challenge
+  [OK] /bab14/everything-you-learned-can-break/ | Menu: Everything Can Break             | Title: Everything Can Break
+  [OK] /bab14/error-corner/                | Menu: Error Corner                     | Title: Error Corner
+  [OK] /bab14/ringkasan/                   | Menu: Ringkasan                        | Title: Ringkasan
+
+==================== BAB15 ====================
+Config items (11):
+  [OK] /bab15/introduction/                | Menu: Introduction & Quick Start       | Title: Introduction & Quick Start
+  [OK] /bab15/elements-reference/          | Menu: Kamus Properti CSS               | Title: Kamus Elemen HTML
+  [OK] /bab15/attributes-reference/        | Menu: Kamus Selector CSS               | Title: Kamus Atribut HTML
+  [OK] /bab15/input-types-reference/       | Menu: Kamus At-Rules                   | Title: Kamus Input Types
+  [OK] /bab15/entities-reference/          | Menu: CSS Functions Reference          | Title: HTML Entities & Karakter
+  [OK] /bab15/decision-guide/              | Menu: Decision Guide                   | Title: Decision Guide
+  [OK] /bab15/accessibility-reference/     | Menu: A11y & CSS Reference             | Title: A11y & ARIA Reference
+  [OK] /bab15/seo-metadata-reference/      | Menu: Performance Reference            | Title: SEO & Metadata Reference
+  [OK] /bab15/deprecated-elements/         | Menu: Properti Deprecated              | Title: Elemen Usang (Deprecated)
+  [OK] /bab15/vscode-snippets/             | Menu: VS Code Snippets & Tools         | Title: VS Code Snippets & Tools
+  [OK] /bab15/ringkasan/                   | Menu: Penutup Roadmap                  | Title: Penutup Roadmap

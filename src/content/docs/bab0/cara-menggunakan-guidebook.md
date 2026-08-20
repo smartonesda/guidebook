@@ -1,6 +1,6 @@
 ---
 title: "Cara Menggunakan Guidebook"
-description: Panduan metode belajar efektif, membaca struktur materi, dan menerapkan pola pikir inspect, experiment, break, dan debug.
+description: "Panduan metode belajar efektif, membaca struktur materi, dan menerapkan pola pikir inspect, experiment, break, dan debug."
 ---
 
 Belajar coding—terutama CSS—membutuhkan pendekatan aktif. Membaca materi seperti membaca novel tidak akan membuatmu mahir mendesain web. Kamu harus mengetik kodenya sendiri, melihat hasilnya langsung di layar, dan berani bereksperimen.
@@ -9,21 +9,21 @@ Guidebook ini dirancang dengan alur pedagogis khusus untuk membantumu memahami m
 
 ---
 
-## 🔄 Alur Belajar Standar Per Bab
+## Alur Belajar Standar Per Bab
 
 Setiap topik materi di dalam guidebook ini mengikuti siklus 6 langkah:
 
 ```text
 1. UNDERSTAND (Pahami Alasan)
-        ↓
+ ↓
 2. SEE (Lihat Contoh Nyata)
-        ↓
+ ↓
 3. TRY (Ketik & Coba Mandiri)
-        ↓
+ ↓
 4. BREAK (Sengaja Rusak Nilainya)
-        ↓
+ ↓
 5. DEBUG (Gunakan DevTools untuk Memeriksa)
-        ↓
+ ↓
 6. BUILD (Terapkan ke Mini Project)
 ```
 
@@ -37,7 +37,7 @@ Setiap topik materi di dalam guidebook ini mengikuti siklus 6 langkah:
 
 ---
 
-## 🎨 Membaca Notasi & Format Penulisan
+## Membaca Notasi & Format Penulisan
 
 Di dalam buku ini, kamu akan menemukan beberapa format visual khusus:
 
@@ -47,9 +47,9 @@ Setiap blok kode dilengkapi dengan nama file atau label bahasa di bagian atasnya
 ```css title="style.css"
 /* Ini adalah komentar CSS */
 .card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 16px;
+ background-color: #ffffff;
+ border-radius: 8px;
+ padding: 16px;
 }
 ```
 
@@ -69,7 +69,7 @@ Peringatan tentang perilaku CSS yang sering membingungkan atau properti yang sud
 
 ---
 
-## 🛠️ Kebiasaan Baik yang Harus Dimulai Hari Ini
+## Kebiasaan Baik yang Harus Dimulai Hari Ini
 
 1. **Gunakan Dual Screen atau Split Screen**: Tempatkan editor kode (VS Code) di separuh layar kiri dan jendela browser di separuh layar kanan.
 2. **Buka DevTools Sejak Detik Pertama**: Jangan menunggu ada error baru membuka DevTools. Jadikan DevTools jendela kerjamu sehari-hari.

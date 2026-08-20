@@ -1,57 +1,110 @@
 ---
-title: "Ringkasan"
-description: Rekap semua konsep penting yang dipelajari di BAB 2 — Text & Typography.
+title: "2.13 Ringkasan, Cheatsheet, & Kuis Evaluasi"
+description: "Rangkuman lengkap seluruh materi selector CSS BAB 2, cheatsheet sintaks siap pakai, kuis pemahaman konsep, dan refleksi menuju BAB 3 (The Cascade)."
 ---
 
-Selamat! Kamu telah menyelesaikan seluruh rangkaian materi di **BAB 2 — Text & Typography**.
-
----
-
-## 📝 Rekap Konsep Utama
-
-Berikut adalah ringkasan konsep pemformatan teks yang wajib kamu pahami:
-
-- **Semantic Meaning vs Visual Appearance**: HTML berfokus pada **makna** dari sebuah teks, bukan bagaimana cara teks itu tampil di layar. Mengatur keindahan tampilan adalah tugas utama CSS.
-- **Strong & Emphasis**: Tag `<strong>` digunakan untuk menyatakan urgensi/kepentingan yang mendalam, sedangkan `<em>` untuk penekanan intonasi suara. Mereka menggantikan peran tag visual `<b>` dan `<i>` secara semantik.
-- **Kutipan**: Gunakan `<blockquote>` untuk kutipan panjang (blok teks menjorok), `<q>` untuk kutipan pendek inline (browser otomatis memberi tanda kutip ganda), dan `<cite>` untuk nama rujukan/sumber kutipan.
-- **Teks Komputer**: Tag `<code>` menandai kode program, `<pre>` mempertahankan bentuk spasi/baris baru dari editor, dan `<kbd>` menandai tombol pintasan keyboard.
-- **Koreksi Naskah**: Tag `<del>` menandai teks lama yang dihapus, sedangkan `<ins>` menandai teks baru penggantinya.
-- **Informasi Tambahan**: Tag `<abbr>` mencatat singkatan dengan atribut `title` sebagai penjelasnya, sedangkan `<time>` menyimpan tanggal terstruktur melalui atribut `datetime`.
+Selamat! Kamu telah menyelesaikan **BAB 2 — CSS Selectors**. Sekarang kamu memiliki pemahaman mendalam tentang bagaimana CSS menargetkan elemen di dalam DOM tree dengan presisi tinggi.
 
 ---
 
-## 📊 Tabel Kamus Tag Teks BAB 2
+## Master Cheatsheet CSS Selectors
 
-| Tag HTML | Kegunaan Utama | Tampilan Default | Sifat Element |
-|---|---|---|---|
-| `<h1>`–`<h6>` | Struktur judul berjenjang | Tebal & Ukuran bervariasi | Block |
-| `<p>` | Paragraf teks biasa | Teks normal, ada margin | Block |
-| `<span>` | Pembungkus teks netral | Teks normal | Inline |
-| `<strong>` | Kepentingan mendesak/penting | Tebal (*bold*) | Inline |
-| `<em>` | Penekanan intonasi lisan | Miring (*italic*) | Inline |
-| `<mark>` | Penanda relevansi pencarian | Latar belakang kuning | Inline |
-| `<blockquote>` | Kutipan panjang terpisah | Blok menjorok masuk | Block |
-| `<q>` | Kutipan pendek sebaris | Dibungkus tanda kutip `"..."` | Inline |
-| `<pre>` | Mempertahankan format spasi | Font monospace | Block |
-| `<code>` | Kode program komputer | Font monospace | Inline |
-| `<kbd>` | Pintasan tombol keyboard | Font monospace | Inline |
-| `<sub>` | Angka/teks indeks bawah | Menggantung di bawah | Inline |
-| `<sup>` | Angka/teks pangkat atas | Menggantung di atas | Inline |
-| `<time>` | Tanggal dan waktu | Teks normal | Inline |
-| `<abbr>` | Singkatan / akronim | Garis bawah titik-titik | Inline |
-| `<br>` | Jeda baris manual | Pindah ke baris baru | Void / Inline |
-| `<hr>` | Perubahan tema / pembatas | Garis horizontal | Void / Block |
+| Kategori | Selector | Sintaks | Contoh | Makna Seleksi |
+|:---|:---|:---|:---|:---|
+| **Dasar** | Universal | `*` | `*` | Semua elemen tanpa kecuali |
+| | Type | `tag` | `p` | Semua elemen dengan tag `<p>` |
+| | Class | `.class` | `.card` | Elemen dengan `class="card"` |
+| | ID | `#id` | `#app` | Elemen unik dengan `id="app"` |
+| | Compound | `tag.class` | `button.danger` | Tag `<button>` yang ber-class `.danger` |
+| | List / Group | `A, B` | `h1, h2` | Elemen `h1` dan elemen `h2` |
+| **Combinator** | Descendant | `A B` | `nav a` | `<a>` di dalam `<nav>` di level mana pun |
+| | Child | `A > B` | `ul > li` | `<li>` yang anak langsung dari `<ul>` |
+| | Adjacent Sibling | `A + B` | `h2 + p` | `<p>` tepat setelah `<h2>` |
+| | General Sibling | `A ~ B` | `h2 ~ p` | Semua `<p>` setelah `<h2>` di parent sama |
+| **Attribute** | Keberadaan | `[attr]` | `[required]` | Elemen yang memiliki atribut `required` |
+| | Nilai Persis | `[attr="val"]` | `[type="email"]` | Elemen dengan `type="email"` |
+| | Diawali (Prefix) | `[attr^="val"]`| `[href^="https"]` | `href` yang diawali dengan `"https"` |
+| | Diakhiri (Suffix) | `[attr$="val"]`| `[href$=".pdf"]` | `href` yang diakhiri dengan `".pdf"` |
+| | Mengandung Substring | `[attr*="val"]`| `[class*="col-"]` | Class yang mengandung kata `"col-"` |
+| **State** | Hover | `:hover` | `a:hover` | Kursor mouse di atas elemen |
+| | Focus Keyboard | `:focus-visible` | `button:focus-visible` | Menerima fokus navigasi keyboard |
+| | Checked | `:checked` | `input:checked` | Radio atau checkbox yang aktif |
+| | Focus Within | `:focus-within` | `.form:focus-within` | Parent saat anak di dalamnya aktif |
+| **Struktur** | First Child | `:first-child` | `li:first-child` | Anak pertama dari parent-nya |
+| | Nth Child | `:nth-child(n)`| `tr:nth-child(even)` | Anak ke-n berdasarkan posisi |
+| | Nth of Type | `:nth-of-type(n)`| `p:nth-of-type(1)` | Anak ke-n dari tipe tag yang sama |
+| | Empty | `:empty` | `.box:empty` | Elemen yang tidak memiliki isi |
+| **Pseudo-Element** | Before | `::before` | `.card::before` | Sisipkan konten virtual di awal |
+| | After | `::after` | `.card::after` | Sisipkan konten virtual di akhir |
+| | Selection | `::selection` | `::selection` | Warna saat teks diblok kursor |
+| **Modern** | Is | `:is(A, B)` | `:is(h1, h2) a` | Gabungan alternatif (spesifisitas terkuat) |
+| | Where | `:where(A, B)` | `:where(button)` | Gabungan alternatif (**spesifisitas 0**) |
+| | Not | `:not(A)` | `p:not(:last-child)` | Pengecualian elemen |
+| | Has | `A:has(B)` | `.card:has(img)` | **Parent selector**: `.card` yang punya `<img>` |
 
 ---
 
-## ➡ Handoff ke BAB 3 — Hyperlinks & Navigation
+## 10 Prinsip Kunci Selector Mastery
 
-Di BAB 2 ini, kamu telah berhasil **memperkaya konten teks portfolio pribadimu** dengan tag-tag tipografi semantik yang valid pada Mini Project.
+1. **Browser membaca selector dari Kanan ke Kiri (*Right-to-Left*).** Bagian paling kanan adalah *Key Selector*.
+2. **Prioritaskan Class Selector** untuk styling komponen antarmuka yang dapat dipakai ulang (*reusable*).
+3. **Hindari ID Selector untuk styling umum** karena spesifisitasnya terlalu tinggi dan sulit ditimpa.
+4. **Hindari Over-Qualifying (`div.card`)** agar stylesheet tetap fleksibel jika tag HTML berubah.
+5. **Bedakan Spasi (Descendant) dan Tanpa Spasi (Compound):** `.card.active` $\neq$ `.card .active`.
+6. **`:nth-child` menghitung semua anak**, sedangkan **`:nth-of-type` hanya menghitung tag yang sejenis**.
+7. **`::before` dan `::after` WAJIB memiliki properti `content`** agar dirender oleh browser.
+8. **Taati urutan LVHA untuk styling link:** `:link` &rarr; `:visited` &rarr; `:hover` &rarr; `:active`.
+9. **Gunakan `:where()` untuk CSS Reset** agar mudah di-override dengan spesifisitas nol.
+10. **Gunakan `:has()` untuk merespon state anak di level parent** tanpa membutuhkan JavaScript.
 
-Namun, alamat surel (`surel@example.com`) dan tautan GitHub (`github.com/[username]`) yang kamu pajang di portfolio tersebut masih berupa teks biasa dan belum bisa diklik oleh pengunjung halaman.
+---
 
-Di **BAB 3 — Hyperlinks & Navigation**, kita akan mempelajari cara membuat **Link aktif** menggunakan elemen jangkar (*anchor element*). Kita akan mengubah alamat teks polos di portfoliomu menjadi tombol link aktif yang bisa langsung mengarahkan pengunjung ke halaman eksternal, mengirim email otomatis, atau melompat ke bagian konten lain di halaman yang sama!
+## Kuis Evaluasi BAB 2 (10 Soal)
 
-Mari bersiap melangkah ke bab berikutnya!
+<details>
+<summary>1. Apa perbedaan antara <code>.btn.primary</code> dan <code>.btn .primary</code>?</summary>
 
-**[Lanjut ke BAB 3 — Hyperlinks & Navigation →](/bab3/introduction/)**
+- `.btn.primary` (Compound): Menargetkan **SATU elemen** yang memiliki class `btn` DAN class `primary` secara bersamaan.
+- `.btn .primary` (Descendant): Menargetkan elemen dengan class `primary` yang berada **di dalam** elemen ber-class `btn`.
+</details>
+
+<details>
+<summary>2. Manakah selector yang memilih link yang mengarah ke file berekstensi ZIP?</summary>
+
+**Jawaban:** `a[href$=".zip"]` (menggunakan suffix match `$=`).
+</details>
+
+<details>
+<summary>3. Mengapa <code>p:first-child</code> gagal jika di dalam <code>&lt;div&gt;</code> diawali oleh <code>&lt;h1&gt;</code>?</summary>
+
+Karena `:first-child` memeriksa apakah elemen tersebut adalah **anak pertama mutlak** dari parent-nya. Jika anak pertama adalah `<h1>`, maka `<p>` adalah anak kedua sehingga gagal. Solusinya adalah menggunakan `p:first-of-type`.
+</details>
+
+<details>
+<summary>4. Apa yang membedakan <code>:is()</code> dan <code>:where()</code>?</summary>
+
+Keduanya memiliki fungsi logika yang sama, tetapi `:where()` selalu memiliki **spesifisitas NOL (0)**, sedangkan `:is()` mengambil spesifisitas dari selector terkuat di dalam argumennya.
+</details>
+
+<details>
+<summary>5. Bagaimana cara membuat teks kustom bullet list berwarna merah pada tag <code>&lt;li&gt;</code>?</summary>
+
+Gunakan pseudo-element `li::marker { color: red; }`.
+</details>
+
+---
+
+## Jembatan Menuju BAB 3: The Cascade & Specificity
+
+Sekarang kamu sudah menguasai cara memilih elemen. Namun, apa yang terjadi ketika ada **dua selector berbeda** yang memilih elemen yang sama dan memberikan instruksi yang bertentangan?
+
+Contoh:
+```css
+p { color: blue; }
+.text-danger { color: red; }
+#main-content p { color: green; }
+```
+
+Siapa yang akan menang? Warna apa yang akhirnya muncul di layar browser?
+
+Jawabannya ada di **BAB 3 — The Cascade, Specificity, & Inheritance**. Mari kita lanjutkan petualangan belajarmu!

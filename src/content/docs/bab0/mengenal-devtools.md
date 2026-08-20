@@ -1,6 +1,6 @@
 ---
 title: "Mengenal Browser DevTools"
-description: Menguasai panel Elements, Styles, Computed, dan teknik live-editing CSS langsung di browser.
+description: "Menguasai panel Elements, Styles, Computed, dan teknik live-editing CSS langsung di browser."
 ---
 
 Jika ada satu alat yang paling sering digunakan oleh frontend engineer setiap hari, alat itu adalah **Browser Developer Tools (DevTools)**.
@@ -15,37 +15,37 @@ Ada 3 cara mudah membuka DevTools di komputermu:
 
 1. **Klik Kanan Elemen > Inspect**: Klik kanan pada tombol atau teks apa pun di halaman web, lalu pilih **Inspect** (*Periksa Elemen*).
 2. **Shortcut Universal**:
-   - **Windows / Linux**: Tekan `F12` atau `Ctrl + Shift + I`
-   - **Mac**: Tekan `Cmd + Option + I`
+ - **Windows / Linux**: Tekan `F12` atau `Ctrl + Shift + I`
+ - **Mac**: Tekan `Cmd + Option + I`
 3. **Shortcut Langsung ke Selector Elemen**:
-   - **Windows / Linux**: `Ctrl + Shift + C`
-   - **Mac**: `Cmd + Shift + C`
+ - **Windows / Linux**: `Ctrl + Shift + C`
+ - **Mac**: `Cmd + Shift + C`
 
 ---
 
-## 🖥️ Dua Panel Utama DevTools untuk CSS
+## ️ Dua Panel Utama DevTools untuk CSS
 
 Ketika DevTools terbuka, kamu akan melihat dua area kerja utama:
 
 ```text
 ┌──────────────────────────────────────┬──────────────────────────────────────┐
-│  PANEL KIRI: ELEMENTS (Pohon DOM)    │   PANEL KANAN: STYLES & COMPUTED     │
+│ PANEL KIRI: ELEMENTS (Pohon DOM) │ PANEL KANAN: STYLES & COMPUTED │
 ├──────────────────────────────────────┼──────────────────────────────────────┤
-│ <div class="kartu">                  │ .kartu {                             │
-│   <h1>Selamat Datang</h1>            │   background: #19191e;               │
-│   <p>Teks artikel...</p>             │   padding: 24px;                     │
-│ </div>                               │   border-radius: 12px;               │
-│                                      │ }                                    │
-│ [Sorot elemen untuk melihat ukuran]  │ [Ubah nilai secara langsung di sini] │
+│ <div class="kartu"> │ .kartu { │
+│ <h1>Selamat Datang</h1> │ background: #19191e; │
+│ <p>Teks artikel...</p> │ padding: 24px; │
+│ </div> │ border-radius: 12px; │
+│ │ } │
+│ [Sorot elemen untuk melihat ukuran] │ [Ubah nilai secara langsung di sini] │
 └──────────────────────────────────────┴──────────────────────────────────────┘
 ```
 
 ### 1. Panel Elements (Kiri)
 Menampilkan struktur pohon DOM HTML yang sedang aktif saat ini.
 - Ketika kamu mengarahkan kursor mouse ke suatu baris tag HTML di panel ini, browser akan memberi sorotan (*highlight*) visual pada elemen tersebut di layar:
-  - Warna **Kuning/Oranye**: Menunjukkan area **Margin** (jarak luar).
-  - Warna **Hijau**: Menunjukkan area **Padding** (jarak dalam).
-  - Warna **Biru**: Menunjukkan area **Content** (isi teks/gambar).
+ - Warna **Kuning/Oranye**: Menunjukkan area **Margin** (jarak luar).
+ - Warna **Hijau**: Menunjukkan area **Padding** (jarak dalam).
+ - Warna **Biru**: Menunjukkan area **Content** (isi teks/gambar).
 
 ### 2. Panel Styles (Kanan)
 Menampilkan semua aturan CSS yang sedang mempengaruhi elemen yang kamu pilih:
@@ -54,7 +54,7 @@ Menampilkan semua aturan CSS yang sedang mempengaruhi elemen yang kamu pilih:
 
 ---
 
-## 🧪 Trik Live-Editing: Bereksperimen Tanpa Takut
+## Trik Live-Editing: Bereksperimen Tanpa Takut
 
 Di panel **Styles**, kamu bisa melakukan hal-hal luar biasa berikut:
 
@@ -69,7 +69,7 @@ Semua perubahan yang kamu lakukan di DevTools hanya terjadi di memori sementara 
 
 ---
 
-## 📊 Tab Computed: Nilai Akhir yang Dihitung Browser
+## Tab Computed: Nilai Akhir yang Dihitung Browser
 
 Di sebelah tab **Styles**, ada tab bernama **Computed**:
 - Menampilkan nilai akhir absolut dalam satuan piksel (`px`) setelah semua perhitungan matematika, pewarisan (*inheritance*), dan unit relatif (`rem`, `%`, `vw`) selesai dihitung oleh browser.

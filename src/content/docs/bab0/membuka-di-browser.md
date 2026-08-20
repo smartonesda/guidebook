@@ -1,6 +1,6 @@
 ---
 title: "Cara Membaca Dokumentasi CSS"
-description: Panduan menavigasi MDN Web Docs, memahami notasi sintaks formal CSS, dan mencari solusi secara mandiri.
+description: "Panduan menavigasi MDN Web Docs, memahami notasi sintaks formal CSS, dan mencari solusi secara mandiri."
 ---
 
 Seorang developer profesional tidak menghafal 500+ properti CSS di luar kepala. Mereka memiliki keahlian yang jauh lebih penting: **tahu cara mencari informasi yang tepat di dokumentasi resmi.**
@@ -9,7 +9,7 @@ Dokumentasi resmi dan paling tepercaya untuk teknologi web di seluruh dunia adal
 
 ---
 
-## 🔍 Cara Mencari Dokumentasi di Google
+## Cara Mencari Dokumentasi di Google
 
 Ketika kamu lupa bagaimana cara membuat bayangan kotak atau mengatur tata letak flexbox, gunakan pola pencarian ini di Google:
 
@@ -27,22 +27,22 @@ Hasil pencarian pertama dari domain `developer.mozilla.org` adalah halaman refer
 
 ---
 
-## 📑 Anatomi Halaman Dokumentasi MDN
+## Anatomi Halaman Dokumentasi MDN
 
 Ketika kamu membuka halaman properti di MDN (misal: halaman `border-radius`), kamu akan menemukan struktur yang selalu konsisten:
 
 ```text
 1. Interactive Demo → Kotak interaktif untuk mencoba nilai secara langsung di browser
-2. Syntax           → Format penulisan formal dan tipe nilai yang diterima
-3. Formal Syntax    → Notasi teknis W3C
-4. Examples         → Contoh kode nyata dalam berbagai skenario
-5. Specifications   → Standar resmi dari W3C
-6. Browser Support  → Tabel kompatibilitas browser (Chrome, Firefox, Safari, Edge)
+2. Syntax → Format penulisan formal dan tipe nilai yang diterima
+3. Formal Syntax → Notasi teknis W3C
+4. Examples → Contoh kode nyata dalam berbagai skenario
+5. Specifications → Standar resmi dari W3C
+6. Browser Support → Tabel kompatibilitas browser (Chrome, Firefox, Safari, Edge)
 ```
 
 ---
 
-## 🧩 Memahami Notasi Sintaks Formal CSS
+## Memahami Notasi Sintaks Formal CSS
 
 Di bagian **Syntax** MDN, kamu sering melihat simbol-simbol khusus seperti tanda pipa (`|`), kurung siku (`[]`), atau tanda tanya (`?`). Ini disebut *Formal Syntax Value Definition*.
 
@@ -67,7 +67,7 @@ Artinya: kamu boleh memberikan 1 hingga 4 nilai ukuran (seperti `padding: 10px;`
 
 ---
 
-## 🌐 Sumber Belajar & Referensi Tepercaya Lainnya
+## Sumber Belajar & Referensi Tepercaya Lainnya
 
 Selain MDN, simpan daftar referensi tepercaya ini di bookmark browsermu:
 

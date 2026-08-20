@@ -1,108 +1,207 @@
 ---
-title: "Challenge"
-description: Tantangan mandiri untuk membuktikan pemahaman mendalam tentang Teks & Tipografi HTML5 — dari analisis penulisan kutipan hingga pembongkaran elemen semantik.
+title: "2.11 Challenge Lab — 5 Lab Teka-Teki Selector"
+description: "Uji ketajaman intuisimu dalam menargetkan elemen HTML dengan 5 skenario lab teka-teki — dari selector combinator hingga trik :has() dan :nth-child()."
 ---
 
-Tantangan mandiri ini akan menguji pemahamanmu mengenai bagaimana menyusun teks dan memberikan makna semantik yang tepat pada dokumen web.
-
-Ada 5 tantangan berjenjang. Selesaikan semuanya!
-
----
-
-## 🎯 Tujuan Challenge
-
-Setelah menyelesaikan rangkaian tantangan ini, kamu akan mampu:
-- Membedakan penggunaan tag visual (`<b>`, `<i>`) dengan tag semantik (`<strong>`, `<em>`) secara tepat.
-- Menuliskan kutipan langsung (`<blockquote>`, `<q>`, `<cite>`) sesuai standar web.
-- Menyusun teks komputer bersarang (`<pre>`, `<code>`, `<kbd>`) secara valid.
-- Menganalisis perbedaan penafsiran browser terhadap *block* vs *inline* elements.
+Selamat datang di **Selector Challenge Lab**! Di lab ini, tugasmu adalah menemukan **selector CSS yang paling presisi dan efisien** untuk setiap tantangan skenario di bawah ini.
 
 ---
 
-## ⭐ Challenge 1: Detektif Kode Teks (Mudah)
+## Lab 1: Selector Silsilah Navigasi (Combinator Challenge)
 
-Temukan **minimal 6 kesalahan** dalam penulisan tag pemformatan teks di bawah ini. Jelaskan mengapa itu salah, dan tuliskan perbaikannya:
+Diberikan struktur HTML navigasi berikut:
 
 ```html
-<p>
-  Jurusan saya adalah <strong><em>Rekayasa Perangkat Lunak</strong></em>.<br>
-  Di kelas, saya belajar tentang tag <abbr>HTML</abbr>.<br>
-  Kakek berkata: <q>"Belajarlah yang rajin, Nak."</q>
-</p>
-<p>
-  Untuk merapikan teks kode, saya menekan tombol <kbd>Shift + Alt + F</kbd>.
-</p>
+<nav class="main-nav">
+ <a href="/" class="active">Beranda</a>
+ <div class="dropdown">
+ <a href="/products">Produk</a>
+ <div class="dropdown-menu">
+ <a href="/products/app">Aplikasi</a>
+ <a href="/products/web">Web</a>
+ </div>
+ </div>
+ <a href="/about">Tentang Kami</a>
+</nav>
 ```
 
----
+**Tantangan:**
+Tulis **satu selector** yang HANYA memilih link utama tingkat atas ("Beranda", "Produk", "Tentang Kami"), dan **TIDAK** memilih link di dalam `.dropdown-menu`!
 
-## ⭐⭐ Challenge 2: Semantik vs Visual (Menengah)
+<details>
+<summary> Lihat Solusi Lab 1</summary>
 
-Diberikan sebuah kalimat:
-*"Saya sangat ingin menjadi seorang pengembang web profesional."*
+```css
+/* Menggunakan Child Combinator > dan :is() */
+.main-nav > a,
+.main-nav > .dropdown > a {
+ font-weight: 700;
+}
 
-Buatlah 3 versi pengkodean HTML untuk kalimat di atas dengan makna yang berbeda:
-1. **Versi A**: Kalimat biasa tanpa penekanan khusus, hanya menekankan secara visual tebal pada kata *"sangat"* dan miring pada *"pengembang web"*.
-2. **Versi B**: Menyatakan peringatan penting/urgensi kuat pada kata *"sangat"*, dan memiringkan *"pengembang web"* karena merupakan istilah asing (*web developer*).
-3. **Versi C**: Kalimat di mana kata *"sangat"* diberi penekanan lisan (*emphasis*) yang kuat untuk mengubah intonasi suara pembaca layar.
-
-*Tuliskan kode HTML masing-masing versi di file latihanmu.*
-
----
-
-## ⭐⭐ Challenge 3: Menyusun Lembar Lirik Lagu (Menengah)
-
-Buatlah sebuah dokumen HTML valid yang menampilkan lirik lagu atau bait puisi pilihanmu.
-
-**Ketentuan:**
-- Wajib memiliki struktur dasar HTML5 yang valid.
-- Judul lagu dibungkus dengan tag `<h1>` atau `<h2>` yang tepat.
-- Bait lirik lagu harus mempertahankan format spasi, tab, dan baris baru persis seperti aslinya.
-- **Tantangan**: Pilihlah elemen HTML yang paling tepat untuk mempertahankan format lirik tersebut (apakah `<p>` dengan banyak `<br>`, atau tag `<pre>`). Jelaskan mengapa kamu memilih elemen tersebut.
+/* Atau lebih ringkas dengan :is(): */
+.main-nav > :is(a, .dropdown > a) {
+ font-weight: 700;
+}
+```
+</details>
 
 ---
 
-## ⭐⭐⭐ Challenge 4: Blok Kode Bersarang (Menengah-Sulit)
+## Lab 2: Pola Tabel Data Belang-Belang (Nth-Child Mastery)
 
-Buatlah kerangka halaman tutorial coding sederhana yang menampilkan panduan langkah-langkah belajar pemrograman:
+Diberikan tabel dengan 10 baris:
 
-- Tampilkan satu paragraf penjelasan awal.
-- Tampilkan satu baris kode pemrograman inline di dalam paragraf tersebut.
-- Tampilkan sebuah blok kode pemrograman multi-baris (*multiline*) yang lengkap dengan tabulasi menjorok ke dalam secara rapi.
-- Tuliskan panduan tombol keyboard yang harus ditekan pengguna untuk menjalankan kode tersebut.
+```html
+<table class="data-table">
+ <tbody>
+ <tr><td>Baris 1</td></tr>
+ <tr><td>Baris 2</td></tr>
+ <tr><td>Baris 3</td></tr>
+ <tr><td>Baris 4</td></tr>
+ <tr><td>Baris 5</td></tr>
+ <tr><td>Baris 6</td></tr>
+ <tr><td>Baris 7</td></tr>
+ <tr><td>Baris 8</td></tr>
+ <tr><td>Baris 9</td></tr>
+ <tr><td>Baris 10</td></tr>
+ </tbody>
+</table>
+```
 
-*Requirements*: Gunakan tag `<code>`, `<pre>`, `<kbd>`, dan entitas HTML khusus (`&lt;` dan `&gt;`) secara valid.
+**Tantangan:**
+1. Beri warna latar belakang pada setiap **baris genap** (2, 4, 6, 8, 10).
+2. Beri teks tebal warna merah pada **3 baris pertama saja** (1, 2, 3).
+3. Beri border tebal hanya pada **baris ke-5 dan ke-10** (kelipatan 5).
+
+<details>
+<summary> Lihat Solusi Lab 2</summary>
+
+```css
+/* 1. Baris genap */
+.data-table tbody tr:nth-child(even) {
+ background-color: #19191e;
+}
+
+/* 2. Tiga baris pertama */
+.data-table tbody tr:nth-child(-n + 3) {
+ color: #e8392b;
+ font-weight: 700;
+}
+
+/* 3. Kelipatan 5 (5 dan 10) */
+.data-table tbody tr:nth-child(5n) {
+ border-left: 4px solid #34d399;
+}
+```
+</details>
 
 ---
 
-## ⭐⭐⭐ Challenge 5: Desain Formulir Koreksi Naskah (Sulit)
+## Lab 3: Filter Otomatis Jenis File (Attribute Selector Hunt)
 
-Bayangkan kamu sedang membuat modul web untuk editor berita online. Buatlah satu paragraf teks berita yang menampilkan proses koreksi ejaan kata yang salah:
+Diberikan daftar unduhan:
 
-- Kata yang salah harus dicoret secara visual dan diberi makna semantik sebagai "teks yang dihapus".
-- Kata perbaikannya harus digarisbawahi secara visual dan diberi makna semantik sebagai "teks yang baru dimasukkan".
-- Berikan penanda stabilo kuning pada kata kunci utama berita tersebut.
-- Tuliskan waktu pembaruan berita menggunakan elemen waktu yang ramah mesin.
+```html
+<ul class="file-list">
+ <li><a href="document.pdf">Laporan Tahunan</a></li>
+ <li><a href="https://example.com/slide.pdf">Slide Presentasi (Web)</a></li>
+ <li><a href="dataset.csv">Data Penjualan</a></li>
+ <li><a href="archive.zip">File Backup</a></li>
+ <li><a href="photo.PNG">Foto Dokumentasi</a></li>
+</ul>
+```
 
-*Requirements*: Gunakan tag `<del>`, `<ins>`, `<mark>`, dan `<time>` secara tepat dan valid di W3C Validator.
+**Tantangan:**
+1. Targetkan semua file PDF (baik huruf `.pdf` kecil maupun `.PNG` besar tanpa peduli case).
+2. Targetkan link yang mengarah ke website luar (`https://`).
+
+<details>
+<summary> Lihat Solusi Lab 3</summary>
+
+```css
+/* 1. PDF case-insensitive */
+a[href$=".pdf" i] {
+ color: #ef4444;
+}
+
+/* 2. Link eksternal HTTPS */
+a[href^="https://"] {
+ font-weight: 700;
+}
+```
+</details>
 
 ---
 
-## 📊 Cara Penilaian
+## Lab 4: Validasi Form Tanpa JavaScript (The `:has()` Power)
 
-| Challenge | Poin Maksimal | Kriteria Keberhasilan |
-|---|---|---|
-| 1: Detektif Kode | 20 | Menemukan 6 kesalahan dan memberikan perbaikan yang valid. |
-| 2: Semantik vs Visual | 20 | Menuliskan 3 versi kode dengan pemahaman tag semantik vs visual yang tepat. |
-| 3: Lirik Lagu | 20 | Memilih dan menuliskan elemen yang tepat untuk format bait puisi/lirik lagu. |
-| 4: Blok Kode | 20 | Menggabungkan pre, code, kbd, dan entitas HTML secara valid. |
-| 5: Koreksi Naskah | 20 | Menyusun naskah revisi dengan del, ins, mark, dan time secara valid. |
-| **Total** | **100** | |
+Diberikan struktur formulir pendaftaran:
+
+```html
+<form class="register-form">
+ <div class="field-group">
+ <label for="username">Username</label>
+ <input type="text" id="username" required minlength="4" />
+ </div>
+
+ <div class="field-group">
+ <label for="email">Email</label>
+ <input type="email" id="email" required />
+ </div>
+
+ <button type="submit" class="submit-btn">Daftar Sekarang</button>
+</form>
+```
+
+**Tantangan:**
+Gunakan `:has()` untuk:
+1. Mengubah border `.field-group` menjadi hijau jika input di dalamnya valid dan sudah terisi teks (`:valid:not(:placeholder-shown)`).
+2. Menonaktifkan / meredupkan tombol submit jika formulir masih memiliki input yang tidak valid!
+
+<details>
+<summary> Lihat Solusi Lab 4</summary>
+
+```css
+/* 1. Highlight field group yang valid */
+.field-group:has(input:valid:not(:placeholder-shown)) {
+ border-color: #22c55e;
+}
+
+/* 2. Tombol submit redup jika ada input yang invalid */
+.register-form:has(input:invalid) .submit-btn {
+ opacity: 0.5;
+ pointer-events: none;
+ filter: grayscale(1);
+}
+```
+</details>
 
 ---
 
-## ➡ Pelajaran Berikutnya
+## Lab 5: The Selector Golf Challenge
 
-Tantangan di atas menguji kejelianmu dalam menata teks. Sekarang, mari kita lihat kumpulan kesalahan umum tipografi di halaman berikutnya sebelum melangkah ke ringkasan bab.
+**Aturan Main:** Tulis selector sesingkat dan seefisien mungkin untuk menargetkan elemen `<p>` yang memiliki class `.lead`, berada di dalam `<article>`, dan BUKAN elemen pertama!
 
-**[Lanjut: Error Corner →](/bab2/error-corner/)**
+```html
+<article class="post">
+ <p class="lead">Paragraf 1 (Pertama)</p>
+ <p class="lead">Paragraf 2 (Targetmu!)</p>
+ <p>Paragraf 3</p>
+</article>
+```
+
+<details>
+<summary> Lihat Solusi Lab 5</summary>
+
+```css
+/* Jawaban Juara Selector Golf (Paling Presisi) */
+.post p.lead:not(:first-child) {
+ color: #e8392b;
+}
+
+/* Atau jika letaknya tepat setelah paragraf pertama: */
+p.lead + p.lead {
+ color: #e8392b;
+}
+```
+</details>

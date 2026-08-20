@@ -1,27 +1,27 @@
 ---
 title: "Setup VS Code untuk CSS"
-description: Panduan konfigurasi editor VS Code, pemasangan ekstensi esensial, dan shortcut produktivitas untuk CSS.
+description: "Panduan konfigurasi editor VS Code, pemasangan ekstensi esensial, dan shortcut produktivitas untuk CSS."
 ---
 
 Menulis CSS dengan konfigurasi editor yang tepat akan menghemat 50% waktumu dan melindungimu dari kesalahan ketik (*typo*) yang sepele. Mari kita lakukan setup singkat bersama-sama.
 
 ---
 
-## 📥 Langkah 1: Memasang Ekstensi Wajib
+## Langkah 1: Memasang Ekstensi Wajib
 
 Buka VS Code, klik ikon **Extensions** di bilah sisi kiri (`Ctrl + Shift + X` di Windows/Linux atau `Cmd + Shift + X` di Mac), lalu cari dan pasang ekstensi berikut:
 
 1. **Live Server** (oleh *Ritwick Dey*)
-   - Klik tombol **Install**.
-   - Ekstensi ini menambahkan tombol **"Go Live"** di pojok kanan bawah jendela VS Code.
+ - Klik tombol **Install**.
+ - Ekstensi ini menambahkan tombol **"Go Live"** di pojok kanan bawah jendela VS Code.
 2. **Prettier - Code Formatter** (oleh *Prettier*)
-   - Memformat indentasi dan spasi file CSS-mu secara otomatis agar rapi dan konsisten setiap kali disimpan.
+ - Memformat indentasi dan spasi file CSS-mu secara otomatis agar rapi dan konsisten setiap kali disimpan.
 3. **CSS Peek** (oleh *Pranay Kothari*)
-   - Memungkinkanmu mengintip (*hover*) aturan CSS dari nama class di dalam file HTML secara langsung tanpa harus membuka file CSS.
+ - Memungkinkanmu mengintip (*hover*) aturan CSS dari nama class di dalam file HTML secara langsung tanpa harus membuka file CSS.
 
 ---
 
-## ⚡ Langkah 2: Mengaktifkan Format on Save
+## Langkah 2: Mengaktifkan Format on Save
 
 Agar kodemu otomatis dirapikan setiap kali kamu menekan `Ctrl + S`:
 1. Buka Settings dengan menekan `Ctrl + ,` (Windows/Linux) atau `Cmd + ,` (Mac).
@@ -31,7 +31,7 @@ Agar kodemu otomatis dirapikan setiap kali kamu menekan `Ctrl + S`:
 
 ---
 
-## 📂 Langkah 3: Membuat Struktur Folder Project Pertama
+## Langkah 3: Membuat Struktur Folder Project Pertama
 
 Buat sebuah folder baru di komputermu, misalnya bernama `belajar-css`, lalu buka folder tersebut di VS Code (`File > Open Folder...`).
 
@@ -40,8 +40,8 @@ Struktur standar sebuah proyek web pemula adalah sebagai berikut:
 ```text
 belajar-css/
 │
-├── index.html       → File halaman utama HTML
-└── style.css        → File stylesheet utama CSS
+├── index.html → File halaman utama HTML
+└── style.css → File stylesheet utama CSS
 ```
 
 ---

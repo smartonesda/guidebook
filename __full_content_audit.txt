@@ -1,0 +1,348 @@
+
+==================== DIRECTORY: bab0 ====================
+  apa-itu-web.md                 | Title: Apa itu CSS?                             | Desc: Memahami definisi, sejarah singkat, alas
+  bagaimana-browser-bekerja.md   | Title: Cara Browser Membaca HTML + CSS          | Desc: Memahami alur kerja rendering browser, D
+  cara-menggunakan-guidebook.md  | Title: Cara Menggunakan Guidebook               | Desc: Panduan metode belajar efektif, membaca 
+  error-corner.md                | Title: Error Corner: 5 Kesalahan Pemula         | Desc: Mendiagnosis dan menyelesaikan lima masa
+  file-pertama.md                | Title: Tiga Cara Memasang CSS                   | Desc: Membedah Inline CSS, Internal CSS, dan E
+  html-css-javascript.md         | Title: HTML vs CSS vs JavaScript                | Desc: Membedah peran, batasan, dan kolaborasi 
+  install-vscode.md              | Title: Setup VS Code untuk CSS                  | Desc: Panduan konfigurasi editor VS Code, pema
+  introduction.md                | Title: Introduction                             | Desc: Gambaran umum BAB 0 — membangun fondasi 
+  membuka-di-browser.md          | Title: Cara Membaca Dokumentasi CSS             | Desc: Panduan menavigasi MDN Web Docs, memaham
+  mengapa-belajar-html.md        | Title: Apa yang Sebenarnya Dilakukan CSS?       | Desc: Menjelajahi cakupan kemampuan CSS dari p
+  mengenal-devtools.md           | Title: Mengenal Browser DevTools                | Desc: Menguasai panel Elements, Styles, Comput
+  persiapan-software.md          | Title: Tools yang Digunakan                     | Desc: Menyiapkan perangkat lunak esensial untu
+  ringkasan.md                   | Title: Ringkasan & Mini Project                 | Desc: Rangkuman komprehensif BAB 0, proyek man
+  selamat-datang.md              | Title: Selamat Datang                           | Desc: Membangun pola pikir developer, menurunk
+
+==================== DIRECTORY: bab1 ====================
+  anatomy-element.md             | Title: Anatomi Elemen HTML                      | Desc: Memahami tag, elemen, atribut, void elem
+  apa-itu-html.md                | Title: Apa itu HTML?                            | Desc: Memahami HTML dari akarnya — definisi, f
+  browser-rendering.md           | Title: Browser Rendering                        | Desc: Memahami seluruh proses rendering browse
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan mandiri untuk membuktikan pema
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan umum yang sering dilakukan pem
+  html-validator.md              | Title: HTML Validator                           | Desc: Memvalidasi HTML dengan benar — mengguna
+  html5.md                       | Title: HTML5 — Standar Modern                   | Desc: Memahami HTML5 secara menyeluruh — fitur
+  introduction.md                | Title: BAB 1 — HTML Fundamentals                | Desc: Pengantar lengkap BAB 1 — fondasi dari s
+  komentar-html.md               | Title: Komentar HTML                            | Desc: Menulis komentar yang bermakna di HTML —
+  mini-project.md                | Title: Mini Project                             | Desc: Bangun halaman profil developer pribadi 
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rekap semua konsep penting yang dipelaja
+  sejarah-html.md                | Title: Sejarah HTML                             | Desc: Perjalanan HTML dari garasi peneliti CER
+  struktur-dokumen-html.md       | Title: Struktur Dokumen HTML                    | Desc: Memahami setiap bagian dari dokumen HTML
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Menganalisis halaman web nyata dan memba
+  whitespace-indentation.md      | Title: Whitespace & Indentasi                   | Desc: Memahami bagaimana browser memperlakukan
+
+==================== DIRECTORY: bab10 ====================
+  alt-text.md                    | Title: Alt Text yang Baik                       | Desc: Memahami atribut alt pada elemen gambar 
+  apa-itu-asynchronous.md        | Title: Apa itu Asynchronous?                    | Desc: Memahami konsep dasar pemrograman Asynch
+  apa-itu-module.md              | Title: Apa itu Module?                          | Desc: Memahami konsep Module System di TypeScr
+  aria-roles.md                  | Title: ARIA Roles                               | Desc: Memahami kapan dan bagaimana menggunakan
+  async-await.md                 | Title: async & await                            | Desc: Menggunakan syntax async dan await untuk
+  callback.md                    | Title: Callback Asynchronous                    | Desc: Menggunakan fungsi Callback untuk menang
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan berjenjang untuk menguji pemah
+  default-export.md              | Title: Default Export                           | Desc: Menggunakan Default Export untuk mengeks
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan umum dalam aksesibilitas web —
+  error-handling-async.md        | Title: Error Handling Async                     | Desc: Menangani error pada pemrograman Asynchr
+  export-import.md               | Title: export & import                          | Desc: Belajar konsep dasar membagikan dan meng
+  fetch-api.md                   | Title: Fetch API                                | Desc: Mengambil data nyata dari internet secar
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 10 — memahami web accessib
+  keyboard-navigation.md         | Title: Keyboard Navigation                      | Desc: Memahami navigasi keyboard — tombol Tab,
+  mengapa-aksesibilitas.md       | Title: Mengapa Aksesibilitas?                   | Desc: Memahami web accessibility secara mendal
+  mengapa-asynchronous.md        | Title: Mengapa Asynchronous?                    | Desc: Memahami pentingnya Asynchronous program
+  mini-project.md                | Title: Mini Project                             | Desc: Audit dan perbaikan aksesibilitas mandir
+  named-export.md                | Title: Named Export                             | Desc: Menggunakan Named Export untuk mengekspo
+  namespace.md                   | Title: Namespace                                | Desc: Menggunakan Namespace di TypeScript untu
+  promise.md                     | Title: Promise                                  | Desc: Memahami konsep Promise sebagai penggant
+  re-export.md                   | Title: Re-export                                | Desc: Menggunakan teknik Re-export di TypeScri
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rangkuman lengkap materi BAB 10 — Web Ac
+  skip-navigation.md             | Title: Skip Navigation                          | Desc: Memahami teknik Skip Navigation (Skip to
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Audit dan perbaikan aksesibilitas menyel
+  synchronous-vs-asynchronous.md | Title: Synchronous vs Asynchronous              | Desc: Perbandingan lengkap karakteristik, kele
+  wcag-dasar.md                  | Title: WCAG Dasar                               | Desc: Memahami Web Content Accessibility Guide
+
+==================== DIRECTORY: bab11 ====================
+  arsitektur-project.md          | Title: Arsitektur Project — BAB 11              | Desc: Memahami Layered Architecture untuk memb
+  best-practice.md               | Title: Best Practice Pemrograman — BAB 11       | Desc: Aturan emas menulis kode program yang be
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan berjenjang untuk menguji keter
+  clean-html.md                  | Title: Clean HTML & Indentasi                   | Desc: Aturan emas penulisan Clean HTML — stand
+  debugging.md                   | Title: Panduan Debugging — BAB 11               | Desc: Panduan melacak dan memperbaiki error um
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan fatal dalam pemeliharaan dan k
+  html-anti-patterns.md          | Title: HTML Anti-Patterns                       | Desc: Membedah 10 pola buruk (anti-patterns) p
+  html-performance.md            | Title: Performa Dasar HTML                      | Desc: Memahami dasar-dasar optimasi performa h
+  implementasi-class.md          | Title: Implementasi Class OOP — BAB 11          | Desc: Membangun class Manusia, SiswaClass, dan
+  implementasi-helper.md         | Title: Implementasi Helper Utilities — BAB 11   | Desc: Membuat fungsi pembantu pembatas cetak d
+  implementasi-interface.md      | Title: Implementasi Interface Kontrak — BAB 11  | Desc: Membuat kontrak method formal untuk Clas
+  implementasi-main.md           | Title: Implementasi main.ts — BAB 11            | Desc: Membangun pintu masuk utama program (mai
+  implementasi-model.md          | Title: Implementasi Model Data — BAB 11         | Desc: Membuat berkas model data siswa, guru, d
+  implementasi-repository.md     | Title: Implementasi Repository — BAB 11         | Desc: Membangun class AcademicRepository<T> se
+  implementasi-service.md        | Title: Implementasi Service Layer — BAB 11      | Desc: Membangun class SiswaService untuk menan
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 11 — mengubah pola pikir d
+  membuat-project.md             | Title: Membuat Project Baru — BAB 11            | Desc: Panduan langkah demi langkah menginisial
+  mini-project.md                | Title: Mini Project                             | Desc: Proyek refactor mandiri — membersihkan d
+  naming-struktur.md             | Title: Penamaan & Struktur File                 | Desc: Mengorganisir folder proyek web profesio
+  pengembangan-lanjutan.md       | Title: Pengembangan Lanjutan — BAB 11           | Desc: Peta jalan belajar masa depan setelah me
+  project-overview.md            | Title: Project Overview — BAB 11                | Desc: Gambaran umum aplikasi Sistem Informasi 
+  requirements.md                | Title: Project Requirements — BAB 11            | Desc: Spesifikasi kebutuhan data dan fungsiona
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rangkuman lengkap materi BAB 11 — HTML B
+  setup-awal.md                  | Title: Setup Awal Project — BAB 11              | Desc: Menginisialisasi berkas tsconfig.json da
+  struktur-folder.md             | Title: Struktur Folder Project — BAB 11         | Desc: Merancang dan menyusun folder project SI
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Audit dan refactor menyeluruh dari kode 
+  testing.md                     | Title: Panduan Pengujian (Testing) — BAB 11     | Desc: Skenario pengujian manual langkah demi l
+  validasi-linting.md            | Title: Validasi W3C & Linting                   | Desc: Menggunakan W3C HTML Validator resmi dan
+
+==================== DIRECTORY: bab12 ====================
+  challenge.md                   | Title: Challenge Collection                     | Desc: Kumpulan tantangan pemecahan masalah (Pr
+  clean-code.md                  | Title: Clean Code — BAB 12                      | Desc: Aturan emas menulis kode program yang be
+  debugging.md                   | Title: Debugging & Compiler Error — BAB 12      | Desc: Panduan melacak dan memperbaiki error co
+  dry-principle.md               | Title: Prinsip DRY (Don't Repeat Yourself) — BAB 12 | Desc: Mengenal dan menerapkan prinsip DRY untu
+  environment-variable.md        | Title: Environment Variable — BAB 12            | Desc: Mengamankan data sensitif seperti passwo
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan fatal yang paling sering terja
+  eslint.md                      | Title: ESLint — BAB 12                          | Desc: Pengenalan ESLint sebagai alat static co
+  everything-comes-together.md   | Title: Everything Comes Together                | Desc: Menghubungkan seluruh materi dari BAB 1 
+  git-workflow.md                | Title: Git Workflow — BAB 12                    | Desc: Panduan menggunakan Git untuk version co
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 12 — Mini Project Collecti
+  kiss-principle.md              | Title: Prinsip KISS (Keep It Simple, Stupid) — BAB 12 | Desc: Mengenal prinsip KISS untuk menulis kode
+  mengapa-best-practice.md       | Title: Mengapa Best Practice?                   | Desc: Memahami pentingnya menerapkan praktik t
+  mini-project-rubrik.md         | Title: Rubrik & Self-Review                     | Desc: Lembar evaluasi mandiri dan rubrik penil
+  mini-project.md                | Title: Mini Project: Refactor Existing Project — BAB 12 | Desc: Panduan mempraktikkan refactoring lengka
+  modular-programming.md         | Title: Modular Programming — BAB 12             | Desc: Penerapan pemrograman modular untuk memb
+  naming-convention.md           | Title: Naming Convention — BAB 12               | Desc: Aturan baku penamaan variabel, fungsi, c
+  package-json.md                | Title: package.json — BAB 12                    | Desc: Memahami struktur dan peran berkas packa
+  prettier.md                    | Title: Prettier — BAB 12                        | Desc: Pengenalan Prettier sebagai automatic co
+  project-1-biodata.md           | Title: Project 1 — Personal Biodata             | Desc: Mini Project 1 — Membangun halaman bioda
+  project-2-school-profile.md    | Title: Project 2 — School Profile               | Desc: Mini Project 2 — Merancang halaman profi
+  project-3-blog-article.md      | Title: Project 3 — Blog Article                 | Desc: Mini Project 3 — Membangun halaman artik
+  project-4-product-showcase.md  | Title: Project 4 — Product Showcase             | Desc: Mini Project 4 — Merancang halaman katal
+  project-5-event-registration.md | Title: Project 5 — Event Registration           | Desc: Mini Project 5 — Membangun formulir pend
+  readme.md                      | Title: README.md — BAB 12                       | Desc: Panduan mendokumentasikan project secara
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rangkuman pencapaian BAB 12 — Mini Proje
+  solid-introduction.md          | Title: Pengenalan SOLID Principle — BAB 12      | Desc: Pengenalan dasar terhadap 5 prinsip desa
+  struktur-folder.md             | Title: Struktur Folder — BAB 12                 | Desc: Merancang struktur folder project TypeSc
+  studi-kasus.md                 | Title: Studi Kasus: Refactoring SIAKAD — BAB 12 | Desc: Studi kasus melakukan refactoring (perap
+  tsconfig.md                    | Title: tsconfig.json — BAB 12                   | Desc: Memahami arti dan konfigurasi parameter 
+
+==================== DIRECTORY: bab13 ====================
+  backend-roadmap.md             | Title: Backend Developer Roadmap — BAB 13       | Desc: Peta jalan belajar menjadi Backend Devel
+  belajar-git-github.md          | Title: Belajar Git & GitHub — BAB 13            | Desc: Pentingnya menguasai Git dan GitHub seba
+  challenge.md                   | Title: Challenge BAB 13                         | Desc: Sepuluh tantangan persiapan karir dan po
+  database-ecosystem.md          | Title: Database Ecosystem — BAB 13              | Desc: Memahami ekosistem database relasional d
+  deployment.md                  | Title: Deployment (Meluncurkan Aplikasi) — BAB 13 | Desc: Pengenalan konsep deployment aplikasi ke
+  desktop-development.md         | Title: Desktop Development — BAB 13             | Desc: Menggunakan TypeScript untuk membangun a
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan fatal yang sering menggagalkan
+  everything-comes-together.md   | Title: Everything Comes Together                | Desc: Integrasi puncak seluruh materi HTML BAB
+  framework-modern.md            | Title: Framework Modern Terpopuler — BAB 13     | Desc: Ringkasan daftar framework modern terpop
+  frontend-roadmap.md            | Title: Frontend Developer Roadmap — BAB 13      | Desc: Peta jalan belajar menjadi Frontend Deve
+  fullstack-roadmap.md           | Title: Fullstack Developer Roadmap — BAB 13     | Desc: Peta jalan belajar menjadi Fullstack Dev
+  information-architecture.md    | Title: Arsitektur Informasi                     | Desc: Merancang Arsitektur Informasi (Informat
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 13 — Final Project. Puncak
+  mobile-development.md          | Title: Mobile Development — BAB 13              | Desc: Menggunakan TypeScript untuk membangun a
+  open-source.md                 | Title: Kontribusi Open Source — BAB 13          | Desc: Panduan berkontribusi ke project Open So
+  penutup.md                     | Title: Penutup — BAB 13                         | Desc: Pesan penutup dan ucapan selamat atas ke
+  persiapan-karier.md            | Title: Persiapan Karier Profesional — BAB 13    | Desc: Panduan melangkah dari lulusan SMK menja
+  persiapan-magang.md            | Title: Persiapan Magang (Prakerin) — BAB 13     | Desc: Tips dan persiapan mencari tempat magang
+  portfolio.md                   | Title: Membangun Personal Portfolio — BAB 13    | Desc: Panduan menyusun personal portfolio yang
+  presentation-guide.md          | Title: Panduan Presentasi Karya                 | Desc: Panduan mempresentasikan dan mempertangg
+  project-briefs.md              | Title: Pilihan Project Briefs                   | Desc: 7 pilihan brief proyek nyata dengan komp
+  project-requirements.md        | Title: Persyaratan & Spesifikasi                | Desc: Spesifikasi teknis wajib Final Project —
+  quality-gate-validation.md     | Title: Quality Gate & Validasi                  | Desc: Prosedur pengujian Quality Gate resmi — 
+  resources.md                   | Title: Sumber Belajar (Resources) — BAB 13      | Desc: Rekomendasi sumber belajar gratis berkua
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rangkuman pencapaian luar biasa di BAB 1
+  roadmap-belajar.md             | Title: Roadmap Belajar Developer — BAB 13       | Desc: Visualisasi peta jalan belajar (roadmap)
+  rubrik-penilaian.md            | Title: Rubrik Penilaian                         | Desc: Rubrik penilaian resmi Final Project HTM
+  sertifikasi.md                 | Title: Sertifikasi Kompetensi IT — BAB 13       | Desc: Mengenal peran sertifikasi kompetensi IT
+  testing.md                     | Title: Testing (Pengujian Kode Otomatis) — BAB 13 | Desc: Pengenalan konsep pengujian kode otomati
+  typescript-ecosystem.md        | Title: Ekosistem TypeScript Modern — BAB 13     | Desc: Pengenalan ekosistem TypeScript modern d
+  workflow-guide.md              | Title: Panduan Alur Kerja                       | Desc: 12 langkah alur kerja profesional dalam 
+
+==================== DIRECTORY: bab14 ====================
+  boss-challenge.md              | Title: The Ultimate Boss Challenge              | Desc: Ujian puncak debugging HTML — melakukan 
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan fatal dalam proses debugging H
+  everything-you-learned-can-break.md | Title: Everything Can Break                     | Desc: Matriks pemetaan bug HTML per bab (BAB 1
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 14 — HTML Debugging Lab. M
+  lab-1-syntax-structure.md      | Title: Lab 1 — Syntax & Structure               | Desc: Lab Debugging 1 — Menemukan dan memperba
+  lab-2-text-links.md            | Title: Lab 2 — Navigation & Links               | Desc: Lab Debugging 2 — Menemukan dan memperba
+  lab-3-media-tables.md          | Title: Lab 3 — Multimedia & Tables              | Desc: Lab Debugging 3 — Mendiagnosis bug pemua
+  lab-4-forms-inputs.md          | Title: Lab 4 — Forms & Inputs                   | Desc: Lab Debugging 4 — Menemukan bug pengirim
+  lab-5-attributes-data.md       | Title: Lab 5 — Attributes & Data                | Desc: Lab Debugging 5 — Mendiagnosis bug ID du
+  lab-6-semantic-a11y.md         | Title: Lab 6 — Semantics & A11y                 | Desc: Lab Debugging 6 — Membedah masalah Div-S
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rangkuman pencapaian BAB 14 — HTML Debug
+
+==================== DIRECTORY: bab15 ====================
+  accessibility-reference.md     | Title: A11y & ARIA Reference                    | Desc: Panduan referensi cepat Aksesibilitas We
+  attributes-reference.md        | Title: Kamus Atribut HTML                       | Desc: Referensi cepat atribut HTML — Atribut G
+  decision-guide.md              | Title: Decision Guide                           | Desc: Panduan cepat pengambilan keputusan memi
+  deprecated-elements.md         | Title: Elemen Usang (Deprecated)                | Desc: Daftar elemen dan atribut HTML tua yang 
+  elements-reference.md          | Title: Kamus Elemen HTML                        | Desc: Referensi ringkas seluruh elemen HTML5 p
+  entities-reference.md          | Title: HTML Entities & Karakter                 | Desc: Referensi lengkap HTML Entities — cara m
+  input-types-reference.md       | Title: Kamus Input Types                        | Desc: Referensi lengkap tipe-tipe input HTML5 
+  introduction.md                | Title: Introduction & Quick Start               | Desc: BAB 15 — HTML Handbook. Pusat referensi 
+  ringkasan.md                   | Title: Penutup Roadmap                          | Desc: Rangkuman perjalanan lengkap HTML Guideb
+  seo-metadata-reference.md      | Title: SEO & Metadata Reference                 | Desc: Referensi lengkap tag metadata head HTML
+  vscode-snippets.md             | Title: VS Code Snippets & Tools                 | Desc: Cheat sheet pintasan keyboard VS Code, E
+
+==================== DIRECTORY: bab2 ====================
+  attribute-selectors.md         | Title: 2.3 Attribute Selectors — Menargetkan Berdasarkan Data HTML | Desc: Menguasai teknik memilih elemen berdasar
+  basic-selectors.md             | Title: 2.1 Basic Selectors — Universal, Type, Class, & ID | Desc: Mempelajari 4 selector fundamental dalam
+  challenge.md                   | Title: 2.11 Challenge Lab — 5 Lab Teka-Teki Selector | Desc: Uji ketajaman intuisimu dalam menargetka
+  combinators.md                 | Title: 2.2 Combinators — Hubungan Silsilah Antar Elemen | Desc: Membedah 4 combinator CSS untuk menarget
+  error-corner.md                | Title: 2.12 Error Corner — 7 Kesalahan Fatal Seputar Selector | Desc: Diagnosis mendalam 7 kesalahan paling um
+  introduction.md                | Title: 2.0 Introduction — Seni & Sains Menargetkan Elemen | Desc: Memahami esensi CSS Selectors — bagaiman
+  mini-project.md                | Title: 2.10 Mini Project — Interactive Pricing Table & Selector Lab | Desc: Proyek mandiri mempraktikkan seluruh kon
+  modern-functional-selectors.md | Title: 2.7 Modern Functional Selectors — :is(), :where(), :not(), & :has() | Desc: Mempelajari 4 selector fungsional modern
+  pseudo-classes-state.md        | Title: 2.4 Pseudo-Classes: State & Form Interaction | Desc: Mempelajari cara mengubah tampilan eleme
+  pseudo-classes-structural.md   | Title: 2.5 Pseudo-Classes: Struktural & Posisi DOM | Desc: Memilih elemen berdasarkan urutan nomor,
+  pseudo-elements.md             | Title: 2.6 Pseudo-Elements — Elemen Virtual & Sub-Struktur | Desc: Memahami cara kerja pseudo-element denga
+  ringkasan.md                   | Title: 2.13 Ringkasan, Cheatsheet, & Kuis Evaluasi | Desc: Rangkuman lengkap seluruh materi selecto
+  selector-strategy.md           | Title: 2.8 Selector Strategy — Maintainability & Arsitektur | Desc: Panduan arsitektur penulisan selector CS
+  studi-kasus.md                 | Title: 2.9 Studi Kasus — Refactoring Selector E-Commerce Card | Desc: Studi kasus dunia nyata membedah stylesh
+
+==================== DIRECTORY: bab3 ====================
+  anchor-internal.md             | Title: Anchor Internal                          | Desc: Memahami penggunaan fragment identifier 
+  atribut-target.md              | Title: Atribut target                           | Desc: Mengontrol bagaimana tautan dibuka mengg
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan mandiri untuk membuktikan pema
+  elemen-anchor.md               | Title: Elemen Anchor                            | Desc: Memahami dasar penggunaan tag a untuk me
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan umum yang sering dilakukan pem
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 3 — memahami konsep tautan
+  link-email-telepon.md          | Title: Link Email & Telepon                     | Desc: Memahami cara membuat tautan khusus untu
+  mini-project.md                | Title: Mini Project                             | Desc: Kembangkan halaman portfoliomu menjadi w
+  navigasi-website.md            | Title: Navigasi Website                         | Desc: Memahami cara membuat menu navigasi anta
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rekap semua konsep penting yang dipelaja
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Menghubungkan halaman-halaman portfolio 
+  url-relatif-absolut.md         | Title: URL Relatif vs Absolut                   | Desc: Memahami perbedaan penulisan alamat abso
+
+==================== DIRECTORY: bab4 ====================
+  atribut-kontrol-autoplay.md    | Title: Atribut Kontrol & Autoplay               | Desc: Mengontrol pemutaran media audio dan vid
+  atribut-src-alt.md             | Title: Atribut src & alt                        | Desc: Memahami penggunaan atribut src dan alt 
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan mandiri untuk membuktikan pema
+  dimensi-gambar.md              | Title: Dimensi Gambar                           | Desc: Memahami fungsi atribut width dan height
+  elemen-audio-video.md          | Title: Elemen audio & video                     | Desc: Memahami cara memutar media suara dan vi
+  elemen-gambar-img.md           | Title: Elemen Gambar img                        | Desc: Memahami konsep dasar elemen gambar img 
+  elemen-iframe.md               | Title: Elemen iframe                            | Desc: Memahami penggunaan iframe untuk menyema
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan umum yang sering dilakukan pem
+  figure-figcaption.md           | Title: figure & figcaption                      | Desc: Mengelompokkan gambar dan memberikan tek
+  gambar-responsif.md            | Title: Gambar Responsif                         | Desc: Memahami konsep gambar responsif menggun
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 4 — memahami bagaimana HTM
+  mini-project.md                | Title: Mini Project                             | Desc: Tambahkan foto profil, tangkapan layar p
+  organisasi-file-media.md       | Title: Organisasi File Media                    | Desc: Menyusun tata letak folder dan file medi
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rekap semua konsep penting yang dipelaja
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Menghias website portfolio multi-halaman
+
+==================== DIRECTORY: bab5 ====================
+  atribut-list-nested.md         | Title: Atribut List & Nested List               | Desc: Menggunakan atribut start, reversed, typ
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan mandiri untuk membuktikan pema
+  colspan-rowspan.md             | Title: colspan & rowspan                        | Desc: Menggabungkan beberapa kolom dan baris s
+  daftar-ul-ol.md                | Title: Daftar ul & ol                           | Desc: Memahami konsep dasar pembuatan daftar t
+  description-list-dl.md         | Title: Description List dl                      | Desc: Memahami penggunaan description list dl 
+  elemen-tabel-th-td.md          | Title: Elemen Tabel th td                       | Desc: Memahami dasar anatomi tabel menggunakan
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan umum yang sering dilakukan pem
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 5 — memahami cara menstruk
+  mini-project.md                | Title: Mini Project                             | Desc: Susun daftar keahlian, riwayat pendidika
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rekap semua konsep penting yang dipelaja
+  struktur-tabel-head-body-foot.md | Title: Struktur Tabel head body foot            | Desc: Membagi wilayah tabel secara semantik me
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Mengintegrasikan list dan tabel untuk me
+
+==================== DIRECTORY: bab6 ====================
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan mandiri untuk membuktikan pema
+  elemen-form.md                 | Title: Elemen Form                              | Desc: Memahami secara mendalam apa itu form, b
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan umum yang sering dilakukan pem
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 6 — memahami cara merancan
+  label-input.md                 | Title: Label & Input                            | Desc: Memahami secara mendalam anatomi elemen 
+  mini-project.md                | Title: Mini Project                             | Desc: Tantangan mandiri membuat versi Contact 
+  pilihan-dropdown-textarea.md   | Title: Pilihan Dropdown & Textarea              | Desc: Memahami secara mendalam elemen select, 
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rekap lengkap semua konsep, elemen, dan 
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Membangun Contact & Project Inquiry Form
+  tipe-tipe-input.md             | Title: Tipe-Tipe Input                          | Desc: Membahas secara mendalam berbagai jenis 
+  validasi-form-bawaan.md        | Title: Validasi Form Bawaan                     | Desc: Memahami secara mendalam sistem validasi
+
+==================== DIRECTORY: bab7 ====================
+  anatomi-attribute.md           | Title: Anatomi Attribute                        | Desc: Memahami secara mendalam apa itu HTML at
+  apa-itu-interface.md           | Title: Apa itu Interface?                       | Desc: Memahami konsep dasar interface sebagai 
+  apa-itu-type-alias.md          | Title: Apa itu Type Alias?                      | Desc: Memahami konsep Type Alias sebagai cara 
+  aria-attributes.md             | Title: ARIA Attributes                          | Desc: Memahami dasar ARIA attributes untuk aks
+  attribute-id-class.md          | Title: id vs class vs name vs value             | Desc: Memahami perbedaan mendasar antara id, c
+  boolean-attributes.md          | Title: Boolean Attributes                       | Desc: Memahami apa itu boolean attribute, cara
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan berjenjang untuk menguji pemah
+  data-attributes.md             | Title: Custom data-* Attributes                 | Desc: Memahami cara kerja custom data-* attrib
+  enum.md                        | Title: Enum                                     | Desc: Menggunakan Enum di TypeScript untuk men
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan umum yang sering dilakukan pem
+  extend-interface.md            | Title: Extend Interface                         | Desc: Mewariskan dan memperluas properti antar
+  global-attributes.md           | Title: Global Attributes                        | Desc: Memahami attribute-attribute yang bisa d
+  interface-pada-function.md     | Title: Interface pada Function                  | Desc: Menggunakan interface untuk memvalidasi 
+  interface-pada-object.md       | Title: Interface pada Object                    | Desc: Menggunakan interface untuk memvalidasi 
+  interface-vs-type.md           | Title: Interface vs Type Alias                  | Desc: Perbandingan lengkap kapan menggunakan I
+  intersection-type.md           | Title: Intersection Type                        | Desc: Menggabungkan beberapa tipe objek menjad
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 7 — memahami HTML Attribut
+  literal-type.md                | Title: Literal Type                             | Desc: Mengunci nilai variabel hanya pada pilih
+  membuat-interface.md           | Title: Membuat Interface                        | Desc: Panduan langkah demi langkah mendefinisi
+  membuat-type-alias.md          | Title: Membuat Type Alias                       | Desc: Panduan langkah demi langkah mendefinisi
+  mengapa-interface.md           | Title: Mengapa Interface?                       | Desc: Memahami masalah yang diselesaikan inter
+  mini-project.md                | Title: Mini Project                             | Desc: Mengaudit dan memperkaya portfolio priba
+  optional-property.md           | Title: Optional Property                        | Desc: Mendefinisikan properti opsional menggun
+  readonly-property.md           | Title: Readonly Property                        | Desc: Mengunci nilai properti interface agar t
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rekap lengkap konsep HTML Attributes — d
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Mengaudit dan memperkaya website portfol
+  union-type.md                  | Title: Union Type                               | Desc: Menggunakan union type (|) untuk mengizi
+
+==================== DIRECTORY: bab8 ====================
+  abstract-class.md              | Title: Abstract Class                           | Desc: Mengenal dan membuat Abstract Class seba
+  access-modifier.md             | Title: Access Modifier                          | Desc: Mengamankan properti dan method Class me
+  apa-itu-class.md               | Title: Apa itu Class?                           | Desc: Mengenal konsep Class sebagai cetak biru
+  apa-itu-oop.md                 | Title: Apa itu OOP?                             | Desc: Memahami konsep Object-Oriented Programm
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan berjenjang untuk menguji pemah
+  constructor.md                 | Title: Constructor                              | Desc: Memahami constructor sebagai method khus
+  div-vs-semantic.md             | Title: div vs Semantic                          | Desc: Memahami kapan menggunakan div dan span 
+  encapsulation.md               | Title: Encapsulation                            | Desc: Menerapkan konsep Enkapsulasi (penyembun
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan paling umum dalam penggunaan S
+  footer.md                      | Title: footer                                   | Desc: Memahami elemen footer — apa isinya, kap
+  getter-setter.md               | Title: Getter & Setter                          | Desc: Menggunakan method get dan set untuk men
+  header-nav.md                  | Title: header & nav                             | Desc: Memahami apa itu Semantic HTML, mengapa 
+  inheritance.md                 | Title: Inheritance                              | Desc: Menerapkan pewarisan sifat antar class m
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 8 — memahami Semantic HTML
+  main-article.md                | Title: main & article                           | Desc: Memahami elemen main sebagai wadah konte
+  membuat-class.md               | Title: Membuat Class                            | Desc: Panduan praktis membuat class pertamamu 
+  membuat-object.md              | Title: Membuat Object (Instansiasi)             | Desc: Belajar proses mencetak objek nyata dari
+  mengapa-oop.md                 | Title: Mengapa OOP?                             | Desc: Memahami alasan mengapa Object-Oriented 
+  method.md                      | Title: Method                                   | Desc: Memahami method sebagai fungsi khusus ya
+  mini-project.md                | Title: Mini Project                             | Desc: Refactor portfolio pribadi menjadi seman
+  polymorphism.md                | Title: Polymorphism                             | Desc: Memahami konsep Polimorfisme (banyak ben
+  property.md                    | Title: Property                                 | Desc: Memahami property sebagai variabel penyi
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rekap lengkap Semantic HTML — prinsip ut
+  section-aside.md               | Title: section & aside                          | Desc: Memahami perbedaan section sebagai penge
+  static-member.md               | Title: Static Member                            | Desc: Menggunakan Static Property dan Static M
+  struktur-halaman-nyata.md      | Title: Struktur Halaman Nyata                   | Desc: Melihat bagaimana semantic HTML diterapk
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Refactor portfolio dari div-first menjad
+  this-keyword.md                | Title: this Keyword                             | Desc: Memahami arti dan kegunaan keyword this 
+
+==================== DIRECTORY: bab9 ====================
+  apa-itu-generic.md             | Title: Apa itu Generic?                         | Desc: Memahami konsep dasar Generic di TypeScr
+  apa-itu-metadata.md            | Title: Apa itu Metadata?                        | Desc: Memahami metadata sebagai informasi tent
+  apa-itu-utility-type.md        | Title: Apa itu Utility Type?                    | Desc: Mengenal konsep Utility Types di TypeScr
+  challenge.md                   | Title: Challenge                                | Desc: Tantangan berjenjang untuk menguji pemah
+  error-corner.md                | Title: Error Corner                             | Desc: Kesalahan paling umum dalam penulisan me
+  exclude.md                     | Title: Utility Type: Exclude                    | Desc: Menggunakan Utility Type Exclude<T, U> u
+  extract.md                     | Title: Utility Type: Extract                    | Desc: Menggunakan Utility Type Extract<T, U> u
+  generic-class.md               | Title: Generic Class                            | Desc: Cara mendefinisikan dan menginstansiasi 
+  generic-constraint.md          | Title: Generic Constraint                       | Desc: Menggunakan kata kunci extends untuk mem
+  generic-function.md            | Title: Generic Function                         | Desc: Panduan lengkap membuat dan memanggil fu
+  generic-interface.md           | Title: Generic Interface                        | Desc: Membuat interface serbaguna menggunakan 
+  generic-type.md                | Title: Generic Type Alias                       | Desc: Panduan membuat Type Alias bertipe Gener
+  introduction.md                | Title: Introduction                             | Desc: Pengantar BAB 9 — memahami metadata HTML
+  keyof.md                       | Title: keyof Operator                           | Desc: Menggunakan operator keyof di TypeScript
+  link-favicon.md                | Title: Elemen link & Favicon                    | Desc: Memahami elemen link sebagai penghubung 
+  mengapa-generic.md             | Title: Mengapa Generic?                         | Desc: Memahami masalah duplikasi tipe data dan
+  meta-description.md            | Title: Meta Description & Robots                | Desc: Memahami meta description sebagai snippe
+  mini-project.md                | Title: Mini Project                             | Desc: Implementasi metadata lengkap pada portf
+  omit.md                        | Title: Utility Type: Omit                       | Desc: Menggunakan Utility Type Omit<T, K> untu
+  open-graph.md                  | Title: Open Graph & Social                      | Desc: Memahami Open Graph Protocol untuk mengo
+  parameters.md                  | Title: Utility Type: Parameters                 | Desc: Menggunakan Utility Type Parameters<T> u
+  partial.md                     | Title: Utility Type: Partial                    | Desc: Menggunakan Utility Type Partial<T> untu
+  pick.md                        | Title: Utility Type: Pick                       | Desc: Menggunakan Utility Type Pick<T, K> untu
+  readonly.md                    | Title: Utility Type: Readonly                   | Desc: Menggunakan Utility Type Readonly<T> unt
+  record.md                      | Title: Utility Type: Record                     | Desc: Menggunakan Utility Type Record<K, T> un
+  required.md                    | Title: Utility Type: Required                   | Desc: Menggunakan Utility Type Required<T> unt
+  returntype.md                  | Title: Utility Type: ReturnType                 | Desc: Menggunakan Utility Type ReturnType<T> u
+  ringkasan.md                   | Title: Ringkasan                                | Desc: Rekap lengkap Metadata & SEO — struktur 
+  studi-kasus.md                 | Title: Studi Kasus                              | Desc: Melengkapi head portfolio dengan metadat
+  title-charset.md               | Title: Elemen title & charset                   | Desc: Memahami secara mendalam fungsi elemen t
+  typeof.md                      | Title: typeof Operator                          | Desc: Menggunakan operator typeof di TypeScrip
+  viewport.md                    | Title: Viewport & Responsive                    | Desc: Memahami meta viewport — mengapa browser

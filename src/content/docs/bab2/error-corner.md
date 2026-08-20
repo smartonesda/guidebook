@@ -1,77 +1,146 @@
 ---
-title: "Error Corner"
-description: Kesalahan umum yang sering dilakukan pemula saat menulis Text & Typography.
+title: "2.12 Error Corner — 7 Kesalahan Fatal Seputar Selector"
+description: "Diagnosis mendalam 7 kesalahan paling umum seputar CSS selectors yang sering membuat developer pemula bingung dan frustrasi, lengkap dengan solusinya."
 ---
 
-Berikut adalah daftar kesalahan paling sering dilakukan pemula saat memformat teks dan tipografi di HTML5, beserta cara memperbaikinya.
-
----
-
-## ❌ 1. Mengetik Tanda Kutip Manual di dalam Tag `<q>`
-
-**Penyebab Error**:
-```html
-<!-- ❌ SALAH: Menghasilkan tanda kutip ganda bertumpuk di browser -->
-<p>Kakek berkata, <q>"Tetaplah rendah hati."</q></p>
-```
-
-**Mengapa Bermasalah**: Browser secara otomatis menambahkan tanda kutip pembuka dan penutup (`" ... "`) pada elemen `<q>`. Mengetiknya secara manual akan menghasilkan tampilan: *Kakek berkata, ""Tetaplah rendah hati.""* (kutipan ganda bertumpuk).
-
-**Cara Memperbaiki**: Tuliskan kalimat kutipan secara bersih di dalam tag `<q>` tanpa menuliskan tanda kutip manual:
-```html
-<!-- ✅ BENAR: Rapi dan valid -->
-<p>Kakek berkata, <q>Tetaplah rendah hati.</q></p>
-```
+Mengetahui kesalahan umum sebelum kamu mengalaminya adalah cara tercepat menjadi developer yang handal. Berikut adalah 7 jebakan klasik seputar selector CSS:
 
 ---
 
-## ❌ 2. Menggunakan Tag `<u>` untuk Penekanan Biasa
+## [SALAH] Error 1: Tertukar Antara Spasi (Descendant) dan Tanpa Spasi (Compound)
 
-**Penyebab Error**: Menggarisbawahi teks penting menggunakan tag `<u>` agar menarik perhatian.
-```html
-<!-- ❌ SALAH: Pengunjung mengira ini adalah link yang bisa diklik -->
-<p>Silakan <u>buka dokumen ini</u> untuk informasi lebih lanjut.</p>
+```css
+/* [SALAH] Maksud developer: Memilih elemen dengan 2 class (.btn DAN .danger) */
+.btn .danger {
+ background: red;
+}
+/* KENAPA SALAH?
+ Karena ada spasi, browser mencari elemen .danger yang berada DI DALAM elemen .btn! */
+
+/* [BENAR] Solusi: Tempelkan tanpa spasi */
+.btn.danger {
+ background: red;
+}
 ```
-
-**Mengapa Bermasalah**: Dalam konvensi desain web global, teks yang digarisbawahi secara visual selalu ditafsirkan sebagai **tautan/hyperlink** aktif. Menggunakan `<u>` untuk teks biasa akan membuat pengunjung bingung dan kesal karena tautannya tidak bisa diklik.
-
-**Cara Memperbaiki**: Gunakan tag `<strong>` untuk menebalkan, `<mark>` untuk mewarnai latar belakang, atau gunakan CSS untuk dekorasi visual yang tidak menyerupai link.
 
 ---
 
-## ❌ 3. Menumpuk Tag `<br>` untuk Membuat Jarak Halaman
+## [SALAH] Error 2: Bingung Antara `:nth-child` dan `:nth-of-type` Saat Ada Tag Campuran
 
-**Penyebab Error**:
 ```html
-<!-- ❌ SALAH: Menyalahgunakan tag jeda baris untuk mengatur margin -->
-<h3>Bagian 1</h3>
-<p>Konten paragraf pertama.</p>
-<br><br><br><br>
-<h3>Bagian 2</h3>
+<div class="list">
+ <h3>Header</h3>
+ <p>Paragraf Pertama</p>
+</div>
 ```
 
-**Mengapa Bermasalah**: Tag `<br>` secara semantik hanya digunakan untuk membuat baris baru di dalam konten paragraf (misal baris alamat atau puisi). Menggunakannya untuk mengatur jarak antar bagian adalah pelanggaran prinsip *Separation of Concerns*. Jarak renggang antar bagian harus diatur menggunakan properti margin di file CSS.
+```css
+/* [SALAH] Maksud developer: Memilih paragraf pertama */
+.list p:first-child {
+ color: red;
+}
+/* KENAPA TIDAK BEKERJA?
+ Karena anak ke-1 adalah <h3>, bukan <p>. Aturan p:first-child gagal total! */
 
-**Cara Memperbaiki**: Gunakan tag pembatas tematik `<hr>` jika ingin memberi sekat isi, dan atur jarak margin vertikalnya nanti menggunakan CSS.
+/* [BENAR] Solusi: Gunakan :first-of-type */
+.list p:first-of-type {
+ color: red;
+}
+```
 
 ---
 
-## ❌ 4. Lupa Mengubah Karakter `<` dan `>` di dalam Tag `<code>`
+## [SALAH] Error 3: Lupa Mendeklarasikan `content: ""` pada `::before` / `::after`
 
-**Penyebab Error**: Mengetik tag HTML langsung di dalam elemen code.
-```html
-<!-- ❌ SALAH: Browser akan membaca <h1> sebagai tag nyata, bukan teks contoh -->
-<p>Gunakan tag <code><h1>Judul</h1></code> untuk membuat judul utama.</p>
+```css
+/* [SALAH] Tidak akan pernah muncul di layar */
+.badge::before {
+ width: 10px;
+ height: 10px;
+ background: #e8392b;
+ display: inline-block;
+}
+
+/* [BENAR] Solusi: Wajib tambahkan properti content */
+.badge::before {
+ content: "";
+ width: 10px;
+ height: 10px;
+ background: #e8392b;
+ display: inline-block;
+}
 ```
 
-**Mengapa Bermasalah**: Browser memproses tanda kurang-dari (`<`) sebagai instruksi awal tag HTML nyata. Akibatnya, browser akan merender kata tersebut sebagai heading H1 nyata di halaman, bukan menampilkannya sebagai teks contoh.
+---
 
-**Cara Memperbaiki**: Ubah karakter `<` menjadi entitas khusus `&lt;` (less-than) dan `>` menjadi `&gt;` (greater-than) agar browser membacanya sebagai karakter teks biasa:
-```html
-<!-- ✅ BENAR: Rapi dan tampil sebagai teks contoh -->
-<p>Gunakan tag <code>&lt;h1&gt;Judul&lt;/h1&gt;</code> untuk membuat judul utama.</p>
+## [SALAH] Error 4: Menggunakan ID Selector untuk Reusable Component Styles
+
+```css
+/* [SALAH] Buruk: Spesifisitas terlalu tinggi & tidak bisa dipakai ulang */
+#product-card {
+ border-radius: 8px;
+ padding: 16px;
+}
+
+/* [BENAR] Solusi: Selalu gunakan Class Selector untuk styling komponen */
+.product-card {
+ border-radius: 8px;
+ padding: 16px;
+}
 ```
 
-Mari kita lanjut ke halaman ringkasan untuk merekap seluruh pembelajaran di BAB 2!
+---
 
-**[Lanjut: Ringkasan →](/bab2/ringkasan/)**
+## [SALAH] Error 5: Urutan LVHA Terbalik pada Tautan Link
+
+```css
+/* [SALAH] Efek hover tidak akan muncul pada link yang sudah pernah dikunjungi! */
+a:hover {
+ color: red;
+}
+a:visited {
+ color: purple;
+}
+
+/* [BENAR] Solusi: Taati urutan LVHA (Link, Visited, Hover, Active) */
+a:link { color: blue; }
+a:visited { color: purple; }
+a:hover { color: red; }
+a:active { color: orange; }
+```
+
+---
+
+## [SALAH] Error 6: Rantai Selector Terlalu Dalam & Rapuh (*Over-Nesting*)
+
+```css
+/* [SALAH] Sangat rapuh jika HTML diubah sedikit saja */
+header.top-nav > div.container > ul.menu-items > li.item > a.nav-link {
+ font-weight: 700;
+}
+
+/* [BENAR] Solusi: Targetkan langsung class yang bermakna */
+.nav-link {
+ font-weight: 700;
+}
+```
+
+---
+
+## [SALAH] Error 7: Salah Menggunakan Titik Dua Ganda `::` untuk Pseudo-Class
+
+```css
+/* [SALAH] Salah: :hover adalah pseudo-class (state), bukan pseudo-element */
+button::hover {
+ opacity: 0.8;
+}
+
+/* [BENAR] Benar */
+button:hover {
+ opacity: 0.8;
+}
+
+/* [TIPS] Aturan Ingat Cepat:
+ - Status / Kondisi = Titik dua SATU (:) → :hover, :focus, :checked
+ - Elemen Virtual / Sub-Bagian = Titik dua DUA (::) → ::before, ::after, ::selection */
+```

@@ -1,12 +1,12 @@
 ---
 title: "Tiga Cara Memasang CSS"
-description: Membedah Inline CSS, Internal CSS, dan External CSS — kelebihan, kelemahan, dan standar industri.
+description: "Membedah Inline CSS, Internal CSS, dan External CSS — kelebihan, kelemahan, dan standar industri."
 ---
 
 Agar browser tahu bagaimana cara menghias dokumen HTML, kita harus memberitahukan aturan CSS tersebut. Ada **3 cara berbeda** untuk menyisipkan CSS ke dalam dokumen HTML:
 
 ```text
-1. Inline CSS   → Ditulis langsung di dalam atribut elemen HTML
+1. Inline CSS → Ditulis langsung di dalam atribut elemen HTML
 2. Internal CSS → Ditulis di dalam tag <style> di bagian <head>
 3. External CSS → Ditulis di file terpisah (.css) lalu dihubungkan dengan tag <link>
 ```
@@ -27,9 +27,9 @@ Inline CSS ditulis langsung pada tag HTML menggunakan atribut `style=""`:
 ### Karakteristik:
 - **Kelebihan**: Cepat untuk pengujian kilat 1 baris kode (*quick dirty testing*) atau saat mengirim email HTML (*HTML email newsletter*).
 - **Kelemahan Fatal**:
-  - Kode HTML menjadi sangat kotor dan sulit dibaca.
-  - Aturan tidak bisa digunakan ulang (*no reusability*). Jika kamu punya 10 tombol, kamu harus menyalin kode style yang sama 10 kali.
-  - Memiliki prioritas spesifisitas yang terlalu tinggi sehingga sangat sulit diubah atau di-override di kemudian hari.
+ - Kode HTML menjadi sangat kotor dan sulit dibaca.
+ - Aturan tidak bisa digunakan ulang (*no reusability*). Jika kamu punya 10 tombol, kamu harus menyalin kode style yang sama 10 kali.
+ - Memiliki prioritas spesifisitas yang terlalu tinggi sehingga sangat sulit diubah atau di-override di kemudian hari.
 - **Rekomendasi**: **Hindari penggunaan Inline CSS untuk proyek website nyata.**
 
 ---
@@ -42,31 +42,31 @@ Internal CSS diletakkan di dalam tag `<style>` yang ditempatkan di dalam bagian 
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Contoh Internal CSS</title>
-  
-  <style>
-    body {
-      background-color: #f8f9fa;
-      font-family: Arial, sans-serif;
-    }
+ <meta charset="UTF-8">
+ <title>Contoh Internal CSS</title>
+ 
+ <style>
+ body {
+ background-color: #f8f9fa;
+ font-family: Arial, sans-serif;
+ }
 
-    h1 {
-      color: #e8392b;
-    }
+ h1 {
+ color: #e8392b;
+ }
 
-    .kartu {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-    }
-  </style>
+ .kartu {
+ background-color: #ffffff;
+ padding: 20px;
+ border-radius: 8px;
+ }
+ </style>
 </head>
 <body>
-  <div class="kartu">
-    <h1>Selamat Datang</h1>
-    <p>Ini menggunakan internal CSS di bagian head.</p>
-  </div>
+ <div class="kartu">
+ <h1>Selamat Datang</h1>
+ <p>Ini menggunakan internal CSS di bagian head.</p>
+ </div>
 </body>
 </html>
 ```
@@ -85,16 +85,16 @@ External CSS memisahkan kode styling ke dalam file tersendiri dengan ekstensi `.
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Keren</title>
-  
-  <!-- Menghubungkan ke file CSS eksternal -->
-  <link rel="stylesheet" href="style.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Website Keren</title>
+ 
+ <!-- Menghubungkan ke file CSS eksternal -->
+ <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Judul Halaman</h1>
-  <p>Teks halaman utama yang bersih dan terpisah dari CSS.</p>
+ <h1>Judul Halaman</h1>
+ <p>Teks halaman utama yang bersih dan terpisah dari CSS.</p>
 </body>
 </html>
 ```
@@ -102,28 +102,28 @@ External CSS memisahkan kode styling ke dalam file tersendiri dengan ekstensi `.
 ```css title="style.css"
 /* File ini murni hanya berisi aturan CSS */
 body {
-  background-color: #0c0c0e;
-  color: #f0f0f3;
-  font-family: system-ui, sans-serif;
-  margin: 0;
-  padding: 2rem;
+ background-color: #0c0c0e;
+ color: #f0f0f3;
+ font-family: system-ui, sans-serif;
+ margin: 0;
+ padding: 2rem;
 }
 
 h1 {
-  color: #e8392b;
+ color: #e8392b;
 }
 ```
 
 ### Karakteristik:
 - **Kelebihan Luar Biasa**:
-  - **Pemisahan Sempurna**: File HTML murni berisi struktur, file CSS murni berisi desain.
-  - **Dapat Digunakan Bersama (Shared Stylesheet)**: 1 file `style.css` bisa dihubungkan ke 100 halaman HTML sekaligus. Mengubah warna di `style.css` otomatis mengubah 100 halaman tersebut secara serentak.
-  - **Kecepatan Browser Cache**: Browser hanya perlu mengunduh file `style.css` satu kali di kunjungan pertama. Untuk halaman berikutnya, browser membaca dari memori lokal (*cache*), membuat website memuat jauh lebih cepat.
+ - **Pemisahan Sempurna**: File HTML murni berisi struktur, file CSS murni berisi desain.
+ - **Dapat Digunakan Bersama (Shared Stylesheet)**: 1 file `style.css` bisa dihubungkan ke 100 halaman HTML sekaligus. Mengubah warna di `style.css` otomatis mengubah 100 halaman tersebut secara serentak.
+ - **Kecepatan Browser Cache**: Browser hanya perlu mengunduh file `style.css` satu kali di kunjungan pertama. Untuk halaman berikutnya, browser membaca dari memori lokal (*cache*), membuat website memuat jauh lebih cepat.
 - **Rekomendasi**: **Ini adalah metode standar profesional yang wajib kamu gunakan 99% dari seluruh waktu kerjamu.**
 
 ---
 
-## 📊 Tabel Perbandingan 3 Metode
+## Tabel Perbandingan 3 Metode
 
 | Fitur | Inline CSS | Internal CSS | External CSS |
 | :--- | :--- | :--- | :--- |

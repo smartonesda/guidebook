@@ -1,6 +1,6 @@
 ---
 title: "Apa itu CSS?"
-description: Memahami definisi, sejarah singkat, alasan pemisahan konten dan presentasi, serta peran fundamental CSS dalam web modern.
+description: "Memahami definisi, sejarah singkat, alasan pemisahan konten dan presentasi, serta peran fundamental CSS dalam web modern."
 ---
 
 **CSS** adalah singkatan dari **Cascading Style Sheets**. 
@@ -9,7 +9,7 @@ CSS adalah bahasa desain berbentuk aturan (*rule-based stylesheet language*) yan
 
 ---
 
-## 🏛️ Sejarah Singkat: Kenapa CSS Diciptakan?
+## Sejarah Singkat: Kenapa CSS Diciptakan?
 
 Di awal era web (awal 1990-an), HTML awalnya hanya dirancang untuk berbagi dokumen teks ilmiah sederhana. Namun, seiring bertambahnya pengguna web, para pembuat website mulai ingin mengatur warna teks, latar belakang, jenis huruf, dan tata letak visual.
 
@@ -18,9 +18,9 @@ Saat itu, browser mulai menambahkan tag presentasi seperti `<font>`, `<center>`,
 ```html
 <!-- Cara lama (TIDAK DIGUNAKAN LAGI): HTML bercampur aduk dengan styling -->
 <body bgcolor="#ffffcc">
-  <center>
-    <h1><font color="red" face="Arial">Selamat Datang</font></h1>
-  </center>
+ <center>
+ <h1><font color="red" face="Arial">Selamat Datang</font></h1>
+ </center>
 </body>
 ```
 
@@ -33,19 +33,19 @@ Untuk menyelesaikan masalah ini, pada tahun **1996**, konsorsium web dunia (**W3
 
 ---
 
-## 🎯 Prinsip Inti: Pemisahan Konten dan Presentasi (Separation of Concerns)
+## Prinsip Inti: Pemisahan Konten dan Presentasi (Separation of Concerns)
 
 Filosofi terpenting dari pengembangan web modern adalah:
 
 ```text
 ┌───────────────────────────────────────┐
-│ HTML bertanggung jawab atas KONTEN    │  → "Apa isi halaman ini?"
+│ HTML bertanggung jawab atas KONTEN │ → "Apa isi halaman ini?"
 │ (Judul, Teks, Gambar, Tabel, Formulir)│
 └───────────────────────────────────────┘
-                   +
+ +
 ┌───────────────────────────────────────┐
-│ CSS bertanggung jawab atas TAMPILAN   │  → "Bagaimana rupa & posisinya?"
-│ (Warna, Font, Jarak, Grid, Animasi)   │
+│ CSS bertanggung jawab atas TAMPILAN │ → "Bagaimana rupa & posisinya?"
+│ (Warna, Font, Jarak, Grid, Animasi) │
 └───────────────────────────────────────┘
 ```
 
@@ -56,28 +56,28 @@ Dengan memisahkan kedua hal ini:
 
 ---
 
-## 🔬 Anatomi Dasar Aturan CSS (Rule Set)
+## Anatomi Dasar Aturan CSS (Rule Set)
 
 Sebuah aturan CSS terdiri dari beberapa komponen utama:
 
 ```css title="Contoh Aturan CSS"
 h1 {
-  color: #e8392b;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+ color: #e8392b;
+ font-size: 2rem;
+ margin-bottom: 1rem;
 }
 ```
 
 ```text
 ┌────────────────────────────────────────────────────────┐
-│  h1               → SELECTOR (Siapa yang ingin dihias?)│
-│  {                                                     │
-│    color:         → PROPERTY (Sifat apa yang diubah?)  │
-│    #e8392b;       → VALUE    (Nilai apa yang dipakai?) │
-│  }                                                     │
-│                                                        │
-│  "color: #e8392b;" = DECLARATION (Deklarasi)           │
-│  Seluruh blok di atas = DECLARATION BLOCK / RULE SET   │
+│ h1 → SELECTOR (Siapa yang ingin dihias?)│
+│ { │
+│ color: → PROPERTY (Sifat apa yang diubah?) │
+│ #e8392b; → VALUE (Nilai apa yang dipakai?) │
+│ } │
+│ │
+│ "color: #e8392b;" = DECLARATION (Deklarasi) │
+│ Seluruh blok di atas = DECLARATION BLOCK / RULE SET │
 └────────────────────────────────────────────────────────┘
 ```
 

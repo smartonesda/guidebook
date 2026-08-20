@@ -1,6 +1,6 @@
 ---
 title: "Introduction"
-description: Gambaran umum BAB 0 — membangun fondasi mental dan setup sebelum menulis baris CSS pertama.
+description: "Gambaran umum BAB 0 — membangun fondasi mental dan setup sebelum menulis baris CSS pertama."
 ---
 
 Selamat datang di **CSS Guidebook**!
@@ -11,7 +11,7 @@ Yang paling penting adalah **memahami CSS sebagai sebuah sistem**. Ketika kamu m
 
 ---
 
-## 🎯 Target Hasil Belajar (Learning Outcomes)
+## Target Hasil Belajar (Learning Outcomes)
 
 Setelah menyelesaikan BAB 0 ini, kamu akan mampu:
 
@@ -26,7 +26,7 @@ Setelah menyelesaikan BAB 0 ini, kamu akan mampu:
 
 ---
 
-## 🗺️ Peta Pembelajaran BAB 0
+## Peta Pembelajaran BAB 0
 
 Bab ini disusun secara bertahap agar kamu tidak merasa kewalahan:
 
