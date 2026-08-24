@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-08-21T09:28:18.679Z",
+        "reason": "pinned brand font in PRODUCT.md"
+      }
+    ]
+  }
+}

@@ -1,315 +1,277 @@
 ---
-title: "Belajar HTML dari Nol"
+title: "HTML Guidebook — Belajar HTML dari Nol"
 description: HTML Guidebook berbahasa Indonesia untuk siswa SMK RPL dan pemula web development — dari fondasi HTML hingga membangun, memvalidasi, dan mengaudit website nyata.
 template: splash
 
 hero:
-  title: "Bangun Fondasi Web<br/>dengan HTML"
-  tagline: HTML Guidebook berbahasa Indonesia untuk siswa SMK RPL dan pemula web development. Pelajari struktur, semantic HTML, forms, accessibility, metadata, project, validasi, dan debugging.
-  actions:
-    - text: "🚀 Mulai Belajar"
-      link: /bab0/introduction/
-      variant: primary
-    - text: "📚 Lihat Roadmap"
-      link: /#roadmap
-      variant: secondary
+  title: "Bangun Fondasi Web dengan HTML"
+  tagline: "HTML Guidebook berbahasa Indonesia untuk siswa SMK RPL dan pemula web development."
 ---
 
 import HomeRoadmap from '../../components/HomeRoadmap.astro';
 import ChapterCount from '../../components/ChapterCount.astro';
 
-{/* ════════════════════════════════════════════
-    SECTION 1 — WHY HTML ("Semua Dimulai dari Sini" — editorial)
-    ════════════════════════════════════════════ */}
-<section class="hp-section hp-why" aria-labelledby="why-title">
-  <div class="hp-section-inner">
-    <div class="hp-why-editorial">
-      <header class="hp-why-header">
-        <span class="hp-label">Lebih dari Tutorial</span>
-        <h2 class="hp-why-main-title" id="why-title">Belajar HTML untuk Dipakai</h2>
-        <p class="hp-why-subtitle">
-          HTML memberi struktur dan makna pada web. CSS dan JavaScript bekerja lebih baik saat fondasinya ditulis dengan benar.
+{/* ══════════════════════════════════════════════════════════════
+    TRUST / VALUE STRIP (Horizontal Signal)
+    ══════════════════════════════════════════════════════════════ */}
+<section class="hp-strip-section" aria-label="Ringkasan Kurikulum">
+  <div class="hp-container">
+    <div class="hp-strip-grid" role="list">
+      <div class="hp-strip-item" role="listitem">
+        <span class="hp-strip-num">16 BAB</span>
+        <span class="hp-strip-label">Kurikulum Terstruktur (BAB 0–15)</span>
+      </div>
+      <div class="hp-strip-divider" aria-hidden="true"></div>
+      <div class="hp-strip-item" role="listitem">
+        <span class="hp-strip-num">5 Mini Projects</span>
+        <span class="hp-strip-label">Plus 1 Final Project &amp; Rubrik</span>
+      </div>
+      <div class="hp-strip-divider" aria-hidden="true"></div>
+      <div class="hp-strip-item" role="listitem">
+        <span class="hp-strip-num">Lab &amp; Debug</span>
+        <span class="hp-strip-label">Challenge &amp; Error Corner</span>
+      </div>
+      <div class="hp-strip-divider" aria-hidden="true"></div>
+      <div class="hp-strip-item" role="listitem">
+        <span class="hp-strip-num">HTML Handbook</span>
+        <span class="hp-strip-label">Kamus Elemen &amp; Atribut Lengkap</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ══════════════════════════════════════════════════════════════
+    SECTION 1 — VALUE PROPOSITION / EDITORIAL PILLARS
+    ══════════════════════════════════════════════════════════════ */}
+<section class="hp-section" id="mengapa-html" aria-labelledby="why-title">
+  <div class="hp-container">
+    <div class="hp-editorial-block">
+      <header class="hp-section-header">
+        <span class="hp-eyebrow">Fondasi Web Development</span>
+        <h2 class="hp-title" id="why-title">Belajar HTML untuk Benar-Benar Dipakai</h2>
+        <p class="hp-subtitle">
+          HTML bukan sekadar menghafal tag. Pahami cara menyusun dokumen web yang semantik, accessible, SEO-friendly, dan siap dihubungkan dengan CSS &amp; JavaScript.
         </p>
       </header>
-      <div class="hp-why-pillars" role="list">
-        <div class="hp-pillar-item" role="listitem">
-          <span class="hp-pillar-num">01</span>
+
+      <div class="hp-pillars-grid" role="list">
+        <div class="hp-pillar-card" role="listitem">
+          <div class="pillar-top">
+            <span class="pillar-num">01</span>
+            <span class="pillar-tag">Foundation</span>
+          </div>
           <h3>Materi Terstruktur</h3>
-          <p>Mulai dari file pertama, struktur dokumen, hingga HTML yang rapi, semantik, dan mudah dirawat.</p>
+          <p>Mulai dari anatomi elemen, struktur dokumen, hingga kaidah semantic HTML yang standar W3C.</p>
         </div>
-        <div class="hp-pillar-item" role="listitem">
-          <span class="hp-pillar-num">02</span>
-          <h3>Practice &amp; Build</h3>
-          <p>Terapkan konsep lewat studi kasus, mini project, dan satu final project berbasis kebutuhan nyata.</p>
+
+        <div class="hp-pillar-card" role="listitem">
+          <div class="pillar-top">
+            <span class="pillar-num">02</span>
+            <span class="pillar-tag">Practice</span>
+          </div>
+          <h3>Studi Kasus &amp; Proyek</h3>
+          <p>Terapkan teori secara bertahap lewat 5 mini project dunia nyata dan 1 final project berbasis brief profesional.</p>
         </div>
-        <div class="hp-pillar-item" role="listitem">
-          <span class="hp-pillar-num">03</span>
-          <h3>Challenge &amp; Debug</h3>
-          <p>Latih kemampuan membaca, mendiagnosis, dan memperbaiki HTML yang bermasalah secara sistematis.</p>
+
+        <div class="hp-pillar-card" role="listitem">
+          <div class="pillar-top">
+            <span class="pillar-num">03</span>
+            <span class="pillar-tag">Debug</span>
+          </div>
+          <h3>Challenge &amp; Lab</h3>
+          <p>Latih ketajaman mencari bug HTML pada Error Corner dan Challenge Lab di setiap bab.</p>
         </div>
-        <div class="hp-pillar-item" role="listitem">
-          <span class="hp-pillar-num">04</span>
-          <h3>HTML Handbook</h3>
-          <p>Simpan pusat referensi elemen, atribut, accessibility, dan metadata untuk dipakai setelah roadmap selesai.</p>
+
+        <div class="hp-pillar-card" role="listitem">
+          <div class="pillar-top">
+            <span class="pillar-num">04</span>
+            <span class="pillar-tag">Reference</span>
+          </div>
+          <h3>Handbook Cepat</h3>
+          <p>Gunakan kamus elemen, atribut, accessibility, dan metadata kapan saja saat kamu sedang coding.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-{/* ════════════════════════════════════════════
-    SECTION 2 — ROADMAP
-    ════════════════════════════════════════════ */}
+{/* ══════════════════════════════════════════════════════════════
+    SECTION 2 — ROADMAP (16 CHAPTERS)
+    ══════════════════════════════════════════════════════════════ */}
 <HomeRoadmap />
 
-{/* ════════════════════════════════════════════
-    SECTION 3 — LEARNING METHOD (connected journey flow)
-    ════════════════════════════════════════════ */}
-<section class="hp-section hp-method" aria-labelledby="method-title">
-  <div class="hp-section-inner">
+{/* ══════════════════════════════════════════════════════════════
+    SECTION 3 — WHAT YOU WILL BUILD (PROJECTS PREVIEW)
+    ══════════════════════════════════════════════════════════════ */}
+<section class="hp-section" id="projects" aria-labelledby="build-title">
+  <div class="hp-container">
     <header class="hp-section-header">
-      <span class="hp-label">Metode Belajar</span>
-      <h2 class="hp-title" id="method-title">Belajar, Praktik, Bangun</h2>
+      <span class="hp-eyebrow">Portofolio Praktik</span>
+      <h2 class="hp-title" id="build-title">Yang Akan Kamu Bangun</h2>
       <p class="hp-subtitle">
-        Setiap bab mengikuti alur yang sama untuk menjamin penguasaan materi secara menyeluruh.
+        Bukan hanya membaca teks. Di setiap tahap pembelajaran kamu langsung membuat proyek nyata untuk melatih insting developer.
       </p>
     </header>
-    <div class="hp-journey-wrapper">
-      <ol class="hp-journey" aria-label="Alur Pembelajaran Per Bab">
-        <li class="hp-journey-step">
-          <div class="hp-journey-num" aria-hidden="true">01</div>
-          <div class="hp-journey-body">
-            <h3>Pahami Konsep</h3>
-            <p>Setiap topik dimulai dari alasan fundamental, dibantu analogi sederhana dan diagram visual.</p>
-          </div>
-        </li>
-        <li class="hp-journey-step">
-          <div class="hp-journey-num" aria-hidden="true">02</div>
-          <div class="hp-journey-body">
-            <h3>Lihat Contoh</h3>
-            <p>Gunakan contoh kode nyata yang terstruktur rapi untuk memvisualisasikan teori secara langsung.</p>
-          </div>
-        </li>
-        <li class="hp-journey-step">
-          <div class="hp-journey-num" aria-hidden="true">03</div>
-          <div class="hp-journey-body">
-            <h3>Studi Kasus</h3>
-            <p>Bedah struktur web yang ada di internet untuk melatih pemecahan masalah dunia nyata.</p>
-          </div>
-        </li>
-        <li class="hp-journey-step">
-          <div class="hp-journey-num" aria-hidden="true">04</div>
-          <div class="hp-journey-body">
-            <h3>Mini Project</h3>
-            <p>Bangun sendiri halaman web dari instruksi, checklist validasi, dan lembar rubrik penilaian.</p>
-          </div>
-        </li>
-        <li class="hp-journey-step">
-          <div class="hp-journey-num" aria-hidden="true">05</div>
-          <div class="hp-journey-body">
-            <h3>Challenge</h3>
-            <p>Uji pemahaman lewat challenge, lalu gunakan debugging lab untuk menemukan dan memperbaiki masalah nyata.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </div>
-</section>
 
-{/* ════════════════════════════════════════════
-    SECTION 4 — WHAT CAN YOU BUILD? (asymmetric project showcase)
-    ════════════════════════════════════════════ */}
-<section class="hp-section hp-projects" aria-labelledby="projects-title">
-  <div class="hp-section-inner">
-    <header class="hp-section-header">
-      <span class="hp-label">Hasil Karya</span>
-      <h2 class="hp-title" id="projects-title">Yang Akan Kamu Bangun</h2>
-      <p class="hp-subtitle">
-        Bukan hanya belajar teori. Kamu akan membangun portofolio proyek web riil yang siap dipamerkan.
-      </p>
-    </header>
-    <div class="hp-showcase-grid">
-      
-      {/* Portfolio — Primary/Featured project (Takes 2 columns on desktop) */}
-      <article class="hp-showcase-card hp-showcase-featured">
-        <div class="hp-showcase-meta">
-          <span class="hp-showcase-tag">Final Project</span>
-          <span class="hp-showcase-chapter">BAB 13</span>
+    <div class="hp-projects-grid">
+      {/* Featured / Final Project Card */}
+      <article class="hp-project-card project-featured">
+        <div class="project-header">
+          <span class="project-tag-pill">Final Project</span>
+          <span class="project-chapter">BAB 13</span>
         </div>
-        <div class="hp-showcase-body">
-          <h3>Final Project dari Project Brief</h3>
-          <p>Pilih satu dari tujuh project brief, lalu terjemahkan kebutuhan nyata menjadi struktur website utuh yang memenuhi quality gate, validasi, dan presentasi portofolio.</p>
-          <div class="hp-showcase-techs">
+        <div class="project-body">
+          <h3 class="project-title">Website Utuh dari Project Brief Nyata</h3>
+          <p class="project-desc">
+            Pilih satu dari 7 skenario brief industri, susun arsitektur informasi, penuhi standar accessibility &amp; validasi W3C, lalu presentasikan sebagai portofolio pertama kamu.
+          </p>
+          <div class="project-techs">
             <span>Semantic HTML5</span>
-            <span>Anchor Links</span>
+            <span>Accessible Forms</span>
+            <span>SEO Metadata</span>
             <span>Quality Gate</span>
-            <span>Portfolio</span>
           </div>
-          <a href="/bab13/introduction/" class="hp-showcase-action">Lihat Final Project →</a>
+        </div>
+        <div class="project-footer">
+          <a href="/bab13/introduction/" class="project-link">
+            Buka Final Project
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
       </article>
 
-      {/* School Website — Secondary */}
-      <article class="hp-showcase-card">
-        <div class="hp-showcase-meta">
-          <span class="hp-showcase-tag">Project</span>
-          <span class="hp-showcase-chapter">BAB 12</span>
+      {/* Mini Project 1 */}
+      <article class="hp-project-card">
+        <div class="project-header">
+          <span class="project-tag-pill">Mini Project</span>
+          <span class="project-chapter">BAB 12</span>
         </div>
-        <div class="hp-showcase-body">
-          <h3>School Profile</h3>
-          <p>Rancang profil resmi sekolah dengan navigasi multi-seksi, informasi program keahlian, dan peta lokasi.</p>
-          <div class="hp-showcase-techs">
-            <span>Article &amp; Section</span>
-            <span>Aksesibilitas</span>
-            <span>SEO Tags</span>
+        <div class="project-body">
+          <h3 class="project-title">School Profile Page</h3>
+          <p class="project-desc">
+            Bangun profil sekolah multi-seksi dengan navigasi anchor, tabel kurikulum, gambar fasilitas, dan embed peta.
+          </p>
+          <div class="project-techs">
+            <span>Navigation</span>
+            <span>Tables</span>
+            <span>Multimedia</span>
           </div>
-          <a href="/bab12/project-2-school-profile/" class="hp-showcase-action">Buka Mini Project →</a>
+        </div>
+        <div class="project-footer">
+          <a href="/bab12/project-2-school-profile/" class="project-link">
+            Lihat Project
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
       </article>
 
-      {/* Company Profile — Secondary */}
-      <article class="hp-showcase-card">
-        <div class="hp-showcase-meta">
-          <span class="hp-showcase-tag">Project</span>
-          <span class="hp-showcase-chapter">BAB 12</span>
+      {/* Mini Project 2 */}
+      <article class="hp-project-card">
+        <div class="project-header">
+          <span class="project-tag-pill">Mini Project</span>
+          <span class="project-chapter">BAB 12</span>
         </div>
-        <div class="hp-showcase-body">
-          <h3>Event Registration</h3>
-          <p>Bangun formulir pendaftaran event multi-seksi yang valid, aman, dan aksesibel.</p>
-          <div class="hp-showcase-techs">
-            <span>Form &amp; Input</span>
-            <span>Validasi Browser</span>
-            <span>Labeling</span>
+        <div class="project-body">
+          <h3 class="project-title">Event Registration Form</h3>
+          <p class="project-desc">
+            Rancang formulir pendaftaran interaktif lengkap dengan input semantik, validasi native browser, dan fieldset terstruktur.
+          </p>
+          <div class="project-techs">
+            <span>HTML5 Inputs</span>
+            <span>Validation</span>
+            <span>A11y Labels</span>
           </div>
-          <a href="/bab12/project-5-event-registration/" class="hp-showcase-action">Buka Mini Project →</a>
+        </div>
+        <div class="project-footer">
+          <a href="/bab12/project-5-event-registration/" class="project-link">
+            Lihat Project
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
       </article>
-
-      {/* Restaurant Menu — Secondary */}
-      <article class="hp-showcase-card">
-        <div class="hp-showcase-meta">
-          <span class="hp-showcase-tag">Project</span>
-          <span class="hp-showcase-chapter">BAB 14 &amp; 15</span>
-        </div>
-        <div class="hp-showcase-body">
-          <h3>Debugging Lab &amp; Handbook</h3>
-          <p>Uji kemampuan memperbaiki HTML bermasalah, lalu lanjutkan dengan pusat referensi cepat elemen, atribut, metadata, dan accessibility.</p>
-          <div class="hp-showcase-techs">
-            <span>Debugging</span>
-            <span>Quick Lookup</span>
-            <span>Reference Center</span>
-          </div>
-          <div class="hp-showcase-actions">
-            <a href="/bab14/introduction/" class="hp-showcase-action">Challenge Lab →</a>
-            <a href="/bab15/introduction/" class="hp-showcase-action">HTML Handbook →</a>
-          </div>
-        </div>
-      </article>
-
     </div>
   </div>
 </section>
 
-{/* ════════════════════════════════════════════
-    SECTION 5 — OUTCOME (checklist editorial split)
-    ════════════════════════════════════════════ */}
-<section class="hp-section hp-outcome" aria-labelledby="outcome-title">
-  <div class="hp-section-inner">
-    <div class="hp-outcome-layout">
-      <div class="hp-outcome-lead">
-        <span class="hp-label">Hasil Belajar</span>
-        <h2 class="hp-title" id="outcome-title">Setelah Menyelesaikan Guidebook Ini</h2>
-        <p>
-          Kamu tidak hanya tahu cara menulis HTML — kamu memahami cara berpikir sebagai seorang web developer profesional yang menulis markup bermakna, mudah diakses, dan siap dikembangkan lebih jauh.
+{/* ══════════════════════════════════════════════════════════════
+    SECTION 4 — OUTCOME & SKILLS CHECKLIST
+    ══════════════════════════════════════════════════════════════ */}
+<section class="hp-section hp-outcome-section" aria-labelledby="outcome-title">
+  <div class="hp-container">
+    <div class="hp-outcome-grid">
+      <div class="hp-outcome-left">
+        <span class="hp-eyebrow">Target Kemampuan</span>
+        <h2 class="hp-title" id="outcome-title">Hasil Belajar yang Jelas &amp; Terukur</h2>
+        <p class="hp-subtitle">
+          Setelah menyelesaikan guidebook ini, kamu memiliki pola pikir developer profesional dalam merancang struktur web yang solid sebelum melangkah ke styling CSS maupun logika JavaScript.
         </p>
-        <a href="/bab0/introduction/" class="hp-outcome-cta">
-          Mulai Sekarang
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        <a href="/bab0/introduction/" class="btn btn-primary hp-outcome-btn">
+          <span>Mulai Belajar Sekarang</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
       </div>
-      <ul class="hp-checklist" role="list" aria-label="Kemampuan yang akan kamu miliki">
-        <li class="hp-check-item">
-          <span class="hp-check-icon" aria-hidden="true">✓</span>
-          <span>Memahami struktur dan anatomi dokumen HTML yang benar</span>
-        </li>
-        <li class="hp-check-item">
-          <span class="hp-check-icon" aria-hidden="true">✓</span>
-          <span>Menulis HTML semantik yang bermakna, bukan hanya yang "bisa berjalan"</span>
-        </li>
-        <li class="hp-check-item">
-          <span class="hp-check-icon" aria-hidden="true">✓</span>
-          <span>Membangun form yang usable dan accessible</span>
-        </li>
-        <li class="hp-check-item">
-          <span class="hp-check-icon" aria-hidden="true">✓</span>
-          <span>Mengoptimalkan HTML untuk SEO dan mesin pencari</span>
-        </li>
-        <li class="hp-check-item">
-          <span class="hp-check-icon" aria-hidden="true">✓</span>
-          <span>Memastikan website accessible untuk semua pengguna</span>
-        </li>
-        <li class="hp-check-item">
-          <span class="hp-check-icon" aria-hidden="true">✓</span>
-          <span>Memvalidasi HTML dan memperbaiki error secara mandiri</span>
-        </li>
-        <li class="hp-check-item">
-          <span class="hp-check-icon" aria-hidden="true">✓</span>
-          <span>Membangun halaman web nyata dari nol tanpa framework</span>
-        </li>
-        <li class="hp-check-item">
-          <span class="hp-check-icon" aria-hidden="true">✓</span>
-          <span>Siap melanjutkan ke CSS, JavaScript, dan framework modern</span>
-        </li>
-      </ul>
+
+      <div class="hp-outcome-right">
+        <ul class="hp-checklist" role="list" aria-label="Daftar keahlian">
+          <li class="hp-check-item">
+            <span class="hp-check-icon" aria-hidden="true">✓</span>
+            <span>Memahami struktur, anatomi elemen, dan hirarki dokumen HTML5</span>
+          </li>
+          <li class="hp-check-item">
+            <span class="hp-check-icon" aria-hidden="true">✓</span>
+            <span>Menulis semantic HTML yang bermakna dan ramah screen reader</span>
+          </li>
+          <li class="hp-check-item">
+            <span class="hp-check-icon" aria-hidden="true">✓</span>
+            <span>Membangun form interaktif dengan validasi browser bawaan</span>
+          </li>
+          <li class="hp-check-item">
+            <span class="hp-check-icon" aria-hidden="true">✓</span>
+            <span>Mengoptimalkan dokumen web untuk SEO dan Open Graph metadata</span>
+          </li>
+          <li class="hp-check-item">
+            <span class="hp-check-icon" aria-hidden="true">✓</span>
+            <span>Menerapkan prinsip aksesibilitas (WCAG &amp; ARIA) sedari dini</span>
+          </li>
+          <li class="hp-check-item">
+            <span class="hp-check-icon" aria-hidden="true">✓</span>
+            <span>Mendiagnosis dan memperbaiki markup error secara mandiri</span>
+          </li>
+          <li class="hp-check-item">
+            <span class="hp-check-icon" aria-hidden="true">✓</span>
+            <span>Membangun halaman web nyata tanpa bergantung pada framework</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-{/* ════════════════════════════════════════════
-    SECTION 6 — FINAL CTA (strong CTA band)
-    ════════════════════════════════════════════ */}
-<section class="hp-section hp-cta" aria-labelledby="cta-title">
-  <div class="hp-section-inner">
-    <div class="hp-cta-band">
-      <div class="hp-cta-band-glow" aria-hidden="true"></div>
+{/* ══════════════════════════════════════════════════════════════
+    SECTION 5 — FINAL CALL TO ACTION (Clean Destination Band)
+    ══════════════════════════════════════════════════════════════ */}
+<section class="hp-section hp-cta-section" aria-labelledby="cta-title">
+  <div class="hp-container">
+    <div class="hp-cta-card">
+      <div class="hp-cta-glow" aria-hidden="true"></div>
+      
       <div class="hp-cta-content">
-        <p class="hp-label">Siap Memulai?</p>
-        <h2 id="cta-title">
-          Mulai Perjalanan HTML-mu<br/>Hari Ini
+        <span class="hp-eyebrow">Mulai Hari Ini</span>
+        <h2 class="hp-cta-heading" id="cta-title">
+          Siap Bangun Fondasi Web yang Benar?
         </h2>
         <p class="hp-cta-desc">
-          Gratis selamanya. Berbahasa Indonesia.
-          Dirancang khusus untuk siswa SMK RPL dan pemula web development.
+          100% Gratis &amp; Berbahasa Indonesia. Dibuat khusus untuk siswa SMK RPL, mahasiswa, dan siapa saja yang ingin serius memahami web dari akarnya.
         </p>
-        <div class="hp-cta-actions">
-          <a href="/bab0/introduction/" class="hero-btn btn-primary">
-            🚀 Mulai dari BAB 0
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+
+        <div class="hp-cta-buttons">
+          <a href="/bab0/introduction/" class="btn btn-primary">
+            <span>Mulai dari BAB 00</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
-          <a href="/bab1/introduction/" class="hero-btn btn-secondary">
-            📖 Langsung ke BAB 1
+          <a href="/bab1/introduction/" class="btn btn-secondary">
+            Langsung ke BAB 01
           </a>
-        </div>
-        <div class="hp-cta-stats" role="list" aria-label="Statistik kurikulum">
-          <div class="hp-stat" role="listitem">
-            <ChapterCount class="hp-stat-num" />
-            <span class="hp-stat-label">Bab</span>
-          </div>
-          <div class="hp-stat-divider" aria-hidden="true"></div>
-          <div class="hp-stat" role="listitem">
-            <span class="hp-stat-num">5</span>
-            <span class="hp-stat-label">Mini Project</span>
-          </div>
-          <div class="hp-stat-divider" aria-hidden="true"></div>
-          <div class="hp-stat" role="listitem">
-            <span class="hp-stat-num">100%</span>
-            <span class="hp-stat-label">Bahasa Indonesia</span>
-          </div>
-          <div class="hp-stat-divider" aria-hidden="true"></div>
-          <div class="hp-stat" role="listitem">
-            <span class="hp-stat-num">HTML</span>
-            <span class="hp-stat-label">Handbook</span>
-          </div>
         </div>
       </div>
     </div>

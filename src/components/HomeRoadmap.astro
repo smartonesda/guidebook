@@ -1,12 +1,27 @@
 ---
+/**
+ * Custom HomeRoadmap component — HTML Guidebook
+ * Redesigned: Compact 2-column card/grid roadmap for fast scanning and smooth browsing.
+ */
 import { getCollection } from 'astro:content';
 
-const chapterTitles = [
-  'Getting Started', 'HTML Fundamentals', 'Text & Typography',
-  'Hyperlinks & Navigation', 'Images & Multimedia', 'Lists & Tables',
-  'Forms', 'HTML Attributes', 'Semantic HTML', 'Metadata & SEO',
-  'Accessibility', 'HTML Best Practices', 'Mini Project Collection',
-  'Final Project', 'Challenge Collection', 'HTML Handbook',
+const chapterMeta = [
+  { num: 0, title: 'Getting Started', tag: 'Pengenalan' },
+  { num: 1, title: 'HTML Fundamentals', tag: 'Dasar' },
+  { num: 2, title: 'Teks & Tipografi', tag: 'Konten' },
+  { num: 3, title: 'Tautan & Navigasi', tag: 'Navigasi' },
+  { num: 4, title: 'Images & Multimedia', tag: 'Media' },
+  { num: 5, title: 'Lists & Tables', tag: 'Struktur' },
+  { num: 6, title: 'Forms & Inputs', tag: 'Interaksi' },
+  { num: 7, title: 'HTML Attributes', tag: 'Atribut' },
+  { num: 8, title: 'Semantic HTML', tag: 'Semantik' },
+  { num: 9, title: 'Metadata & SEO', tag: 'SEO' },
+  { num: 10, title: 'Aksesibilitas (A11y)', tag: 'A11y' },
+  { num: 11, title: 'HTML Best Practices', tag: 'Standard' },
+  { num: 12, title: 'Mini Project Collection', tag: 'Praktik' },
+  { num: 13, title: 'Final Project', tag: 'Proyek' },
+  { num: 14, title: 'Challenge & Debugging Lab', tag: 'Tantangan' },
+  { num: 15, title: 'HTML Handbook', tag: 'Referensi' },
 ];
 
 const docs = await getCollection('docs');
@@ -16,37 +31,169 @@ const introductions = new Map(
     return match ? [[Number(match[1]), entry] as const] : [];
   }),
 );
-const chapters = chapterTitles.flatMap((title, number) => {
-  const introduction = introductions.get(number);
-  return introduction ? [{ number, title, description: introduction.data.description, href: `/bab${number}/introduction/` }] : [];
+
+const chapters = chapterMeta.map(({ num, title, tag }) => {
+  const intro = introductions.get(num);
+  return {
+    number: num,
+    title,
+    tag,
+    description: intro?.data.description || 'Pelajari materi dan praktik komprehensif pada bab ini.',
+    href: `/bab${num}/introduction/`,
+  };
 });
 ---
 
-<section class="hp-section hp-roadmap" id="roadmap" aria-labelledby="roadmap-title">
-  <div class="hp-section-inner">
+<section class="hp-section" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="hp-container">
     <header class="hp-section-header">
-      <span class="hp-label">Kurikulum Lengkap</span>
-      <h2 class="hp-title" id="roadmap-title">16 BAB, Satu Jalur Belajar</h2>
-      <p class="hp-subtitle">Dari menyiapkan alat hingga mengaudit kode dan memakai handbook HTML, semua bab sudah tersedia untuk dipelajari sekarang.</p>
+      <span class="hp-eyebrow">Alur Kurikulum</span>
+      <h2 class="hp-title" id="roadmap-title">16 BAB, Satu Jalur Terstruktur</h2>
+      <p class="hp-subtitle">
+        Dari persiapan awal hingga final project dan buku saku referensi. Setiap bab dirancang berurutan dengan studi kasus &amp; tantangan nyata.
+      </p>
     </header>
-    <div class="hp-roadmap-timeline-wrapper">
-      <h3 class="hp-roadmap-sub">BAB 0 — BAB 15</h3>
-      <ol class="hp-timeline" aria-label="Jalur pembelajaran HTML Guidebook">
-        {chapters.map((chapter, index) => (
-          <li class:list={['hp-tl-item', 'hp-tl-active', index === chapters.length - 1 && 'hp-tl-item--end']}>
-            <div class="hp-tl-marker" aria-hidden="true"><span>{String(chapter.number).padStart(2, '0')}</span></div>
-            <div class="hp-tl-content">
-              <a href={chapter.href} class="hp-tl-link">
-                <div class="hp-tl-head">
-                  <span class="hp-tl-badge badge-beginner">Tersedia</span>
-                  <h3>{chapter.title}</h3>
-                </div>
-                <p>{chapter.description}</p>
-              </a>
+
+    <div class="roadmap-grid">
+      {chapters.map((chapter) => (
+        <a href={chapter.href} class="chapter-card">
+          <div class="chapter-header">
+            <div class="chapter-num-badge">
+              <span>BAB {String(chapter.number).padStart(2, '0')}</span>
             </div>
-          </li>
-        ))}
-      </ol>
+            <span class="chapter-tag">{chapter.tag}</span>
+          </div>
+
+          <h3 class="chapter-title">{chapter.title}</h3>
+          <p class="chapter-desc">{chapter.description}</p>
+
+          <div class="chapter-footer">
+            <span class="chapter-action">
+              Buka Bab
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="action-icon" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </div>
+        </a>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ROADMAP SECTION — Clean, Compact, Scannable 2-Column Grid
+   ═══════════════════════════════════════════════════════════════ */
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.chapter-card {
+  background: var(--sod-card);
+  border: 1px solid var(--sod-border);
+  border-radius: var(--sod-radius);
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none !important;
+  transition: all var(--hp-duration) var(--hp-ease);
+  position: relative;
+}
+
+.chapter-card:hover {
+  border-color: var(--hp-accent-border);
+  box-shadow: var(--hp-card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.chapter-card:focus-visible {
+  outline: 2px solid var(--sod-accent);
+  outline-offset: 3px;
+}
+
+.chapter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.chapter-num-badge {
+  font-family: var(--sl-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--sod-accent);
+  background: var(--hp-accent-soft);
+  border: 1px solid var(--hp-accent-border);
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+}
+
+.chapter-tag {
+  font-family: var(--sl-font-mono);
+  font-size: 0.6875rem;
+  color: var(--sod-text-muted);
+  font-weight: 500;
+}
+
+.chapter-title {
+  font-size: 1.0625rem !important;
+  font-weight: 700 !important;
+  color: var(--sod-text) !important;
+  margin: 0 0 0.45rem 0 !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.chapter-desc {
+  font-size: 0.84rem;
+  color: var(--sod-text-2);
+  line-height: 1.55;
+  margin: 0 0 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chapter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 0.65rem;
+  border-top: 1px dashed var(--sod-border);
+}
+
+.chapter-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--sod-accent);
+}
+
+.action-icon {
+  transition: transform var(--hp-duration) var(--hp-ease);
+}
+
+.chapter-card:hover .action-icon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 48rem) {
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter-card, .action-icon {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+</style>
