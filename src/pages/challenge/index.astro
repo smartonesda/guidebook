@@ -1,0 +1,15 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import ChallengeApp from "../../components/challenge/ChallengeApp.astro";
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "",
+    template: "splash",
+    prev: false,
+    next: false,
+  }}
+>
+  <ChallengeApp />
+</StarlightPage>

@@ -30,6 +30,10 @@ export default defineConfig({
       customCss: ["./src/styles/custom.css"],
       sidebar: [
         {
+          label: "Interactive Assessment",
+          link: "/challenge/"
+        },
+        {
           label: "BAB 0 — Pengenalan",
           collapsed: true,
           items: [
